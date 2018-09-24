@@ -18,37 +18,41 @@
 </head>
 <body>
 
-    <ons-page>
+
+    <ons-page modifier="full_bg">
+
         <!--    <ons-toolbar></ons-toolbar> -->
         <!-- Here is the background-->
-
-
         <!-- ////-->
-
-
         <!-- Here is the content-->
         <div class="content">
 
-            <div style="text-align: center; margin-top: 30px;">
-                <div style="text-align:center; padding-top: 250px;">
-                    <strong><em>Trailcovery2.0</em></strong>
-                    <p>
-                        <ons-input id="username" modifier="material" placeholder="Username" float></ons-input>
-                    </p>
-                    <p>
-                        <ons-input id="password" modifier="material" type="password" placeholder="Password" float></ons-input>
-                    </p>
+
+            <div class="overlay_bg_vid">
+                <div style="text-align: center; margin-top: 30px;">
+                    <div style="text-align:center; padding-top: 250px;">
+                        <strong><em>Trailcovery2.0</em></strong>
+                        <p>
+                            <ons-input id="username" modifier="material" placeholder="Username" float></ons-input>
+                        </p>
+                        <p>
+                            <ons-input id="password" modifier="material" type="password" placeholder="Password" float></ons-input>
+                        </p>
 
 
-                    <ons-button class="main_pg_btn" id="lgnbtn"> Login </ons-button><br /><br /> <!-- Can someone try to properly style this part thanks-->
-                    <ons-button class="main_pg_btn" id="rgstrbtn"> Register </ons-button>
+                        <ons-button class="main_pg_btn" id="lgnbtn"> Login </ons-button><br /><br /> <!-- Can someone try to properly style this part thanks-->
+                        <ons-button class="main_pg_btn" id="rgstrbtn"> Register </ons-button>
+                    </div>
                 </div>
             </div>
 
 
 
-
         </div>
+        <video autoplay muted loop id="myVideo">
+            <source src="vid/polina.mp4" type="video/mp4">
+        </video>
+
         <!--     <ons-fab></ons-fab> -->
     </ons-page>
 
@@ -56,7 +60,7 @@
 
 
 
-
+    <script src="scripts/vid.js"></script>
     <script type="text/javascript" src="cordova.js"></script>
     <script type="text/javascript" src="scripts/platformOverrides.js"></script>
     <script type="text/javascript" src="scripts/index.js"></script>
