@@ -27,9 +27,6 @@
         <!-- Here is the content-->
         <div class="content">
 
-
-            <div class="overlay_bg_vid">
-
                 <div style="text-align: center; margin-top: 30px;">
                     <div style="text-align:center; padding-top: 250px;">
                         <strong><em>Trailcovery2.0</em></strong>
@@ -72,12 +69,13 @@
                                 <ons-input id="newemail" modifier="material" placeholder="Email" float></ons-input>
                             </p>
                         </form>
-                        <ons-button class="main_pg_btn" id="lgnbtn"> Login </ons-button>
-                        <ons-button class="register_pg_btn" id="resetpage">Reset</ons-button>
-                        <ons-button class="main_pg_btn" id="createaccbtn"> Register </ons-button>
+
+                        <!-- Reset button not needed-->
+                        <!--  <ons-button class="resetdetailsbtn" id="resetdetailsbtn">Reset</ons-button> -->
+                        <ons-button class="registerbtn" id="registerbtn"> Register </ons-button>
                     </div>
                 </div>
-            </div>
+
 
 
 
@@ -102,6 +100,6 @@
     <script type="text/javascript" src="scripts/jquery.validate.min.js"></script>
     <script type="text/javascript" src="scripts/onsenui.min.js"></script>
     <!-- The following script consist of the JS necessary to connect to the server for authentication and registration-->
-    <script type="text/javascript" src="scripts/auth_reg.js"></script>
+    <script type="text/javascript" src="scripts/register.js"></script>
 </body>
 </html>
