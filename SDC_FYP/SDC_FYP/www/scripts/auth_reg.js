@@ -36,54 +36,7 @@ $("#rgstrbtn").bind("click", function () {
     window.location = "register.html";
 });
 
-
-
-
 //register
-
 $("#createaccbtn").bind("click", function () {
     alert("HI");
 });
-
-/*
-(function () {
-    var newusername;
-    var newpassword;
-    var newpassword2;
-    var firstname;
-    var lastname;
-    var contactno;
-    var email;
-
-    $(document).ready(function () {
-        $("#RegisterForm").validate({
-            rules: {
-                newemail: {
-                    email: true
-                },
-                newpassword2: {
-                    equalTo: "#newpassword"
-                }
-            },
-            messages: {
-                newemail: "new email address is required and must be of the format a@b.c",
-                newpassword: "new password is required",
-                newpassword2: "new password again is required and must be the same as new password"
-            },
-            focusInvalid: false,
-            submitHandler: function () {
-                return false;
-            },
-            errorPlacement: function (error, element) {
-                error.appendTo(element.parent().parent().after());
-            }
-        });
-        $("#registerbtn").bind("click", function () {
-            alert("Login successfully");
-        });
-    });
-
-});
-*/
-
-

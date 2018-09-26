@@ -29,13 +29,15 @@
 
 
             <div class="overlay_bg_vid">
+
                 <div style="text-align: center; margin-top: 30px;">
                     <div style="text-align:center; padding-top: 250px;">
                         <strong><em>Trailcovery2.0</em></strong>
+
                         <form name="RegisterForm" id="RegisterForm">
                             <p>
                                 <i class="fa fa-user icon"></i>
-                                <ons-input id="newusername" modifier="material" placeholder="Username" float></ons-input>
+                                <ons-input id="newusername" modifier="material" placeholder="Username" float required></ons-input>
                             </p>
                             <p>
                                 <i class="fa fa-key icon"></i>
@@ -55,7 +57,11 @@
                             </p>
                             <p>
                                 <i class="fa fa-institution"></i>
-                                <ons-input id="newinstitution" modifier="material" placeholder="Institution" float></ons-input>
+                                <select name="schandinst" id="schandinst" style="width:175px;">
+                                    <!-- Create search button -->
+                                    <option value="Temasek Polytechnic">Temasek Polytechnic </option>
+                                    <option value="Singapore Polytechnic">Singapore Polytechnic </option>
+                                </select>
                             </p>
                             <p>
                                 <i class="fa fa-phone-square"></i>
@@ -66,7 +72,9 @@
                                 <ons-input id="newemail" modifier="material" placeholder="Email" float></ons-input>
                             </p>
                         </form>
-                        <ons-button class="register_pg_btn" id="createaccbtn"> Register </ons-button>
+                        <ons-button class="main_pg_btn" id="lgnbtn"> Login </ons-button>
+                        <ons-button class="register_pg_btn" id="resetpage">Reset</ons-button>
+                        <ons-button class="main_pg_btn" id="createaccbtn"> Register </ons-button>
                     </div>
                 </div>
             </div>
