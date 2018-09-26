@@ -18,30 +18,85 @@
 </head>
 <body>
 
-    <ons-page style="background: url('images/sdc.png'); background-position:center; background-repeat:no-repeat; background-size:cover;">
+
+    <ons-page modifier="full_bg">
+
         <!--    <ons-toolbar></ons-toolbar> -->
         <!-- Here is the background-->
         <!-- ////-->
-
         <!-- Here is the content-->
         <div class="content">
 
-            <div style="text-align: center; margin-top: 30px;">
-                <div style="text-align:center; padding-top: 250px;">
-                    <strong><em>Trailcovery2.0</em></strong>
 
+            <div class="overlay_bg_vid">
 
-                    <ons-button class="register_pg_btn" id="registerbtn"> Register </ons-button>
+                <div style="text-align: center; margin-top: 30px;">
+                    <div style="text-align:center; padding-top: 250px;">
+                        <strong><em>Trailcovery2.0</em></strong>
+
+                        <form name="RegisterForm" id="RegisterForm">
+                            <p>
+                                <i class="fa fa-user icon"></i>
+                                <ons-input id="newusername" modifier="material" placeholder="Username" float required></ons-input>
+                            </p>
+                            <p>
+                                <i class="fa fa-key icon"></i>
+                                <ons-input id="newpassword" modifier="material" type="password" placeholder="Password" float></ons-input>
+                            </p>
+                            <p>
+                                <i class="fa fa-key icon"></i>
+                                <ons-input id="newpassword2" modifier="material" type="password" placeholder="Enter Password Again" float></ons-input>
+                            </p>
+                            <p>
+                                <i class="fa fa-id-card-o"></i>
+                                <ons-input id="newfirstname" modifier="material" placeholder="First Name" float></ons-input>
+                            </p>
+                            <p>
+                                <i class="fa fa-id-card"></i>
+                                <ons-input id="newlastname" modifier="material" placeholder="Last Name" float></ons-input>
+                            </p>
+                            <p>
+                                <i class="fa fa-institution"></i>
+                                <select name="schandinst" id="schandinst" style="width:175px;">
+                                    <!-- Create search button -->
+                                    <option value="Temasek Polytechnic">Temasek Polytechnic </option>
+                                    <option value="Singapore Polytechnic">Singapore Polytechnic </option>
+                                </select>
+                            </p>
+                            <p>
+                                <i class="fa fa-phone-square"></i>
+                                <ons-input id="newcontactno" modifier="material" placeholder="Contact Details" float></ons-input>
+                            </p>
+                            <p>
+                                <i class="fa fa-envelope"></i>
+                                <ons-input id="newemail" modifier="material" placeholder="Email" float></ons-input>
+                            </p>
+                        </form>
+                        <ons-button class="main_pg_btn" id="lgnbtn"> Login </ons-button>
+                        <ons-button class="register_pg_btn" id="resetpage">Reset</ons-button>
+                        <ons-button class="main_pg_btn" id="createaccbtn"> Register </ons-button>
+                    </div>
                 </div>
             </div>
 
+
+
         </div>
+        <!--
+        <video autoplay muted loop id="myVideo">
+            <source src="vid/polina.mp4" type="video/mp4">
+        </video>
+            -->
         <!--     <ons-fab></ons-fab> -->
     </ons-page>
 
+
+
+
+
+    <script src="scripts/vid.js"></script>
     <script type="text/javascript" src="cordova.js"></script>
     <script type="text/javascript" src="scripts/platformOverrides.js"></script>
-    <script type="text/javascript" src="scripts/register.js"></script>
     <script type="text/javascript" src="scripts/jquery-3.3.1.min.js"></script>
     <script type="text/javascript" src="scripts/jquery.mobile-1.4.5.min.js"></script>
     <script type="text/javascript" src="scripts/jquery.validate.min.js"></script>

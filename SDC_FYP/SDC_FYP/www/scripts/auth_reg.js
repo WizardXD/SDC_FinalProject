@@ -32,3 +32,11 @@
 
 })();
 
+$("#rgstrbtn").bind("click", function () {
+    window.location = "register.html";
+});
+
+//register
+$("#createaccbtn").bind("click", function () {
+    alert("HI");
+});
