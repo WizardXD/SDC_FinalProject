@@ -32,18 +32,19 @@
                 <div style="text-align: center; margin-top: 30px;">
                     <div style="text-align:center; padding-top: 250px;">
                         <strong><em>Trailcovery2.0</em></strong>
-                        <p>
-                            <i class="fa fa-user icon"></i>
-                            <ons-input id="username" modifier="material" placeholder="Username" float></ons-input>
-                        </p>
-                        <p>
-                            <i class="fa fa-key icon"></i>
-                            <ons-input id="password" modifier="material" type="password" placeholder="Password" float></ons-input>
-                        </p>
+                        <form name="AuthForm" id="AuthForm">
+                            <p>
+                                <i class="fa fa-user icon"></i>
+                                <ons-input id="username" modifier="material" placeholder="Username" float required></ons-input>
+                            </p>
+                            <p>
+                                <i class="fa fa-key icon"></i>
+                                <ons-input id="password" modifier="material" type="password" placeholder="Password" float required></ons-input>
+                            </p>
 
-
-                        <ons-button class="main_pg_btn" id="lgnbtn"> Login </ons-button><br /><br /> <!-- Can someone try to properly style this part thanks-->
-                        <ons-button class="main_pg_btn" id="rgstrbtn"> Register </ons-button>
+                            </form>
+                            <ons-button class="main_pg_btn" id="lgnbtn"> Login </ons-button><br /><br /> <!-- Can someone try to properly style this part thanks-->
+                            <ons-button class="main_pg_btn" id="rgstrbtn"> Register </ons-button>
                     </div>
                 </div>
             </div>
@@ -72,5 +73,6 @@
     <script type="text/javascript" src="scripts/onsenui.min.js"></script>
     <!-- The following script consist of the JS necessary to connect to the server for authentication-->
     <script type="text/javascript" src="scripts/auth.js"></script>
+    <script src="scripts/common.js"></script>
 </body>
 </html>

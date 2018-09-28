@@ -27,10 +27,11 @@
         <!-- Here is the content-->
         <div class="content">
 
+
+            <div class="overlay_bg_vid">
                 <div style="text-align: center; margin-top: 30px;">
                     <div style="text-align:center; padding-top: 250px;">
                         <strong><em>Trailcovery2.0</em></strong>
-
                         <form name="RegisterForm" id="RegisterForm">
                             <p>
                                 <i class="fa fa-user icon"></i>
@@ -38,19 +39,19 @@
                             </p>
                             <p>
                                 <i class="fa fa-key icon"></i>
-                                <ons-input id="newpassword" modifier="material" type="password" placeholder="Password" float></ons-input>
+                                <ons-input id="newpassword" modifier="material" type="password" placeholder="Password" float required></ons-input>
                             </p>
                             <p>
                                 <i class="fa fa-key icon"></i>
-                                <ons-input id="newpassword2" modifier="material" type="password" placeholder="Enter Password Again" float></ons-input>
+                                <ons-input id="newpassword2" modifier="material" type="password" placeholder="Enter Password Again" float required></ons-input>
                             </p>
                             <p>
                                 <i class="fa fa-id-card-o"></i>
-                                <ons-input id="newfirstname" modifier="material" placeholder="First Name" float></ons-input>
+                                <ons-input id="newfirstname" modifier="material" placeholder="First Name" float required></ons-input>
                             </p>
                             <p>
                                 <i class="fa fa-id-card"></i>
-                                <ons-input id="newlastname" modifier="material" placeholder="Last Name" float></ons-input>
+                                <ons-input id="newlastname" modifier="material" placeholder="Last Name" float required></ons-input>
                             </p>
                             <p>
                                 <i class="fa fa-institution"></i>
@@ -61,29 +62,27 @@
                             </p>
                             <p>
                                 <i class="fa fa-phone-square"></i>
-                                <ons-input id="newcontactno" modifier="material" placeholder="Contact Details" float></ons-input>
+                                <ons-input id="newcontactno" modifier="material" placeholder="Contact Details" float required></ons-input>
                             </p>
                             <p>
                                 <i class="fa fa-envelope"></i>
-                                <ons-input id="newemail" modifier="material" placeholder="Email" float></ons-input>
+                                <ons-input id="newemail" modifier="material" placeholder="Email" float required></ons-input>
                             </p>
-                        </form>
 
-                        <!-- Reset button not needed-->
-                        <!--  <ons-button class="resetdetailsbtn" id="resetdetailsbtn">Reset</ons-button> -->
+                        </form>
                         <ons-button class="registerbtn" id="registerbtn"> Register </ons-button>
                     </div>
                 </div>
-
+            </div>
 
 
 
         </div>
-        <!--
+
         <video autoplay muted loop id="myVideo">
             <source src="vid/polina.mp4" type="video/mp4">
         </video>
-            -->
+
         <!--     <ons-fab></ons-fab> -->
     </ons-page>
 
@@ -91,17 +90,16 @@
 
 
 
-
+    <script src="scripts/vid.js"></script>
     <script type="text/javascript" src="cordova.js"></script>
     <script type="text/javascript" src="scripts/platformOverrides.js"></script>
     <script type="text/javascript" src="scripts/jquery-3.3.1.min.js"></script>
     <script type="text/javascript" src="scripts/jquery.mobile-1.4.5.min.js"></script>
     <script type="text/javascript" src="scripts/jquery.validate.min.js"></script>
     <script type="text/javascript" src="scripts/onsenui.min.js"></script>
-    <!-- The following script consist of the JS necessary to connect to the server for authentication and registration-->
+    <!-- The following script consist of the JS necessary to connect to the server for authentication-->
     <script type="text/javascript" src="scripts/register.js"></script>
     <script src="scripts/schoolArrayObject.js"></script>
     <script src="scripts/common.js"></script>
-
 </body>
 </html>

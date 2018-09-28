@@ -3,7 +3,46 @@
 // To debug code on page load in cordova-simulate or on Android devices/emulators: launch your app, set breakpoints, 
 // and then run "window.location.reload()" in the JavaScript Console.
 
+(function () {
+    $(document).ready(function () {
+        //register button
+        $("#rgstrbtn").bind("click", function () {
+            window.location = "register.html";
+        });
 
+
+        $("#AuthForm").validate({
+            messages: {
+                username: "Username is required",
+                password: "Password is required"
+            },
+            focusInvalid: false,
+            submitHandler: function () {
+                return false;
+            },
+            errorPlacement: function (error, element) {
+                error.appendTo(element.parent().parent().after());
+            }
+        });
+        $("#lgnbtn").bind("click", function () {
+            if ($("#AuthForm").valid()) {
+                authUser();
+            }
+        });
+    });
+
+    function authUser() {
+        var username, password;
+
+        username = $("#username").val();
+        password = $("#password").val();        alert(username);
+        alert(password);
+        //validationMsgs(username, "Information", "OK");
+        //validationMsgs(password, "Information", "OK");
+    }
+})();
+
+/*
 (function () {
     "use strict";      
     document.querySelector("#lgnbtn").onclick = function () {//The following binds the element lgnbtn with a method onclick 
@@ -32,15 +71,11 @@
 
 
        // };
-
+/*
     }; 
 
    
     
 
 })();
-
-
-
-
-
+*/
