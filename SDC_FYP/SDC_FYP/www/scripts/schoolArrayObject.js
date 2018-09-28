@@ -369,7 +369,7 @@ function addschool2option() {
         //Node content
         var x = school.splice(0,1);
         
-        console.log(x);
+  
         //This code creates a new <option> element:
         var option_e = document.createElement("option");
         
