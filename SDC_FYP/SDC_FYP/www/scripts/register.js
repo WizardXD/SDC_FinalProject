@@ -1,45 +1,4 @@
-﻿(function () {
-
-    $(document).ready(function () {
-        $("#RegisterForm").validate({
-            rules: {
-                newemail: {
-                    email: true
-                },
-                newpassword2: {
-                    equalTo: "#newpassword"
-                }
-            },
-            messages: {
-                newusername: "new user name is required",
-                newemail: "new email address is required and must beof the format a@b.c",
-                newpassword: "new password is required",
-                newpassword2: "new password again is required and must be the same as new password",
-    },
-        focusInvalid: false,
-            submitHandler: function () {
-                return false;
-            },
-            errorPlacement: function (error, element) {
-                error.appendTo(element.parent().parent().after());
-            }
-        });
-        $("#registerbtn").bind("click", function () {
-            if ($("#RegisterForm").valid()) {
-                registerUser();
-            }
-        });
-    });
-
-    function registerUser() {
-        var newusername;
-
-        newusername = $("#newusername").val();        alert(newusername);
-        //validationMsgs(username, "Information", "OK");
-        //validationMsgs(password, "Information", "OK");
-    }
-})();
-
+﻿
 
 /*
     function savenewuser() {
