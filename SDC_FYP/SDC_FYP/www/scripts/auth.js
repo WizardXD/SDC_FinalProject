@@ -4,7 +4,7 @@
 // and then run "window.location.reload()" in the JavaScript Console.
 
 
-var userid, password, JSONObject, url;
+var userid, password, JSONObject, url; //global variables
 
 
 
@@ -41,13 +41,15 @@ $(document).ready(function () {
 
 
 function login() {
-    url = "localhost:80" + "/login.php";
+    url = "localhost:80" + "/login.php"; //have an issue 
     userid = $("#username").val();
     password = $("#password").val();
+
+
     //JSONObject
     JSONObject = {
         "userid": userid, //Key:value
-        "password": password, //Key:value
+        "password": password //Key:value
     };
 
     //ajax to call
@@ -63,7 +65,7 @@ function login() {
                 console.log(alert("login failed"));
 
 
-            } else if (data.role == "admin") {
+            } else if (data.role === "admin") {
                 console.log(alert("this is admin account"));
             } else { console.log("previousnotworking!"); }
 
