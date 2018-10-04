@@ -1,4 +1,16 @@
-﻿
+﻿$(document).ready(function () {
+
+
+    //register button
+    $("#registerbtn").bind("click", function () {
+        
+        var schandinst;
+
+        schandinst = $("#schandinst").val();
+        alert(schandinst);
+    });
+});
+
 
 /*
     function savenewuser() {

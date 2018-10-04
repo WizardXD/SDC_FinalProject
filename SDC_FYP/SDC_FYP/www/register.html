@@ -30,9 +30,14 @@
 
             <div class="overlay_bg_vid">
                 <div style="text-align: center; margin-top: 30px;">
-                    <div style="text-align:center; padding-top: 250px;">
+                    <div style="text-align:center; padding-top: 50px;">
                         <strong><em>Trailcovery2.0</em></strong>
                         <form name="RegisterForm" id="RegisterForm">
+                            <p>
+                                <i class="fa fa-user icon"></i>
+                                <ons-input id="newgroupname" modifier="material" placeholder="Group Name" float required></ons-input>
+                            </p>
+                            
                             <p>
                                 <i class="fa fa-user icon"></i>
                                 <ons-input id="newusername" modifier="material" placeholder="Username" float required></ons-input>
@@ -45,30 +50,14 @@
                                 <i class="fa fa-key icon"></i>
                                 <ons-input id="newpassword2" modifier="material" type="password" placeholder="Enter Password Again" float required></ons-input>
                             </p>
-                            <p>
-                                <i class="fa fa-id-card-o"></i>
-                                <ons-input id="newfirstname" modifier="material" placeholder="First Name" float required></ons-input>
-                            </p>
-                            <p>
-                                <i class="fa fa-id-card"></i>
-                                <ons-input id="newlastname" modifier="material" placeholder="Last Name" float required></ons-input>
-                            </p>
+                           
                             <p>
                                 <i class="fa fa-institution"></i>
                                 <select name="schandinst" id="schandinst" style="width:175px;">
                                     <!-- Create search button -->
-                                    <option class=schandinstoption> </option>
+                                    <option class=schandinstoption>Select School</option>
                                 </select>
                             </p>
-                            <p>
-                                <i class="fa fa-phone-square"></i>
-                                <ons-input id="newcontactno" modifier="material" placeholder="Contact Details" float required></ons-input>
-                            </p>
-                            <p>
-                                <i class="fa fa-envelope"></i>
-                                <ons-input id="newemail" modifier="material" placeholder="Email" float required></ons-input>
-                            </p>
-
                         </form>
                         <ons-button class="registerbtn" id="registerbtn"> Register </ons-button>
                     </div>
