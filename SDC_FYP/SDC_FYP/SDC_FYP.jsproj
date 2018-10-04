@@ -43,7 +43,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>52e05a17-23ed-4e9b-9812-daae866ef9b9</ProjectGuid>
+    <ProjectGuid>a99b94ee-8657-48a2-9644-7168da85cb11</ProjectGuid>
   </PropertyGroup>
   <ItemGroup>
     <ProjectCapability Include="UseFileGlobs" />
@@ -90,6 +90,7 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <Service Include="{4a0dddb5-7a95-4fbf-97cc-616d07737a77}" />
+    <Folder Include="Content\" />
+    <Folder Include="Scripts\" />
   </ItemGroup>
 </Project>
