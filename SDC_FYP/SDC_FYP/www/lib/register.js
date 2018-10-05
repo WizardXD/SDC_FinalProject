@@ -6,7 +6,7 @@
         
         var schandinst;
 
-        schandinst = $("#schandinst").val();
+        schandinst = $("#school").val();
         alert(schandinst);
     });
 });

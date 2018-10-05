@@ -53,9 +53,13 @@
                            
                             <p>
                                 <i class="fa fa-institution"></i>
-                                <select name="schandinst" id="schandinst" style="width:175px;">
-                                    <!-- Create search button -->
-                                        <option class=schandinstoption>Select School</option>
+                              
+                                <select name="school" id="school" style="width:175px;">
+                                    <option value="null">Select School/Institution</option>
+                                    <optgroup label="Junior College" name="juniorcollege" id="juniorcollege"> </optgroup>
+                                    <optgroup label="Polytechnic" name="polytechnic" id="polytechnic"> </optgroup>
+                                    <optgroup label="Secondary School" name="secondaryschool" id="secondaryschool"> </optgroup>
+                                    <optgroup label="Primary School" name="primaryschool" id="primaryschool"> </optgroup>
                                 </select>
                             </p>
                         </form>
@@ -87,7 +91,10 @@
     <script type="text/javascript" src="framework/onsenui.min.js"></script>
     <!-- The following script consist of the JS necessary to connect to the server for authentication-->
     <script type="text/javascript" src="lib/register.js"></script>
-    <script src="lib/schoolArrayObject.js"></script>
+    <script src="lib/schJCArrayObject.js"></script>
+    <script src="lib/schPLArrayObject.js"></script>
+    <script src="lib/schSSArrayObject.js"></script>
+    <script src="lib/schPSArrayObject.js"></script>
     <script src="lib/common.js"></script>
 </body>
 </html>
