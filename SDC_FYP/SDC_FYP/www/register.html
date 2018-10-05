@@ -5,7 +5,11 @@
         Customize the content security policy in the meta tag below as needed. Add 'unsafe-inline' to default-src to enable inline JavaScript.
         For details, see http://go.microsoft.com/fwlink/?LinkID=617521
     -->
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *">
+
+    <!--For Add/Remove Input Fields-->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <!--For Add/Remove Input Fields-->
 
     <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
     <meta name="format-detection" content="telephone=no">
@@ -29,48 +33,69 @@
 
 
             <div class="overlay_bg_vid">
-                <div style="text-align: center; margin-top: 30px;">
-                    <div style="text-align:center; padding-top: 50px;">
-                        <strong><em>Trailcovery2.0</em></strong>
-                        <form name="RegisterForm" id="RegisterForm">
-                            <p>
-                                <i class="fa fa-user icon"></i>
-                                <ons-input id="newgroupname" modifier="material" placeholder="Group Name" float required></ons-input>
-                            </p>
-                            
-                            <p>
-                                <i class="fa fa-user icon"></i>
-                                <ons-input id="newusername" modifier="material" placeholder="Username" float required></ons-input>
-                            </p>
-                            <p>
-                                <i class="fa fa-key icon"></i>
-                                <ons-input id="newpassword" modifier="material" type="password" placeholder="Password" float required></ons-input>
-                            </p>
-                            <p>
-                                <i class="fa fa-key icon"></i>
-                                <ons-input id="newpassword2" modifier="material" type="password" placeholder="Enter Password Again" float required></ons-input>
-                            </p>
-                           
-                            <p>
-                                <i class="fa fa-institution"></i>
-                              
-                                <select name="school" id="school" style="width:195px; height:25px">
-                                    <option value="null">Select School/Institution</option>
-                                    <optgroup label="Junior College" name="juniorcollege" id="juniorcollege"> </optgroup>
-                                    <optgroup label="Polytechnic" name="polytechnic" id="polytechnic"> </optgroup>
-                                    <optgroup label="Secondary School" name="secondarysch" id="secondarysch"> </optgroup>
-                                    <optgroup label="Primary School" name="primarysch" id="primarysch"> </optgroup>
-                                </select>
-                            </p>
-                        </form>
-                        <ons-button class="registerbtn" id="registerbtn"> Register </ons-button>
+                <div style="text-align: center; margin-top: 30px; padding-top: 50px;">
+                    <div class="panel panel-default">
+                        <div class="panel-body">
+                            <strong><em>Trailcovery2.0</em></strong>
+                            <form name="RegisterForm" id="RegisterForm">
+                                <p>
+                                    <i class="fa fa-user icon"></i>
+                                    <ons-input id="newgroupname" modifier="material" placeholder="Group Name" float required></ons-input>
+                                </p>
+
+                                <p>
+                                    <i class="fa fa-user icon"></i>
+                                    <ons-input id="newusername" modifier="material" placeholder="Username" float required></ons-input>
+                                </p>
+                                <p>
+                                    <i class="fa fa-key icon"></i>
+                                    <ons-input id="newpassword" modifier="material" type="password" placeholder="Password" float required></ons-input>
+                                </p>
+                                <p>
+                                    <i class="fa fa-key icon"></i>
+                                    <ons-input id="newpassword2" modifier="material" type="password" placeholder="Enter Password Again" float required></ons-input>
+                                </p>
+
+                                <p>
+                                    <i class="fa fa-institution"></i>
+
+                                    <select name="school" id="school" style="width:200px; height:25px">
+                                        <option value="null">Select School/Institution</option>
+                                        <optgroup label="Junior College" name="juniorcollege" id="juniorcollege"> </optgroup>
+                                        <optgroup label="Polytechnic" name="polytechnic" id="polytechnic"> </optgroup>
+                                        <optgroup label="Secondary School" name="secondarysch" id="secondarysch"> </optgroup>
+                                        <optgroup label="Primary School" name="primarysch" id="primarysch"> </optgroup>
+                                    </select>
+                                </p>
+
+                            <!--Codes for add/remove input fields - will try to figure it out tmr-->
+                                <div class="input-group control-group after-add-more" style="width:230px; height:25px">
+                                    <input type="text" name="addmore[]" class="form-control" placeholder="Enter Name Here">
+                                    <div class="input-group-btn">
+                                        <button class="btn btn-success add-more" type="button"><i class="glyphicon glyphicon-plus"></i> Add</button>
+                                    </div>
+                                </div>
+                                <!-- Copy Fields-These are the fields which we get through jquery and then add after the above input,-->
+                                <div class="copy-fields hide">
+                                    <div class="control-group input-group" style="margin-top:5px; width:230px; height:25px">
+                                        <input type="text" name="addmore[]" class="form-control" placeholder="Enter Name Here">
+                                        <div class="input-group-btn">
+                                            <button class="btn btn-danger remove" type="button"><i class="glyphicon glyphicon-remove"></i> Remove</button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </form> <br/>
+
+                            <ons-button class="registerbtn" id="registerbtn"> Register </ons-button>
+                            </div>
+                            </div>
+                        </div>
                     </div>
+
+
+
                 </div>
-            </div>
-
-
-
-        </div>
 
         <!--   <video autoplay muted loop id="myVideo">
            <source src="vid/polina.mp4" type="video/mp4">
