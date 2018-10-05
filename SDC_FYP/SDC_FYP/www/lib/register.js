@@ -1,5 +1,12 @@
 ﻿(function () {
-    "use strict"; 
+    "use strict";
+
+    var groupname;
+    var username;
+    var password;
+    var password2;
+    var school;
+
     $(document).ready(function () {
 
         // add/remove input field
@@ -13,26 +20,74 @@
             $(this).parents(".control-group").remove();
         });
 
-    //validation
-    $("#RegisterForm").validate({
-        messages: {
-            newgroupname: "employee name is required",
-            newusername: "username is required"
-        },
-        focusInvalid: false,
-        submitHandler: function () {
-            return false;
-        },
-        errorPlacement: function (error, element) { 
-            error.appendTo(element.parent().parent().after());
-        },
+        //validation
+        $("#RegisterForm").validate({
+            messages: {
+                newgroupname: "employee name is required",
+                newusername: "username is required"
+            },
+            focusInvalid: false,
+            submitHandler: function () {
+                return false;
+            },
+            errorPlacement: function (error, element) {
+                error.appendTo(element.parent().parent().after());
+            },
+        });
+        $("#registerbtn").bind("click", function () {
+            if ($("#RegisterForm").valid()) {
+                registerUser();
+                //alert("Hi");
+            }
+        });
     });
-    $("#registerbtn").bind("click", function () {
+
+
+    function registerUser() {
         if ($("#RegisterForm").valid()) {
-            alert("Hi");
-            //registerUser();
+          
+            groupname = $("#newgroupname").val();
+            username = $("#newusername").val();
+            password = $("#newpassword").val();
+            password2 = $("#newpassword2").val();
+            school = $("#school").val();
+
+            if (_validate()) {
+                var url = serverURL() + "/registeruser.php";
+
+                var JSONObject = {
+                    "groupname": groupname,
+                    "username": username,
+                    "password": password,
+                    "school": school
+                };
+
+                $.ajax({
+                    url: url,
+                    type: 'GET',
+                    data: JSONObject,
+                    dataType: 'json',
+                    contentType: "application/json; charset=utf-8",
+                    success: function (arr) {  
+                        _getNewUserResult(arr);  //execute this if success 
+                    },
+                    error: function () {
+                        validationMsg();  //execute validation msg if theres an error
+                    }
+                });
+            }
         }
-    });
-});
-})()
+    }
+
+    function _getNewUserResult(arr) {
+        if (arr[0].result === 1) {
+            localStorage.setItem("username", username);
+            localStorage.setItem("password", password);
+            validationMsgs("New User created", "Validation", "OK");
+        }
+        else {
+            validationMsgs("User ID already exist", "Validation", "OK");
+        }
+    }
+})();
 
