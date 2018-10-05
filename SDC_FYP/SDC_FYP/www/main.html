@@ -18,7 +18,20 @@
 </head>
 <body>
 
+
+
     <ons-page modifier="full_bg">
+
+        <!-- Side navigation bar -->
+        <div id="mySidenav" class="sidenav">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+            <a href="#">About</a>
+            <a href="#">Services</a>
+            <a href="#">Clients</a>
+            <a href="#">Contact</a>
+        </div>
+
+        <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
 
         <!--    <ons-toolbar></ons-toolbar> -->
         <!-- Here is the background-->
@@ -55,43 +68,41 @@
                         <!-- Modal content -->
                         <div class="modal-content">
                             <span class="close">&times;</span>
-                            <p>Some text in the Modal..</p>
+
+                            <div class="w3-content" style="max-width:800px">
+                                <img class="mySlides" src="images/instructions/1.jpg" style="width:95%;">
+                                <img class="mySlides" src="images/instructions/2.jpg" style="width:95%;">
+                                <img class="mySlides" src="images/instructions/3.jpg" style="width:95%;">
+                            </div>
+
+                            <div class="w3-center">
+                                <div class="w3-section">
+                                    <button class="w3-button w3-light-grey" onclick="plusDivs(-1)">❮ Prev</button>
+                                    <button class="w3-button w3-light-grey" onclick="plusDivs(1)">Next ❯</button>
+                                </div>
+
+                                <p>
+                                    <button class="w3-button demo" onclick="currentDiv(1)">1</button>
+                                    <button class="w3-button demo" onclick="currentDiv(2)">2</button>
+                                    <button class="w3-button demo" onclick="currentDiv(3)">3</button>
+                                </p>
+
+                            </div>
+
                         </div>
 
                     </div>
 
-
-
-                    <!--<div data-role="fieldcontainer">
-    <label for="gamecode">Game Code</label>
-    <input type="text" name="txtGameCode" id="txtGameCode" placeholder="Enter Game Code"
-           required>
-    </div>-->
-                    <!-- Click to start game -->
-                    <!--<div class="ui-grid-a">
-    <div class="ui-block-a">
-        <input type="button" id="btnStartGame" value="Start Game">
-    </div>
-    <div class="ui-block-b">
-        <input type="button" id="btnInstructions" value="Instructions">
-    </div>
-    </div>-->
-
                 </div>
 
             </div>
-
-
-
         </div>
-
-        <div class="footer">
-            <p>© 2018 Temasek Polytechnic. All Rights Reserved.</p>
-        </div>
-
-
     </ons-page>
 
+    <!-- Footer -->
+    <div class="footer">
+        <p>© 2018 Temasek Polytechnic. All Rights Reserved.</p>
+    </div>
 
 
     <script type="text/javascript" src="cordova.js"></script>
