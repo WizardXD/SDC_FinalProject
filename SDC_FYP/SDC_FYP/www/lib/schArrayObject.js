@@ -378,17 +378,17 @@ var juniorcollege = [
     "CATHOLIC JUNIOR COLLEGE",
     "ANGLO-CHINESE JUNIOR COLLEGE",
     "ST. ANDREW'S JUNIOR COLLEGE",
-    "NANYANG JUNIOR COLLEGE",
+    "NANYANG JUNIOR COLLEGE"
 ];
 
-juniorcollege.sort()
+juniorcollege.sort();
 
 
 function addjc2option() {
 
     //The loop will loop through the array from 0 - max length and + 1 with a line break into the option
 
-    for (i = 0; i = juniorcollege.length; i++) {
+    for (i = 0; i < juniorcollege.length; i++) {
         //Node content
         var x = juniorcollege.splice(0, 1);
 
@@ -424,18 +424,18 @@ var polytechnic = [
     "NANYANG POLYTECHNIC",
     "NGEE ANN POLYTECHNIC",
     "REPUBLIC POLYTECHNIC",
-    "SINGAPORE POLYTECHNIC",
+    "SINGAPORE POLYTECHNIC"
 ];
 
 
-polytechnic.sort()
+polytechnic.sort();
 
 
 function addpl2option() {
 
     //The loop will loop through the array from 0 - max length and + 1 with a line break into the option
 
-    for (i = 0; i = polytechnic.length; i++) {
+    for (i = 0; i < polytechnic.length; i++) {
         //Node content
         var x = polytechnic.splice(0, 1);
 
@@ -469,16 +469,16 @@ addpl2option();
 
 // FOR SECONDARY
 var secondary = [
-    "DAMAI SECONDARY SCHOOL",
+    "DAMAI SECONDARY SCHOOL"
 ];
 
-secondary.sort()
+secondary.sort();
 
 function addss2option() {
 
     //The loop will loop through the array from 0 - max length and + 1 with a line break into the option
 
-    for (i = 0; i = secondary.length; i++) {
+    for (i = 0; i < secondary.length; i++) {
         //Node content
         var x = secondary.splice(0, 1);
 
@@ -510,16 +510,16 @@ addss2option();
 
 //FOR PRIMARY
 var primary = [
-    "FENGSHAN PRIMARY SCHOOL",
+    "FENGSHAN PRIMARY SCHOOL"
 ];
 
-primary.sort()
+primary.sort();
 
 function addps2option() {
 
     //The loop will loop through the array from 0 - max length and + 1 with a line break into the option
 
-    for (i = 0; i = primary.length; i++) {
+    for (i = 0; i < primary.length; i++) {
         //Node content
         var x = primary.splice(0, 1);
 

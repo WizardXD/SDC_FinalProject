@@ -69,9 +69,9 @@ function login() {
                 window.location = '../teacher.html';
             }
         },
-        error: function () {
-                    console.log('error');
-                }
+       // error: function () {
+                    //console.log('error');
+                //}
                 
 
            
