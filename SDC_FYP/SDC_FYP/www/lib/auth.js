@@ -60,15 +60,17 @@ function login() {
         dataType: 'json', //Evaluates the response as JSON and return a JS object
         contentType: "application/json; charset=utf-8",
         success: function (data) { //function to be called if the request succeeds //this function will be called
-            if (data.role === 'admin' && data.result === '1') {
+            if (data.account_role == "admin" && data.result == "1") {
                 window.location = '../facilitator.html';
-            } else if (data.role === 'student' && data.result === '1') {
+            } else if (data.account_role == 'student' && data.result == '1') {
                 window.location = '../main.html';
             }
-            else if (data.role === 'teacher' && data.result === '1') {
-                window.location = '../teacher.html';
+            else if (data.account_role == 'teacher' && data.result == '1') {
+                window.location = '../teacher.html'
             }
-        },
+            
+        }
+        
        // error: function () {
                     //console.log('error');
                 //}
