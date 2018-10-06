@@ -34,12 +34,6 @@
 
                             <strong><em>Trailcovery2.0</em></strong>
                             <form name="RegisterForm" id="RegisterForm">
-
-                                <p>
-                                    <i class="fa fa-user icon"></i>
-                                    <ons-input id="name" modifier="material" placeholder="name" float required></ons-input>
-                                </p>
-
                                 <p>
                                     <i class="fa fa-user icon"></i>
                                     <ons-input id="newgroupname" modifier="material" placeholder="Group Name" float required></ons-input>
@@ -70,25 +64,32 @@
                                     </select>
                                 </p>
 
-                                <!--Codes for add/remove input fields - will try to figure it out tmr-->
-                                <div class="input-group control-group after-add-more" style="width:230px; height:25px">
-                                    <input type="text" name="addmore[]" class="form-control" placeholder="Enter Name Here">
-                                    <div class="input-group-btn">
-                                        <button class="btn btn-success add-more" type="button"><i class="glyphicon glyphicon-plus"></i> Add</button>
+                                <p> <center>
+                                    <div class="input-group control-group membernames">
+                                        <ons-input id="name1" modifier="material" placeholder="name" style="width:160px" float required></ons-input>
+                                        <button class="btn btn-success add-more" type="button"><i class="glyphicon glyphicon-plus"></i></button>
                                     </div>
-                                </div>
+                                    <div class="copy-fields hide">
+                                        <div class="control-group input-group">
+                                            <ons-input id="name2" modifier="material" placeholder="name" style="width:160px" float required> </ons-input>
+                                            <button class="btn btn-danger remove" type="button"><i class="glyphicon glyphicon-remove"></i></button>
+                                         </div>
+                                    </div>
+                                </center></p>
+
+                            <center>
+                               
                                 <!-- Copy Fields-These are the fields which we get through jquery and then add after the above input,-->
                                 <div class="copy-fields hide">
                                     <div class="control-group input-group" style="margin-top:5px; width:230px; height:25px">
                                         <input type="text" name="addmore[]" class="form-control" placeholder="Enter Name Here">
-                                        <div class="input-group-btn">
                                             <button class="btn btn-danger remove" type="button"><i class="glyphicon glyphicon-remove"></i> Remove</button>
-                                        </div>
+                                        
                                     </div>
                                 </div>
-
+                            </center>
                             </form> <br/>
-
+                   
                             <ons-button class="registerbtn" id="registerbtn"> Register </ons-button>
 
  

@@ -1,4 +1,15 @@
 /*var school = [
+     "MARYMOUNT CONVENT SCHOOL",
+    "SCHOOL OF THE ARTS, SINGAPORE",
+    "SINGAPORE SPORTS SCHOOL",
+    "NORTHLIGHT SCHOOL",
+    "ASSUMPTION PATHWAY SCHOOL",
+];  */
+
+
+
+// FOR JUNIOR COLLEGE
+var juniorcollege = [
     "NATIONAL JUNIOR COLLEGE",
     "TEMASEK JUNIOR COLLEGE",
     "JURONG JUNIOR COLLEGE",
@@ -15,10 +26,331 @@
     "ANGLO-CHINESE JUNIOR COLLEGE",
     "ST. ANDREW'S JUNIOR COLLEGE",
     "NANYANG JUNIOR COLLEGE",
-    "HWA CHONG INSTITUTION",
+    "HWA CHONG INSTITUTION (College Section)",
     "MILLENNIA INSTITUTE",
-    "BUKIT PANJANG PRIMARY SCHOOL",
+    "RAFFLES INSTITUTION",
+];
+
+juniorcollege.sort();
+
+
+function addjc2option() {
+
+    //The loop will loop through the array from 0 - max length and + 1 with a line break into the option
+
+    for (i = 0; i = juniorcollege.length; i++) {
+        //Node content
+        var x = juniorcollege.splice(0, 1);
+
+
+        //This code creates a new <option> element:
+        var option_e = document.createElement("option");
+
+        //To add text to the <option> element, you must create a text node first. This code creates a text node:
+        var option_node = document.createTextNode(x);
+
+        //Then you must append the text node to the <option> element:
+        option_e.appendChild(option_node);
+
+        //Finally you must append the new element to an existing element.
+
+        //This code finds an existing element:
+        var existing_element = document.getElementById("juniorcollege");
+
+        //This code appends the new element to the existing element:
+        existing_element.appendChild(option_e);
+
+    }
+}
+
+addjc2option();
+
+
+
+
+//FOR POLYTECHNIC
+var polytechnic = [
+    "TEMASEK POLYETCHNIC",
+    "NANYANG POLYTECHNIC",
+    "NGEE ANN POLYTECHNIC",
+    "REPUBLIC POLYTECHNIC",
+    "SINGAPORE POLYTECHNIC"
+];
+
+
+polytechnic.sort();
+
+
+function addpl2option() {
+
+    //The loop will loop through the array from 0 - max length and + 1 with a line break into the option
+
+    for (i = 0; i = polytechnic.length; i++) {
+        //Node content
+        var x = polytechnic.splice(0, 1);
+
+
+        //This code creates a new <option> element:
+        var option_e = document.createElement("option");
+
+        //To add text to the <option> element, you must create a text node first. This code creates a text node:
+        var option_node = document.createTextNode(x);
+
+        //Then you must append the text node to the <option> element:
+        option_e.appendChild(option_node);
+
+        //Finally you must append the new element to an existing element.
+
+        //This code finds an existing element:
+        var existing_element = document.getElementById("polytechnic");
+
+        //This code appends the new element to the existing element:
+        existing_element.appendChild(option_e);
+
+    }
+}
+
+addpl2option();
+
+
+
+
+
+
+// FOR SECONDARY
+var secondary = [
+    "ANGLO-CHINESE SCHOOL (INDEPENDENT)",
+    "ASSUMPTION ENGLISH SCHOOL",
+    "CHIJ KATONG CONVENT",
+    "CHIJ ST. JOSEPH'S CONVENT",
+    "ST. JOSEPH'S INSTITUTION",
+    "ST. PATRICK'S SCHOOL",
+    "CHIJ ST. THERESA'S CONVENT",
+    "HAI SING CATHOLIC SCHOOL",
+    "ANGLO-CHINESE SCHOOL (BARKER ROAD)",
+    "CHIJ ST. NICHOLAS GIRLS' SCHOOL",
+    "HWA CHONG INSTITUTION (High School Section)",
+    "NAN HUA HIGH SCHOOL",
+    "TANJONG KATONG GIRLS' SCHOOL",
+    "VICTORIA SCHOOL",
+    "ANGLICAN HIGH SCHOOL",
+    "CATHOLIC HIGH SCHOOL",
+    "CHUNG CHENG HIGH SCHOOL (MAIN)",
+    "CHUNG CHENG HIGH SCHOOL (YISHUN)",
+    "HOLY INNOCENTS' HIGH SCHOOL",
+    "MARIS STELLA HIGH SCHOOL",
+    "NAN CHIAU HIGH SCHOOL",
+    "NANYANG GIRLS' HIGH SCHOOL",
+    "BUKIT PANJANG GOVT. HIGH SCHOOL",
+    "DUNMAN HIGH SCHOOL",
+    "RIVER VALLEY HIGH SCHOOL",
+    "PRESBYTERIAN HIGH SCHOOL",
+    "CRESCENT GIRLS' SCHOOL",
+    "DAMAI SECONDARY SCHOOL",
+    "ANDERSON SECONDARY SCHOOL",
+    "BARTLEY SECONDARY SCHOOL",
+    "BEATTY SECONDARY SCHOOL",
+    "CEDAR GIRLS' SECONDARY SCHOOL",
+    "QUEENSWAY SECONDARY SCHOOL",
+    "RAFFLES GIRLS' SCHOOL (SECONDARY)",
+    "SERANGOON SECONDARY SCHOOL",
+    "COMMONWEALTH SECONDARY SCHOOL",
+    "WHITLEY SECONDARY SCHOOL",
+    "YUHUA SECONDARY SCHOOL",
+    "YISHUN SECONDARY SCHOOL",
+    "BENDEMEER SECONDARY SCHOOL",
+    "FUCHUN SECONDARY SCHOOL",
+    "ANG MO KIO SECONDARY SCHOOL",
+    "BEDOK SOUTH SECONDARY SCHOOL",
+    "CLEMENTI TOWN SECONDARY SCHOOL",
+    "TEMASEK SECONDARY SCHOOL",
+    "MAYFLOWER SECONDARY SCHOOL",
+    "TAMPINES SECONDARY SCHOOL",
+    "BUKIT VIEW SECONDARY SCHOOL",
+    "WOODLANDS SECONDARY SCHOOL",
+    "BOWEN SECONDARY SCHOOL",
+    "BUKIT BATOK SECONDARY SCHOOL",
+    "YISHUN TOWN SECONDARY SCHOOL",
+    "HOUGANG SECONDARY SCHOOL",
+    "HILLGROVE SECONDARY SCHOOL",
+    "XINMIN SECONDARY SCHOOL",
+    "GREENRIDGE SECONDARY SCHOOL",
+    "SPRINGFIELD SECONDARY SCHOOL",
+    "CHUA CHU KANG SECONDARY SCHOOL",
+    "DAMAI SECONDARY SCHOOL",
+    "NORTHLAND SECONDARY SCHOOL",
+    "HONG KAH SECONDARY SCHOOL",
+    "PEIRCE SECONDARY SCHOOL",
+    "JURONGVILLE SECONDARY SCHOOL",
+    "FAJAR SECONDARY SCHOOL",
+    "KRANJI SECONDARY SCHOOL",
+    "JUYING SECONDARY SCHOOL",
+    "WEST SPRING SECONDARY SCHOOL",
+    "JURONG WEST SECONDARY SCHOOL",
+    "BEDOK GREEN SECONDARY SCHOOL",
+    "PUNGGOL SECONDARY SCHOOL",
+    "NORTH VISTA SECONDARY SCHOOL",
+    "ADMIRALTY SECONDARY SCHOOL",
+    "PEI HWA SECONDARY SCHOOL",
+    "GREENDALE SECONDARY SCHOOL",
+    "EDGEFIELD SECONDARY SCHOOL",
+    "MERIDIAN SECONDARY SCHOOL",
+    "LOYANG VIEW SECONDARY SCHOOL",
+    "AHMAD IBRAHIM SECONDARY SCHOOL",
+    "BROADRICK SECONDARY SCHOOL",
+    "BUKIT MERAH SECONDARY SCHOOL",
+    "DUNMAN SECONDARY SCHOOL",
+    "JURONG SECONDARY SCHOOL",
+    "NAVAL BASE SECONDARY SCHOOL",
+    "OUTRAM SECONDARY SCHOOL",
+    "YIO CHU KANG SECONDARY SCHOOL",
+    "YUAN CHING SECONDARY SCHOOL",
+    "BOON LAY SECONDARY SCHOOL",
+    "BEDOK VIEW SECONDARY SCHOOL",
+    "HUA YI SECONDARY SCHOOL",
+    "DEYI SECONDARY SCHOOL",
+    "PING YI SECONDARY SCHOOL",
+    "PEICAI SECONDARY SCHOOL",
+    "SHUQUN SECONDARY SCHOOL",
+    "PASIR RIS SECONDARY SCHOOL",
+    "EAST VIEW SECONDARY SCHOOL",
+    "GUANGYANG SECONDARY SCHOOL",
+    "RIVERSIDE SECONDARY SCHOOL",
+    "ZHONGHUA SECONDARY SCHOOL",
+    "SWISS COTTAGE SECONDARY SCHOOL",
+    "YUSOF ISHAK SECONDARY SCHOOL",
+    "CHANGKAT CHANGI SECONDARY SCHOOL",
+    "TECK WHYE SECONDARY SCHOOL",
+    "DUNEARN SECONDARY SCHOOL",
+    "NEW TOWN SECONDARY SCHOOL",
+    "QUEENSTOWN SECONDARY SCHOOL",
+    "SERANGOON GARDEN SECONDARY SCHOOL",
+    "TANGLIN SECONDARY SCHOOL",
+    "TANJONG KATONG SECONDARY SCHOOL",
+    "WOODLANDS RING SECONDARY SCHOOL",
+    "ORCHID PARK SECONDARY SCHOOL",
+    "SEMBAWANG SECONDARY SCHOOL",
+    "SENG KANG SECONDARY SCHOOL",
+    "JUNYUAN SECONDARY SCHOOL",
+    "EAST SPRING SECONDARY SCHOOL",
+    "UNITY SECONDARY SCHOOL",
+    "NORTHBROOKS SECONDARY SCHOOL",
+    "PASIR RIS CREST SECONDARY SCHOOL",
+    "FUHUA SECONDARY SCHOOL",
+    "MARSILING SECONDARY SCHOOL",
+    "WOODGROVE SECONDARY SCHOOL",
+    "ZHENGHUA SECONDARY SCHOOL",
+    "REGENT SECONDARY SCHOOL",
+    "KENT RIDGE SECONDARY SCHOOL",
+    "WESTWOOD SECONDARY SCHOOL",
+    "CANBERRA SECONDARY SCHOOL",
+    "COMPASSVALE SECONDARY SCHOOL",
+    "EVERGREEN SECONDARY SCHOOL",
+    "MONTFORT SECONDARY SCHOOL",
+    "ST. MARGARET'S SECONDARY SCHOOL",
+    "CHIJ SECONDARY (TOA PAYOH)",
+    "GEYLANG METHODIST SCHOOL (SECONDARY)",
+    "ST. ANDREW'S SECONDARY SCHOOL",
+    "ST. ANTHONY'S CANOSSIAN SECONDARY SCHOOL",
+    "ST. GABRIEL'S SECONDARY SCHOOL",
+    "CHRIST CHURCH SECONDARY SCHOOL",
+    "PAYA LEBAR METHODIST GIRLS' SCHOOL (SECONDARY)",
+    "YUYING SECONDARY SCHOOL",
+    "KUO CHUAN PRESBYTERIAN SECONDARY SCHOOL",
+    "ST. HILDA'S SECONDARY SCHOOL",
+    "METHODIST GIRLS' SCHOOL (SECONDARY)",
+    "MANJUSRI SECONDARY SCHOOL",
+    "FAIRFIELD METHODIST SCHOOL (SECONDARY)",
+    "NGEE ANN SECONDARY SCHOOL",
+    "CREST SECONDARY SCHOOL",
+    "SPECTRA SECONDARY SCHOOL"
+];
+
+secondary.sort();
+
+function addss2option() {
+
+    //The loop will loop through the array from 0 - max length and + 1 with a line break into the option
+
+    for (i = 0; i = secondary.length; i++) {
+        //Node content
+        var x = secondary.splice(0, 1);
+
+
+        //This code creates a new <option> element:
+        var option_e = document.createElement("option");
+
+        //To add text to the <option> element, you must create a text node first. This code creates a text node:
+        var option_node = document.createTextNode(x);
+
+        //Then you must append the text node to the <option> element:
+        option_e.appendChild(option_node);
+
+        //Finally you must append the new element to an existing element.
+
+        //This code finds an existing element:
+        var existing_element = document.getElementById("secondarysch");
+
+        //This code appends the new element to the existing element:
+        existing_element.appendChild(option_e);
+
+    }
+}
+
+addss2option();
+
+
+
+
+//FOR PRIMARY
+var primary = [
+    "GAN ENG SENG SCHOOL",
+    "ANGLO-CHINESE SCHOOL (JUNIOR)",
+    "CANOSSA CONVENT PRIMARY SCHOOL",
+    "CHIJ (KELLOCK)",
+    "CHIJ OUR LADY OF THE NATIVITY",
+    "DE LA SALLE SCHOOL",
+    "ST. ANDREW'S JUNIOR SCHOOL",
+    "ST. JOSEPH'S INSTITUTION JUNIOR",
+    "ST. STEPHEN'S SCHOOL",
+    "CHIJ OUR LADY OF GOOD COUNSEL",
+    "MONTFORT JUNIOR SCHOOL",
+    "CHIJ OUR LADY QUEEN OF PEACE",
+    "NAN CHIAU PRIMARY SCHOOL",
+    "KONG HWA SCHOOL",
+    "MEE TOH SCHOOL",
+    "NGEE ANN PRIMARY SCHOOL",
+    "RED SWASTIKA SCHOOL",
+    "TAO NAN SCHOOL",
+    "NANYANG PRIMARY SCHOOL",
+    "ST. ANTHONY'S PRIMARY SCHOOL",
+    "MAHA BODHI SCHOOL",
+    "PEI CHUN PUBLIC SCHOOL",
+    "POI CHING SCHOOL",
+    "KHENG CHENG SCHOOL",
+    "NAN HUA PRIMARY SCHOOL",
+    "PEI HWA PRESBYTERIAN PRIMARY SCHOOL",
+    "AI TONG SCHOOL",
+    "HONG WEN SCHOOL",
+    "HOLY INNOCENTS' PRIMARY SCHOOL",
+    "PAYA LEBAR METHODIST GIRLS' SCHOOL (PRIMARY)",
+    "CHONGFU SCHOOL",
+    "CHIJ (KATONG) PRIMARY",
+    "ANGLO-CHINESE SCHOOL (PRIMARY)",
+    "SINGAPORE CHINESE GIRLS' SCHOOL",
     "HAIG GIRLS' SCHOOL",
+    "ST. ANTHONY'S CANOSSIAN PRIMARY SCHOOL",
+    "ST. GABRIEL'S PRIMARY SCHOOL",
+    "ST. MARGARET'S PRIMARY SCHOOL",
+    "FAIRFIELD METHODIST SCHOOL (PRIMARY)",
+    "GEYLANG METHODIST SCHOOL (PRIMARY)",
+    "KUO CHUAN PRESBYTERIAN PRIMARY SCHOOL",
+    "ST. HILDA'S PRIMARY SCHOOL",
+    "SINGAPORE CHINESE GIRLS' PRIMARY SCHOOL",
+    "METHODIST GIRLS' SCHOOL (PRIMARY)",
+    "CHIJ PRIMARY (TOA PAYOH)",
+    "FENGSHAN PRIMARY SCHOOL",
+    "BUKIT PANJANG PRIMARY SCHOOL",
     "TECK WHYE PRIMARY SCHOOL",
     "JURONG PRIMARY SCHOOL",
     "QUEENSTOWN PRIMARY SCHOOL",
@@ -162,355 +494,6 @@
     "CASUARINA PRIMARY SCHOOL",
     "CLEMENTI PRIMARY SCHOOL",
     "TANJONG KATONG PRIMARY SCHOOL",
-    "ANDERSON SECONDARY SCHOOL",
-    "BARTLEY SECONDARY SCHOOL",
-    "BEATTY SECONDARY SCHOOL",
-    "CEDAR GIRLS' SECONDARY SCHOOL",
-    "CRESCENT GIRLS' SCHOOL",
-    "GAN ENG SENG SCHOOL",
-    "QUEENSWAY SECONDARY SCHOOL",
-    "RAFFLES GIRLS' SCHOOL (SECONDARY)",
-    "RAFFLES INSTITUTION",
-    "SERANGOON SECONDARY SCHOOL",
-    "COMMONWEALTH SECONDARY SCHOOL",
-    "TANJONG KATONG GIRLS' SCHOOL",
-    "VICTORIA SCHOOL",
-    "WHITLEY SECONDARY SCHOOL",
-    "YUHUA SECONDARY SCHOOL",
-    "YISHUN SECONDARY SCHOOL",
-    "BENDEMEER SECONDARY SCHOOL",
-    "FUCHUN SECONDARY SCHOOL",
-    "ANG MO KIO SECONDARY SCHOOL",
-    "BEDOK SOUTH SECONDARY SCHOOL",
-    "CLEMENTI TOWN SECONDARY SCHOOL",
-    "TEMASEK SECONDARY SCHOOL",
-    "MAYFLOWER SECONDARY SCHOOL",
-    "TAMPINES SECONDARY SCHOOL",
-    "BUKIT VIEW SECONDARY SCHOOL",
-    "WOODLANDS SECONDARY SCHOOL",
-    "BOWEN SECONDARY SCHOOL",
-    "BUKIT BATOK SECONDARY SCHOOL",
-    "YISHUN TOWN SECONDARY SCHOOL",
-    "HOUGANG SECONDARY SCHOOL",
-    "NAN HUA HIGH SCHOOL",
-    "HILLGROVE SECONDARY SCHOOL",
-    "XINMIN SECONDARY SCHOOL",
-    "GREENRIDGE SECONDARY SCHOOL",
-    "SPRINGFIELD SECONDARY SCHOOL",
-    "CHUA CHU KANG SECONDARY SCHOOL",
-    "DAMAI SECONDARY SCHOOL",
-    "NORTHLAND SECONDARY SCHOOL",
-    "HONG KAH SECONDARY SCHOOL",
-    "PEIRCE SECONDARY SCHOOL",
-    "JURONGVILLE SECONDARY SCHOOL",
-    "FAJAR SECONDARY SCHOOL",
-    "KRANJI SECONDARY SCHOOL",
-    "JUYING SECONDARY SCHOOL",
-    "WEST SPRING SECONDARY SCHOOL",
-    "JURONG WEST SECONDARY SCHOOL",
-    "BEDOK GREEN SECONDARY SCHOOL",
-    "PUNGGOL SECONDARY SCHOOL",
-    "NORTH VISTA SECONDARY SCHOOL",
-    "ADMIRALTY SECONDARY SCHOOL",
-    "PEI HWA SECONDARY SCHOOL",
-    "GREENDALE SECONDARY SCHOOL",
-    "EDGEFIELD SECONDARY SCHOOL",
-    "MERIDIAN SECONDARY SCHOOL",
-    "LOYANG VIEW SECONDARY SCHOOL",
-    "DUNMAN HIGH SCHOOL",
-    "RIVER VALLEY HIGH SCHOOL",
-    "AHMAD IBRAHIM SECONDARY SCHOOL",
-    "BROADRICK SECONDARY SCHOOL",
-    "BUKIT MERAH SECONDARY SCHOOL",
-    "BUKIT PANJANG GOVT. HIGH SCHOOL",
-    "DUNMAN SECONDARY SCHOOL",
-    "JURONG SECONDARY SCHOOL",
-    "NAVAL BASE SECONDARY SCHOOL",
-    "OUTRAM SECONDARY SCHOOL",
-    "YIO CHU KANG SECONDARY SCHOOL",
-    "YUAN CHING SECONDARY SCHOOL",
-    "BOON LAY SECONDARY SCHOOL",
-    "BEDOK VIEW SECONDARY SCHOOL",
-    "HUA YI SECONDARY SCHOOL",
-    "DEYI SECONDARY SCHOOL",
-    "PING YI SECONDARY SCHOOL",
-    "PEICAI SECONDARY SCHOOL",
-    "SHUQUN SECONDARY SCHOOL",
-    "PASIR RIS SECONDARY SCHOOL",
-    "EAST VIEW SECONDARY SCHOOL",
-    "GUANGYANG SECONDARY SCHOOL",
-    "RIVERSIDE SECONDARY SCHOOL",
-    "ZHONGHUA SECONDARY SCHOOL",
-    "SWISS COTTAGE SECONDARY SCHOOL",
-    "YUSOF ISHAK SECONDARY SCHOOL",
-    "CHANGKAT CHANGI SECONDARY SCHOOL",
-    "TECK WHYE SECONDARY SCHOOL",
-    "DUNEARN SECONDARY SCHOOL",
-    "NEW TOWN SECONDARY SCHOOL",
-    "QUEENSTOWN SECONDARY SCHOOL",
-    "SERANGOON GARDEN SECONDARY SCHOOL",
-    "TANGLIN SECONDARY SCHOOL",
-    "TANJONG KATONG SECONDARY SCHOOL",
-    "WOODLANDS RING SECONDARY SCHOOL",
-    "ORCHID PARK SECONDARY SCHOOL",
-    "SEMBAWANG SECONDARY SCHOOL",
-    "SENG KANG SECONDARY SCHOOL",
-    "JUNYUAN SECONDARY SCHOOL",
-    "EAST SPRING SECONDARY SCHOOL",
-    "UNITY SECONDARY SCHOOL",
-    "NORTHBROOKS SECONDARY SCHOOL",
-    "PASIR RIS CREST SECONDARY SCHOOL",
-    "FUHUA SECONDARY SCHOOL",
-    "MARSILING SECONDARY SCHOOL",
-    "WOODGROVE SECONDARY SCHOOL",
-    "ZHENGHUA SECONDARY SCHOOL",
-    "REGENT SECONDARY SCHOOL",
-    "KENT RIDGE SECONDARY SCHOOL",
-    "WESTWOOD SECONDARY SCHOOL",
-    "CANBERRA SECONDARY SCHOOL",
-    "COMPASSVALE SECONDARY SCHOOL",
-    "EVERGREEN SECONDARY SCHOOL",
-    "ANGLO-CHINESE SCHOOL (JUNIOR)",
-    "CANOSSA CONVENT PRIMARY SCHOOL",
-    "CHIJ PRIMARY (TOA PAYOH)",
-    "CHIJ (KELLOCK)",
-    "CHIJ OUR LADY OF THE NATIVITY",
-    "DE LA SALLE SCHOOL",
-    "ST. ANDREW'S JUNIOR SCHOOL",
-    "ST. ANTHONY'S CANOSSIAN PRIMARY SCHOOL",
-    "ST. GABRIEL'S PRIMARY SCHOOL",
-    "ST. MARGARET'S PRIMARY SCHOOL",
-    "ST. JOSEPH'S INSTITUTION JUNIOR",
-    "ST. STEPHEN'S SCHOOL",
-    "CHIJ OUR LADY OF GOOD COUNSEL",
-    "MONTFORT JUNIOR SCHOOL",
-    "CHIJ OUR LADY QUEEN OF PEACE",
-    "FAIRFIELD METHODIST SCHOOL (PRIMARY)",
-    "GEYLANG METHODIST SCHOOL (PRIMARY)",
-    "KUO CHUAN PRESBYTERIAN PRIMARY SCHOOL",
-    "ST. HILDA'S PRIMARY SCHOOL",
-    "SINGAPORE CHINESE GIRLS' PRIMARY SCHOOL",
-    "METHODIST GIRLS' SCHOOL (PRIMARY)",
-    "NAN CHIAU PRIMARY SCHOOL",
-    "KONG HWA SCHOOL",
-    "MEE TOH SCHOOL",
-    "NGEE ANN PRIMARY SCHOOL",
-    "RED SWASTIKA SCHOOL",
-    "TAO NAN SCHOOL",
-    "NANYANG PRIMARY SCHOOL",
-    "ST. ANTHONY'S PRIMARY SCHOOL",
-    "MAHA BODHI SCHOOL",
-    "PEI CHUN PUBLIC SCHOOL",
-    "POI CHING SCHOOL",
-    "KHENG CHENG SCHOOL",
-    "NAN HUA PRIMARY SCHOOL",
-    "PEI HWA PRESBYTERIAN PRIMARY SCHOOL",
-    "AI TONG SCHOOL",
-    "HONG WEN SCHOOL",
-    "HOLY INNOCENTS' PRIMARY SCHOOL",
-    "PAYA LEBAR METHODIST GIRLS' SCHOOL (PRIMARY)",
-    "CHONGFU SCHOOL",
-    "CHIJ (KATONG) PRIMARY",
-    "ANGLO-CHINESE SCHOOL (PRIMARY)",
-    "ANGLO-CHINESE SCHOOL (INDEPENDENT)",
-    "ASSUMPTION ENGLISH SCHOOL",
-    "CHIJ SECONDARY (TOA PAYOH)",
-    "GEYLANG METHODIST SCHOOL (SECONDARY)",
-    "CHIJ KATONG CONVENT",
-    "MONTFORT SECONDARY SCHOOL",
-    "SINGAPORE CHINESE GIRLS' SCHOOL",
-    "ST. ANDREW'S SECONDARY SCHOOL",
-    "ST. ANTHONY'S CANOSSIAN SECONDARY SCHOOL",
-    "ST. GABRIEL'S SECONDARY SCHOOL",
-    "CHIJ ST. JOSEPH'S CONVENT",
-    "ST. JOSEPH'S INSTITUTION",
-    "ST. MARGARET'S SECONDARY SCHOOL",
-    "ST. PATRICK'S SCHOOL",
-    "CHIJ ST. THERESA'S CONVENT",
-    "CHRIST CHURCH SECONDARY SCHOOL",
-    "PAYA LEBAR METHODIST GIRLS' SCHOOL (SECONDARY)",
-    "YUYING SECONDARY SCHOOL",
-    "KUO CHUAN PRESBYTERIAN SECONDARY SCHOOL",
-    "ST. HILDA'S SECONDARY SCHOOL",
-    "METHODIST GIRLS' SCHOOL (SECONDARY)",
-    "HAI SING CATHOLIC SCHOOL",
-    "ANGLO-CHINESE SCHOOL (BARKER ROAD)",
-    "ANGLICAN HIGH SCHOOL",
-    "CATHOLIC HIGH SCHOOL",
-    "CHUNG CHENG HIGH SCHOOL (MAIN)",
-    "CHUNG CHENG HIGH SCHOOL (YISHUN)",
-    "HOLY INNOCENTS' HIGH SCHOOL",
-    "MARIS STELLA HIGH SCHOOL",
-    "NAN CHIAU HIGH SCHOOL",
-    "NANYANG GIRLS' HIGH SCHOOL",
-    "CHIJ ST. NICHOLAS GIRLS' SCHOOL",
-    "MARYMOUNT CONVENT SCHOOL",
-    "MANJUSRI SECONDARY SCHOOL",
-    "PRESBYTERIAN HIGH SCHOOL",
-    "FAIRFIELD METHODIST SCHOOL (SECONDARY)",
-    "NGEE ANN SECONDARY SCHOOL",
-    "SINGAPORE SPORTS SCHOOL",
-    "NUS HIGH SCHOOL OF MATHEMATICS AND SCIENCE",
-    "SCHOOL OF THE ARTS, SINGAPORE",
-    "NORTHLIGHT SCHOOL",
-    "ASSUMPTION PATHWAY SCHOOL",
-    "SCHOOL OF SCIENCE AND TECHNOLOGY, SINGAPORE",
-    "CREST SECONDARY SCHOOL",
-    "SPECTRA SECONDARY SCHOOL"
-];  */
-
-
-
-// FOR JUNIOR COLLEGE
-var juniorcollege = [
-    "NATIONAL JUNIOR COLLEGE",
-    "TEMASEK JUNIOR COLLEGE",
-    "JURONG JUNIOR COLLEGE",
-    "ANDERSON JUNIOR COLLEGE",
-    "VICTORIA JUNIOR COLLEGE",
-    "YISHUN JUNIOR COLLEGE",
-    "TAMPINES JUNIOR COLLEGE",
-    "SERANGOON JUNIOR COLLEGE",
-    "PIONEER JUNIOR COLLEGE",
-    "MERIDIAN JUNIOR COLLEGE",
-    "INNOVA JUNIOR COLLEGE",
-    "EUNOIA JUNIOR COLLEGE",
-    "CATHOLIC JUNIOR COLLEGE",
-    "ANGLO-CHINESE JUNIOR COLLEGE",
-    "ST. ANDREW'S JUNIOR COLLEGE",
-    "NANYANG JUNIOR COLLEGE"
-];
-
-juniorcollege.sort();
-
-
-function addjc2option() {
-
-    //The loop will loop through the array from 0 - max length and + 1 with a line break into the option
-
-    for (i = 0; i < juniorcollege.length; i++) {
-        //Node content
-        var x = juniorcollege.splice(0, 1);
-
-
-        //This code creates a new <option> element:
-        var option_e = document.createElement("option");
-
-        //To add text to the <option> element, you must create a text node first. This code creates a text node:
-        var option_node = document.createTextNode(x);
-
-        //Then you must append the text node to the <option> element:
-        option_e.appendChild(option_node);
-
-        //Finally you must append the new element to an existing element.
-
-        //This code finds an existing element:
-        var existing_element = document.getElementById("juniorcollege");
-
-        //This code appends the new element to the existing element:
-        existing_element.appendChild(option_e);
-
-    }
-}
-
-addjc2option();
-
-
-
-
-//FOR POLYTECHNIC
-var polytechnic = [
-    "TEMASEK POLYETCHNIC",
-    "NANYANG POLYTECHNIC",
-    "NGEE ANN POLYTECHNIC",
-    "REPUBLIC POLYTECHNIC",
-    "SINGAPORE POLYTECHNIC"
-];
-
-
-polytechnic.sort();
-
-
-function addpl2option() {
-
-    //The loop will loop through the array from 0 - max length and + 1 with a line break into the option
-
-    for (i = 0; i < polytechnic.length; i++) {
-        //Node content
-        var x = polytechnic.splice(0, 1);
-
-
-        //This code creates a new <option> element:
-        var option_e = document.createElement("option");
-
-        //To add text to the <option> element, you must create a text node first. This code creates a text node:
-        var option_node = document.createTextNode(x);
-
-        //Then you must append the text node to the <option> element:
-        option_e.appendChild(option_node);
-
-        //Finally you must append the new element to an existing element.
-
-        //This code finds an existing element:
-        var existing_element = document.getElementById("polytechnic");
-
-        //This code appends the new element to the existing element:
-        existing_element.appendChild(option_e);
-
-    }
-}
-
-addpl2option();
-
-
-
-
-
-
-// FOR SECONDARY
-var secondary = [
-    "DAMAI SECONDARY SCHOOL"
-];
-
-secondary.sort();
-
-function addss2option() {
-
-    //The loop will loop through the array from 0 - max length and + 1 with a line break into the option
-
-    for (i = 0; i < secondary.length; i++) {
-        //Node content
-        var x = secondary.splice(0, 1);
-
-
-        //This code creates a new <option> element:
-        var option_e = document.createElement("option");
-
-        //To add text to the <option> element, you must create a text node first. This code creates a text node:
-        var option_node = document.createTextNode(x);
-
-        //Then you must append the text node to the <option> element:
-        option_e.appendChild(option_node);
-
-        //Finally you must append the new element to an existing element.
-
-        //This code finds an existing element:
-        var existing_element = document.getElementById("secondarysch");
-
-        //This code appends the new element to the existing element:
-        existing_element.appendChild(option_e);
-
-    }
-}
-
-addss2option();
-
-
-
-
-//FOR PRIMARY
-var primary = [
-    "FENGSHAN PRIMARY SCHOOL"
 ];
 
 primary.sort();
@@ -519,7 +502,7 @@ function addps2option() {
 
     //The loop will loop through the array from 0 - max length and + 1 with a line break into the option
 
-    for (i = 0; i < primary.length; i++) {
+    for (i = 0; i = primary.length; i++) {
         //Node content
         var x = primary.splice(0, 1);
 
