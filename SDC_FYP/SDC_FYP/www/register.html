@@ -1,15 +1,7 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-    <!--
-        Customize the content security policy in the meta tag below as needed. Add 'unsafe-inline' to default-src to enable inline JavaScript.
-        For details, see http://go.microsoft.com/fwlink/?LinkID=617521
-    -->
-
-    <!--For Add/Remove Input Fields-->
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-    <!--For Add/Remove Input Fields-->
+    <!--Customize the content security policy in the meta tag below as needed. Add 'unsafe-inline' to default-src to enable inline JavaScript.For details, see http://go.microsoft.com/fwlink/?LinkID=617521-->
 
     <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
     <meta name="format-detection" content="telephone=no">
@@ -25,14 +17,10 @@
 
     <ons-page modifier="full_bg">
 
-        <!--    <ons-toolbar></ons-toolbar> -->
-        <!-- Here is the background-->
-        <!-- ////-->
-        <!-- Here is the content-->
         <div class="content">
                 <div style="text-align: center; margin-top: 30px; padding-top: 50px;">
-
                             <strong><em>Trailcovery2.0</em></strong>
+
                             <form name="RegisterForm" id="RegisterForm">
                                 <p>
                                     <i class="fa fa-user icon"></i>
@@ -43,10 +31,12 @@
                                     <i class="fa fa-user icon"></i>
                                     <ons-input id="newusername" modifier="material" placeholder="Username" float required></ons-input>
                                 </p>
+
                                 <p>
                                     <i class="fa fa-key icon"></i>
                                     <ons-input id="newpassword" modifier="material" type="password" placeholder="Password" float required></ons-input>
                                 </p>
+
                                 <p>
                                     <i class="fa fa-key icon"></i>
                                     <ons-input id="newpassword2" modifier="material" type="password" placeholder="Enter Password Again" float required></ons-input>
@@ -54,7 +44,6 @@
 
                                 <p>
                                     <i class="fa fa-institution"></i>
-
                                     <select name="school" id="school" style="width:200px; height:25px">
                                         <option value="null">Select School/Institution</option>
                                         <optgroup label="Junior College" name="juniorcollege" id="juniorcollege"> </optgroup>
@@ -63,35 +52,23 @@
                                         <optgroup label="Primary School" name="primarysch" id="primarysch"> </optgroup>
                                     </select>
                                 </p>
-                               
+                 
                                     <div id='GroupMembersName'>
                                         <div id="GroupMember1"><p>
-                                            <ons-input id="membernames1" placeholder="Member 1 Name" style="width:166px"></ons-input>
-                                            <input type='button' value='+' id='addMemberbtn'>
+                                            <ons-input id="membernames1" placeholder="Leader Name" style="width:166px"></ons-input>
+                                            <input type='button' value='+' id='addMemberbtn'> <br/>
+                                             <ons-input id="contactdetails" placeholder="Leader's Contact Details"></ons-input> <br/>
+                                             <ons-input id="emailaddress" placeholder="Leader's Email Address"></ons-input>
                                         </p></div>
                                     </div>
-                               
+
                             </form> <br/>
-                            <ons-button class="registerbtn" id="registerbtn">Register</ons-button> <br/><br/>
-                            <input type='button' value='Get TextBox Value' id='getButtonValue'> Will Delete afterwards
- 
+
+                            <ons-button id="registerbtn">Register</ons-button>
                         </div>
-
-
-            
-
                 </div>
 
-        <!--   <video autoplay muted loop id="myVideo">
-           <source src="vid/polina.mp4" type="video/mp4">
-       </video>-->
-        <!--     <ons-fab></ons-fab> -->
     </ons-page>
-
-
-
-
-
 
     <script type="text/javascript" src="cordova.js"></script>
     <script type="text/javascript" src="scripts/platformOverrides.js"></script>
