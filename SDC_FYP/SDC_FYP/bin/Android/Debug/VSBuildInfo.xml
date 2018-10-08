@@ -5,6 +5,6 @@
     <Item Name="VisualStudio" Version="15.0" />
     <Item Name="VisualStudioEdition" Value="Microsoft Visual Studio Community 2017" />
     <Item Name="OperatingSystem" Version="10.0.17134.1 (WinBuild.160101.0800)" />
-    <Item Name="ProjectGUID" Value="52e05a17-23ed-4e9b-9812-daae866ef9b9" />
+    <Item Name="ProjectGUID" Value="a99b94ee-8657-48a2-9644-7168da85cb11" />
   </Metadata>
 </VSBuildInfo>

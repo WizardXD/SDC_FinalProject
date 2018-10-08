@@ -17,7 +17,6 @@
 }
 
 .overlay_bg_vid { /* Someone figure out the overlay*/
-
 }
 
 .footer {
@@ -25,10 +24,10 @@
     left: 0;
     bottom: 0;
     width: 100%;
-    color: white;
+    color: lightsteelblue;
     text-align: center;
 }
-
+/*/*/
 /* The Modal (background) */
 .modal {
     display: none; /* Hidden by default */
@@ -66,3 +65,70 @@
         text-decoration: none;
         cursor: pointer;
     }
+
+ /* Slideshow  */
+.mySlides {
+    display: none
+}
+
+/* Side Nav Bar */
+body {
+    font-family: "Lato", sans-serif;
+}
+
+.sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+}
+
+    .sidenav a {
+        padding: 8px 8px 8px 32px;
+        text-decoration: none;
+        font-size: 25px;
+        color: #818181;
+        display: block;
+        transition: 0.3s;
+    }
+
+        .sidenav a:hover {
+            color: #f1f1f1;
+        }
+
+    .sidenav .closebtn {
+        position: absolute;
+        top: 0;
+        right: 25px;
+        font-size: 36px;
+        margin-left: 50px;
+    }
+
+@media screen and (max-height: 450px) {
+    .sidenav {
+        padding-top: 15px;
+    }
+
+        .sidenav a {
+            font-size: 18px;
+        }
+}
+
+.onsinspopover {
+    position: fixed;
+    left: 110%;
+    top: 115%;
+    /*
+         if, for instance, the image is 64x64 pixels,
+         then "move" it half its width/height to the
+         top/left by using negative margins
+     */
+    margin-left: -50px;
+    margin-top: 50px;
+}
