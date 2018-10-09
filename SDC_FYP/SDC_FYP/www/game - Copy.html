@@ -19,35 +19,46 @@
         <ons-toolbar>
             <div class="center">Card</div>
         </ons-toolbar>
-        <ons-card class="card">
+        <ons-card>
             
+            <div id="card">
+
                 <div class="front">
-                    <img src="images/doublehappinessbowl.jpg" onclick="flip()" alt="Onsen UI" style="width: 100%">
+                    <img src="images/doublehappinessbowl.jpg" id="flipimage" alt="Onsen UI" style="width: 100%">
                 </div>
 
                 <div class="back">
-                    <img src="images/doublehappinessbowl.jpg" onclick="flip()" alt="Onsen UI" style="width: 100%">
-                    <br /><br />
-                    <form>
-                        <ons-input id="NameOfArt1" modifier="material" placeholder="Name of Artefact" float required></ons-input>
-                        <ons-input id="LocationOfArt1" modifier="material" placeholder="Location Of Artfefact" float required></ons-input>
-                        <ons-input id="UsageOfArt1" modifier="material" placeholder="What is it used for?" float required></ons-input>
-                    </form>
-                    <ons-button class="game_pg_btn" id="uploadimgbtn" modifier="outline" style="width:80%">Upload Image</ons-button> <br />
-                    <ons-button class="game_pg_btn" id="artonebtn" modifier="outline" style="width:80%">Submit</ons-button>
+                    <center>
+                        <form name="ArtefactForm" id="ArtefactForm">
+                            <img src="images/doublehappinessbowl.jpg" id="flipimage" alt="Onsen UI" style="width: 100%">
+                            <p>
+                                <ons-input id="NameOfArt1" modifier="material" placeholder="Name of Artefact" float required></ons-input>
+                            </p>
+                            
+                            <p>
+                                <ons-input id="LocationOfArt1" modifier="material" placeholder="Location Of Artfefact" float required></ons-input>
+                            </p>
+                            <p>
+                                <ons-input id="UsageOfArt1" modifier="material" placeholder="What is it used for?" float required></ons-input>
+                            </p>
+                        </form>
+                        <ons-button class="game_pg_btn" id="uploadimgbtn" modifier="outline" style="width:80%">Upload Image</ons-button> <br />
+                        <ons-button class="game_pg_btn" id="artonebtn" modifier="outline" style="width:80%">Submit</ons-button>
+                    </center>
                 </div>
 
+            </div>
         </ons-card>
-
     </ons-page>
-
     <script type="text/javascript" src="cordova.js"></script>
     <script type="text/javascript" src="scripts/platformOverrides.js"></script>
     <script type="text/javascript" src="scripts/jquery-3.3.1.min.js"></script>
     <script type="text/javascript" src="scripts/jquery.mobile-1.4.5.min.js"></script>
     <script type="text/javascript" src="scripts/jquery.validate.min.js"></script>
     <script type="text/javascript" src="framework/onsenui.min.js"></script>
-    <!-- The following script consist of the JS necessary to connect to the server for authentication-->
+    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script src="https://cdn.rawgit.com/nnattawat/flip/master/dist/jquery.flip.min.js"></script>
+            <!-- The following script consist of the JS necessary to connect to the server for authentication-->
     <script type="text/javascript" src="lib/game.js"></script>
     <script src="lib/common.js"></script>
 </body>
