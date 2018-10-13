@@ -1,6 +1,6 @@
 ﻿.card {
     width: 95%;
-    height: 70%;
+    height: 100%;
     -webkit-transition: -webkit-transform 1s;
     -moz-transition: -moz-transform 1s;
     -o-transition: -o-transform 1s;
@@ -14,9 +14,8 @@
 
     .card div {
         display: block;
-        height: 450px;
         width: 90%;
-        line-height: 40px;
+        line-height: 20px;
         color: white;
         text-align: center; 
         position: absolute;

@@ -13,7 +13,6 @@
         });
     });  // end of document ready --> ready event occurs when the page is loaded
 
-    
     function addMemberName() {
         if (counter > 8) {                                                //maximum members allowed = 6, will adjust based on what the sponsor requrested.
             alert("The maximum number of members is 8");                  //message that will be alerted if members > 6
@@ -76,7 +75,7 @@
             dataType: 'json',
             contentType: "application/json; charset=utf-8",
             success: function () {
-                alert("Correct");
+                alert("Welcome, " + username + "." + " Your account has been created successfully");
             }, error: function () {
                 alert("Wrong");
             }
