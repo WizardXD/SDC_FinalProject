@@ -43,44 +43,43 @@
     }                                                                      // end of addMemberNames function
 
     function registerUser() {
-        groupname = $("#newgroupname").val();
         username = $("#newusername").val();
         password = $("#newpassword").val();
-        school = $("#school").val();
-        email = $("#emailaddress").val(); 
-        contactdetails = $("#contactdetails").val();
-        membername1 = $("#membername1").val();
-        membername2 = $("#membername2").val();
-        membername3 = $("#membername3").val();
-        membername4 = $("#membername4").val();
-        membername5 = $("#membername5").val();
-        membername6 = $("#membername6").val();
-        membername7 = $("#membername7").val();
-        membername8 = $("#membername8").val();
 
-        url = serverURL() + "/login.php";
+        email = $("#emailaddress").val();
+        school = $("#school").val();
+        contactdetails = $("#contactdetails").val();
+
+        url = serverURL() + "/register.php";
         var JSONObject = {
-            "username": username, //Key:value
-            "password": password, //Key:value
-            "name": groupname,
+            "username": username,
+            "password": password,
             "email": email,
             "school": school,
             "phone": contactdetails
         };
-
         $.ajax({
             url: url,
             type: 'GET',
             data: JSONObject,
             dataType: 'json',
             contentType: "application/json; charset=utf-8",
-            success: function () {
-                alert("Welcome, " + username + "." + " Your account has been created successfully");
-            }, error: function () {
-                alert("Wrong");
+            success: function (arr) {
+                _getNewUserResult(arr);
             }
-        });   
+        });
 
-    }                                                                      // end of registerUser function
+        function _getNewUserResult(arr) {
+            if (arr[0].result === 1) {
+                localStorage.setItem("username", username);
+                localStorage.setItem("password", password);
+                alert("Account Created");
+            } else {
+                alert("hi");
+            }
+        } 
+       }
+
+ // end of registerUser function
 })();
 
