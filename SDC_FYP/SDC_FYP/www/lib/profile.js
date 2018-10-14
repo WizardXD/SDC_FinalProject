@@ -122,15 +122,15 @@
     }
 
     function _resetPasswordResult(arr) {
-        if (arr[0].result == -1) {
-            alert("WRONG")
-           
-
-        } else {
+        if (arr[0].result === 1) {
+            alert("Password has been changed succcessfully");
             localStorage.setItem($("#newpassword").val(), username);
             $("#currentpassword").val("");
             $("#newpassword").val("");
-            $("#newpassword1").val("");
+            $("#newpassword1").val("");  
+
+        } else {
+            alert("WRONG")
         }
     }
 
