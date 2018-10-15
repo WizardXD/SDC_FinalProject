@@ -63,6 +63,8 @@ function login() {
             if (data.account_role == "admin" && data.result == "1") {
                 window.location = '../facilitator.html';
             } else if (data.account_role == 'student' && data.result == '1') {
+                localStorage.setItem("username", username);
+                localStorage.setItem("password", password); 
                 window.location = '../main.html';
             }
             else if (data.account_role == 'teacher' && data.result == '1') {
