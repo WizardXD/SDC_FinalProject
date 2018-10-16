@@ -1,25 +1,25 @@
-﻿﻿<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 <head>
     <!--Customize the content security policy in the meta tag below as needed. Add 'unsafe-inline' to default-src to enable inline JavaScript.For details, see http://go.microsoft.com/fwlink/?LinkID=617521-->
+
     <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
     <meta name="format-detection" content="telephone=no">
     <meta name="msapplication-tap-highlight" content="no">
     <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
-    <link rel="stylesheet" type="text/css" href="css/index.css">
+    <link rel="stylesheet" type="text/css" href="css/game.css">
     <link rel="stylesheet" type="text/css" href="css/onsen-css-components.min.css"> <!-- OnsenUI Componenet Min CSS--> <!-- We try to use but may need to figure out the documentation-->
     <link rel="stylesheet" type="text/css" href="css/onsenui.min.css"> <!-- OnsenUI min css--> <!-- We try to use but may need to figure out the documentation-->
     <title>SDCFYP</title>
 </head>
 <body>
 
-    <ons-page modifier="full_bg">
-        <div class="content">
-            <div style="text-align: center; margin-top: 30px; padding-top: 50px;">
-                <div id="artefact"></div>
-            </div>
-        </div>
+    <ons-page>
+        <div id="artefactimage"></div>
+        <div id="artefactbackgroundinfo"></div>
+
     </ons-page>
+
     <script type="text/javascript" src="cordova.js"></script>
     <script type="text/javascript" src="scripts/platformOverrides.js"></script>
     <script type="text/javascript" src="scripts/jquery-3.3.1.min.js"></script>
@@ -27,7 +27,7 @@
     <script type="text/javascript" src="scripts/jquery.validate.min.js"></script>
     <script type="text/javascript" src="framework/onsenui.min.js"></script>
     <!-- The following script consist of the JS necessary to connect to the server for authentication-->
-    <script type="text/javascript" src="lib/game.js"></script>
+    <script type="text/javascript" src="lib/quiz.js"></script>
     <script src="lib/common.js"></script>
 </body>
 </html>

@@ -38,45 +38,36 @@ var test = function () {
 
 
 
-
 function gameStartVerfication() {
-   var url = serverURL() + "/gameverifycode.php"; //have an issue 
-   var gamecode = $("#txtGameCode").val();
+    var url = serverURL() + "/verifygamecode.php";
+    var result;
+    var accesscode = $("#txtGameCode").val();
 
-  
-    
-    //JSONObject
-    JSONObject = {
-        "gamecode": gamecode //Key:value
-        
+    var JSONObject = {
+        "accesscode": accesscode
     };
 
-    //ajax call
     $.ajax({
-        url: url, //A string containing the URL to which the request is sent.
+        url: url,
         type: 'GET',
-        data: JSONObject, //Data to be sent to the server. It is converted to a query string, if not already a string. It's appended to the url for GET-requests.
-        dataType: 'json', //Evaluates the response as JSON and return a JS object
+        data: JSONObject,
+        dataType: 'json',
         contentType: "application/json; charset=utf-8",
-        success: function (verifygameid) { //function to be called if the request succeeds //this function will be called
-            if (verifygameid.result == 1) {
-                window.location = "../game.html";
-            }
-
-            else {
-                window.location = "#";
-            }
-            
-
-
+        success: function (arr) {
+            _getGameCodeResult(arr);
+        }, error: function () {
+            validationMsg();
         }
-
-        
     });
-
-    
-   
 }
 
-
-
+function _getGameCodeResult(arr) {
+    if (arr[0].result.trim() !== "0") {
+        var accesscode = $("#txtGameCode").val();
+        localStorage.setItem("accesscode", accesscode);
+        alert("Success");
+        window.location = "game.html";
+    } else {
+        alert("Wrong Game Code");
+    }
+}  
