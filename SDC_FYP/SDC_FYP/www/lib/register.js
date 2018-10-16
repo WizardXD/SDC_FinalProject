@@ -75,7 +75,7 @@
                 localStorage.setItem("password", password);
                 alert("Account Created");
             } else {
-                alert("hi");
+                alert("Error");
             }
         } 
        }

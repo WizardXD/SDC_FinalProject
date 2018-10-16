@@ -1,7 +1,7 @@
 ﻿(function () {
     var username;
     var phone;
-    var role
+    var role;
     
     $(document).ready(function () {
         getAccountDetails();
