@@ -1,8 +1,12 @@
-﻿﻿<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 <head>
-    <!--Customize the content security policy in the meta tag below as needed. Add 'unsafe-inline' to default-src to enable inline JavaScript.For details, see http://go.microsoft.com/fwlink/?LinkID=617521-->
-    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <!--
+        Customize the content security policy in the meta tag below as needed. Add 'unsafe-inline' to default-src to enable inline JavaScript.
+        For details, see http://go.microsoft.com/fwlink/?LinkID=617521
+    -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: http://1600993h.projectsbit.org https://ssl.gstatic.com 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *">
+        <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
     <meta name="format-detection" content="telephone=no">
     <meta name="msapplication-tap-highlight" content="no">
     <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
@@ -11,22 +15,38 @@
     <link rel="stylesheet" type="text/css" href="css/onsenui.min.css"> <!-- OnsenUI min css--> <!-- We try to use but may need to figure out the documentation-->
     <title>SDCFYP</title>
 </head>
-<body>
 
-    <ons-page modifier="full_bg">
-        <div class="content">
-            <div style="text-align: center; margin-top: 30px; padding-top: 50px;">
-                <div id="artefact"></div>
-            </div>
+<body>
+    <ons-page>
+        <!--Company Logo-->
+        <p style="text-align: center; opacity: 0.6; padding-top: 20px;">
+            <img src="www/images/trailcoverylogo.png" border="2" />
+        </p>
+
+        <!--Display all the artefact under "accesscode"-->
+        <div style="text-align:center">
+            <div id="artefact"></div>
+        </div>
+
+        <!--Hard Counted Progess Bar-->
+        <div style="margin: 20px auto; width: 750px;">
+            <p>Current Status......</p>
+            <ons-progress-bar value="20" secondary-value="50"></ons-progress-bar>
         </div>
     </ons-page>
+
+    <!-- Footer -->
+    <div class="footer">
+        <p>© 2018 Temasek Polytechnic. All Rights Reserved.</p>
+    </div>
+
     <script type="text/javascript" src="cordova.js"></script>
     <script type="text/javascript" src="scripts/platformOverrides.js"></script>
     <script type="text/javascript" src="scripts/jquery-3.3.1.min.js"></script>
     <script type="text/javascript" src="scripts/jquery.mobile-1.4.5.min.js"></script>
     <script type="text/javascript" src="scripts/jquery.validate.min.js"></script>
     <script type="text/javascript" src="framework/onsenui.min.js"></script>
-    <!-- The following script consist of the JS necessary to connect to the server for authentication-->
+    <!-- The following script consist of the JS necessary to connect to the server to startgame-->
     <script type="text/javascript" src="lib/game.js"></script>
     <script src="lib/common.js"></script>
 </body>

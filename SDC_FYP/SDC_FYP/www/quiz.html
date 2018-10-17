@@ -13,11 +13,40 @@
     <title>SDCFYP</title>
 </head>
 <body>
-
     <ons-page>
-        <div id="artefactimage"></div>
-        <div id="artefactbackgroundinfo"></div>
 
+        <ons-card class="card" style="text-align:center;">
+            <div class="front">
+                    <div id="frontartefactimage" onclick="flip()"> </div>
+                <p style="text-align: center; padding-top: 200px;">
+                    <h1> Background information</h1>
+                    <div id="artefactbackgroundinfo"></div>
+                </p>
+            </div>
+            <div class="back">
+
+                <div id="backartefactimage" onclick="flip()"> </div>
+
+                <form style="text-align: center; padding-top: 200px;">
+                    <p>
+                        <ons-input id="NameOfArt" modifier="material" placeholder="Name of Artefact" float required></ons-input>
+                    </p>
+                    <p>
+                        <ons-input id="LocationOfArt" modifier="material" placeholder="Location Of Artfefact" float required></ons-input>
+                    </p>
+                    <p>
+                        <ons-input id="UsageOfArt" modifier="material" placeholder="What is it used for?" float required></ons-input>
+                    </p>
+                    <p>
+                        <textarea class="textarea" id="ImportantnessOfArt" rows="4" maxlength="50" placeholder="How is this item significant to this ethnic group?" float required></textarea>
+                    </p>
+                    <hr /><br />
+                </form>
+                <ons-button class="game_pg_btn" id="uploadimgbtn" modifier="outline" style="width:80%">Upload Image</ons-button> <br />
+                <ons-button class="game_pg_btn" id="artonebtn" modifier="outline" style="width:80%">Submit</ons-button>
+            </div>
+
+       </ons-card>        
     </ons-page>
 
     <script type="text/javascript" src="cordova.js"></script>

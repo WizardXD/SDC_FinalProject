@@ -31,7 +31,7 @@
 
         for (i = 0; i < arr.length; i++) {
             var t;
-            t = "<ons-button id='btn" + arr[i].artefactid + "'>" + "Artefact " + (i+1) + " </ons-button><br/><br/>";
+            t = "<p><ons-button id='btn" + arr[i].artefactid + "'>" + "Artefact " + (i+1) + " </ons-button><p/>";
             $("#artefact").append(t);
             $("#btn" + arr[i].artefactid).bind("click", { id: arr[i].artefactid }, function (event) {
                 var data = event.data;
