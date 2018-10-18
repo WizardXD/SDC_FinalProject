@@ -1,5 +1,5 @@
 function serverURL() {
-    return "http://1600993h.projectsbit.org/sdc"
+    return "http://1600993h.projectsbit.org/sdc";
 }
 
 function validationMsgs(message, title, button) {
@@ -10,3 +10,15 @@ function validationMsgs(message, title, button) {
         button
     );
 }
+
+
+function getUrlVars() {
+    var vars = {};
+    var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi,
+        function (m, key, value) {
+            vars[key] = value;
+        });
+    return vars;
+}
+
+
