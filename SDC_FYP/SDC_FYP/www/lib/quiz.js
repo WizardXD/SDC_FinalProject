@@ -41,4 +41,6 @@ function showartefactdetails() {
         $("#artefactbackgroundinfo").html(arr[i].backgroundinfo);
     }
 }
-        
+
+
+
