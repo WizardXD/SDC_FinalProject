@@ -23,6 +23,25 @@
             <img src="www/images/trailcoverylogo.png" border="2" />
         </p>
 
+
+        <!-- Basic Countdown Timer -->
+        <script>
+            function countDown(secs, elem) {
+                var element = document.getElementById(elem);
+                element.innerHTML = secs + " seconds left to the end of game";
+                if (secs < 1) {
+                    clearTimeout(timer);
+                    element.innerHTML = '<h3>Game has ended! Please click </h3>';
+                    element.innerHTML += '<a href="end.html">Next</a>';
+                }
+                secs--;
+                var timer = setTimeout('countDown(' + secs + ',"' + elem + '")', 1000);
+            }
+        </script>
+        <div id="status"></div>
+        <script>countDown(60, "status");</script>
+
+
         <!--Display all the artefact under "accesscode"-->
         <div style="text-align:center">
             <div id="artefact"></div>
