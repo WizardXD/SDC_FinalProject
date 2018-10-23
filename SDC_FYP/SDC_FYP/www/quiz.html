@@ -14,12 +14,10 @@
     <title>SDCFYP</title>
 </head>
 <body>
-
-    
-
     <ons-page>
-
         <ons-card class="card" style="text-align:center;">
+
+            <!--Front Side Of Card-->
             <div class="front">
                 <div id="frontartefactimage" onclick="flip()"> </div>
                 <p style="text-align: center; padding-top: 200px;">
@@ -27,34 +25,32 @@
                     <div id="artefactbackgroundinfo"></div>
                 </p>
             </div>
+
+            <!--Back Side of Card-->
             <div class="back">
-
                 <div id="backartefactimage" onclick="flip()"> </div>
-
                 <form style="text-align: center; padding-top: 220px;">
                     <p>
-                        <ons-input id="NameOfArt" modifier="material" placeholder="Name of Artefact" float required></ons-input>
+                        <ons-input id="NameOfArt" modifier="material" placeholder="Name" float required></ons-input>
                     </p>
                     <p>
-                        <ons-input id="LocationOfArt" modifier="material" placeholder="Location Of Artfefact" float required></ons-input>
+                        <ons-input id="LocationOfArt" modifier="material" placeholder="Location" float required></ons-input>
                     </p>
                     <p>
                         <ons-input id="UsageOfArt" modifier="material" placeholder="What is it used for?" float required></ons-input>
                     </p>
                     <p>
-                        <textarea class="textarea" id="ImportantnessOfArt" rows="4" maxlength="50" placeholder="How is this item significant to this ethnic group?" float required></textarea>
+                        <textarea class="textarea" id="ImportantnessOfArt" rows="4" maxlength="50" style="width:65%" placeholder="How is this item significant to this ethnic group?" float required></textarea>
                     </p>
-                    <hr /><br />
                 </form>
-                <ons-button class="game_pg_btn" id="uploadimgbtn" modifier="outline" style="width:80%">Upload Image</ons-button> <br />
-
-                <ons-button class="game_pg_btn" id="artonebtn" modifier="outline" style="width:80%">Submit</ons-button>
+                <ons-button class="game_pg_btn" id="uploadimgbtn" style="width:33%">Upload</ons-button>
+                <ons-button class="game_pg_btn" id="uploadimgbtn" style="width:33%">Preview</ons-button>
+                <ons-button class="game_pg_btn" id="uploadimgbtn" modifier="quiet" style="width:20px">?</ons-button>
+                <hr />
+                <ons-button class="game_pg_btn" id="submitAnswerbtn" style="width:80%">Submit</ons-button>
             </div>
-
         </ons-card>
     </ons-page>
-
-
 
     <script type="text/javascript" src="cordova.js"></script>
     <script type="text/javascript" src="scripts/platformOverrides.js"></script>
