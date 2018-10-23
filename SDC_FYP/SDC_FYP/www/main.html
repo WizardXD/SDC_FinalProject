@@ -19,7 +19,6 @@
     <!-- When it comes to template, the buttons etc are considered an event once the page has been loaded up for some odd reason-->
     <!-- So to call a function or script it has to be inline-->
 
-
     <ons-splitter>
         <ons-splitter-side id="menu" side="left" width="220px" collapse swipeable>
             <ons-page>
@@ -33,14 +32,17 @@
                     <ons-list-item onclick="fn.load('about.html')" tappable>
                         About
                     </ons-list-item>
+                    <ons-list-item onclick="fn.load('profile.html')" tappable>
+                        Profile
+                    </ons-list-item>
                 </ons-list>
             </ons-page>
         </ons-splitter-side>
+
         <ons-splitter-content id="content" page="home.html"></ons-splitter-content>
     </ons-splitter>
 
     <!-- Template are use as a fragments of the current HTML-->
-
     <template id="home.html">
         <ons-page>
             <!-- Toolbar-->
@@ -100,11 +102,6 @@
                                 </ons-card>
                             </ons-carousel-item>
                         </ons-carousel>
-                       
-
-                            <!-- -->
-
-
 
                         <p> Swipe left to see the next instruction</p>
                         <p>
@@ -112,18 +109,12 @@
                         </p>
                     </div>
                 </ons-popover>
-
-
-
-
             </div>
-
-
-
-
-
         </ons-page>
     </template>
+
+
+
     <template id="chat.html">
         <ons-page>
             <ons-toolbar>
@@ -138,6 +129,14 @@
             </ons-toolbar>
         </ons-page>
     </template>
+
+
+
+
+
+
+
+
     <template id="about.html">
         <ons-page>
             <ons-toolbar>
@@ -152,6 +151,77 @@
             </ons-toolbar>
         </ons-page>
     </template>
+
+    <!--HTML that shows account and group profile-->
+    <template id="profile.html">
+        <ons-page>
+            <script src="lib/profile.js"></script>
+
+            <ons-toolbar>
+                <div class="left">
+                    <ons-toolbar-button onclick="fn.open()">
+                        <ons-icon icon="md-menu"></ons-icon>
+                    </ons-toolbar-button>
+                </div>
+                <div class="center">
+                    Profile
+                </div>
+            </ons-toolbar>
+
+            <!--Content of profile.html-->
+            <ons-card class="card">
+                <center><strong>Account Details</strong></center>
+                <hr />
+                <div id="AccountUsername"></div>
+                <div id="AccountType"></div>
+                <br /><hr />
+                <center><strong>Group Details</strong></center>
+                <hr />
+                <strong>Group ICON: ----------</strong>
+                <div id="GroupName"></div>
+                <div id="GroupSchool"></div>
+                <br /><hr />
+                <center><strong>Leader Details</strong></center>
+                <hr />
+                <div id="LeaderName"></div>
+                <div id="LeaderePhone"></div>
+                <div id="LeaderEmail"></div>
+                <br /><hr />
+                <center><strong>Members Details</strong></center>
+                <hr />
+                <div id="Member2Name"></div>
+                <div id="Member3Name"></div>
+                <div id="Member4Name"></div>
+                <div id="Member5Name"></div>
+                <div id="Member6Name"></div>
+                <div id="Member7Name"></div>
+                <div id="Member8Name"></div>
+            </ons-card>
+
+            <ons-card class="card">
+                <center><strong>Change Password Form</strong></center>
+                <hr />
+                <form id="ChangePasswordForm" name="ChangePasswordForm">
+                    <div data-role="fieldcontainer">
+                        <p>
+                            <ons-input id="currentpassword" modifier="material" placeholder="Current Password" float required></ons-input>
+                        </p>
+                        <p>
+                            <ons-input id="newpassword" modifier="material" type="password" placeholder="Enter New Password" float required></ons-input>
+                        </p>
+                        <p>
+                            <ons-input id="newpassword1" modifier="material" type="password" placeholder="Re-enter New Password" float required></ons-input>
+                        </p>
+                    </div>
+                    <ons-button id="updatepassword">Update Password</ons-button>
+                </form>
+            </ons-card>
+        </ons-page>           
+    </template>
+
+
+
+
 
 
     <!-- Footer -->

@@ -36,9 +36,9 @@ function showartefactdetails() {
 
     function showArtefactDetails(arr) {
         for (var i = 0; i < arr.length; i++) {
-        $("#frontartefactimage").html("<img src='" + serverURL() + "/images/" + arr[i].image + "' width='100%' height='20%'>");
-        $("#backartefactimage").html("<img src='" + serverURL() + "/images/" + arr[i].image + "' width='100%' height='20%'>");
-        $("#artefactbackgroundinfo").html(arr[i].backgroundinfo);
+        $("#frontartefactimage").html("<img src='" + serverURL() + "/images/artefacts/" + arr[i].image + "' width=310px' height='210px' border='2'>");
+        $("#backartefactimage").html("<img src='" + serverURL() + "/images/artefacts/" + arr[i].image + "' width='310px' height='210px'>");
+        $("#artefactbackgroundinfo").html("<p align='left'>" + arr[i].backgroundinfo + "</p>");
     }
 }
 

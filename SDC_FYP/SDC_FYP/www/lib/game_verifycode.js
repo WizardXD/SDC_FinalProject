@@ -1,8 +1,5 @@
 ﻿ons.ready(function () {
-   
 });
-
-
 
 window.fn = {};
 
@@ -37,7 +34,7 @@ var test = function () {
 };
 
 
-
+// function to verify the game code
 function gameStartVerfication() {
     var url = serverURL() + "/verifygamecode.php";
     var result;
@@ -61,6 +58,7 @@ function gameStartVerfication() {
     });
 }
 
+// function to execute if the game code entered matches the accesscode in database.
 function _getGameCodeResult(arr) {
     if (arr[0].result.trim() !== "0") {
         var accesscode = $("#txtGameCode").val();
