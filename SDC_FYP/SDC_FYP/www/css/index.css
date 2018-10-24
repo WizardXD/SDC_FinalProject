@@ -22,9 +22,11 @@
 .footer {
     position: fixed;
     left: 0;
+    opacity: 1;
     bottom: 0;
     width: 100%;
-    color: lightsteelblue;
+    color: darkblue;
+    background-color: lightblue;
     text-align: center;
 }
 /*/*/

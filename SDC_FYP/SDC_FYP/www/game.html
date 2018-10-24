@@ -40,23 +40,25 @@
         <div id="status"></div>
         <script>countDown(60, "status");</script>
 
-
-        <!--Display all the artefact the given "accesscode"-->
         <div style="text-align:center">
+            <!--Display all the artefact with the accesscode same as what users has entered-->
             <div id="artefact"></div>
+            <!--Hard counted bonus questions -- button disabled initially ... will be enabled only when students answered all questions correctly-->
+            <ons-button style="width:30%" disabled>Bonus</ons-button>
         </div>
 
-        <!--Hard Counted Progess Bar -- Will change to softcoded later on-->
+        <!--Hard-Coded Progress-bar-->
         <div style="margin: 20px auto; width: 750px;">
             <p>Current Status......</p>
             <ons-progress-bar value="20" secondary-value="50"></ons-progress-bar>
         </div>
-    </ons-page>
 
-    <!-- Footer -->
-    <div class="footer">
-        <p>© 2018 Temasek Polytechnic. All Rights Reserved.</p>
-    </div>
+        <!-- Footer -->
+        <div class="footer">
+            <p>© 2018 Temasek Polytechnic. All Rights Reserved.</p>
+        </div>
+
+    </ons-page>
 
     <script type="text/javascript" src="cordova.js"></script>
     <script type="text/javascript" src="scripts/platformOverrides.js"></script>

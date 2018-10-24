@@ -8,7 +8,7 @@
         });
     });
 
-    //function to display the details of the artefact (image and background information)
+    //function to display the details of the artefact, such as image and background information
     function showartefactdetails() {
         var url = serverURL() + "/quiz.php";
         var artefactid = decodeURIComponent(getUrlVars()["artefactid"]);
@@ -27,7 +27,7 @@
                 showArtefactDetails(arr);
             },
             error: function () {
-                alert("Error");
+                alert("Error");         //Change to validation message 
             }
         });
     }
@@ -35,13 +35,13 @@
     //function to call if php call is successful
     function showArtefactDetails(arr) {
         for (var i = 0; i < arr.length; i++) {
-            $("#frontartefactimage").html("<img src='" + serverURL() + "/images/artefacts/" + arr[i].image + "' width=310px' height='210px' border='2'>");
-            $("#backartefactimage").html("<img src='" + serverURL() + "/images/artefacts/" + arr[i].image + "' width='310px' height='210px' border='2'>");
-            $("#artefactbackgroundinfo").html("<p align='left'>" + arr[i].backgroundinfo + "</p>");
+            $("#frontartefactimage").html("<img src='" + serverURL() + "/images/artefacts/" + arr[i].image + "' width=112%' height='210px' border='2'>");
+            $("#backartefactimage").html("<img src='" + serverURL() + "/images/artefacts/" + arr[i].image + "' width='112%' height='210px' border='2'>");
+            $("#artefactbackgroundinfo").html("<p align='justify'>" + arr[i].backgroundinfo + "</p>");
         }
     }
 
-    //Function to verify the answers
+    //Function to verify the answers (Incomplete-->Verifies the Name of the Artefacts only)
     function answersVerification() {
         var url = serverURL() + "/verifyartefactdetails.php";
         var result;
@@ -70,10 +70,10 @@
     // function to execute if php call is successful
     function _getAnswersResults(arr) {
         if (arr[0].result.trim() !== "0") {    //if result is not equal to "0" --> at least a row of data is found in the database with the given answer and the artefact id
-            alert("Correct Answer");
-            window.location = 'game.html';
+            validationMsgs("Correct Answer", "Information", "OK");  //theres a slight error --> page relocated without even clicking on the valiatonmsg
+            window.location.href = 'game.html';
         } else {                               //else --> result = 0 --> no data was found with the given answer (wrong inputation of answer)
-            alert("Wrong Answer");
+            validationMsgs("Wrong Answer","Information", "OK");
         }
     }  
 

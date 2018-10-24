@@ -20,11 +20,12 @@
             <!--Front Side Of Card-->
             <div class="front">
                 <div id="frontartefactimage" onclick="flip()"> </div>
-                <p style="text-align: center; padding-top: 200px;">
+                <p style="text-align: center; padding-top: 220px;">
                     <h1 style="color:deeppink;"> Background information</h1>
                     <div id="artefactbackgroundinfo"></div>
                 </p>
             </div>
+            <!--End-->
 
             <!--Back Side of Card-->
             <div class="back">
@@ -44,8 +45,23 @@
                     </p>
                 </form>
                 <ons-button class="game_pg_btn" id="uploadimgbtn" style="width:33%">Upload</ons-button>
-                <ons-button class="game_pg_btn" id="uploadimgbtn" style="width:33%">Preview</ons-button>
-                <ons-button class="game_pg_btn" id="uploadimgbtn" modifier="quiet" style="width:20px">?</ons-button>
+                <ons-button class="game_pg_btn" id="previewimgbtn" style="width:33%">Preview</ons-button>
+                <!--End-->
+
+                <!--Button for Popover -- something wrong as there is a white solid line shown-->
+                <ons-button onclick="showPopover(this)" modifier="quiet" style="width:20px">?</ons-button>
+                <ons-popover direction="down" id="popover">
+                    <div style="padding: 10px; text-align: center;">
+                        <p>
+                            Upload a group photo with the artefact.
+                        </p>
+                        <p>
+                            <ons-button onclick="hidePopover()">Close</ons-button>
+                        </p>
+                    </div>
+                </ons-popover>
+                <!--End of Popover-->
+
                 <hr />
                 <ons-button class="game_pg_btn" id="submitAnswerbtn" style="width:80%">Submit</ons-button>
             </div>
