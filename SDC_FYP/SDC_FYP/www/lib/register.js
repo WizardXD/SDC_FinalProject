@@ -1,8 +1,8 @@
-﻿(function () {
+(function () {
     "use strict";
 
     var counter = 2;
-    var url, groupname, username, password, school, email, contactdetails, membername1, membername2, membername3, membername4, membername5, membername6, membername7, membername8; 
+    var url, groupname, username, password, school, email, contactdetails, membername1, membername2, membername3, membername4, membername5, membername6, membername7, membername8, avatar;
 
     $(document).ready(function () {
         $("#addMemberbtn").click(function () {

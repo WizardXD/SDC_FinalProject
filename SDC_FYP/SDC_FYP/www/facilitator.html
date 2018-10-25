@@ -63,10 +63,40 @@
             </ons-toolbar>
 
             <!-- Content of Home page-->
+            <!-- This section will display the map of all current game users-->
+            <!-- The map will be streaming geolocation data in real-time-->
             <p style="text-align: center; opacity: 0.6; padding-top: 20px;">
                 <img src="www/images/trailcoverylogo.png" />
             </p> <br />
-            <p> This section will be used to display statistic of previous game</p>
+
+
+
+            <div id='map' style='width: 400px; height: 300px;'></div>
+            <script>
+        mapboxgl.accessToken = 'pk.eyJ1IjoidmVuaXg0NSIsImEiOiJjam5uMGp1aWkyMW9hM3ZwYWZjeG5zdWczIn0.aPykKQuihFMpgOQnsMMy4g';
+
+        //map object created and assigned to map variable
+        // new map(options:object)
+
+        var map = new mapboxgl.Map({
+            container: 'map', //container id
+            style: 'mapbox://styles/mapbox/streets-v10',
+            center: [103.93118125, 1.3451875],// starting position //long, lang
+            zoom: 8
+        });
+
+
+        // Add geolocate control to the map.
+        // Will be useful for user account? To see where they are possibile to hack this
+        //For admin account to see where all the users are onclick maybe?
+
+        map.addControl(new mapboxgl.GeolocateControl({
+            positionOptions: {
+                enableHighAccuracy: true
+            },
+            trackUserLocation: true
+        }));
+            </script>
         </ons-page>
     </template>
 
