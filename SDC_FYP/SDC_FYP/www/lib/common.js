@@ -21,4 +21,16 @@ function getUrlVars() {
     return vars;
 }
 
+//function to show popover
+var showPopover = function (target) {
+    document
+        .getElementById('popover')
+        .show(target);
+};
 
+//function to hide popover
+var hidePopover = function () {
+    document
+        .getElementById('popover')
+        .hide();
+};

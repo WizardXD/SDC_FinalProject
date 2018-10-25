@@ -1,8 +1,5 @@
 ﻿ons.ready(function () {
-   
 });
-
-
 
 window.fn = {};
 
@@ -19,7 +16,6 @@ window.fn.load = function (page) {
 };
 
 //Popover function to show the instruction
-
 var showPopover = function (target) {
     document
         .getElementById('popoverinstruction')
@@ -36,8 +32,7 @@ var test = function () {
     gameStartVerfication();
 };
 
-
-
+// function to verify the game code
 function gameStartVerfication() {
     var url = serverURL() + "/verifygamecode.php";
     var result;
@@ -61,13 +56,14 @@ function gameStartVerfication() {
     });
 }
 
+// function to execute if php call is successfuly.
 function _getGameCodeResult(arr) {
-    if (arr[0].result.trim() !== "0") {
+    if (arr[0].result.trim() !== "0") {                    //!== 0 means at least a row of data is found --> correct accesscode entered
         var accesscode = $("#txtGameCode").val();
         localStorage.setItem("accesscode", accesscode);
-        alert("Success");
+        alert("Success");                                  //Change to validation instead of alert
         window.location = "game.html";
     } else {
-        alert("Wrong Game Code");
+        alert("Wrong Game Code");                          // == 0 means no data is found with the given accesscode
     }
 }  

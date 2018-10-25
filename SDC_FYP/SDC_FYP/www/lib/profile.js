@@ -71,23 +71,23 @@
     }
     function _getMembersResult(arr) {
         groupname = arr[0].groupname;
-        membername1 = arr[0].membername1;
-        membername2 = arr[0].membername2;
-        membername3 = arr[0].membername3;
-        membername4 = arr[0].membername4;
-        membername5 = arr[0].membername5;
-        membername6 = arr[0].membername6;
-        membername7 = arr[0].membername7;
-        membername8 = arr[0].membername8;
+        leader = arr[0].leader;
+        member2 = arr[0].member2;
+        member3 = arr[0].member3;
+        member4 = arr[0].member4;
+        member5 = arr[0].member5;
+        member6 = arr[0].member6;
+        member7 = arr[0].member7;
+        member8 = arr[0].member8;
         $("#GroupName").html("Group Name: " + groupname);
-        $("#LeaderName").html("Leader's Name: " + membername1);
-        $("#Member2Name").html("A. Leader's Name: " + membername2);
-        $("#Member3Name").html("Member 3's Name: " + membername3);
-        $("#Member4Name").html("Member 4's Name: " + membername4);
-        $("#Member5Name").html("Member 5's Name: " + membername5);
-        $("#Member6Name").html("Member 6's Name: " + membername6);
-        $("#Member7Name").html("Member 7's Name: " + membername7);
-        $("#Member8Name").html("Member 8's Name: " + membername8);
+        $("#LeaderName").html("Leader's Name: " + leader);
+        $("#Member2Name").html("A. Leader's Name: " + member2);
+        $("#Member3Name").html("Member 3's Name: " + member3);
+        $("#Member4Name").html("Member 4's Name: " + member4);
+        $("#Member5Name").html("Member 5's Name: " + member4);
+        $("#Member6Name").html("Member 6's Name: " + member6);
+        $("#Member7Name").html("Member 7's Name: " + member7);
+        $("#Member8Name").html("Member 8's Name: " + member8);
     }
 
    
@@ -130,7 +130,7 @@
             $("#newpassword1").val("");  
 
         } else {
-            alert("WRONG")
+            alert("WRONG");
         }
     }
 
