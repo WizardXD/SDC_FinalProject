@@ -81,6 +81,9 @@
     <!-- Customize which folders are not shown by default -->
     <ExcludedItems>bin;bld;platforms;node_modules;simulation;plugins</ExcludedItems>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Android'">
+    <OutputPath />
+  </PropertyGroup>
   <ItemGroup>
     <Content Include="**\**" Exclude="**\platforms\**;**\bin\**;**\bld\**;**\node_modules\**;**\simulation\**;**\plugins\**;.gitignore;SDCFYP.*" />
   </ItemGroup>
