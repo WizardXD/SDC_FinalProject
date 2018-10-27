@@ -1,85 +1,98 @@
-(function () {
-    "use strict";
+﻿document.addEventListener('init', function (event) {
+    var page = event.target;
 
-    var counter = 2;
-    var url, groupname, username, password, school, email, contactdetails, membername1, membername2, membername3, membername4, membername5, membername6, membername7, membername8, avatar;
+   
 
-    $(document).ready(function () {
-        $("#addMemberbtn").click(function () {
-            addMemberName();
-        });
-        $("#registerbtn").click(function () {
-            registerUser();
-        });
-    });  // end of document ready --> ready event occurs when the page is loaded
+    if (page.id === 'page1') {
 
-    function addMemberName() {
-        if (counter > 8) {                                                //maximum members allowed = 6, will adjust based on what the sponsor requrested.
-            alert("The maximum number of members is 8");                  //message that will be alerted if members > 6
-            return false;
-        }
+        //alert the user when cap locks is on
+        var input = document.getElementById("newpassword");
+        var text = document.getElementById("text");
+        input.addEventListener("keyup", function (event) {
 
-        else if (counter >= 3) {
-            var newGroupMember = $(document.createElement('div'))         //create a new div element
-                .attr("id", 'GroupMember' + counter);                     //.attr(attribute, value)
-            newGroupMember.after().html('<p><ons-input name="membername' + counter + '" id="membername' + counter + '" value="" placeholder="Member ' + counter + ' Name"></ons-input><p/>');   //.after --> insert contetnt after....
-            newGroupMember.appendTo("#GroupMembersName");                 //.apendTo("#")  <-- insert every element into GroupMembersName
-            counter++;
-        }
-
-        else if (counter == 2) {                                          // only the second text input field will have the 'remove members'/ minus sign
-            var newGroupMember = $(document.createElement('div'))         //create a new div element
-                .attr("id", 'GroupMember' + counter);                     //.attr(attribute, value)
-            newGroupMember.after().html('<p><ons-input name="membername' + counter + '" id="membername' + counter + '" value="" placeholder="A. Leader Name" style="width:166px"></ons-input>' +
-                '&nbsp;<input type="button" value="- " id="removeMemberbtn"><p/>');
-            newGroupMember.appendTo("#GroupMembersName");
-            counter++;
-
-            $("#removeMemberbtn").click(function () {
-                counter--;
-                $("#GroupMember" + counter).remove();
-            });
-        }
-    }                                                                      // end of addMemberNames function
-
-    function registerUser() {
-        username = $("#newusername").val();
-        password = $("#newpassword").val();
-
-        email = $("#emailaddress").val();
-        school = $("#school").val();
-        contactdetails = $("#contactdetails").val();
-
-        url = serverURL() + "/register.php";
-        var JSONObject = {
-            "username": username,
-            "password": password,
-            "email": email,
-            "school": school,
-            "phone": contactdetails
-        };
-        $.ajax({
-            url: url,
-            type: 'GET',
-            data: JSONObject,
-            dataType: 'json',
-            contentType: "application/json; charset=utf-8",
-            success: function (arr) {
-                _getNewUserResult(arr);
-            }
-        });
-
-        function _getNewUserResult(arr) {
-            if (arr[0].result === 1) {
-                localStorage.setItem("username", username);
-                localStorage.setItem("password", password);
-                alert("Account Created");
+            if (event.getModifierState("CapsLock")) {
+                text.style.display = "block";
             } else {
-                alert("Error");
+                text.style.display = "none";
             }
-        } 
-       }
+        });
 
- // end of registerUser function
-})();
 
+
+        page.querySelector('#push-button-1').onclick = function () {
+            document.querySelector('#myNavigator').pushPage('page2.html', { data: { title: '' } });  //title --> set the header for page 2
+
+
+        };
+    } else if (page.id === 'page2') {
+        page.querySelector('ons-toolbar .center').innerHTML = page.data.title;    //Header for page 2
+        page.querySelector('#registerbtn').onclick = function () {
+            registerGroup();
+        };
+    } 
+});
+
+function registerGroup() {
+    username = $("#newusername").val();
+    password = $("#newpassword").val();
+    email = $("#emailaddress").val();
+    school = $("#school").val();
+    contactdetails = $("#contactdetails").val();
+
+    groupname = $("#newgroupname").val();
+    member1 = $("#member1").val();
+    member2 = $("#member2").val();
+    member3 = $("#member3").val();
+    member4 = $("#member4").val();
+    member5 = $("#member5").val();
+    member6 = $("#member6").val();
+    member7 = $("#member7").val();
+    member8 = $("#member8").val();
+
+    url = serverURL() + "/register.php"; 
+
+    var JSONObject = {
+        "username": username,
+        "password": password,
+        "email": email,
+        "school": school,
+        "phone": contactdetails,
+
+        "groupname": groupname,
+        "leader": member1,
+        "member2": member2,
+        "member3": member3,
+        "member4": member4,
+        "member5": member5,
+        "member6": member6,
+        "member7": member7,
+        "member8": member8
+    };
+
+    $.ajax({
+        url: url,
+        type: 'GET',
+        data: JSONObject,
+        dataType: 'json',
+        contentType: "application/json; charset=utf-8",
+        success: function (arr) {
+            _getRegisterGroupResult(arr); 
+        }, error: function () {
+            validationMsg();
+        }
+    });   
+}
+
+
+function _getRegisterGroupResult(arr) {
+    if (arr[0].result === 1) {
+        alert("Account has been created successfully");
+    } else if (arr[0].result === 0) {
+        alert("Error.");
+    }
+}
+
+
+function previousPage() {
+    window.history.back();
+}
