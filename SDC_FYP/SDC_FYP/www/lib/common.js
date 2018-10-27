@@ -11,6 +11,11 @@ function validationMsgs(message, title, button) {
     );
 }
 
+//function to go back previous page
+function previousPage() {
+    window.history.back();
+}
+
 
 function getUrlVars() {
     var vars = {};

@@ -93,6 +93,3 @@ function _getRegisterGroupResult(arr) {
 }
 
 
-function previousPage() {
-    window.history.back();
-}
