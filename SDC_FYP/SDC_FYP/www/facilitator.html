@@ -5,7 +5,12 @@
         Customize the content security policy in the meta tag below as needed. Add 'unsafe-inline' to default-src to enable inline JavaScript.
         For details, see http://go.microsoft.com/fwlink/?LinkID=617521
     -->
+    
+    <!-- comment out the CSP until i figure out what the ff is the issue 
     <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: http://1600993h.projectsbit.org https://ssl.gstatic.com 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *">
+        -->
+
+
     <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
     <meta name="format-detection" content="telephone=no">
     <meta name="msapplication-tap-highlight" content="no">
@@ -13,6 +18,10 @@
     <link rel="stylesheet" type="text/css" href="css/index.css">
     <link rel="stylesheet" type="text/css" href="css/onsen-css-components.min.css"> <!-- OnsenUI Componenet Min CSS--> <!-- We try to use but may need to figure out the documentation-->
     <link rel="stylesheet" type="text/css" href="css/onsenui.min.css"> <!-- OnsenUI min css--> <!-- We try to use but may need to figure out the documentation-->
+    <script src="api/pusher.min.js"></script>
+    <script src="api/mapbox-gl.js"></script>
+    <link href='api/mapbox-gl.css' rel='stylesheet' />
+
     <title>SDCFYP</title>
 </head>
 <body>
@@ -21,7 +30,7 @@
 
 
     <ons-splitter>
-        <ons-splitter-side id="menu" side="left" width="220px" collapse swipeable>
+        <ons-splitter-side id="menu" side="left" width="220px" collapse >
             <ons-page>
                 <ons-list>
                     <ons-list-item onclick="fn.load('facilitator_home.html')" tappable>
@@ -118,6 +127,21 @@
         </ons-page>
     </template>
 
+    <!-- Trailmanagemnet.html-->
+    <template id="trail_management.html">
+        <ons-page>
+            <ons-toolbar>
+                <div class="left">
+                    <ons-toolbar-button onclick="fn.open()">
+                        <ons-icon icon="md-menu"></ons-icon>
+                    </ons-toolbar-button>
+                </div>
+                <div class="center">
+                   trail mananagement content
+                </div>
+            </ons-toolbar>
+        </ons-page>
+    </template>
 
     <template id="account_management.html">
         <ons-page>
@@ -132,7 +156,7 @@
                 </div>
             </ons-toolbar>
 
-            <div ><p style="text-align:center;"> Team  <ons-button id="display_allteam" class="display_team_records_btn" style="display: inline;">Display All Team</ons-button> </p></div>
+            <div><p style="text-align:center;"> Team  <ons-button id="display_allteam" class="display_team_records_btn" style="display: inline;">Display All Team</ons-button> </p></div>
 
 
         </ons-page>
