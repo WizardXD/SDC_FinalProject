@@ -44,7 +44,7 @@
         });
 
         $("#lgnbtn").bind("click", function () {
-            if ($("#LoginForm").valid()) {
+            if ($("#authForm").valid()) {
                 login();
             }
         });

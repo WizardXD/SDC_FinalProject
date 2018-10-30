@@ -13,7 +13,7 @@
     <link rel="stylesheet" type="text/css" href="css/index.css">
     <link rel="stylesheet" type="text/css" href="css/onsen-css-components.min.css"> <!-- OnsenUI Componenet Min CSS--> <!-- We try to use but may need to figure out the documentation-->
     <link rel="stylesheet" type="text/css" href="css/onsenui.min.css"> <!-- OnsenUI min css--> <!-- We try to use but may need to figure out the documentation-->
-    <script type="text/javascript" src="scripts/jquery-3.1.1.js"></script>
+    <script type="text/javascript" src="scripts/jquery-3.3.1.js"></script>
     <script type="text/javascript" src="framework/onsenui.min.js"></script>
 
 
@@ -45,14 +45,14 @@
                         <form name="authForm" id="authForm">
                             <p>
                                 <i class="fa fa-user icon"></i>
-                                <ons-input id="username" class="username" modifier="material" placeholder="Username" float required></ons-input>
+                                <ons-input id="username" class="username" modifier="material" placeholder="Username" float required></ons-input> <br />
                             </p>
                             <p>
                                 <i class="fa fa-key icon"></i>
                                 <!-- For some odd reason jQueryValidation is throwing an error when using ons-input with the type="password" So i went deep into the DOM and discovered
                                     that ons-input will create a input with a proper class which provided a workaround =D
                                 <ons-input id="password" modifier="material" type="password" placeholder="Password" float required></ons-input>         -->
-                                <input type="password" class="text-input text-input--material valid" name="txtpwd" placeholder="Password" required="" aria-invalid="false">
+                                <input id="password" type="password" class="text-input text-input--material valid" name="txtpwd" placeholder="Password" required="" aria-invalid="false"> <br />
                                 
                             </p>
 
