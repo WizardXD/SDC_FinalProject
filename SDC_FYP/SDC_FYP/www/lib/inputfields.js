@@ -28,7 +28,7 @@
         }
 
         else if (counter === 2) {                                          // only the second text input field will have the 'remove members'/ minus sign
-            var newGroupMember = $(document.createElement('div'))         //create a new div element
+            newGroupMember = $(document.createElement('div'))         //create a new div element
                 .attr("id", 'GroupMember' + counter);                     //.attr(attribute, value)
             newGroupMember.after().html('<p><ons-input name="member' + counter + '" id="member' + counter + '" value="" placeholder="A. Leader Name" style="width:166px"></ons-input>' +
                 '&nbsp;<input type="button" value="- " id="removeMemberbtn"><p/>');
