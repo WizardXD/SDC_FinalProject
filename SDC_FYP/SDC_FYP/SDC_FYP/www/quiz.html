@@ -1,0 +1,87 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <!--Customize the content security policy in the meta tag below as needed. Add 'unsafe-inline' to default-src to enable inline JavaScript.For details, see http://go.microsoft.com/fwlink/?LinkID=617521-->
+
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <meta name="format-detection" content="telephone=no">
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+    <link rel="stylesheet" type="text/css" href="css/game.css">
+    <link rel="stylesheet" type="text/css" href="css/onsen-css-components.min.css"> <!-- OnsenUI Componenet Min CSS--> <!-- We try to use but may need to figure out the documentation-->
+    <link rel="stylesheet" type="text/css" href="css/onsenui.min.css"> <!-- OnsenUI min css--> <!-- We try to use but may need to figure out the documentation-->
+    <script type="text/javascript" src="scripts/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript" src="framework/onsenui.min.js"></script>
+
+    <title>SDCFYP</title>
+</head>
+<body>
+    <ons-page>
+
+        <ons-toolbar>
+            <ons-button class="navbtn" modifier="quiet">
+                <i class="fa fa-arrow-left" style="font-size:20px;color:deepskyblue" onclick="previousPage()"> </i>
+            </ons-button>
+        </ons-toolbar>
+
+        <ons-card class="card" style="text-align:center;">
+
+            <!--Front Side Of Card-->
+            <div class="front">
+                <div id="frontartefactimage" onclick="flip()"> </div>
+                <p style="text-align: center; padding-top: 220px;">
+                    <h1 style="color:deeppink;"> Background information</h1>
+                    <div id="artefactbackgroundinfo"></div>
+                </p>
+            </div>
+            <!--End-->
+            <!--Back Side of Card-->
+            <div class="back">
+                <div id="backartefactimage" onclick="flip()"> </div>
+                <form style="text-align: center; padding-top: 220px;">
+                    <p>
+                        <ons-input id="NameOfArt" modifier="material" placeholder="Name" float required></ons-input>
+                    </p>
+                    <p>
+                        <ons-input id="LocationOfArt" modifier="material" placeholder="Location" float required></ons-input>
+                    </p>
+                    <p>
+                        <ons-input id="UsageOfArt" modifier="material" placeholder="What is it used for?" float required></ons-input>
+                    </p>
+                    <p>
+                        <textarea class="textarea" id="ImportantnessOfArt" rows="4" maxlength="50" style="width:65%" placeholder="How is this item significant to this ethnic group?" float required></textarea>
+                    </p>
+                </form>
+                <ons-button class="game_pg_btn" id="uploadimgbtn" style="width:33%">Upload</ons-button>
+                <ons-button class="game_pg_btn" id="previewimgbtn" style="width:33%">Preview</ons-button>
+                <!--End-->
+                <!--Button for Popover -- something wrong as there is a white solid line shown-->
+                <ons-button onclick="showPopover(this)" modifier="quiet" style="width:20px">?</ons-button>
+                <ons-popover direction="down" id="popover">
+                    <div style="padding: 10px; text-align: center;">
+                        <p>
+                            Upload a group photo with the artefact.
+                        </p>
+                        <p>
+                            <ons-button onclick="hidePopover()">Close</ons-button>
+                        </p>
+                    </div>
+                </ons-popover>
+                <!--End of Popover-->
+
+                <hr />
+                <ons-button class="game_pg_btn" id="submitAnswerbtn" style="width:80%">Submit</ons-button>
+            </div>
+        </ons-card>
+    </ons-page>
+
+    <script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="scripts/platformOverrides.js"></script>
+
+    <script type="text/javascript" src="scripts/jquery.validate.min.js"></script>
+
+    <!-- The following script consist of the JS necessary to connect to the server for authentication-->
+    <script type="text/javascript" src="lib/quiz.js"></script>
+    <script src="lib/common.js"></script>
+</body>
+</html>
