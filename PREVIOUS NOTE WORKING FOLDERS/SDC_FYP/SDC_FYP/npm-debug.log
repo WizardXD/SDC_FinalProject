@@ -8,7 +8,7 @@
 3 info using node@v4.4.3
 4 verbose stack Error: EPERM: operation not permitted, mkdir 'C:\ProgramData\Microsoft\VisualStudio\MDA\6220421d'
 4 verbose stack     at Error (native)
-5 verbose cwd C:\Users\yonga\Documents\GitHub\SDC_FinalProject\SDC_FYP
+5 verbose cwd C:\Users\yonga\Documents\GitHub\SDC_FinalProject\PREVIOUS NOTE WORKING FOLDERS\SDC_FYP\SDC_FYP
 6 error Windows_NT 10.0.17134
 7 error argv "C:\\ProgramData\\Microsoft\\VisualStudio\\MDA\\24a49438\\taco-toolset-6.3.1\\node.exe" "C:\\ProgramData\\Microsoft\\VisualStudio\\MDA\\24a49438\\taco-toolset-6.3.1\\node_modules\\npm\\bin\\npm-cli.js" "config" "get" "prefix"
 8 error node v4.4.3
