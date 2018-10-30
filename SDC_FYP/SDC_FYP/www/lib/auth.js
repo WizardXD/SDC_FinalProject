@@ -3,12 +3,39 @@
 // To debug code on page load in cordova-simulate or on Android devices/emulators: launch your app, set breakpoints, 
 // and then run "window.location.reload()" in the JavaScript Console.
 
+(function () {
+    "use strict";
 
-var username, password, JSONObject, url; //global variables
+    var username, password, JSONObject, url; //global variables
 
 
 
-$(document).ready(function () {
+    $(document).ready(function () {
+
+        /* Login and Password Field */
+        /*jQuery Validation API */
+        $('#AuthForm').validation({
+
+            /* To check what this API does*/
+            messages: {
+                username: "Username is required",
+                password: "Password is required",
+
+            },
+
+            focusInvalid: false,
+            submitHandler: function () {
+                return false;
+            },
+
+            errorPlacement: function (error, element) {
+                error.appendTo(element.parent().parent().after());
+            }
+
+        }); /* End of Validation*/
+
+
+
 
 
         //register button
@@ -27,55 +54,80 @@ $(document).ready(function () {
 
 
 
-});
+    }); /* End of Document Ready */
+
+    /* Login Function */
+
+
+    function login() {
+        url = serverURL() + "/login.php"; //have an issue 
+        username = $("#username").val();
+        password = $("#password").val();
+
+
+        //JSONObject
+        JSONObject = {
+            "username": username, //Key:value
+            "password": password //Key:value
+        };
+
+        //ajax to call
+        $.ajax({
+            url: url, //A string containing the URL to which the request is sent.
+            type: 'GET',
+            data: JSONObject, //Data to be sent to the server. It is converted to a query string, if not already a string. It's appended to the url for GET-requests.
+            dataType: 'json', //Evaluates the response as JSON and return a JS object
+            contentType: "application/json; charset=utf-8",
+            success: function (data) { //function to be called if the request succeeds //this function will be called
+                loginResult(data);
+            },
 
 
 
 
-function login() {
-    url = serverURL() + "/login.php"; //have an issue 
-    username = $("#username").val();
-    password = $("#password").val();
+            //if (data.account_role == "adm" && data.result == "1") {
+            //  window.location = '../facilitator.html';
+            //} else if (data.account_role == 'student' && data.result == '1') {
+            //  localStorage.setItem("username", username);
+            //localStorage.setItem("password", password);
+            //window.location = '../main.html';
+            //}
+            //else if (data.account_role == 'teacher' && data.result == '1') {
+            //  window.location = '../teacher.html'
+            //}
+
+            //  } 
+        });
+    }
+
+    // error: function () {
+    //console.log('error');
+    //}
 
 
-    //JSONObject
-    JSONObject = {
-        "username": username, //Key:value
-        "password": password //Key:value
-    };
+    /* Login result function to parse */
 
-    //ajax to call
-    $.ajax({
-        url: url, //A string containing the URL to which the request is sent.
-        type: 'GET',
-        data: JSONObject, //Data to be sent to the server. It is converted to a query string, if not already a string. It's appended to the url for GET-requests.
-        dataType: 'json', //Evaluates the response as JSON and return a JS object
-        contentType: "application/json; charset=utf-8",
-        success: function (data) { //function to be called if the request succeeds //this function will be called
-            if (data.account_role == "adm" && data.result == "1") {
-                window.location = '../facilitator.html';
-            } else if (data.account_role == 'student' && data.result == '1') {
-                localStorage.setItem("username", username);
-                localStorage.setItem("password", password); 
-                window.location = '../main.html';
-            }
-            else if (data.account_role == 'teacher' && data.result == '1') {
-                window.location = '../teacher.html'
-            }
-            
+    /* Need to convert to string and have triple equals */
+    function loginResult(data) {
+        if (data.account_role == "adm" && data.result == "1") {
+            localStorage.setItem("username", username);
+            localStorage.setItem("password", password);
+            window.location = '../facilitator.html';
+
+        } else if (data.account_role == 'student' && data.result == '1') {
+            localStorage.setItem("username", username);
+            localStorage.setItem("password", password);
+            window.location = '../main.html';
+        } else if (data.account_role == 'teacher' && data.result == '1') {
+            localStorage.setItem("username", username);
+            localStorage.setItem("password", password);
+            window.location = '../teacher.html';
+        } else if (data.result == '0') {
+            alert("not working yo"); //Change this later when i reach home and have time :)
         }
-        
-       // error: function () {
-                    //console.log('error');
-                //}
-                
 
-           
-            
 
-                  
-            
+    } /* End of the function*/
 
-        
-    });
-}
+
+})();
