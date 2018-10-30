@@ -1,0 +1,8 @@
+﻿.navbtn {
+    background-color: white;
+    border: none;
+    color: white;
+    padding: 10px 16px;
+    font-size: 10px;
+    cursor: pointer;
+}

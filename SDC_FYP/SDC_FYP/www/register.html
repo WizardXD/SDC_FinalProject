@@ -1,4 +1,4 @@
-﻿﻿<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 <head>
     <!--Customize the content security policy in the meta tag below as needed. Add 'unsafe-inline' to default-src to enable inline JavaScript.For details, see http://go.microsoft.com/fwlink/?LinkID=617521-->
@@ -7,6 +7,7 @@
     <meta name="msapplication-tap-highlight" content="no">
     <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
     <link rel="stylesheet" type="text/css" href="css/index.css">
+    
     <link rel="stylesheet" type="text/css" href="css/onsen-css-components.min.css"> <!-- OnsenUI Componenet Min CSS--> <!-- We try to use but may need to figure out the documentation-->
     <link rel="stylesheet" type="text/css" href="css/onsenui.min.css"> <!-- OnsenUI min css--> <!-- We try to use but may need to figure out the documentation-->
     <title>SDCFYP</title>
@@ -18,16 +19,18 @@
 
         <!--Start of Registration Page 1-->
         <template id="page1.html">
-            
+          
             <ons-page id="page1">
-                <ons-button modifier="quiet">
-                <i class="fa fa-arrow-left" style="font-size:30px;color:black" onclick="previousPage()"> </i> 
-                </ons-button>
-
+                <link rel="stylesheet" type="text/css" href="css/common.css">
+                <ons-toolbar>
+                    <ons-button class="navbtn" modifier="quiet">
+                        <i class="fa fa-arrow-left" style="font-size:20px;color:deepskyblue" onclick="previousPage()"> </i>
+                    </ons-button>
+                </ons-toolbar>
 
                 <!--Content of Registration Page 1-->
-                <div style="text-align: center; margin-top: 30px;">
-                    <div style="text-align:center; padding-top: 80px;">
+                <div style="text-align: center; margin-top: 10px;">
+                    <div style="text-align:center; padding-top: 20px;">
 
                         <!--Image of SDC Logo-->
                         <img src="images/trailcoverylogo.png" />
@@ -62,7 +65,7 @@
                         <ons-button class="register_pg_btn" id="push-button-1">Next</ons-button>
                     </div>
                 </div>
-                  
+
                 <!--Start of footer-->
                 <div class="footer">
                     <p>© 2018 Temasek Polytechnic. All Rights Reserved.</p>
@@ -85,29 +88,37 @@
                 </ons-toolbar>
 
                 <div style="text-align: center; margin-top: 30px;">
-                    <div style="text-align:center; padding-top: 40px;">
+                  <div style="text-align:center; padding-top: 40px;">
 
+                    <br />
+                    <b>Please Select Your Group Avatar</b>
+                    <br />
 
-                        <!--Image of SDC Logo-->
-                        <img src="images/trailcoverylogo.png" />
+                    <i class="fa fa-bell" style="font-size:24px"></i>&ensp;
+                    <i class="fa fa-bolt" style="font-size:24px"></i>&ensp;
+                    <i class="fa fa-bullseye" style="font-size:24px"></i>&ensp;
+                    <i class="fa fa-cube" style="font-size:24px"></i>&ensp;
+                    <i class="fa fa-diamond" style="font-size:24px"></i>&ensp;
+                    <i class="fa fa-fighter-jet" style="font-size:24px"></i>&ensp;
+                    <i class="fa fa-futbol-o" style="font-size:24px"></i>
 
+                    <p>
+                      <i class="fa fa-group"></i>
+                      <ons-input id="newgroupname" modifier="material" placeholder="Group Name" style="width:166px" float required></ons-input>
+                    </p>
+
+                    <div id='GroupMembersName'>
+                      <div id="GroupMember1">
                         <p>
-                            <i class="fa fa-group"></i>
-                            <ons-input id="newgroupname" modifier="material" placeholder="Group Name" style="width:166px" float required></ons-input>
+                          <ons-input id="member1" placeholder="Leader Name" style="width:166px"></ons-input>
+                          <input type='button' value='+' id='addMemberbtn'> <br />
+                          <ons-input id="contactdetails" placeholder="Leader's Contact Details"></ons-input> <br />
+                          <ons-input id="emailaddress" placeholder="Leader's Email Address"></ons-input>
                         </p>
-
-                        <div id='GroupMembersName'>
-                            <div id="GroupMember1">
-                                <p>
-                                    <ons-input id="member1" placeholder="Leader Name" style="width:166px"></ons-input>
-                                    <input type='button' value='+' id='addMemberbtn'> <br />
-                                    <ons-input id="contactdetails" placeholder="Leader's Contact Details"></ons-input> <br />
-                                    <ons-input id="emailaddress" placeholder="Leader's Email Address"></ons-input>
-                                </p>
-                            </div>
-                        </div>
-                        <ons-button class="register_pg_btn" id="registerbtn">Register</ons-button>
+                      </div>
                     </div>
+                    <ons-button class="register_pg_btn" id="registerbtn">Register</ons-button>
+                  </div>
                 </div>
 
                 <!--Start of footer-->

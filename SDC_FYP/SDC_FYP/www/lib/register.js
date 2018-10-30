@@ -87,12 +87,10 @@ function registerGroup() {
 function _getRegisterGroupResult(arr) {
     if (arr[0].result === 1) {
         alert("Account has been created successfully");
+        window.location = "index.html";
     } else if (arr[0].result === 0) {
-        alert("Error.");
+        alert("Username already exist.");
     }
 }
 
 
-function previousPage() {
-    window.history.back();
-}
