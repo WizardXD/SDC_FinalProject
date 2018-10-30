@@ -1,4 +1,4 @@
-﻿﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
     <!--Customize the content security policy in the meta tag below as needed. Add 'unsafe-inline' to default-src to enable inline JavaScript.For details, see http://go.microsoft.com/fwlink/?LinkID=617521-->
@@ -88,29 +88,40 @@
                 </ons-toolbar>
 
                 <div style="text-align: center; margin-top: 30px;">
-                    <div style="text-align:center; padding-top: 40px;">
+                  <div style="text-align:center; padding-top: 40px;">
 
 
-                        <!--Image of SDC Logo-->
-                        <img src="images/trailcoverylogo.png" />
+                    <!--Image of SDC Logo-->
+                    <img src="images/trailcoverylogo.png" />
+                    <br />
+                    <b>Please Select Your Group Avatar</b>
+                    <br />
 
+                    <i class="fa fa-bell" style="font-size:24px"></i>&ensp;
+                    <i class="fa fa-bolt" style="font-size:24px"></i>&ensp;
+                    <i class="fa fa-bullseye" style="font-size:24px"></i>&ensp;
+                    <i class="fa fa-cube" style="font-size:24px"></i>&ensp;
+                    <i class="fa fa-diamond" style="font-size:24px"></i>&ensp;
+                    <i class="fa fa-fighter-jet" style="font-size:24px"></i>&ensp;
+                    <i class="fa fa-futbol-o" style="font-size:24px"></i>
+
+                    <p>
+                      <i class="fa fa-group"></i>
+                      <ons-input id="newgroupname" modifier="material" placeholder="Group Name" style="width:166px" float required></ons-input>
+                    </p>
+
+                    <div id='GroupMembersName'>
+                      <div id="GroupMember1">
                         <p>
-                            <i class="fa fa-group"></i>
-                            <ons-input id="newgroupname" modifier="material" placeholder="Group Name" style="width:166px" float required></ons-input>
+                          <ons-input id="member1" placeholder="Leader Name" style="width:166px"></ons-input>
+                          <input type='button' value='+' id='addMemberbtn'> <br />
+                          <ons-input id="contactdetails" placeholder="Leader's Contact Details"></ons-input> <br />
+                          <ons-input id="emailaddress" placeholder="Leader's Email Address"></ons-input>
                         </p>
-
-                        <div id='GroupMembersName'>
-                            <div id="GroupMember1">
-                                <p>
-                                    <ons-input id="member1" placeholder="Leader Name" style="width:166px"></ons-input>
-                                    <input type='button' value='+' id='addMemberbtn'> <br />
-                                    <ons-input id="contactdetails" placeholder="Leader's Contact Details"></ons-input> <br />
-                                    <ons-input id="emailaddress" placeholder="Leader's Email Address"></ons-input>
-                                </p>
-                            </div>
-                        </div>
-                        <ons-button class="register_pg_btn" id="registerbtn">Register</ons-button>
+                      </div>
                     </div>
+                    <ons-button class="register_pg_btn" id="registerbtn">Register</ons-button>
+                  </div>
                 </div>
 
                 <!--Start of footer-->
