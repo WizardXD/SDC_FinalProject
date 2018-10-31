@@ -40,18 +40,21 @@
                         <form name="RegisterForm" id="RegisterForm">
                             <p>
                                 <i class="fa fa-user icon"></i>
-                                <ons-input id="newusername" modifier="material" placeholder="Username" float required></ons-input>
+                                <input id="newusername" type="text" class="text-input text-input--material valid" name="newusername" placeholder="Username" required="" aria-invalid="false" style="font-size: 20px; width:220px;  font-family: Times New Roman; "> <br />
+                               <!--  <ons-input id="newusername" modifier="material" placeholder="Username" required></ons-input> -->
                             </p>
                             <p>
                                 <i class="fa fa-key icon"></i>
-                                <ons-input id="newpassword" modifier="material" type="password" placeholder="Password" float required></ons-input>
+                                <input id="newpassword" type="password" class="text-input text-input--material valid" name="newpassword" placeholder="Password" required="" aria-invalid="false" style="font-size: 20px; width:220px;  font-family: Times New Roman; "> <br />
+                                <!--  <ons-input id="newpassword" modifier="material" type="password" placeholder="Password" required></ons-input> -->
                             </p>
 
                             <p id="text" hidden>WARNING! Caps lock is ON.</p>
 
                             <p>
                                 <i class="fa fa-key icon"></i>
-                                <ons-input id="newpassword2" modifier="material" type="password" placeholder="Confirm Password" float required></ons-input>
+                                <input id="newpassword2" type="password" class="text-input text-input--material valid" name="newpassword2" placeholder="Re-enter password" required="" aria-invalid="false" style="font-size: 20px; width:220px;  font-family: Times New Roman; "> <br />
+                                <!--  <ons-input id="newpassword2" modifier="material" type="password" placeholder="Confirm Password" required></ons-input> -->
                             </p>
                             <p>
                                 <i class="fa fa-institution"></i>
@@ -106,7 +109,7 @@
 
                     <p>
                       <i class="fa fa-group"></i>
-                      <ons-input id="newgroupname" modifier="material" placeholder="Group Name" style="width:166px" float required></ons-input>
+                      <ons-input id="newgroupname" modifier="material" placeholder="Group Name" style="width:166px"  required></ons-input>
                     </p>
 
                     <div id='GroupMembersName'>
