@@ -1,4 +1,8 @@
-﻿document.addEventListener('init', function (event) {
+﻿
+
+
+
+document.addEventListener('init', function (event) {
     var page = event.target;
 
    
@@ -18,19 +22,138 @@
         });
 
 
+        /*jQuery Validation API */
+        $('#RegisterForm1').validate({
+            rules: {
+                newusername: {
+                    minlength: 6
+                },
+                newpassword2: {
+                    equalTo: "#newpassword"
+                },
+                newpassword: {
+                    minlength: 8
+                }
+            },
 
-        page.querySelector('#push-button-1').onclick = function () {
-            document.querySelector('#myNavigator').pushPage('page2.html', { data: { title: '' } });  //title --> set the header for page 2
+
+            /* To check what this API does*/
+            messages: {
+                newusername: {
+                    required: "Username is required"
+                },
+                newpassword: {
+
+                    required: "Password is required"
+                },
+                newpassword2: {
+                    required: "Re-enter your password"
+                }
 
 
-        };
+
+            },
+
+            focusInvalid: false,
+            submitHandler: function () {
+                return false;
+            },
+
+            errorPlacement: function (error, element) {
+                error.appendTo(element.parent().after());
+                //error.appendTo(element.parent().parent().after());
+            }
+
+        }); /* End of Validation*/
+
+
+
+
+
+
+
+        $("#push-button-1").bind("click", function () {
+            if ($("#RegisterForm1").valid()) {
+                document.querySelector('#myNavigator').pushPage('page2.html', { data: { title: '' } });  //title --> set the header for page 2
+            }
+
+        });
+
     } else if (page.id === 'page2') {
+
+        //show the group avatar
+        showAvatar();
+
+        /*jQuery Validation API */
+        $('#RegisterForm2').validate({
+            rules: {
+                emailaddress: {
+                    email: true
+                },
+
+                newgroupname: {
+                    minlength: 5
+                },
+                contactdetails: {
+                    minlength: 8,
+                    number: true
+                }
+            },
+
+
+            /* To check what this API does*/
+            messages: {
+                member1: {
+                    required: "Leader's name is required."
+                },
+                newgroupname: {
+
+                    required: "Enter group name."
+                },
+                contactdetails: {
+                    required: "Enter your phone no."
+                },
+                emailaddress: {
+                    required: "Provide a valid email address."
+                }
+
+
+
+            },
+
+            focusInvalid: false,
+            submitHandler: function () {
+                return false;
+            },
+
+            errorPlacement: function (error, element) {
+                error.appendTo(element.parent().after());
+               // error.appendTo(element.parent().parent().after());
+            }
+
+        }); /* End of Validation*/
+
+
+
+
+
+
+
+
+
         page.querySelector('ons-toolbar .center').innerHTML = page.data.title;    //Header for page 2
-        page.querySelector('#registerbtn').onclick = function () {
-            registerGroup();
-        };
-    } 
+
+
+        $("#registerbtn").bind("click", function () {
+            if ($("#RegisterForm2").valid()) {
+                registerGroup();
+            }
+        });
+    }
 });
+
+
+
 
 function registerGroup() {
     username = $("#newusername").val();
@@ -94,3 +217,33 @@ function _getRegisterGroupResult(arr) {
 }
 
 
+function showAvatar() {
+    var url = serverURL() + "/avatar.php";
+
+    var JSONObject = {
+    };
+
+    $.ajax({
+        url: url,
+        type: 'GET',
+        data: JSONObject,
+        dataType: 'json',
+        contentType: "application/json; charset=utf-8",
+        success: function (arr) {
+            showAvatarResult(arr);
+        },
+        error: function () {
+            alert("Error");         //Change to validation message 
+        }
+    });
+}
+
+function showAvatarResult(arr) {
+    //if i is less than the total  number of artefacts, increment by 1
+    for (i = 0; i < arr.length; i++) {
+        var t;
+        // creating button with id similiar to the artefact id
+        t = "<img src='" + serverURL() + "/images/avatars/" + arr[i].image + "' width=17%' height='17%'>";
+        $("#avatar").append(t);
+    }
+}

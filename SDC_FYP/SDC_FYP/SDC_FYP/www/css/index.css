@@ -135,5 +135,13 @@ body {
     margin-top: 50px;
 }
 
+/* CSS for Avatar*/
+.avatar {
+    vertical-align: middle;
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+}
+
 
 /* This section is to display the arrowdn display*/
