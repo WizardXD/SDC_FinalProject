@@ -1,0 +1,90 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <!--Customize the content security policy in the meta tag below as needed. Add 'unsafe-inline' to default-src to enable inline JavaScript.For details, see http://go.microsoft.com/fwlink/?LinkID=617521-->
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <meta name="format-detection" content="telephone=no">
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+    <link rel="stylesheet" type="text/css" href="css/index.css">
+    <link rel="stylesheet" type="text/css" href="css/onsen-css-components.min.css"> <!-- OnsenUI Componenet Min CSS--> <!-- We try to use but may need to figure out the documentation-->
+    <link rel="stylesheet" type="text/css" href="css/onsenui.min.css"> <!-- OnsenUI min css--> <!-- We try to use but may need to figure out the documentation-->
+    <title>SDCFYP</title>
+</head>
+<body>
+
+    <ons-page modifier="full_bg">
+        <div class="content">
+          <div style="text-align: center; margin-top: 30px; padding-top: 50px;">
+            <strong><em>Trailcovery2.0</em></strong>
+            <br />
+
+            <span style="font-family:Arial; font-weight:normal;">Select Group Avatar</span>
+            <br />
+
+            <form name="RegisterForm" id="RegisterForm">
+
+              <a href="#1" onclick="alert('testing');"> <i class="fa fa-space-shuttle" style="font-size:24px"></i></a>&ensp;
+              <a href="#2"> <i class="fa fa-soccer-ball-o" style="font-size:24px"></i></a>&ensp;
+              <a href="#3"> <i class="fa fa-snowflake-o" style="font-size:24px"></i></a>&ensp;
+              <a href="#4"> <i class="fa fa-smile-o" style="font-size:24px"></i></a>&ensp;
+              <a href="#5"> <i class="fa fa-asl-interpreting" style="font-size:24px"></i></a>&ensp;
+              <a href="#6"> <i class="fa fa-eyedropper" style="font-size:24px"></i></a>&ensp;
+              <a href="#7"> <i class="fa fa-legal" style="font-size:24px"></i></a>&ensp;
+              <a href="#8"> <i class="fa fa-moon-o" style="font-size:24px"></i></a>
+
+              <p>
+                <i class="fa fa-group"></i>
+                <ons-input id="newgroupname" modifier="material" placeholder="Group Name" float required></ons-input>
+              </p>
+              <div id='GroupMembersName'>
+                <div id="GroupMember1">
+                  <p>
+                    <ons-input id="membername1" placeholder="Leader Name" style="width:166px"></ons-input>
+                    <input type='button' value='+' id='addMemberbtn'> <br />
+                    <ons-input id="contactdetails" placeholder="Leader's Contact Details"></ons-input> <br />
+                    <ons-input id="emailaddress" placeholder="Leader's Email Address"></ons-input>
+                  </p>
+                </div>
+              </div>
+              <p>
+                <i class="fa fa-user icon"></i>
+                <ons-input id="newusername" modifier="material" placeholder="Username" float required></ons-input>
+              </p>
+              <p>
+                <i class="fa fa-key icon"></i>
+                <ons-input id="newpassword" modifier="material" type="password" placeholder="Password" float required></ons-input>
+              </p>
+              <p>
+                <i class="fa fa-key icon"></i>
+                <ons-input id="newpassword2" modifier="material" type="password" placeholder="Enter Password Again" float required></ons-input>
+              </p>
+              <p>
+                <i class="fa fa-institution"></i>
+                <select name="school" id="school" style="width:200px; height:25px">
+                  <option value="null">Select School/Institution</option>
+                  <optgroup label="Junior College" name="juniorcollege" id="juniorcollege"> </optgroup>
+                  <optgroup label="Polytechnic" name="polytechnic" id="polytechnic"> </optgroup>
+                  <optgroup label="Secondary School" name="secondarysch" id="secondarysch"> </optgroup>
+                  <optgroup label="Primary School" name="primarysch" id="primarysch"> </optgroup>
+                </select>
+              </p>
+
+
+            </form> <br />
+            <ons-button id="registerbtn">Register</ons-button>
+          </div>
+            </div>
+    </ons-page>
+    <script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="scripts/platformOverrides.js"></script>
+    <script type="text/javascript" src="scripts/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript" src="scripts/jquery.mobile-1.4.5.min.js"></script>
+    <script type="text/javascript" src="scripts/jquery.validate.min.js"></script>
+    <script type="text/javascript" src="framework/onsenui.min.js"></script>
+    <!-- The following script consist of the JS necessary to connect to the server for authentication-->
+    <script type="text/javascript" src="lib/register.js"></script>
+    <script src="lib/schArrayObject.js"></script>
+    <script src="lib/common.js"></script>
+</body>
+</html>
