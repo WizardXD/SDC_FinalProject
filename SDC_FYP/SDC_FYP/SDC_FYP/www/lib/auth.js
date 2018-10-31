@@ -29,7 +29,8 @@
             },
 
             errorPlacement: function (error, element) {
-                error.appendTo(element.parent().parent().after());
+                error.appendTo(element.parent().after());
+                //error.appendTo(element.parent().parent().after());
             }
 
         }); /* End of Validation*/

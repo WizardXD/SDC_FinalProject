@@ -9,7 +9,7 @@
     <link rel="stylesheet" type="text/css" href="css/index.css">
     
     <link rel="stylesheet" type="text/css" href="css/onsen-css-components.min.css"> <!-- OnsenUI Componenet Min CSS--> <!-- We try to use but may need to figure out the documentation-->
-    <link rel="stylesheet" type="text/css" href="css/onsenui.min.css"> <!-- OnsenUI min css--> <!-- We try to use but may need to figure out the documentation-->
+    <link rel="stylesheet" type="text/css" href="css/onsenui.css"> <!-- OnsenUI min css--> <!-- We try to use but may need to figure out the documentation-->
 	<script type="text/javascript" src="scripts/jquery-3.3.1.min.js"></script>
 	<script type="text/javascript" src="framework/onsenui.min.js"></script>
     <title>SDCFYP</title>
@@ -33,25 +33,28 @@
                 <!--Content of Registration Page 1-->
                 <div style="text-align: center; margin-top: 10px;">
                     <div style="text-align:center; padding-top: 20px;">
-
+                       
                         <!--Image of SDC Logo-->
                         <img src="images/trailcoverylogo.png" />
 
-                        <form name="RegisterForm" id="RegisterForm">
+                        <form name="RegisterForm1" id="RegisterForm1">
                             <p>
                                 <i class="fa fa-user icon"></i>
-                                <ons-input id="newusername" modifier="material" placeholder="Username" float required></ons-input>
+                                <input id="newusername" class="text-input text-input--material valid" name="newusername" placeholder="Username" required="" aria-invalid="false"> <br />
+                                <!--   <ons-input id="newusername" modifier="material" placeholder="Username" float required></ons-input> -->
                             </p>
                             <p>
                                 <i class="fa fa-key icon"></i>
-                                <ons-input id="newpassword" modifier="material" type="password" placeholder="Password" float required></ons-input>
+                                <input id="newpassword" type="password" class="text-input text-input--material valid" name="newpassword" placeholder="Password" required="" aria-invalid="false"> <br />
+                                <!--  <ons-input id="newpassword" modifier="material" type="password" placeholder="Password" float required></ons-input> -->
                             </p>
 
                             <p id="text" hidden>WARNING! Caps lock is ON.</p>
 
                             <p>
                                 <i class="fa fa-key icon"></i>
-                                <ons-input id="newpassword2" modifier="material" type="password" placeholder="Confirm Password" float required></ons-input>
+                                <input id="newpassword2" type="password" class="text-input text-input--material valid" name="newpassword2" placeholder="Password" required="" aria-invalid="false"> <br />
+                                <!--   <ons-input id="newpassword2" modifier="material" type="password" placeholder="Confirm Password" float required></ons-input> -->
                             </p>
                             <p>
                                 <i class="fa fa-institution"></i>
@@ -90,37 +93,48 @@
                 </ons-toolbar>
 
                 <div style="text-align: center; margin-top: 30px;">
-                  <div style="text-align:center; padding-top: 40px;">
+                    <div style="text-align:center; padding-top: 40px;">
 
-                    <br />
-                    <b>Please Select Your Group Avatar</b>
-                    <br />
+                        Select Your Group Avatar
+                        <center>
+                            <div id="avatar"></div>
+                        </center>
 
-                    <i class="fa fa-bell" style="font-size:24px"></i>&ensp;
-                    <i class="fa fa-bolt" style="font-size:24px"></i>&ensp;
-                    <i class="fa fa-bullseye" style="font-size:24px"></i>&ensp;
-                    <i class="fa fa-cube" style="font-size:24px"></i>&ensp;
-                    <i class="fa fa-diamond" style="font-size:24px"></i>&ensp;
-                    <i class="fa fa-fighter-jet" style="font-size:24px"></i>&ensp;
-                    <i class="fa fa-futbol-o" style="font-size:24px"></i>
+                        <form name="RegisterFrom2" id="RegisterForm2">
+                            <p>
+                                <i class="fa fa-group"></i>
+                                <input id="newgroupname" class="text-input text-input--material valid" name="newgroupname" placeholder="Group Name" required="" aria-invalid="false"> <br />
+                                <!-- <ons-input id="newgroupname" name="newgroupname" modifier="material" placeholder="Group Name" style="width:166px" float required></ons-input> <br /> -->
+                            </p>
 
-                    <p>
-                      <i class="fa fa-group"></i>
-                      <ons-input id="newgroupname" modifier="material" placeholder="Group Name" style="width:166px" float required></ons-input>
-                    </p>
+                            <div id='GroupMembersName'>
+                                <div id="GroupMember1">
+                                    <p>
+                                        <input id="member1" class="text-input text-input--material valid" name="member1" placeholder="Leader's Name" required="" aria-invalid="false">
+                                        
+                                        <input type='button' value='+' id='addMemberbtn'>
+                                        <br />
+                                    </p>
+                                 </div>
+                            </div>
+                            <!--  <ons-input id="member1" name="member1" placeholder="Leader Name" style="width:166px" required></ons-input> <br /> -->
+                            <p>
+                                <input id="contactdetails" class="text-input text-input--material valid" name="contactdetails" placeholder="Contact No." required="" aria-invalid="false"> <br />
+                                <!--  <ons-input id="contactdetails" name="contactdetails" placeholder="Leader's Contact Details" required></ons-input> <br /> -->
+                                </p>
+                            <p>
+                                <input id="emailaddress" class="text-input text-input--material valid" name="emailaddress" placeholder="Email" required="" aria-invalid="false"> <br />
+                                <!--  <ons-input id="emailaddress" name="emailaddress" placeholder="Leader's Email Address" required></ons-input> <br /> -->
+                            </p>
 
-                    <div id='GroupMembersName'>
-                      <div id="GroupMember1">
-                        <p>
-                          <ons-input id="member1" placeholder="Leader Name" style="width:166px"></ons-input>
-                          <input type='button' value='+' id='addMemberbtn'> <br />
-                          <ons-input id="contactdetails" placeholder="Leader's Contact Details"></ons-input> <br />
-                          <ons-input id="emailaddress" placeholder="Leader's Email Address"></ons-input>
-                        </p>
-                      </div>
+                        </form>
+
+
+
+
+
+                        <ons-button class="register_pg_btn" id="registerbtn">Register</ons-button>
                     </div>
-                    <ons-button class="register_pg_btn" id="registerbtn">Register</ons-button>
-                  </div>
                 </div>
 
                 <!--Start of footer-->
@@ -143,6 +157,7 @@
     <script type="text/javascript" src="scripts/platformOverrides.js"></script>
 
     <script type="text/javascript" src="scripts/jquery.validate.min.js"></script>
+    <script src="lib/extendedjqueryvalidation.js"></script>
 
     <!-- The following script consist of the JS necessary to connect to the server for authentication-->
     <script type="text/javascript" src="lib/register.js"></script>
