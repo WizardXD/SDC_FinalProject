@@ -45,20 +45,23 @@
                         <form name="authForm" id="authForm">
                             <p>
                                 <i class="fa fa-user icon"></i>
-                                <ons-input id="username" class="username" modifier="material" placeholder="Username" float required></ons-input> <br />
+
+                                <input id="username" type="text" class="text-input text-input--material valid" name="username" placeholder="Username" required="" aria-invalid="false" style= "font-size: 20px; width:150px;  font-family: Times New Roman; "> <br />
+                                <!--  <ons-input id="username" class="username" modifier="material" placeholder="Username" float required ></ons-input> <br />-->
                             </p>
+                           
                             <p>
                                 <i class="fa fa-key icon"></i>
                                 <!-- For some odd reason jQueryValidation is throwing an error when using ons-input with the type="password" So i went deep into the DOM and discovered
                                     that ons-input will create a input with a proper class which provided a workaround =D
                                 <ons-input id="password" modifier="material" type="password" placeholder="Password" float required></ons-input>         -->
-                                <input id="password" type="password" class="text-input text-input--material valid" name="txtpwd" placeholder="Password" required="" aria-invalid="false"> <br />
+                                <input id="password" type="password" class="text-input text-input--material valid" name="txtpwd" placeholder="Password" required="" aria-invalid="false" style= "font-size: 20px; width:150px;  font-family: Times New Roman; " > <br />
                                 
                             </p>
 
                         </form>
-                        <ons-button class="main_pg_btn" id="lgnbtn"> Login </ons-button><br /><br /> 
-                        <ons-button class="main_pg_btn" id="rgstrbtn"> Register </ons-button>
+                        <ons-button class="main_pg_btn" id="lgnbtn" modifier="material--flat large--quiet" > Login </ons-button ><br />
+                        <ons-button class="main_pg_btn" id="rgstrbtn" modifier="material--flat large--quiet" > Register </ons-button>
 
 
                     </div>

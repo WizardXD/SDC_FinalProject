@@ -1,5 +1,5 @@
 function serverURL() {
-    return "http://1600993h.projectsbit.org/sdc";
+    return "http://mp18.projectsbit.org/sdc";
 }
 
 function validationMsgs(message, title, button) {
