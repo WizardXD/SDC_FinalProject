@@ -14,8 +14,8 @@
 
 
     function addMemberName() {
-        if (counter > 8) {                                                //maximum members allowed = 6, will adjust based on what the sponsor requrested.
-            alert("The maximum number of members is 8");                  //message that will be alerted if members > 6
+        if (counter > 5) {                                                //maximum members allowed = 6, will adjust based on what the sponsor requrested.
+            alert("The maximum number of members is 5");                  //message that will be alerted if members > 6
             return false;
         }
 

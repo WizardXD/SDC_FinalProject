@@ -81,9 +81,8 @@ document.addEventListener('init', function (event) {
 
     } else if (page.id === 'page2') {
 
-
-
-
+        //show the group avatar
+        showAvatar();
 
         /*jQuery Validation API */
         $('#RegisterForm2').validate({
@@ -150,7 +149,7 @@ document.addEventListener('init', function (event) {
                 registerGroup();
             }
         });
-    };
+    }
 });
 
 
@@ -218,3 +217,33 @@ function _getRegisterGroupResult(arr) {
 }
 
 
+function showAvatar() {
+    var url = serverURL() + "/avatar.php";
+
+    var JSONObject = {
+    };
+
+    $.ajax({
+        url: url,
+        type: 'GET',
+        data: JSONObject,
+        dataType: 'json',
+        contentType: "application/json; charset=utf-8",
+        success: function (arr) {
+            showAvatarResult(arr);
+        },
+        error: function () {
+            alert("Error");         //Change to validation message 
+        }
+    });
+}
+
+function showAvatarResult(arr) {
+    //if i is less than the total  number of artefacts, increment by 1
+    for (i = 0; i < arr.length; i++) {
+        var t;
+        // creating button with id similiar to the artefact id
+        t = "<img src='" + serverURL() + "/images/avatars/" + arr[i].image + "' width=17%' height='17%'>";
+        $("#avatar").append(t);
+    }
+}
