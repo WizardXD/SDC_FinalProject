@@ -61,9 +61,14 @@ function _getGameCodeResult(arr) {
     if (arr[0].result.trim() !== "0") {                    //!== 0 means at least a row of data is found --> correct accesscode entered
         var accesscode = $("#txtGameCode").val();
         localStorage.setItem("accesscode", accesscode);
-        alert("Success");                                  //Change to validation instead of alert
+        ons.notification.alert('Hold on', {
+            title: 'Success'
+        });           
+                             //Change to validation instead of alert
         window.location = "game.html";
     } else {
-        alert("Wrong Game Code");                          // == 0 means no data is found with the given accesscode
+        ons.notification.alert('Wrong Game Code, try again', {
+            title: 'Not Found'
+        });                               // == 0 means no data is found with the given accesscode
     }
 }  

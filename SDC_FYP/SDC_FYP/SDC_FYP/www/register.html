@@ -25,9 +25,12 @@
             <ons-page id="page1">
                 <link rel="stylesheet" type="text/css" href="css/common.css">
                 <ons-toolbar>
-                    <ons-button class="navbtn" modifier="quiet">
-                        <i class="fa fa-arrow-left" style="font-size:20px;color:deepskyblue" onclick="previousPage()"> </i>
-                    </ons-button>
+                    <div class="left"><ons-back-button onclick="window.history.go(-1)">Previous page</ons-back-button></div>
+
+                    <!--
+    <ons-button class="navbtn" modifier="quiet">
+        <i class="fa fa-arrow-left" style="font-size:20px;color:deepskyblue" onclick="previousPage()"> </i>
+    </ons-button> -->
                 </ons-toolbar>
 
                 <!--Content of Registration Page 1-->
