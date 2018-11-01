@@ -84,7 +84,7 @@
         $("#Member2Name").html("A. Leader's Name: " + member2);
         $("#Member3Name").html("Member 3's Name: " + member3);
         $("#Member4Name").html("Member 4's Name: " + member4);
-        $("#Member5Name").html("Member 5's Name: " + member4);
+        $("#Member5Name").html("Member 5's Name: " + member5);
         $("#Member6Name").html("Member 6's Name: " + member6);
         $("#Member7Name").html("Member 7's Name: " + member7);
         $("#Member8Name").html("Member 8's Name: " + member8);
