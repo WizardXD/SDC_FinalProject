@@ -125,7 +125,7 @@
             localStorage.setItem("password", password);
             window.location = '../teacher.html';
         } else if (data.result == '0') {
-            ons.notification.alert('Username or Password incorrect try again',{
+            ons.notification.alert('Username or Password is incorrect. Please try again',{
                 title: 'Not Found'
             });
 
