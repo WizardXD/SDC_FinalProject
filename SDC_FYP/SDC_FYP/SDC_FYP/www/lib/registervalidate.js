@@ -1,4 +1,4 @@
-/*jQuery Validation API */
+﻿/*jQuery Validation API */
 $('#RegisterForm1').validate({
 
     /* To check what this API does*/
@@ -21,6 +21,9 @@ $('#RegisterForm1').validate({
 }); /* End of Validation*/
 
 
+
+
+
 //register button
 $("#rgstrbtn").bind("click", function () {
     window.location = "register.html";
@@ -31,6 +34,11 @@ $("#lgnbtn").bind("click", function () {
         login();
     }
 });
+
+
+
+
+
 
 
     }); /* End of Document Ready */

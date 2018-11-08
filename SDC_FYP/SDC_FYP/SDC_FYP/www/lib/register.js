@@ -1,4 +1,4 @@
-
+﻿
 
 
 
@@ -69,6 +69,9 @@ document.addEventListener('init', function (event) {
 
 
 
+
+
+
         $("#push-button-1").bind("click", function () {
             if ($("#RegisterForm1").valid()) {
                 document.querySelector('#myNavigator').pushPage('page2.html', { data: { title: '' } });  //title --> set the header for page 2
@@ -87,6 +90,7 @@ document.addEventListener('init', function (event) {
                 emailaddress: {
                     email: true
                 },
+
                 newgroupname: {
                     minlength: 5
                 },
@@ -235,10 +239,10 @@ function showAvatar() {
 }
 
 function showAvatarResult(arr) {
-    //if i is less than the total number of artefacts, increment by 1
+    //if i is less than the total  number of artefacts, increment by 1
     for (i = 0; i < arr.length; i++) {
         var t;
-        // creating button with id similar to the artefact id
+        // creating button with id similiar to the artefact id
         t = "<img src='" + serverURL() + "/images/avatars/" + arr[i].image + "' width=17%' height='17%'>";
         $("#avatar").append(t);
     }
