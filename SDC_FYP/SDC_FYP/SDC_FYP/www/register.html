@@ -22,6 +22,7 @@
         <!--Start of Registration Page 1-->
         <template id="page1.html">
           
+<<<<<<< HEAD
           <ons-page id="page1">
             <link rel="stylesheet" type="text/css" href="css/common.css">
             <ons-toolbar>
@@ -84,6 +85,67 @@
             <!--End of Script for Registration Page 1-->
 
           </ons-page>
+=======
+            <ons-page id="page1">
+                <link rel="stylesheet" type="text/css" href="css/common.css">
+                <ons-toolbar>
+                    <ons-button class="navbtn" modifier="quiet">
+                        <i class="fa fa-arrow-left" style="font-size:20px;color:deepskyblue" onclick="previousPage()"> </i>
+                    </ons-button>
+                </ons-toolbar>
+
+                <!--Content of Registration Page 1-->
+                <div style="text-align: center; margin-top: 10px;">
+                    <div style="text-align:center; padding-top: 20px;">
+                       
+                        <!--Image of SDC Logo-->
+                        <img src="images/trailcoverylogo.png" />
+
+                        <form name="RegisterForm1" id="RegisterForm1">
+                            <p>
+                                <i class="fa fa-user icon"></i>
+                                <input id="newusername" class="text-input text-input--material valid" name="newusername" placeholder="Username" required="" aria-invalid="false"> <br />
+                                <!--   <ons-input id="newusername" modifier="material" placeholder="Username" float required></ons-input> -->
+                            </p>
+                            <p>
+                                <i class="fa fa-key icon"></i>
+                                <input id="newpassword" type="password" class="text-input text-input--material valid" name="newpassword" placeholder="Password" required="" aria-invalid="false"> <br />
+                                <!--  <ons-input id="newpassword" modifier="material" type="password" placeholder="Password" float required></ons-input> -->
+                            </p>
+
+                            <p id="text" hidden>WARNING! Caps lock is ON.</p>
+
+                            <p>
+                                <i class="fa fa-key icon"></i>
+                                <input id="newpassword2" type="password" class="text-input text-input--material valid" name="newpassword2" placeholder="Password" required="" aria-invalid="false"> <br />
+                                <!--   <ons-input id="newpassword2" modifier="material" type="password" placeholder="Confirm Password" float required></ons-input> -->
+                            </p>
+                            <p>
+                                <i class="fa fa-institution"></i>
+                                <select name="school" id="school" style="width:200px; height:25px">
+                                    <option value="null">Select School/Institution</option>
+                                    <optgroup label="Junior College" name="juniorcollege" id="juniorcollege"> </optgroup>
+                                    <optgroup label="Polytechnic" name="polytechnic" id="polytechnic"> </optgroup>
+                                    <optgroup label="Secondary School" name="secondarysch" id="secondarysch"> </optgroup>
+                                    <optgroup label="Primary School" name="primarysch" id="primarysch"> </optgroup>
+                                </select>
+                            </p>
+                        </form> <br />
+                        <ons-button class="register_pg_btn" id="push-button-1">Next</ons-button>
+                    </div>
+                </div>
+
+                <!--Start of footer-->
+                <div class="footer">
+                    <p>© 2018 Temasek Polytechnic. All Rights Reserved.</p>
+                </div>
+                <!--End of footer-->
+                <!--Start of Script for Registration Page 1-->
+                <script src="lib/schArrayObject.js"></script>
+                <!--End of Script for Registration Page 1-->
+
+            </ons-page>
+>>>>>>> parent of a32a90b... all working le
         </template>
         <!--End of Registration Page 1-->
 
