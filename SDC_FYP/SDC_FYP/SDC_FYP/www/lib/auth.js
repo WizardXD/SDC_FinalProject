@@ -126,10 +126,14 @@
             window.location = '../teacher.html';
         } else if (data.result == '0') {
 <<<<<<< HEAD
+<<<<<<< HEAD
             ons.notification.alert('Username or Password is incorrect. Please try again',{
                 title: 'Not Found'
             });
 
+=======
+            alert("not working yo"); //Change this later when i reach home and have time :)
+>>>>>>> parent of a32a90b... all working le
 =======
             alert("not working yo"); //Change this later when i reach home and have time :)
 >>>>>>> parent of a32a90b... all working le
