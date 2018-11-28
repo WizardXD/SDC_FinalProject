@@ -32,7 +32,7 @@
 
 
     <ons-splitter>
-        <ons-splitter-side id="menu" side="left" width="220px" collapse >
+        <ons-splitter-side id="menu" side="left" width="220px" collapse>
             <ons-page>
                 <ons-list>
                     <ons-list-item onclick="fn.load('facilitator_home.html')" tappable>
@@ -84,29 +84,29 @@
 
             <div id='map' style='width: 400px; height: 300px;'></div>
             <script>
-        mapboxgl.accessToken = 'pk.eyJ1IjoidmVuaXg0NSIsImEiOiJjam5uMGp1aWkyMW9hM3ZwYWZjeG5zdWczIn0.aPykKQuihFMpgOQnsMMy4g';
+                mapboxgl.accessToken = 'pk.eyJ1IjoidmVuaXg0NSIsImEiOiJjam5uMGp1aWkyMW9hM3ZwYWZjeG5zdWczIn0.aPykKQuihFMpgOQnsMMy4g';
 
-        //map object created and assigned to map variable
-        // new map(options:object)
+                //map object created and assigned to map variable
+                // new map(options:object)
 
-        var map = new mapboxgl.Map({
-            container: 'map', //container id
-            style: 'mapbox://styles/mapbox/streets-v10',
-            center: [103.93118125, 1.3451875],// starting position //long, lang
-            zoom: 8
-        });
+                var map = new mapboxgl.Map({
+                    container: 'map', //container id
+                    style: 'mapbox://styles/mapbox/streets-v10',
+                    center: [103.93118125, 1.3451875],// starting position //long, lang
+                    zoom: 8
+                });
 
 
-        // Add geolocate control to the map.
-        // Will be useful for user account? To see where they are possibile to hack this
-        //For admin account to see where all the users are onclick maybe?
+                // Add geolocate control to the map.
+                // Will be useful for user account? To see where they are possibile to hack this
+                //For admin account to see where all the users are onclick maybe?
 
-        map.addControl(new mapboxgl.GeolocateControl({
-            positionOptions: {
-                enableHighAccuracy: true
-            },
-            trackUserLocation: true
-        }));
+                map.addControl(new mapboxgl.GeolocateControl({
+                    positionOptions: {
+                        enableHighAccuracy: true
+                    },
+                    trackUserLocation: true
+                }));
             </script>
         </ons-page>
     </template>
@@ -132,6 +132,7 @@
     <!-- Trailmanagemnet.html-->
     <template id="trail_management.html">
         <ons-page>
+            <script src="lib/trailmanagement.js"></script>
             <ons-toolbar>
                 <div class="left">
                     <ons-toolbar-button onclick="fn.open()">
@@ -139,9 +140,40 @@
                     </ons-toolbar-button>
                 </div>
                 <div class="center">
-                   trail mananagement content
+                    Trail Management
                 </div>
+
             </ons-toolbar>
+            <div id="trail"></div>
+            <div id="trailid"></div>
+            <div id="trailname"></div>
+            <ons-fab position="bottom right">
+                <ons-icon icon="md-plus"></ons-icon>
+            </ons-fab>
+        </ons-page>
+    </template>
+
+    <!-- Trailmanagemnet2.html-->
+    <template id="trail_management2.html">
+        <ons-page>
+            <script src="lib/trailmanagement.js"></script>
+            <ons-toolbar>
+                <div class="left">
+                    <ons-toolbar-button onclick="fn.open()">
+                        <ons-icon icon="md-menu"></ons-icon>
+                    </ons-toolbar-button>
+                </div>
+                <div class="center">
+                    Trail Management
+                </div>
+
+            </ons-toolbar>
+            <div id="trail"></div>
+            <div id="trailid"></div>
+            <div id="trailname"></div>
+            <ons-fab position="bottom right">
+                <ons-icon icon="md-plus"></ons-icon>
+            </ons-fab>
         </ons-page>
     </template>
 
