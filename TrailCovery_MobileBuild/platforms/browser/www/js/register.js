@@ -1,0 +1,241 @@
+document.addEventListener('init', function(event) {
+	
+	  //GLOBALVARIABLE 
+    var selectedImageId;
+
+  var page = event.target;
+
+  if (page.id === 'index') {
+    page.querySelector('#rgstrbtn').onclick = function() {
+      document.querySelector('#index').pushPage('registrationpage_1.html', {
+          data: {
+              title: 'Register'}
+              });
+    };
+  } else if (page.id === 'registrationpage_1') {
+    page.querySelector('ons-toolbar .center').innerHTML = page.data.title;
+
+    $('#RegisterForm1').validate({
+    rules: {
+        newusername: {
+            minlength: 6
+        },
+        newpassword2: {
+            equalTo: "#newpassword"
+        },
+        newpassword: {
+            minlength: 8
+        }
+    }, //End of jQueryRules
+    messages: {
+        newusername: {
+            required: "Username is required"
+        },
+        newpassword: {
+
+            required: "Password is required"
+        },
+        newpassword2: {
+            required: "Re-enter your password"
+        }
+    }, //End of Message
+
+    focusInvalid: false,
+    submitHandler: function () {
+        return false;
+    },
+
+    errorPlacement: function (error, element) {
+        error.appendTo(element.parent().after());
+        //error.appendTo(element.parent().parent().after());
+    }
+
+}); /* End of Validation*/
+
+$("#push-button-1").bind("click", function () {
+    if ($("#RegisterForm1").valid()) {
+        document.querySelector('#index').pushPage('registrationpage_2.html', { 
+            data: {
+                 title: '' } 
+                });  //title --> set the header for page 2
+    }
+
+});
+}else if (page.id === 'registrationpage_2') {
+
+        //show the group avatar
+        showAvatar();
+
+        /*jQuery Validation API */
+        $('#RegisterForm2').validate({
+            rules: {
+                emailaddress: {
+                    email: true
+                },
+                newgroupname: {
+                    minlength: 5
+                },
+                contactdetails: {
+                    minlength: 8,
+                    number: true
+                }
+            },
+          
+            messages: {
+                member1: {
+                    required: "Leader's name is required."
+                },
+                newgroupname: {
+
+                    required: "Enter group name."
+                },
+                contactdetails: {
+                    required: "Enter your phone no."
+                },
+                emailaddress: {
+                    required: "Provide a valid email address."
+                }
+            },
+            focusInvalid: false,
+            submitHandler: function () {
+                return false;
+            },
+
+            errorPlacement: function (error, element) {
+                error.appendTo(element.parent().after());
+               // error.appendTo(element.parent().parent().after());
+            }
+
+        }); /* End of Validation*/
+        page.querySelector('ons-toolbar .center').innerHTML = page.data.title;    //Header for page 2
+        
+        $("#registerbtn").bind("click", function () {
+            if ($("#RegisterForm2").valid()) {
+                registerGroup();
+            }
+        });
+    }
+
+});
+
+function registerGroup() {
+    username = $("#newusername").val();
+    password = $("#newpassword").val();
+    email = $("#emailaddress").val();
+    school = $("#school").val();
+    contactdetails = $("#contactdetails").val();
+    groupname = $("#newgroupname").val();
+    member1 = $("#member1").val();
+    member2 = $("#member2").val();
+    member3 = $("#member3").val();
+    member4 = $("#member4").val();
+    member5 = $("#member5").val();
+    member6 = $("#member6").val();
+    member7 = $("#member7").val();
+    member8 = $("#member8").val();
+
+    url = serverURL() + "/register.php"; 
+
+    var JSONObject = {
+        "username": username,
+        "password": password,
+        "email": email,
+        "school": school,
+        "phone": contactdetails,
+
+        "groupname": groupname,
+        "leader": member1,
+        "member2": member2,
+        "member3": member3,
+        "member4": member4,
+        "member5": member5,
+        "member6": member6,
+        "member7": member7,
+        "member8": member8,
+        "avatarid": selectedImageId
+    };
+
+    $.ajax({
+        url: url,
+        type: 'GET',
+        data: JSONObject,
+        dataType: 'json',
+        contentType: "application/json; charset=utf-8",
+        success: function (arr) {
+            _getRegisterGroupResult(arr); 
+        }, error: function () {
+            validationMsg();
+        }
+    });   
+}
+
+
+function _getRegisterGroupResult(arr) {
+    if (arr[0].result === 1) {
+        alert("Account has been created successfully");
+        //window.location = "main.html";
+    } else if (arr[0].result === 0) {
+        alert("Username already exist.");
+    }
+}
+
+
+function showAvatar() {
+    var url = serverURL() + "/avatar.php";
+
+    var JSONObject = {
+    };
+
+    $.ajax({
+        url: url,
+        type: 'GET',
+        data: JSONObject,
+        dataType: 'json',
+        contentType: "application/json; charset=utf-8",
+        success: function (arr) {
+            showAvatarResult(arr);
+        },
+        error: function () {
+            alert("Error");         //Change to validation message 
+        }
+    });
+}
+
+function showAvatarResult(arr) {
+    //if i is less than the total number of artefacts, increment by 1
+    for (i = 0; i < arr.length; i++) {
+        var avatarimage;
+        var avatarid;
+        // creating button with id similar to the artefact id
+        avatarid = arr[i].avatarid;
+        avatarimage = "<input class='image-input' type='image' id='" + avatarid +"' value='" + avatarid +"' src='" + serverURL() + "/images/avatars/" + arr[i].image + "' width=17%' height='17%'  />";
+        //avatarimage = "<img src='" + serverURL() + "/images/avatars/" + arr[i].image + "' width=17%' height='17%'>";
+       
+   
+        
+        $("#avatar").append(avatarimage);
+        
+   
+        $('.image-input').click(function(){
+    selectedImageId = $(this).attr('id');
+});
+    }
+}
+
+
+
+/* input = document.getElementById("newpassword");
+var text = document.getElementById("text");
+input.addEventListener("keyup", function (event) {
+
+    if (event.getModifierState("CapsLock")) {
+        text.style.display = "block";
+    } else {
+        text.style.display = "none";
+    }
+}); 
+CAPS LOCK THING NOT IMPORTANT
+*/
+
+
+/*jQuery Validation API */

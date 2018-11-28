@@ -1,0 +1,211 @@
+﻿<!DOCTYPE html>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one
+    or more contributor license agreements.  See the NOTICE file
+    distributed with this work for additional information
+    regarding copyright ownership.  The ASF licenses this file
+    to you under the Apache License, Version 2.0 (the
+    "License"); you may not use this file except in compliance
+    with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing,
+    software distributed under the License is distributed on an
+    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+     KIND, either express or implied.  See the License for the
+    specific language governing permissions and limitations
+    under the License.
+-->
+<html>
+    <head>
+        <!--
+        Customize this policy to fit your own app's needs. For more guidance, see:
+            https://github.com/apache/cordova-plugin-whitelist/blob/master/README.md#content-security-policy
+        Some notes:
+            * gap: is required only on iOS (when using UIWebView) and is needed for JS->native communication
+            * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
+            * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
+                * Enable inline JS: add 'unsafe-inline' to default-src
+        -->
+        <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;"> -->
+        <meta name="format-detection" content="telephone=no">
+        <meta name="msapplication-tap-highlight" content="no">
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+
+        <link rel="stylesheet" type="text/css" href="css/index.css">
+        <link rel="stylesheet" type="text/css" href="css/onsen-css-components.min.css">
+        <link rel="stylesheet" type="text/css" href="css/onsenui.css">
+
+
+
+
+        <title>SDCFYP</title>
+    </head>
+    <body>
+            <ons-navigator swipeable id="index" page="index.html"></ons-navigator>
+
+            <template id="index.html">
+              <ons-page id="index" modifier="full_bg">
+                <!-- Content-->
+                <p style="text-align: center; ">
+                        <img src="images/trailcoverylogo.jpg" />
+                    </p>
+                <br />
+
+                <div style="text-align: center; margin-top: 30px;">
+                        <div style="text-align:center; padding-top: 0px;">
+
+                            <form name="authForm" id="authForm">
+                                <p>
+                                    <i class="fa fa-user icon"></i>
+                                    <input id="username" class="text-input text-input--material valid" name="username" placeholder="Username" required="" aria-invalid="false"> <br />
+
+                                </p>
+                                <p>
+                                    <i class="fa fa-key icon"></i>
+                                    <input id="password" type="password" class="text-input text-input--material valid" name="txtpwd" placeholder="Password" required="" aria-invalid="false"> <br />
+
+                                </p>
+
+                            </form>
+                            <ons-button class="main_pg_btn" id="lgnbtn" modifier="large--quiet material--flat"> Login </ons-button><br />
+                            <ons-button class="main_pg_btn" id="rgstrbtn" modifier="large--quiet material--flat"> Register </ons-button>
+                        </div>
+
+                    </div>
+                    <div class="footer">
+                            <p>© 2018 Temasek Polytechnic. All Rights Reserved.</p>
+                        </div>
+                <!-- End of index.html content-->
+
+            </ons-page>
+            </template>
+
+            <template id="registrationpage_1.html">
+              <ons-page id="registrationpage_1"> <!-- Registration page1-->
+                <ons-toolbar>
+                  <div class="left"><ons-back-button></ons-back-button></div>
+                  <div class="center"></div>
+                </ons-toolbar>
+                <!-- Content -->
+                <div style="text-align: center; margin-top: 10px;">
+                        <div style="text-align:center; padding-top: 20px;">
+
+
+                          <form name="RegisterForm1" id="RegisterForm1">
+                            <p>
+                              <i class="fa fa-user icon"></i>
+                              <input id="newusername" class="text-input text-input--material valid" name="newusername" placeholder="Username" required="" aria-invalid="false"> <br />
+                              <!--   <ons-input id="newusername" modifier="material" placeholder="Username" float required></ons-input> -->
+                            </p>
+                            <p>
+                              <i class="fa fa-key icon"></i>
+                              <input id="newpassword" type="password" class="text-input text-input--material valid" name="newpassword" placeholder="Password" required="" aria-invalid="false"> <br />
+                              <!--  <ons-input id="newpassword" modifier="material" type="password" placeholder="Password" float required></ons-input> -->
+                            </p>
+
+                         <!--  <p id="text" hidden> Caps lock is ON.</p> -->
+
+                            <p>
+                              <i class="fa fa-key icon"></i>
+                              <input id="newpassword2" type="password" class="text-input text-input--material valid" name="newpassword2" placeholder="Confirm Password" required="" aria-invalid="false"> <br />
+                              <!--   <ons-input id="newpassword2" modifier="material" type="password" placeholder="Confirm Password" float required></ons-input> -->
+                            </p>
+                            <p>
+                              <i class="fa fa-institution"></i>
+                              <ons-select name="school" id="school" style="width:200px; height:25px">
+                                <option value="null">Select School/Institution</option>
+                                <optgroup label="Junior College" name="juniorcollege" id="juniorcollege"> </optgroup>
+                                <optgroup label="Polytechnic" name="polytechnic" id="polytechnic"> </optgroup>
+                                <optgroup label="Secondary School" name="secondarysch" id="secondarysch"> </optgroup>
+                                <optgroup label="Primary School" name="primarysch" id="primarysch"> </optgroup>
+                              </ons-select>
+                            </p>
+                          </form>
+
+                          <ons-button class="register_pg_btn" id="push-button-1">Next</ons-button>
+
+
+                          <br />
+
+                        </div>
+                      </div>
+                <!-- End of register #1 content-->
+                <script src="js/schArrayObject.js"></script>
+              <!--   <script src="js/register.js"></script>  -->
+              </ons-page>
+            </template>
+
+
+
+            <template id="registrationpage_2.html"> <!-- Registration page2-->
+                    <ons-page id="registrationpage_2">
+                      <ons-toolbar>
+                        <div class="left"><ons-back-button></ons-back-button></div>
+                        <div class="center"></div>
+                      </ons-toolbar>
+                      <!-- Content -->
+                      <div style="text-align: center; margin-top: 10px;">
+                            <div style="text-align:center; padding-top: 10px;">
+                      <form name="RegisterForm2" id="RegisterForm2">
+                        <center>
+                          <div id="avatar">
+                                Select Group Avatar                 <br>
+                          </div>
+                        </center>
+                            <p>
+                                <i class="fa fa-group"></i>
+                                <input id="newgroupname" class="text-input text-input--material valid" name="newgroupname" placeholder="Group Name" required="" aria-invalid="false"> <br />
+                                <!-- <ons-input id="newgroupname" name="newgroupname" modifier="material" placeholder="Group Name" style="width:166px" float required></ons-input> <br /> -->
+                            </p>
+
+                            <div id='GroupMembersName'>
+                                <div id="GroupMember1">
+                                  <p>
+                                    &emsp;&emsp;&emsp;<input id="member1" class="text-input text-input--material valid" name="member1" placeholder="Leader's Name" required="" aria-invalid="false">
+                                    &emsp;
+                                    <input type='button' value='+' id='addMemberbtn'>
+                                    <br />
+                                  </p>
+                                 </div>
+                            </div>
+                            <!--  <ons-input id="member1" name="member1" placeholder="Leader Name" style="width:166px" required></ons-input> <br /> -->
+                            <p>
+                                <i class="fa fa-mobile-phone"></i>
+                                <input id="contactdetails" class="text-input text-input--material valid" name="contactdetails" placeholder="Contact No." required="" aria-invalid="false"> <br />
+                                <!--  <ons-input id="contactdetails" name="contactdetails" placeholder="Leader's Contact Details" required></ons-input> <br /> -->
+                                </p>
+                            <p>
+                                <i class="fa fa-envelope-open-o"></i>
+                                <input id="emailaddress" class="text-input text-input--material valid" name="emailaddress" placeholder="Email" required="" aria-invalid="false"> <br />
+                                <!--  <ons-input id="emailaddress" name="emailaddress" placeholder="Leader's Email Address" required></ons-input> <br /> -->
+                            </p>
+
+                        </form>
+                        <ons-button class="register_pg_btn" id="registerbtn">Register</ons-button>
+                        </div>
+                        </div>
+                        <script src="js/addn_members.js"></script>
+                    </ons-page>
+                  </template>
+
+
+
+
+
+
+
+
+
+        <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="js/framework/onsenui.min.js"></script>
+        <script type="text/javascript" src="js/lib/jquery-3.3.1.js"></script>
+        <script type="text/javascript" src="js/lib/jquery.validate.min.js"></script>
+        <script type="text/javascript" src="js/common.js"></script>
+        <script type="text/javascript" src="js/auth.js"></script>
+        <script type="text/javascript" src="js/extendedjqueryvalidation.js"></script>
+      <!--   <script type="text/javascript" src="js/index.js"></script>  -->
+<script type="text/javascript" src="js/register.js"></script>
+    </body>
+</html>

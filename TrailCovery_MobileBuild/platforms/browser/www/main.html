@@ -1,0 +1,163 @@
+﻿<!DOCTYPE html>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one
+    or more contributor license agreements.  See the NOTICE file
+    distributed with this work for additional information
+    regarding copyright ownership.  The ASF licenses this file
+    to you under the Apache License, Version 2.0 (the
+    "License"); you may not use this file except in compliance
+    with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing,
+    software distributed under the License is distributed on an
+    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+     KIND, either express or implied.  See the License for the
+    specific language governing permissions and limitations
+    under the License.
+-->
+<html>
+    <head>
+        <!--
+        Customize this policy to fit your own app's needs. For more guidance, see:
+            https://github.com/apache/cordova-plugin-whitelist/blob/master/README.md#content-security-policy
+        Some notes:
+            * gap: is required only on iOS (when using UIWebView) and is needed for JS->native communication
+            * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
+            * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
+                * Enable inline JS: add 'unsafe-inline' to default-src
+        -->
+        <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;"> -->
+        <meta name="format-detection" content="telephone=no">
+        <meta name="msapplication-tap-highlight" content="no">
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+        <link rel="stylesheet" type="text/css" href="css/index.css">
+        <link rel="stylesheet" type="text/css" href="css/onsen-css-components.min.css">
+        <link rel="stylesheet" type="text/css" href="css/onsenui.css">
+        <title>SDCFYP</title>
+    </head>
+    <body>
+
+      <ons-navigator id="pushpage_navigator_user">
+         <ons-page>
+
+             <ons-splitter>
+                 <ons-splitter-side id="menu" side="left" width="220px" collapse >
+                     <ons-page>
+                         <ons-list>
+                             <ons-list-item onclick="fn.load('home.html')" tappable>
+                                 Home
+                             </ons-list-item>
+                             <ons-list-item onclick="fn.load('chat.html')" tappable>
+                                 Chat
+                             </ons-list-item>
+                             <ons-list-item onclick="fn.load('profile.html')" tappable>
+                                 Profile
+                             </ons-list-item>
+                             <ons-list-item onclick="fn.load('about.html')" tappable>
+                                 About
+                             </ons-list-item>
+
+                         </ons-list>
+                     </ons-page>
+                 </ons-splitter-side>
+                 <ons-splitter-content id="content" page="home.html"></ons-splitter-content>
+             </ons-splitter>
+
+           </ons-page>
+       </ons-navigator>
+
+       <template id="home.html">
+         <ons-page>
+             <!-- Toolbar-->
+             <ons-toolbar>
+                 <div class="left">
+                     <ons-toolbar-button onclick="fn.open()">
+                         <ons-icon icon="md-menu"></ons-icon>
+                     </ons-toolbar-button>
+                 </div>
+                 <div class="center">
+
+                 </div>
+             </ons-toolbar>
+
+
+             <div id="displaygroupname"></div> <div id= "displaygroupselectedavatar">
+
+
+             <!-- REMOVE THIS AND REPLACE WITH SOMETHING ELSE-->
+             <p style="text-align: center; padding-top: 50px; font-size:20px; font-family:'Tahoma, Geneva, sans-serif'">
+
+
+                <img src="images/btrail.png" /> <br />
+                Learn Singapore's history and culture through Trailcovery 2.0!
+              </p>
+
+              <!-- THIS PORTION ENTAILS THE FORM FOR GAME ACCESS -->
+              <div style="text-align:center; padding-top: 30px;">
+              <form name="GameCodeForm" id="GameCodeForm">
+                <p>
+                    <i class="material-icons">&#xe338;</i>
+                    <ons-input id="txtGameCode" modifier="material" placeholder="Key in code to start game" float required></ons-input>
+                </p>
+
+            </form>
+            <ons-button class="main_pg_btn" id="btnStartGame" modifier='material--flat' style="display: inline-block;" onclick="test()"> START </ons-button>
+            <ons-button class="main_pg_btn" id="btnInstructions" modifier='material--flat' style="display: inline-block;" onclick="showPopover(this)"> Instructions </ons-button>
+
+            <!-- THIS SECTION IS THE INSTRUCTION BUTTON WITH INSTRUCTION INFORMATION
+            FOR THE USER TO CLICK -->
+
+            <ons-popover direction="up" id="popoverinstruction" class="onsinspopover">
+                  <div style="padding: 10px; text-align: center;">
+
+
+                      <!-- Carousel for image-->
+                      <ons-carousel fullscreen swipeable auto-scroll overscrollable id="carousel">
+                          <ons-carousel-item>
+                              <ons-card>
+                                  <img src="images/instructions/1.jpg" alt="Instruction_1" style="width: 100%;">
+
+                              </ons-card>
+                          </ons-carousel-item>
+
+                          <ons-carousel-item>
+                              <ons-card>
+                                  <img src="images/instructions/2.jpg" alt="Instruction_2" style="width: 100%;">
+
+                              </ons-card>
+                          </ons-carousel-item>
+
+                          <ons-carousel-item>
+                              <ons-card>
+                                  <img src="images/instructions/3.jpg" alt="Instruction_3" style="width: 100%;">
+
+                              </ons-card>
+                          </ons-carousel-item>
+                      </ons-carousel>
+
+                      <p> Swipe left to see the next instruction</p>
+                      <p>
+                          <ons-button id="hidepopoverinstruction" onclick="hidePopover(this)">Understood</ons-button>
+                      </p>
+                  </div>
+              </ons-popover>
+
+
+              </div>
+
+
+
+         </ons-page>
+       </template>
+
+        <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="js/framework/onsenui.min.js"></script>
+        <script type="text/javascript" src="js/lib/jquery-3.3.1.js"></script>
+        <script type="text/javascript" src="js/lib/jquery.validate.min.js"></script>
+        <script type="text/javascript" src="js/common.js"></script>
+        <script type="text/javascript" src="js/extendedjqueryvalidation.js"></script>
+      <!--   <script type="text/javascript" src="js/index.js"></script>  -->
+    </body>
+</html>
