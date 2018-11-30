@@ -3,9 +3,8 @@
     $(document).ready(function () {
        $("#btnStartGame").click(function () {
 		   codeVerification();
+		   
         });
-		
-
     });
 
     //retrieve the details of events

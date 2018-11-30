@@ -32,7 +32,7 @@
         <meta name="format-detection" content="telephone=no">
         <meta name="msapplication-tap-highlight" content="no">
 		<!--refreshes with 30 seconds interval-->
-		<meta http-equiv="refresh" content="30" >
+		<meta http-equiv="refresh" content="10" >
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
         <link rel="stylesheet" type="text/css" href="css/index.css">
         <link rel="stylesheet" type="text/css" href="css/onsen-css-components.min.css">
@@ -41,12 +41,26 @@
     </head>
     <body>
 	
-	<center>Admin</center>
-	<hr/>
-	<br/>
-	<center>Student</center>
-	<div id="groups"></div>
-	<hr/>
+	 <ons-toolbar>
+				<!--Add a back button later-->
+                <div class="center">
+				<center>Waiting Room</center>
+                </div>
+             </ons-toolbar>
+			  <p style="text-align: center; padding-top: 15%; font-size:20px; font-family:'Tahoma, Geneva, sans-serif'">
+			  Details of Event
+			  <ons-card> </ons-card>
+			  <p style="text-align: center; padding-top: 0%; font-size:20px; font-family:'Tahoma, Geneva, sans-serif'">
+			  Admin
+			  <div id="admins"></div>
+              </p>
+	
+			  <p style="text-align: center; padding-top: 0%; font-size:20px; font-family:'Tahoma, Geneva, sans-serif'">
+			  Groups
+			  <div id="groups"></div>
+              </p>
+	
+	
         <script type="text/javascript" src="cordova.js"></script>
         <script type="text/javascript" src="js/framework/onsenui.min.js"></script>
         <script type="text/javascript" src="js/lib/jquery-3.3.1.js"></script>
