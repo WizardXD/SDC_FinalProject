@@ -248,6 +248,76 @@
 				
 			</ons-page>
 </template>
+<!-- User Management -->
+<template id="account_management.html">
+    <ons-page>
+            <script src=""></script>
+        <ons-toolbar>
+            <div class="left">
+                <ons-toolbar-button onclick="fn.open()">
+                    <ons-icon icon="md-menu"></ons-icon>
+                </ons-toolbar-button>
+            </div>
+        </ons-toolbar>
+
+        <div data-role="page" id="front-page">
+            <div data-role="header" class="header" data-position="fixed" id="header">
+
+            </div>
+            <h>Role</h>
+            <div data-role="content" class="ui-content" id="SearchSection">
+                <form name="SearchForm" id="SearchForm">
+                    <select id="select">
+                        <option value="admin">Admin</option>
+                        <option value="teacher">Teacher</option>
+                        <option value="student">Student</option>
+                    </select>
+                    <input type="button" id="viewRoles" name="viewRoles" value="Go">
+                </form>
+            </div>
+
+            <div data-role="main" class="ui-content">
+                <table id="showUsers" class="table table-striped table-bordered" cellspacing="0" align="center">
+                    <thead>
+                        <tr>
+                            <th>Username</th>
+                            <th>Email</th>
+                            <th>School</th>
+                            <th>Phone</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+        </div>
+    </ons-page>
+</template>
+<template id="getaccountbyusername.html">
+    <ons-page>
+        <ons-toolbar>
+            <div class="left">
+                <ons-toolbar-button onclick="fn.open()">
+                    <ons-icon icon="md-menu"></ons-icon>
+                </ons-toolbar-button>
+            </div>
+        </ons-toolbar>
+
+        <div data-role="page" id="front-page">
+            <div data-role="header" class="header" data-position="fixed" id="header">
+            </div>
+
+            <table id="username" class="table table-striped table-bordered" cellspacing="0" align="center">
+                <thead>
+                    <tr>
+                        <th></th>
+                    </tr>
+                </thead>
+
+            </table>
+
+        </div>
+        </template>
+
         <!-- Temporary inline script to move when finalised-->
 
 
@@ -258,7 +328,8 @@
         <script type="text/javascript" src="js/common.js"></script>
         <script type="text/javascript" src="js/extendedjqueryvalidation.js"></script>
       <!--   <script type="text/javascript" src="js/index.js"></script>  -->
-	  <script src="js/getcurrentlocation.js"></script>
+      <script src="js/getcurrentlocation.js"></script>
+
 	  
 <!--     <script type="text/javascript" src='test.js'></script> -->
 
