@@ -43,6 +43,29 @@
         <title>SDCFYP</title>
     </head>
     <body>
+	 <ons-page>
+
+        <ons-toolbar>
+            <!--insert navigation bar?-->
+            <div class="left"><ons-back-button onclick="window.history.go(-1)">Previous page</ons-back-button></div>
+        </ons-toolbar>
+
+        <!--Company Logo-->
+        <p style="text-align: center; opacity: 0.6; padding-top: 20px;">
+            <img src="www/images/trailcoverylogo.png" border="2" />
+        </p>
+
+
+        <div style="text-align:center">
+            <!--Display all the artefact with the accesscode same as what users has entered-->
+            <div id="artefact"></div>
+            <!--Hard counted bonus questions -- button disabled initially ... will be enabled only when students answered all questions correctly-->
+            <ons-button style="width:30%" disabled>Bonus</ons-button>
+        </div>
+
+
+    </ons-page>
+
            TESTING GAME PAGE 
 		   
         <script type="text/javascript" src="cordova.js"></script>
@@ -50,9 +73,7 @@
         <script type="text/javascript" src="js/lib/jquery-3.3.1.js"></script>
         <script type="text/javascript" src="js/lib/jquery.validate.min.js"></script>
         <script type="text/javascript" src="js/common.js"></script>
-        <script type="text/javascript" src="js/auth.js"></script>
+        <script type="text/javascript" src="js/game.js"></script>
         <script type="text/javascript" src="js/extendedjqueryvalidation.js"></script>
-      <!--   <script type="text/javascript" src="js/index.js"></script>  -->
-<script type="text/javascript" src="js/register.js"></script>
     </body>
 </html>
