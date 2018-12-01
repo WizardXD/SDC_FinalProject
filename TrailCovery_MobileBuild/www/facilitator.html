@@ -93,7 +93,10 @@
                                 <ons-list-item onclick="fn.load('account_management.html')" tappable>
                                     Account Management
                                 </ons-list-item>
-
+								<ons-list-item onclick="window.location = '../index.html'" tappable>
+									Logout
+								</ons-list-item>
+					
                             </ons-list>
                         </ons-page>
                     </ons-splitter-side>
@@ -197,7 +200,128 @@
             </ons-page>
 
 
+</template>
+
+
+
+
+ <template id="event_management.html">
+            <ons-page>
+			<script src="js/eventmanagement.js"></script>
+                <!-- Toolbar-->
+                <ons-toolbar>
+                    <div class="left">
+                        <ons-toolbar-button onclick="fn.open()">
+                            <ons-icon icon="md-menu"></ons-icon>
+                        </ons-toolbar-button>
+                    </div>
+                    <div class="center">
+					Event Management
+                    </div>
+                </ons-toolbar>
+				
+				 <div data-role="page" id="mainpage">
+					<div id="event"></div>
+					<a href="#addEventPopUp">
+					<ons-fab position="bottom right" colour="blue">
+					<ons-icon icon="md-plus"></ons-icon>
+					</ons-fab>
+					</a>
+				</div>
+	
+				  <div data-role="page" data-dialog="true" id="addEventPopUp">
+					<div data-role="header">   <h1>New Event</h1>  </div>
+					<div data-role="main" class="ui-content">
+						<form id="addEventform">
+							Trail: <br />
+							<select name="selTrail" id="selTrail"> </select>
+							Date of Event:<br />
+							<input type="date" id="eventdate" />
+							Time of Event:<br />
+							<input type="time" id="eventtime">
+							Admin-In-Charge
+							<select name="selAdmin" id="selAdmin"> </select>
+							Waiting Room's Access Code:
+							<input type="text" id="eventaccesscode" value=" " />
+							<input type="button" id="btnAddEvent" value="Add Event" />
+							<input type="reset" value="Reset">
+						</form>
+					</div>
+					<div data-role="footer">   <h1>Copyright</h1>  </div>
+				</div>
+				
+			</ons-page>
+</template>
+<!-- User Management -->
+<template id="account_management.html">
+    <ons-page>
+            <script src="js/account_control.js"></script>
+        <ons-toolbar>
+            <div class="left">
+                <ons-toolbar-button onclick="fn.open()">
+                    <ons-icon icon="md-menu"></ons-icon>
+                </ons-toolbar-button>
+            </div>
+        </ons-toolbar>
+
+        <div data-role="page" id="front-page">
+            <div data-role="header" class="header" data-position="fixed" id="header">
+
+            </div>
+            <h>Role</h>
+            <div data-role="content" class="ui-content" id="SearchSection">
+                <form name="SearchForm" id="SearchForm">
+                    <select id="selectroles">
+                        <option value="admin">Admin</option>
+                        <option value="teacher">Teacher</option>
+                        <option value="student">Student</option>
+                    </select>
+                    <input type="button" id="viewRoles" name="viewRoles" value="Go">
+                </form>
+            </div>
+
+            <div data-role="main" class="ui-content">
+                <table id="showUsers" class="table table-striped table-bordered" cellspacing="0" align="center">
+                    <thead>
+                        <tr>
+                            <th>Username</th>
+                            <th>Email</th>
+                            <th>School</th>
+                            <th>Phone</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+        </div>
+    </ons-page>
+</template>
+<template id="getaccountbyusername.html">
+    <ons-page>
+        <ons-toolbar>
+            <div class="left">
+                <ons-toolbar-button onclick="fn.open()">
+                    <ons-icon icon="md-menu"></ons-icon>
+                </ons-toolbar-button>
+            </div>
+        </ons-toolbar>
+
+        <div data-role="page" id="front-page">
+            <div data-role="header" class="header" data-position="fixed" id="header">
+            </div>
+
+            <table id="username" class="table table-striped table-bordered" cellspacing="0" align="center">
+                <thead>
+                    <tr>
+                        <th></th>
+                    </tr>
+                </thead>
+
+            </table>
+
+        </div>
         </template>
+
         <!-- Temporary inline script to move when finalised-->
 
 
@@ -208,8 +332,9 @@
         <script type="text/javascript" src="js/common.js"></script>
         <script type="text/javascript" src="js/extendedjqueryvalidation.js"></script>
       <!--   <script type="text/javascript" src="js/index.js"></script>  -->
-	  <script src="js/getcurrentlocation.js"></script>
+      <script src="js/getcurrentlocation.js"></script>
 
+	  
 <!--     <script type="text/javascript" src='test.js'></script> -->
 
     </body>

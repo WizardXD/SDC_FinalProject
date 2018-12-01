@@ -1,0 +1,95 @@
+﻿<!DOCTYPE html>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one
+    or more contributor license agreements.  See the NOTICE file
+    distributed with this work for additional information
+    regarding copyright ownership.  The ASF licenses this file
+    to you under the Apache License, Version 2.0 (the
+    "License"); you may not use this file except in compliance
+    with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing,
+    software distributed under the License is distributed on an
+    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+     KIND, either express or implied.  See the License for the
+    specific language governing permissions and limitations
+    under the License.
+-->
+<html>
+    <head>
+        <!--
+        Customize this policy to fit your own app's needs. For more guidance, see:
+            https://github.com/apache/cordova-plugin-whitelist/blob/master/README.md#content-security-policy
+        Some notes:
+            * gap: is required only on iOS (when using UIWebView) and is needed for JS->native communication
+            * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
+            * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
+                * Enable inline JS: add 'unsafe-inline' to default-src
+        -->
+        <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;"> -->
+        <meta name="format-detection" content="telephone=no">
+        <meta name="msapplication-tap-highlight" content="no">
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+ <link rel="stylesheet" type="text/css" href="css/game.css">
+        <link rel="stylesheet" type="text/css" href="css/index.css">
+        <link rel="stylesheet" type="text/css" href="css/onsen-css-components.min.css">
+        <link rel="stylesheet" type="text/css" href="css/onsenui.css">
+
+
+
+
+        <title>SDCFYP</title>
+    </head>
+    <body>
+
+        <ons-card class="card" style="text-align:center;">
+
+            <!--Front Side Of Card-->
+            <div class="front">
+                <div id="frontartefactimage" onclick="flip()"> </div>
+                <p style="text-align: center; padding-top: 220px;">
+                    <h1 style="color:deeppink;"> Background information</h1>
+                    <div id="artefactbackgroundinfo"></div>
+                </p>
+            </div>
+            <!--End-->
+            <!--Back Side of Card-->
+            <div class="back">
+                <div id="backartefactimage" onclick="flip()"> </div>
+                <form style="text-align: center; padding-top: 220px;">
+                    <p>
+                        <ons-input id="NameOfArt" modifier="material" placeholder="Name" float required></ons-input>
+                    </p>
+                    <p>
+                        <ons-input id="LocationOfArt" modifier="material" placeholder="Location" float required></ons-input>
+                    </p>
+                    <p>
+                        <ons-input id="UsageOfArt" modifier="material" placeholder="What is it used for?" float required></ons-input>
+                    </p>
+                    <p>
+                        <textarea class="textarea" id="ImportantnessOfArt" rows="4" maxlength="50" style="width:65%" placeholder="How is this item significant to this ethnic group?" float required></textarea>
+                    </p>
+                </form>
+                <ons-button class="game_pg_btn" id="uploadimgbtn" style="width:33%">Upload</ons-button>
+                <ons-button class="game_pg_btn" id="previewimgbtn" style="width:33%">Preview</ons-button>
+                <!--End-->
+           
+                <hr />
+                <ons-button class="game_pg_btn" id="submitAnswerbtn" style="width:80%">Submit</ons-button>
+            </div>
+        </ons-card>
+    </ons-page>
+
+           TESTING GAME PAGE 
+		   
+        <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="js/framework/onsenui.min.js"></script>
+        <script type="text/javascript" src="js/lib/jquery-3.3.1.js"></script>
+        <script type="text/javascript" src="js/lib/jquery.validate.min.js"></script>
+        <script type="text/javascript" src="js/common.js"></script>
+        <script type="text/javascript" src="js/quiz.js"></script>
+        <script type="text/javascript" src="js/extendedjqueryvalidation.js"></script>
+    </body>
+</html>

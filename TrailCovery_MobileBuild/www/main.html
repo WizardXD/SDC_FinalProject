@@ -58,6 +58,9 @@
                              <ons-list-item onclick="fn.load('about.html')" tappable>
                                  About
                              </ons-list-item>
+							<ons-list-item onclick="window.location = '../index.html'" tappable>
+								Logout
+							</ons-list-item>
 
                          </ons-list>
                      </ons-page>
@@ -70,6 +73,7 @@
 
        <template id="home.html">
          <ons-page>
+		     <script type="text/javascript" src="js/verify_code.js"></script>
              <!-- Toolbar-->
              <ons-toolbar>
                  <div class="left">
@@ -83,27 +87,26 @@
              </ons-toolbar>
 
 
+			<!--What's this line of code for?-->
              <div id="displaygroupname"></div> <div id= "displaygroupselectedavatar">
 
 
              <!-- REMOVE THIS AND REPLACE WITH SOMETHING ELSE-->
              <p style="text-align: center; padding-top: 50px; font-size:20px; font-family:'Tahoma, Geneva, sans-serif'">
-
-
                 <img src="images/btrail.png" /> <br />
                 Learn Singapore's history and culture through Trailcovery 2.0!
               </p>
 
               <!-- THIS PORTION ENTAILS THE FORM FOR GAME ACCESS -->
               <div style="text-align:center; padding-top: 30px;">
-              <form name="GameCodeForm" id="GameCodeForm">
+              <form name="WaitingRoomCodeForm" id="WaitingRoomCodeForm">
                 <p>
                     <i class="material-icons">&#xe338;</i>
-                    <ons-input id="txtGameCode" modifier="material" placeholder="Key in code to start game" float required></ons-input>
+                    <ons-input id="txtWaitingRoomCode" modifier="material" placeholder="Key in code to start game" float required></ons-input>
                 </p>
-
             </form>
-            <ons-button class="main_pg_btn" id="btnStartGame" modifier='material--flat' style="display: inline-block;" onclick="test()"> START </ons-button>
+			
+            <ons-button class="main_pg_btn" id="btnStartGame" modifier='material--flat' style="display: inline-block;"> START </ons-button>
             <ons-button class="main_pg_btn" id="btnInstructions" modifier='material--flat' style="display: inline-block;" onclick="showPopover(this)"> Instructions </ons-button>
 
             <!-- THIS SECTION IS THE INSTRUCTION BUTTON WITH INSTRUCTION INFORMATION
@@ -157,7 +160,6 @@
         <script type="text/javascript" src="js/lib/jquery-3.3.1.js"></script>
         <script type="text/javascript" src="js/lib/jquery.validate.min.js"></script>
         <script type="text/javascript" src="js/common.js"></script>
-        <script type="text/javascript" src="js/extendedjqueryvalidation.js"></script>
-      <!--   <script type="text/javascript" src="js/index.js"></script>  -->
+        <script type="text/javascript" src="js/extendedjqueryvalidation.js"></script> 
     </body>
 </html>

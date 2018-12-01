@@ -1,0 +1,2 @@
+cd C:\Users\Tabitha\Documents\GitHub\SDC_FinalProject\TrailCovery_MobileBuild
+simulate
