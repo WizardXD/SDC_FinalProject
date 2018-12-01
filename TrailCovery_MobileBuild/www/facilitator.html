@@ -137,8 +137,8 @@
           interactive: true,
           dragRotate: true,
           doubleClick: true,
-		  centre : [103.9296074, 1.345245],
-		  zoom: 3.6
+		  center : [103.9296074, 1.345245],
+		  zoom: 10
           });
 
 
@@ -150,7 +150,7 @@
           trackUserLocation: true
           }));
           //IF I CHANGE THIS URL TO PHP THAT CONTAINS THE GEOJSON FORMAT
-          var url = 'https://mp18.projectsbit.org/sdc/testme.php';
+          var url = 'https://mp18.projectsbit.org/sdc/facilitatormap.php';
 
           //var url = 'https://wanderdrone.appspot.com/';
           //var url='https://mp18.projectsbit.org/sdc/realtimemap.php';
@@ -158,15 +158,26 @@
 
           map.on('load', function () {
               window.setInterval(function() {
-                  map.getSource('drone').setData(url);
+                  map.getSource('humansdsd').setData(url);
               }, 2000);
 
-              map.addSource('drone',
+             map.addSource('humansdsd',
               {
                 type: 'geojson',
                 data: url
               });
 
+
+              map.addLayer({
+        "id": "humansdsd",
+        "type": "symbol",
+        "source": "humansdsd",
+        "layout": {
+                      "icon-image": "rocket-15"
+                  },
+       // "filter": ["==", "$type", "Point"],
+    });
+/*
               map.addLayer({
                   "id": "drone",
                   "type": "symbol",
@@ -175,16 +186,25 @@
                       "icon-image": "rocket-15"
                   },
 				"filter": ["==", "$type", "Point"],
-              });
+              }); */
+             /* map.addLayer({
+                    "id": "humanx",
+                    "type": "symbol",
+                    "source": "humans",
+                    "layout": {
+                      "icon-image": "rocket-15"
+                  },
+        "filter": ["==", "$type", "Point"],
+    });*/
 		
-          });
+});
 
 
-          document.addEventListener("deviceready", onDeviceReady, false);
+       /*   document.addEventListener("deviceready", onDeviceReady, false);
               function onDeviceReady() {
                   console.log("navigator.geolocation works well");
               }
-
+*/
 
 
 
@@ -370,7 +390,7 @@
         <script type="text/javascript" src="js/common.js"></script>
         <script type="text/javascript" src="js/extendedjqueryvalidation.js"></script>
       <!--   <script type="text/javascript" src="js/index.js"></script>  -->
-      <script src="js/getcurrentlocation.js"></script>
+      <!-- <script src="js/getcurrentlocation.js"></script> -->
 
       <script src="js/eventmanagement.js"></script>
 
