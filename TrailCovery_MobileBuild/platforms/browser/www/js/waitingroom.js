@@ -10,7 +10,7 @@
 	 // check the status of the game... if status = ONG, relocate all users to the game page
 	 // the status of the event will only change from YTB to ONG after the admin press on the start game button
 	 function getEventStatus() {
-		 var url = serverURL() + "/wrgame.php";
+		 var url = serverURL() + "/wrstatus.php";
 			var JSONObject = {
 				"accesscode": localStorage.getItem("accesscode")
 			};
