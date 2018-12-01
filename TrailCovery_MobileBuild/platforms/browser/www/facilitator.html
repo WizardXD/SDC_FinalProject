@@ -203,7 +203,12 @@
 
  <template id="event_management.html">
             <ons-page>
-			<script src="js/eventmanagement.js"></script>
+            <link rel="stylesheet" href="css/jquery.mobile-1.4.5.css"/>
+            <link rel="stylesheet" type="text/css" href="css/jquery.mobile.flatui.css" />
+            <script src="js/eventmanagement.js"></script>
+            <script src="js/lib/jquery.mobile-1.4.5.min.js"></script>
+
+
                 <!-- Toolbar-->
                 <ons-toolbar>
                     <div class="left">
@@ -248,19 +253,24 @@
 				
 			</ons-page>
 </template>
+
 <!-- User Management -->
 <template id="account_management.html">
     <ons-page>
             <script src="js/account_control.js"></script>
+            <script src="js/lib/DataTables/jquery.dataTables.min.js"></script>
+            <script src="www/css/user_management.css"></script>
         <ons-toolbar>
             <div class="left">
                 <ons-toolbar-button onclick="fn.open()">
                     <ons-icon icon="md-menu"></ons-icon>
                 </ons-toolbar-button>
             </div>
+            <div class="center">
+                User Management
+            </div>
         </ons-toolbar>
 
-        <div data-role="page" id="front-page">
             <div data-role="header" class="header" data-position="fixed" id="header">
 
             </div>
@@ -277,7 +287,7 @@
             </div>
 
             <div data-role="main" class="ui-content">
-                <table id="showUsers" class="table table-striped table-bordered" cellspacing="0" align="center">
+                <table id="showUsers" class="table table-striped table-bordered" cellspacing="0" align="center";>
                     <thead>
                         <tr>
                             <th>Username</th>
@@ -316,6 +326,40 @@
             </table>
 
         </div>
+        <!-- 
+        <div data-role="page" id="front-page">
+            <div id="User"></div>
+            <a href="#addUserPopUp">
+                    <ons-fab position="bottom right" colour="blue">
+                            <ons-icon icon="md-plus"></ons-icon>
+                            </ons-fab>
+            </a>
+        </div>
+
+        <div data-role="page" data-dialog="true" id="addUserPopUp">
+                <div data-role="header">   <h1>New User</h1>  </div>
+                <div data-role="main" class="ui-content">
+                    <form id="addUserform">
+                            Username:
+                            <input type="text" id="username" value=" " />
+                            Password:
+                            <input type="text" id="password" value=" " />
+                            Email:
+                            <input type="text" id="email" value=" " />
+                            School:
+                            <input type="text" id="school" value=" " />
+                            Phone:
+                            <input type="text" id="phone" value=" " />
+                            Role:
+                            <input type="text" id="role" value=" " />
+							<input type="button" id="btnAddUser" value="Add User" />
+                            <input type="reset" value="Reset">
+                        </form>
+					</div>
+					<div data-role="footer">   <h3>Copyright</h3>  </div>
+				</div>
+				
+			</ons-page> -->
         </template>
 
         <!-- Temporary inline script to move when finalised-->
