@@ -133,7 +133,9 @@
           style: 'mapbox://styles/mapbox/streets-v9',
           interactive: true,
           dragRotate: true,
-          doubleClick: true
+          doubleClick: true,
+		  centre : [103.9296074, 1.345245],
+		  zoom: 3.6
           });
 
 
@@ -168,8 +170,10 @@
                   "source": "drone",
                   "layout": {
                       "icon-image": "rocket-15"
-                  }
+                  },
+				"filter": ["==", "$type", "Point"],
               });
+		
           });
 
 
