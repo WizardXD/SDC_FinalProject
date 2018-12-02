@@ -227,6 +227,9 @@
 
  <template id="event_management.html">
             <ons-page>
+			<script src="js/eventmanagement.js"></script>
+			<script type="text/javascript" src="www/js/lib/jquery-1.11.2.min.js"></script>
+			<link rel="stylesheet" href="css/jquery.mobile-1.4.5.css">
                 <!-- Toolbar-->
                 <ons-toolbar>
                     <div class="left">
@@ -240,6 +243,7 @@
                 </ons-toolbar>
 				
 				 <div data-role="page" id="mainpage">
+				 
 					<div id="event"></div>
 					<a href="#addEventPopUp">
 					<ons-fab position="bottom right" colour="blue">
@@ -261,14 +265,11 @@
 							Admin-In-Charge
 							<select name="selAdmin" id="selAdmin"> </select>
 							Waiting Room's Access Code:
-							<input type="text" id="eventaccesscode" value=" " />
+							<input type="text" id="eventaccesscode"/>
 							<input type="button" id="btnAddEvent" value="Add Event" />
 							<input type="reset" value="Reset">
 						</form>
 					</div>
-					<div class="footer">
-                        <p>© 2018 Temasek Polytechnic. All Rights Reserved.</p>
-                    </div>
 				</div>
 				
 			</ons-page>

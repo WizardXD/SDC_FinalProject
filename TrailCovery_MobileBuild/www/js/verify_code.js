@@ -1,5 +1,6 @@
 ﻿(function () {
-
+	var t;
+	
     $(document).ready(function () {
        $("#btnStartGame").click(function () {
 		   codeVerification();
@@ -36,16 +37,72 @@
            localStorage.setItem("accesscode", accesscode);
            ons.notification.alert('Hold on', {
             title: 'Success'
-        });           
-                             
-        window.location = "waitingroom.html";
+        });   
+		getEventid()		
+
     } else {                                                         // == 0 means no data is found with the given accesscode
         ons.notification.alert('Wrong Game Code, try again', {
             title: 'Not Found'
         });                               
     }
 	}
-		
+	
+	function getEventid() {
+		var url = serverURL() + "/updatecodestep1.php";
+		var accesscode = $("#txtWaitingRoomCode").val();
+	
+		var JSONObject = {
+			"accesscode": accesscode
+		};
 
+		$.ajax({
+			url: url,
+			type: 'GET',
+			data: JSONObject,
+			dataType: 'json',
+			contentType: "application/json; charset=utf-8",
+			success: function (arr) {
+				_getEventidResults(arr);
+			}, error: function () {
+				validationMsg();
+			}
+		});
+	}
+	
+	function _getEventidResults(arr) {
+		for (i = 0; i < arr.length; i++) {     
+            t = arr[i].eventid;
+			localStorage.setItem("eventid", t);
+			updateEventid();
+		}
+    }
+	
+	function updateEventid() {
+		var url = serverURL() + "/updatecodestep2.php";
+		var eventid = t;
+		var username = localStorage.getItem('username');
+	
+		var JSONObject = {
+			"username": username,
+			"event": eventid
+		};
 
+		$.ajax({
+			url: url,
+			type: 'GET',
+			data: JSONObject,
+			dataType: 'json',
+			contentType: "application/json; charset=utf-8",
+			success: function (arr) {
+				_getUpdateEventResult(arr);
+			}, error: function () {
+				validationMsg();
+			}
+		});
+	}
+	
+	function _getUpdateEventResult(arr){
+	   window.location = "waitingroom.html";
+	}
+	
 })(); 
