@@ -1,3 +1,5 @@
-div.page__content {
-        width: 80%;
-    }
+#showUsers{
+    color:red;
+    width:100%;
+    table-layout: auto;
+}
