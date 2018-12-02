@@ -4,7 +4,7 @@
 	getEventStatus();
 	getEventDetails();
 	getGroupsInWR();
-	getAdminsInWR();
+	//getAdminsInWR();
      });
 	 
 	 // check the status of the game... if status = ONG, relocate all users to the game page
@@ -67,9 +67,14 @@
 				var t;
 				t = 
 				"<ons-card>" + 
-				"<b> Trail Name:  </b>" +  arr[i].trailname + 
-				"<br/>" + "<b>Location: </b>" + arr[i].traillocation + 
-				"<br/>" + "<b> Duration: </b>" + arr[i].duration + " Hours" +  
+				"<center><b>" + "Details of Event" + "</b></center>" + "<br/>" +   
+				"<b>Trail Name:  </b>" +  arr[i].trailname + "<br/>" + 
+				"<b>Location: </b>" + arr[i].traillocation + "<br/>" + 
+				"<b> Duration: </b>" + arr[i].duration + " Hours" +  "<br/>" + "<br/>" +
+				
+				"<center><b>Admin</b></center>" + "<br/>" +
+				"<img src='" + serverURL() + "/images/admins/" + arr[i].adminimg + "' width=17%' height='17%'>" + "   " +
+				arr[i].adminname +
 				"</ons-card>";
 				$("#wrdetails").append(t);	
 		}
@@ -108,6 +113,10 @@
         }
 	}
 	
+	
+	
+	
+	/*
 	//display the admin which is incharge of the event --> defined when creating new event.
 	function getAdminsInWR() {
 		var url = serverURL() + "/wradmins.php";
@@ -138,6 +147,7 @@
 				$("#wradmins").append(t);	
 		}
 	}
+	*/
 	
 })();
 
