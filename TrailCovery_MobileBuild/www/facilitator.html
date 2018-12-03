@@ -42,6 +42,7 @@
         <script src='https://api.mapbox.com/mapbox-gl-js/v0.51.0/mapbox-gl.js'></script>
         <link href='https://api.mapbox.com/mapbox-gl-js/v0.51.0/mapbox-gl.css' rel='stylesheet'/>
         <link rel="stylesheet" type="text/css" href="css/map.css">
+        <link rel="stylesheet" type="text/css" href="css/waitingroomadmin.css">
         <title>SDCFYP</title>
     </head>
     <body>
@@ -125,6 +126,14 @@
                      THE MAP WILL BE INITIALISE VIA JS-->
 
     <div id='map'></div>
+    
+    
+
+    <div id='userobjectdisplay'></div>
+    <div id='btn_waitingrm_startgm'>
+        <ons-button disabled="true">Star Game</ons-button>
+    </div>
+
 
 <script>
 
@@ -138,7 +147,7 @@
           dragRotate: true,
           doubleClick: true,
 		  center : [103.9296074, 1.345245],
-		  zoom: 10
+		  zoom: 14
           });
 
 
