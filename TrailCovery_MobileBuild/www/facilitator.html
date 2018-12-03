@@ -236,6 +236,9 @@
 
  <template id="event_management.html">
             <ons-page>
+			<script src="js/eventmanagement.js"></script>
+			<script type="text/javascript" src="www/js/lib/jquery-1.11.2.min.js"></script>
+			<link rel="stylesheet" href="css/jquery.mobile-1.4.5.css">
                 <!-- Toolbar-->
                 <ons-toolbar>
                     <div class="left">
@@ -249,6 +252,7 @@
                 </ons-toolbar>
 				
 				 <div data-role="page" id="mainpage">
+				 
 					<div id="event"></div>
 					<a href="#addEventPopUp">
 					<ons-fab position="bottom right" colour="blue">
@@ -270,12 +274,11 @@
 							Admin-In-Charge
 							<select name="selAdmin" id="selAdmin"> </select>
 							Waiting Room's Access Code:
-							<input type="text" id="eventaccesscode" value=" " />
+							<input type="text" id="eventaccesscode"/>
 							<input type="button" id="btnAddEvent" value="Add Event" />
 							<input type="reset" value="Reset">
 						</form>
 					</div>
-					<div data-role="footer">   <h1>Copyright</h1>  </div>
 				</div>
 				
 			</ons-page>
@@ -285,8 +288,13 @@
 <template id="account_management.html">
     <ons-page>
             <script src="js/account_control.js"></script>
-            <script src="js/lib/DataTables/jquery.dataTables.min.js"></script>
-            <script src="www/css/user_management.css"></script>
+            <!-- For table design-->
+<!--             <script src="js/lib/DataTables/jquery.dataTables.min.js"></script>
+            <link rel="stylesheet" type="text/css" href="www/css/user_management.css">
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+           --> 
+           
+            
         <ons-toolbar>
             <div class="left">
                 <ons-toolbar-button onclick="fn.open()">
@@ -301,7 +309,6 @@
             <div data-role="header" class="header" data-position="fixed" id="header">
 
             </div>
-            <h>Role</h>
             <div data-role="content" class="ui-content" id="SearchSection">
                 <form name="SearchForm" id="SearchForm">
                     <select id="selectroles">
@@ -313,8 +320,76 @@
                 </form>
             </div>
 
-            <div data-role="main" class="ui-content">
-                <table id="showUsers" class="table table-striped table-bordered" cellspacing="0" align="center";>
+            
+
+        <div data-role="page" id="front-page">
+            <div id="User"></div>
+            <ons-button id="addUserDialog">Add</ons-button>
+        
+            <ons-dialog id="user-dialog">
+            <div style="text-align: center; padding: 10px;">
+            
+            <form id="addUserform">
+                    Username:
+                    <input type="text" id="username" value=" " /> </br>
+                    Password:
+                    <input type="text" id="password" value=" " /> </br>
+                    Email:
+                    <input type="text" id="email" value=" " /> </br>
+                    School:
+                    <input type="text" id="school" value=" " /> </br>
+                    Phone:
+                    <input type="text" id="phone" value=" " /> </br>
+                    Role: 
+                    <input type="radio" id="role" name="role" value="admin"> Admin
+                    <input type="radio" id="role" name="role" value="teacher"> Teacher
+                    <input type="radio" id="role" name="role" value="student"> Student
+            </br>
+                    <input type="button" id="btnAddUser" value="Add User" />
+                    <input type="reset" value="Reset">
+            </form>
+        <p>
+                <ons-button id="hideDialog">Close</ons-button>
+        </p>
+    </div>
+            </ons-dialog>
+
+					<div class="footer">
+                        <p>© 2018 Temasek Polytechnic. All Rights Reserved.</p>
+                    </div>
+		
+                
+                
+            
+			</ons-page>
+        </template>
+        <!-- <div data-role="page" data-dialog="true" id="addUserPopUp">
+                <div data-role="header">   <h2>New User</h2>  </div>
+                <div data-role="main" class="ui-content">
+                    <form id="addUserform">
+                            Username:
+                            <input type="text" id="username" value=" " /> </br>
+                            Password:
+                            <input type="text" id="password" value=" " /> </br>
+                            Email:
+                            <input type="text" id="email" value=" " /> </br>
+                            School:
+                            <input type="text" id="school" value=" " /> </br>
+                            Phone:
+                            <input type="text" id="phone" value=" " /> </br>
+                            Role: 
+                            <input type="radio" id="role" name="role" value="admin"> Admin
+                            <input type="radio" id="role" name="role" value="teacher"> Teacher
+                            <input type="radio" id="role" name="role" value="student"> Student
+                    </br>
+							<input type="button" id="btnAddUser" value="Add User" />
+                            <input type="reset" value="Reset">
+                        </form>
+                    </div>
+                     -->
+
+<!-- <div data-role="main" class="ui-content table-responsive">
+                <table id="showUsers" class="table table-striped table-bordered table-condensed table-hover" cellspacing="5" align="center"; >
                     <thead>
                         <tr>
                             <th>Username</th>
@@ -352,42 +427,7 @@
 
             </table>
 
-        </div>
-        <!-- 
-        <div data-role="page" id="front-page">
-            <div id="User"></div>
-            <a href="#addUserPopUp">
-                    <ons-fab position="bottom right" colour="blue">
-                            <ons-icon icon="md-plus"></ons-icon>
-                            </ons-fab>
-            </a>
-        </div>
-
-        <div data-role="page" data-dialog="true" id="addUserPopUp">
-                <div data-role="header">   <h1>New User</h1>  </div>
-                <div data-role="main" class="ui-content">
-                    <form id="addUserform">
-                            Username:
-                            <input type="text" id="username" value=" " />
-                            Password:
-                            <input type="text" id="password" value=" " />
-                            Email:
-                            <input type="text" id="email" value=" " />
-                            School:
-                            <input type="text" id="school" value=" " />
-                            Phone:
-                            <input type="text" id="phone" value=" " />
-                            Role:
-                            <input type="text" id="role" value=" " />
-							<input type="button" id="btnAddUser" value="Add User" />
-                            <input type="reset" value="Reset">
-                        </form>
-					</div>
-					<div data-role="footer">   <h3>Copyright</h3>  </div>
-				</div>
-				
-			</ons-page> -->
-        </template>
+        </div> -->
 
         <!-- Temporary inline script to move when finalised-->
 

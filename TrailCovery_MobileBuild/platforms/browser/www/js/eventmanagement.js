@@ -1,29 +1,22 @@
-﻿document.addEventListener('init', function(event) {
+﻿(function () {
+
+    $(document).ready(function () {
 	
+        getEventDetails();
 
-var page = event.target;
+        getTrails();
 
-if (page.id === 'event_management') {
-    getEventDetails();
+        getAdmins();
 
-    getTrails();
+        $("#btnAddEvent").bind("click", function () {
+                addEvent();
+        });
 
-    getAdmins();
-
-    $("#btnAddEvent").bind("click", function () {
-            addEvent();
     });
-
-
-}
-});
- 
-      
-
-
 
     //retrieve the details of events
     function getEventDetails() {
+			
         var url = serverURL() + "/eventview.php";
         var JSONObject = {
         };
@@ -194,4 +187,4 @@ if (page.id === 'event_management') {
             alert("Accesscode already exist.");
         }
     }
-
+})(); 

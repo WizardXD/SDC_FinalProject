@@ -30,10 +30,11 @@
     function _showArtefactResult(arr) {
         //if i is less than the total  number of artefacts, increment by 1
         for (i = 0; i < arr.length; i++) {
+			 $("#trailimage").html("<img src='" + serverURL() + "/images/trails/" + arr[i].trailimg + "' width='90%' border='2'>");
             var t;
             // creating button with id similiar to the artefact id
-            t = "<p><ons-button id='btn" + arr[i].artefactid + "'>" + "Artefact " + (i+1) + " </ons-button><p/>";
-            $("#artefact").append(t);
+            t = "<p><ons-button id='btn" + arr[i].artefactid + "' style='width:45%'>" + "Artefact " + (i+1) + " </ons-button><p/>";
+            $("#artefactbtn").append(t);
             $("#btn" + arr[i].artefactid).bind("click", { id: arr[i].artefactid }, function (event) {
                 var data = event.data;
                 _showResult(data.id);
