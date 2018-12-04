@@ -107,7 +107,7 @@
 		 for (i = 0; i < arr.length; i++) {
             var t;
             t = 
-			"<ons-card><img src='" + serverURL() + "/images/avatars/" + arr[i].image + "' width=22%' height='22%' class = 'groupimg'>" +  arr[i].groupname + "</ons-card>";
+			"<ons-card><img src='" + serverURL() + "/images/avatars/" + arr[i].image + "' width=22%' height='22%' class = 'groupimg'></br>" +  arr[i].groupname + "</ons-card>";
             $("#wrgroups").append(t);
 
         }
