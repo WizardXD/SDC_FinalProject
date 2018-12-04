@@ -322,8 +322,6 @@
 <!--             <script src="js/lib/DataTables/jquery.dataTables.min.js"></script>
             <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
            --> 
-           
-           -->
 
 
         <ons-toolbar>
@@ -347,8 +345,8 @@
                         <option value="teacher">Teacher</option>
                         <option value="student">Student</option>
                     </ons-select>
-                    <ons-button id="viewRoles" name="viewRoles" style="padding-bottom:1px; padding-top:1px;" class="fa fa-search"></ons-button>
-                    <!-- <input type="button" id="viewRoles" name="viewRoles" value="Go"> -->
+                    <ons-button id="viewRoles" name="viewRoles" style="padding-bottom:5px; padding-top:5px;" class="fa fa-search"></ons-button>
+                    
                     
                 </form>
             </div>
@@ -363,7 +361,7 @@
             <form id="addUserform">
                 <p>
                     <i class="fa fa-user icon"></i>
-                <input id="username" class="text-input text-input--material valid" name="username" placeholder="Username" required="" aria-invalid="false" style="color:black;"> <br />
+                <input id="username" class="text-input text-input--material valid" name="username" placeholder="Username" required="" aria-invalid="false"> <br />
                 </p>
                 <p>
                 <i class="fa fa-key icon"></i>
@@ -400,30 +398,6 @@
                             </ons-select>
                           </p>
                     
-
-
-        <div data-role="page" id="front-page">
-            <div id="User"></div>
-            <ons-button id="addUserDialog">Add</ons-button>
-
-            <ons-dialog id="user-dialog">
-            <div style="text-align: center; padding: 10px;">
-
-            <form id="addUserform">
-                    Username:
-                    <input type="text" id="username" value=" " /> </br>
-                    Password:
-                    <input type="text" id="password" value=" " /> </br>
-                    Email:
-                    <input type="text" id="email" value=" " /> </br>
-                    School:
-                    <input type="text" id="school" value=" " /> </br>
-                    Phone:
-                    <input type="text" id="phone" value=" " /> </br>
-                    Role:
-                    <input type="radio" id="role" name="role" value="admin"> Admin
-                    <input type="radio" id="role" name="role" value="teacher"> Teacher
-                    <input type="radio" id="role" name="role" value="student"> Student
             </br>
             <ons-button id="btnAddUser">Add User</ons-button>
             <ons-button id="reset">Reset</ons-button>
