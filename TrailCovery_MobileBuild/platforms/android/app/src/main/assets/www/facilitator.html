@@ -32,15 +32,46 @@
         <meta name="format-detection" content="telephone=no">
         <meta name="msapplication-tap-highlight" content="no">
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
-        
+
         <link rel="stylesheet" type="text/css" href="css/index.css">
         <link rel="stylesheet" type="text/css" href="css/onsen-css-components.min.css">
         <link rel="stylesheet" type="text/css" href="css/onsenui.css">
+        <script type="text/javascript" src="js/lib/jquery-3.3.1.js"></script>
+        <script type="text/javascript" src="js/framework/onsenui.min.js"></script>
         <script src="https://js.pusher.com/4.3/pusher.min.js"></script>
+        <script src='https://api.mapbox.com/mapbox-gl-js/v0.51.0/mapbox-gl.js'></script>
+        <link href='https://api.mapbox.com/mapbox-gl-js/v0.51.0/mapbox-gl.css' rel='stylesheet'/>
+        <link rel="stylesheet" type="text/css" href="css/map.css">
+        <link rel="stylesheet" type="text/css" href="css/waitingroomadmin.css">
         <title>SDCFYP</title>
     </head>
     <body>
-           
+
+      <script>
+      //PUSHERAPI
+      var data;
+      // Enable pusher logging - don't include this in production
+      //PUSHER API IS USED AS WEBSOCKET TO STREAM DATA IN REAL TIME
+      Pusher.logToConsole = true;
+
+
+
+      var pusher = new Pusher('c3a0841c4cedc127e358', {
+        cluster: 'ap1',
+        forceTLS: true
+      });
+
+      var channel = pusher.subscribe('map-channel');
+      channel.bind('my-event', function(data) {
+
+
+        alert(JSON.stringify(data));
+      });
+
+
+
+      </script>
+
         <ons-navigator id="pushpage_navigator_facilitator">
             <ons-page>
 
@@ -63,7 +94,10 @@
                                 <ons-list-item onclick="fn.load('account_management.html')" tappable>
                                     Account Management
                                 </ons-list-item>
-            
+								<ons-list-item onclick="window.location = 'index.html'" tappable>
+									Logout
+								</ons-list-item>
+
                             </ons-list>
                         </ons-page>
                     </ons-splitter-side>
@@ -72,6 +106,8 @@
 
               </ons-page>
           </ons-navigator>
+<!-- HOME PAGE TEMPLATE FOR AMDINISTRATOR -->
+<!-- THIS SECTION WILL BE DISPLAYING THE USER'S LOCATION ON MAPBOX IN REAL-TIME -->
 
           <template id="home.html">
             <ons-page>
@@ -83,32 +119,335 @@
                         </ons-toolbar-button>
                     </div>
                     <div class="center">
-                       
                     </div>
                 </ons-toolbar>
-            </ons-page>
-        </template>
-        
-        <!-- Temporary inline script to move when finalised-->           
+                <!-- CONTENT -->
+                <!-- INITIALISE MAPBOX MAP USING A div id = map
+                     THE MAP WILL BE INITIALISE VIA JS-->
+
+    <div id='map'></div>
+
+
+
+    <div id='userobjectdisplay'>
+      <figure>
+      <img src="images/group-icons/1.png" width="75px" height="75px"> <!-- PROOF OF CONCEPT TO REMOVE AFTER 3-12-18-->
+      <figcaption>Team GOHOME </figcaption>
+      </figure>
+    </div>
+    <div id='btn_waitingrm_startgm'>
+        <ons-button id='startgamebtn' onclick="test()">Start Game</ons-button>
+    </div>
+
+
 <script>
 
-  
+          mapboxgl.accessToken = 'pk.eyJ1Ijoic2RjMjAxOCIsImEiOiJjam9pOTZhYTUwNnF5M3FtaWJ4c244Y3F4In0.AfOL4xqBBTijfsMMxMys9A';
+          var map = new mapboxgl.Map({
+          //https://www.mapbox.com/mapbox-gl-js/api/
+          container: 'map',
+          //container: 'map',
+          style: 'mapbox://styles/mapbox/streets-v9',
+          interactive: true,
+          dragRotate: true,
+          doubleClick: true,
+		  center : [103.9296074, 1.345245],
+		  zoom: 14
+          });
+
+
+          // THIS TRACK'S USER LOCATION IN REAL-TIME USING USER'G GroupSchool
+          map.addControl(new mapboxgl.GeolocateControl({
+          positionOptions: {
+          enableHighAccuracy: true
+          },
+          trackUserLocation: true
+          }));
+          //IF I CHANGE THIS URL TO PHP THAT CONTAINS THE GEOJSON FORMAT
+          var url = 'https://mp18.projectsbit.org/sdc/facilitatormap.php';
+
+          //var url = 'https://wanderdrone.appspot.com/';
+          //var url='https://mp18.projectsbit.org/sdc/realtimemap.php';
+
+
+          map.on('load', function () {
+              window.setInterval(function() {
+                  map.getSource('humansdsd').setData(url);
+              }, 2000);
+
+             map.addSource('humansdsd',
+              {
+                type: 'geojson',
+                data: url
+              });
+
+
+              map.addLayer({
+        "id": "humansdsd",
+        "type": "symbol",
+        "source": "humansdsd",
+        "layout": {
+                      "icon-image": "rocket-15"
+                  },
+       // "filter": ["==", "$type", "Point"],
+    });
+/*
+              map.addLayer({
+                  "id": "drone",
+                  "type": "symbol",
+                  "source": "drone",
+                  "layout": {
+                      "icon-image": "rocket-15"
+                  },
+				"filter": ["==", "$type", "Point"],
+              }); */
+             /* map.addLayer({
+                    "id": "humanx",
+                    "type": "symbol",
+                    "source": "humans",
+                    "layout": {
+                      "icon-image": "rocket-15"
+                  },
+        "filter": ["==", "$type", "Point"],
+    });*/
+
+});
+
+
+       /*   document.addEventListener("deviceready", onDeviceReady, false);
+              function onDeviceReady() {
+                  console.log("navigator.geolocation works well");
+              }
+*/
+
+
+
+
+
+
 
 
 
 </script>
 
 
+            </ons-page>
 
+
+</template>
+
+
+
+
+ <template id="event_management.html">
+            <ons-page>
+			<script src="js/eventmanagement.js"></script>
+			<script type="text/javascript" src="www/js/lib/jquery-1.11.2.min.js"></script>
+			<link rel="stylesheet" href="css/jquery.mobile-1.4.5.css">
+                <!-- Toolbar-->
+                <ons-toolbar>
+                    <div class="left">
+                        <ons-toolbar-button onclick="fn.open()">
+                            <ons-icon icon="md-menu"></ons-icon>
+                        </ons-toolbar-button>
+                    </div>
+                    <div class="center">
+					Event Management
+                    </div>
+                </ons-toolbar>
+
+				 <div data-role="page" id="mainpage">
+
+					<div id="event"></div>
+					<a href="#addEventPopUp">
+					<ons-fab position="bottom right" colour="blue">
+					<ons-icon icon="md-plus"></ons-icon>
+					</ons-fab>
+					</a>
+				</div>
+
+				  <div data-role="page" data-dialog="true" id="addEventPopUp">
+					<div data-role="header">   <h1>New Event</h1>  </div>
+					<div data-role="main" class="ui-content">
+						<form id="addEventform">
+							Trail: <br />
+							<select name="selTrail" id="selTrail"> </select>
+							Date of Event:<br />
+							<input type="date" id="eventdate" />
+							Time of Event:<br />
+							<input type="time" id="eventtime">
+							Admin-In-Charge
+							<select name="selAdmin" id="selAdmin"> </select>
+							Waiting Room's Access Code:
+							<input type="text" id="eventaccesscode"/>
+							<input type="button" id="btnAddEvent" value="Add Event" />
+							<input type="reset" value="Reset">
+						</form>
+					</div>
+				</div>
+
+			</ons-page>
+</template>
+
+<!-- User Management -->
+<template id="account_management.html">
+    <ons-page>
+            <script src="js/account_control.js"></script>
+            <!-- For table design-->
+<!--             <script src="js/lib/DataTables/jquery.dataTables.min.js"></script>
+            <link rel="stylesheet" type="text/css" href="www/css/user_management.css">
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+           -->
+
+
+        <ons-toolbar>
+            <div class="left">
+                <ons-toolbar-button onclick="fn.open()">
+                    <ons-icon icon="md-menu"></ons-icon>
+                </ons-toolbar-button>
+            </div>
+            <div class="center">
+                User Management
+            </div>
+        </ons-toolbar>
+
+            <div data-role="header" class="header" data-position="fixed" id="header">
+
+            </div>
+            <div data-role="content" class="ui-content" id="SearchSection">
+                <form name="SearchForm" id="SearchForm">
+                    <select id="selectroles">
+                        <option value="admin">Admin</option>
+                        <option value="teacher">Teacher</option>
+                        <option value="student">Student</option>
+                    </select>
+                    <input type="button" id="viewRoles" name="viewRoles" value="Go">
+                </form>
+            </div>
+
+
+
+        <div data-role="page" id="front-page">
+            <div id="User"></div>
+            <ons-button id="addUserDialog">Add</ons-button>
+
+            <ons-dialog id="user-dialog">
+            <div style="text-align: center; padding: 10px;">
+
+            <form id="addUserform">
+                    Username:
+                    <input type="text" id="username" value=" " /> </br>
+                    Password:
+                    <input type="text" id="password" value=" " /> </br>
+                    Email:
+                    <input type="text" id="email" value=" " /> </br>
+                    School:
+                    <input type="text" id="school" value=" " /> </br>
+                    Phone:
+                    <input type="text" id="phone" value=" " /> </br>
+                    Role:
+                    <input type="radio" id="role" name="role" value="admin"> Admin
+                    <input type="radio" id="role" name="role" value="teacher"> Teacher
+                    <input type="radio" id="role" name="role" value="student"> Student
+            </br>
+                    <input type="button" id="btnAddUser" value="Add User" />
+                    <input type="reset" value="Reset">
+            </form>
+        <p>
+                <ons-button id="hideDialog">Close</ons-button>
+        </p>
+    </div>
+            </ons-dialog>
+
+					<div class="footer">
+                        <p>© 2018 Temasek Polytechnic. All Rights Reserved.</p>
+                    </div>
+
+
+
+
+			</ons-page>
+        </template>
+        <!-- <div data-role="page" data-dialog="true" id="addUserPopUp">
+                <div data-role="header">   <h2>New User</h2>  </div>
+                <div data-role="main" class="ui-content">
+                    <form id="addUserform">
+                            Username:
+                            <input type="text" id="username" value=" " /> </br>
+                            Password:
+                            <input type="text" id="password" value=" " /> </br>
+                            Email:
+                            <input type="text" id="email" value=" " /> </br>
+                            School:
+                            <input type="text" id="school" value=" " /> </br>
+                            Phone:
+                            <input type="text" id="phone" value=" " /> </br>
+                            Role:
+                            <input type="radio" id="role" name="role" value="admin"> Admin
+                            <input type="radio" id="role" name="role" value="teacher"> Teacher
+                            <input type="radio" id="role" name="role" value="student"> Student
+                    </br>
+							<input type="button" id="btnAddUser" value="Add User" />
+                            <input type="reset" value="Reset">
+                        </form>
+                    </div>
+                     -->
+
+<!-- <div data-role="main" class="ui-content table-responsive">
+                <table id="showUsers" class="table table-striped table-bordered table-condensed table-hover" cellspacing="5" align="center"; >
+                    <thead>
+                        <tr>
+                            <th>Username</th>
+                            <th>Email</th>
+                            <th>School</th>
+                            <th>Phone</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+        </div>
+    </ons-page>
+</template>
+<template id="getaccountbyusername.html">
+    <ons-page>
+        <ons-toolbar>
+            <div class="left">
+                <ons-toolbar-button onclick="fn.open()">
+                    <ons-icon icon="md-menu"></ons-icon>
+                </ons-toolbar-button>
+            </div>
+        </ons-toolbar>
+
+        <div data-role="page" id="front-page">
+            <div data-role="header" class="header" data-position="fixed" id="header">
+            </div>
+
+            <table id="username" class="table table-striped table-bordered" cellspacing="0" align="center">
+                <thead>
+                    <tr>
+                        <th></th>
+                    </tr>
+                </thead>
+
+            </table>
+
+        </div> -->
+
+        <!-- Temporary inline script to move when finalised-->
 
 
 
         <script type="text/javascript" src="cordova.js"></script>
-        <script type="text/javascript" src="js/framework/onsenui.min.js"></script>
-        <script type="text/javascript" src="js/lib/jquery-3.3.1.js"></script>
+
         <script type="text/javascript" src="js/lib/jquery.validate.min.js"></script>
-        <script type="text/javascript" src="js/common.js"></script> 
-        <script type="text/javascript" src="js/extendedjqueryvalidation.js"></script> 
+        <script type="text/javascript" src="js/common.js"></script>
+        <script type="text/javascript" src="js/extendedjqueryvalidation.js"></script>
       <!--   <script type="text/javascript" src="js/index.js"></script>  -->
+      <!-- <script src="js/getcurrentlocation.js"></script> -->
+      <script src="js/eventmanagement.js"></script>
+      <script src="js/adminwaitingroom.js"></script>
+<!--     <script type="text/javascript" src='test.js'></script> -->
+
     </body>
 </html>

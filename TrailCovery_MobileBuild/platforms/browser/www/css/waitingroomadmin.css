@@ -5,3 +5,11 @@
     bottom: 2%;
     left: 37.5%;
 }
+
+
+#userobjectdisplay  {
+
+    position:absolute;
+    bottom: 10%;
+    left: -10%;
+}

@@ -94,10 +94,10 @@
                                 <ons-list-item onclick="fn.load('account_management.html')" tappable>
                                     Account Management
                                 </ons-list-item>
-								<ons-list-item onclick="window.location = '../index.html'" tappable>
+								<ons-list-item onclick="window.location = 'index.html'" tappable>
 									Logout
 								</ons-list-item>
-					
+
                             </ons-list>
                         </ons-page>
                     </ons-splitter-side>
@@ -126,12 +126,17 @@
                      THE MAP WILL BE INITIALISE VIA JS-->
 
     <div id='map'></div>
-    
-    
 
-    <div id='userobjectdisplay'></div>
+
+
+    <div id='userobjectdisplay'>
+      <figure>
+      <img src="images/group-icons/1.png" width="75px" height="75px"> <!-- PROOF OF CONCEPT TO REMOVE AFTER 3-12-18-->
+      <figcaption>Team GOHOME </figcaption>
+      </figure>
+    </div>
     <div id='btn_waitingrm_startgm'>
-        <ons-button disabled="true">Star Game</ons-button>
+        <ons-button id='startgamebtn' onclick="test()">Start Game</ons-button>
     </div>
 
 
@@ -205,7 +210,7 @@
                   },
         "filter": ["==", "$type", "Point"],
     });*/
-		
+
 });
 
 
@@ -250,9 +255,9 @@
 					Event Management
                     </div>
                 </ons-toolbar>
-				
+
 				 <div data-role="page" id="mainpage">
-				 
+
 					<div id="event"></div>
 					<a href="#addEventPopUp">
 					<ons-fab position="bottom right" colour="blue">
@@ -260,7 +265,7 @@
 					</ons-fab>
 					</a>
 				</div>
-	
+
 				  <div data-role="page" data-dialog="true" id="addEventPopUp">
 					<div data-role="header">   <h1>New Event</h1>  </div>
 					<div data-role="main" class="ui-content">
@@ -280,7 +285,7 @@
 						</form>
 					</div>
 				</div>
-				
+
 			</ons-page>
 </template>
 
@@ -292,9 +297,9 @@
 <!--             <script src="js/lib/DataTables/jquery.dataTables.min.js"></script>
             <link rel="stylesheet" type="text/css" href="www/css/user_management.css">
             <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-           --> 
-           
-            
+           -->
+
+
         <ons-toolbar>
             <div class="left">
                 <ons-toolbar-button onclick="fn.open()">
@@ -320,15 +325,15 @@
                 </form>
             </div>
 
-            
+
 
         <div data-role="page" id="front-page">
             <div id="User"></div>
             <ons-button id="addUserDialog">Add</ons-button>
-        
+
             <ons-dialog id="user-dialog">
             <div style="text-align: center; padding: 10px;">
-            
+
             <form id="addUserform">
                     Username:
                     <input type="text" id="username" value=" " /> </br>
@@ -340,7 +345,7 @@
                     <input type="text" id="school" value=" " /> </br>
                     Phone:
                     <input type="text" id="phone" value=" " /> </br>
-                    Role: 
+                    Role:
                     <input type="radio" id="role" name="role" value="admin"> Admin
                     <input type="radio" id="role" name="role" value="teacher"> Teacher
                     <input type="radio" id="role" name="role" value="student"> Student
@@ -357,10 +362,10 @@
 					<div class="footer">
                         <p>© 2018 Temasek Polytechnic. All Rights Reserved.</p>
                     </div>
-		
-                
-                
-            
+
+
+
+
 			</ons-page>
         </template>
         <!-- <div data-role="page" data-dialog="true" id="addUserPopUp">
@@ -377,7 +382,7 @@
                             <input type="text" id="school" value=" " /> </br>
                             Phone:
                             <input type="text" id="phone" value=" " /> </br>
-                            Role: 
+                            Role:
                             <input type="radio" id="role" name="role" value="admin"> Admin
                             <input type="radio" id="role" name="role" value="teacher"> Teacher
                             <input type="radio" id="role" name="role" value="student"> Student
@@ -440,10 +445,8 @@
         <script type="text/javascript" src="js/extendedjqueryvalidation.js"></script>
       <!--   <script type="text/javascript" src="js/index.js"></script>  -->
       <!-- <script src="js/getcurrentlocation.js"></script> -->
-
       <script src="js/eventmanagement.js"></script>
-
-	  
+      <script src="js/adminwaitingroom.js"></script>
 <!--     <script type="text/javascript" src='test.js'></script> -->
 
     </body>

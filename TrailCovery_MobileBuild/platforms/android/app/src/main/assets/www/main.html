@@ -32,431 +32,138 @@
         <meta name="format-detection" content="telephone=no">
         <meta name="msapplication-tap-highlight" content="no">
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
-        
         <link rel="stylesheet" type="text/css" href="css/index.css">
         <link rel="stylesheet" type="text/css" href="css/onsen-css-components.min.css">
         <link rel="stylesheet" type="text/css" href="css/onsenui.css">
-
-
-
-
         <title>SDCFYP</title>
     </head>
     <body>
-            <ons-navigator swipeable id="index" page="index.html"></ons-navigator>
 
-            <template id="index.html">
-              <ons-page id="index" modifier="full_bg">
-                <!-- Content-->
-                <p style="text-align: center; ">
-                        <img src="images/trailcoverylogo.jpg" />
-                    </p>
-                <br />
+      <ons-navigator id="pushpage_navigator_user">
+         <ons-page>
 
-                <div style="text-align: center; margin-top: 30px;">
-                        <div style="text-align:center; padding-top: 0px;">
-                           
-                            <form name="authForm" id="authForm">
-                                <p>
-                                    <i class="fa fa-user icon"></i>
-                                    <input id="username" class="text-input text-input--material valid" name="username" placeholder="Username" required="" aria-invalid="false"> <br />
-                                  
-                                </p>
-                                <p>
-                                    <i class="fa fa-key icon"></i>                                   
-                                    <input id="password" type="password" class="text-input text-input--material valid" name="txtpwd" placeholder="Password" required="" aria-invalid="false"> <br />
-        
-                                </p>
-        
-                            </form>
-                            <ons-button class="main_pg_btn" id="lgnbtn" modifier="large--quiet material--flat"> Login </ons-button><br />
-                            <ons-button class="main_pg_btn" id="rgstrbtn" modifier="large--quiet material--flat"> Register </ons-button>
-                        </div>
-        
-                    </div>
-                    <div class="footer">
-                            <p>© 2018 Temasek Polytechnic. All Rights Reserved.</p>
-                        </div>
-                <!-- End of index.html content-->  
+             <ons-splitter>
+                 <ons-splitter-side id="menu" side="left" width="220px" collapse >
+                     <ons-page>
+                         <ons-list>
+                             <ons-list-item onclick="fn.load('home.html')" tappable>
+                                 Home
+                             </ons-list-item>
+                             <ons-list-item onclick="fn.load('chat.html')" tappable>
+                                 Chat
+                             </ons-list-item>
+                             <ons-list-item onclick="fn.load('profile.html')" tappable>
+                                 Profile
+                             </ons-list-item>
+                             <ons-list-item onclick="fn.load('about.html')" tappable>
+                                 About
+                             </ons-list-item>
+							<ons-list-item onclick="window.location = 'index.html'" tappable>
+								Logout
+							</ons-list-item>
+							<ons-list-item onclick="window.location = 'artest.html'" tappable>
+								AR(TEST)
+							</ons-list-item>
+                         </ons-list>
+                     </ons-page>
+                 </ons-splitter-side>
+                 <ons-splitter-content id="content" page="home.html"></ons-splitter-content>
+             </ons-splitter>
 
-            </ons-page>
-            </template>
-            
-            <template id="registrationpage_1.html">
-              <ons-page id="registrationpage_1"> <!-- Registration page1-->
-                <ons-toolbar>
-                  <div class="left"><ons-back-button></ons-back-button></div>
-                  <div class="center"></div>
-                </ons-toolbar>
-                <!-- Content -->
-                <div style="text-align: center; margin-top: 10px;">
-                        <div style="text-align:center; padding-top: 20px;">
-          
-          
-                          <form name="RegisterForm1" id="RegisterForm1">
-                            <p>
-                              <i class="fa fa-user icon"></i>
-                              <input id="newusername" class="text-input text-input--material valid" name="newusername" placeholder="Username" required="" aria-invalid="false"> <br />
-                              <!--   <ons-input id="newusername" modifier="material" placeholder="Username" float required></ons-input> -->
-                            </p>
-                            <p>
-                              <i class="fa fa-key icon"></i>
-                              <input id="newpassword" type="password" class="text-input text-input--material valid" name="newpassword" placeholder="Password" required="" aria-invalid="false"> <br />
-                              <!--  <ons-input id="newpassword" modifier="material" type="password" placeholder="Password" float required></ons-input> -->
-                            </p>
-          
-                         <!--  <p id="text" hidden>WARNING! Caps lock is ON.</p> -->  
-          
-                            <p>
-                              <i class="fa fa-key icon"></i>
-                              <input id="newpassword2" type="password" class="text-input text-input--material valid" name="newpassword2" placeholder="Confirm Password" required="" aria-invalid="false"> <br />
-                              <!--   <ons-input id="newpassword2" modifier="material" type="password" placeholder="Confirm Password" float required></ons-input> -->
-                            </p>
-                            <p>
-                              <i class="fa fa-institution"></i>
-                              <ons-select name="school" id="school" style="width:200px; height:25px">
-                                <option value="null">Select School/Institution</option>
-                                <optgroup label="Junior College" name="juniorcollege" id="juniorcollege"> </optgroup>
-                                <optgroup label="Polytechnic" name="polytechnic" id="polytechnic"> </optgroup>
-                                <optgroup label="Secondary School" name="secondarysch" id="secondarysch"> </optgroup>
-                                <optgroup label="Primary School" name="primarysch" id="primarysch"> </optgroup>
-                              </ons-select>
-                            </p>
-                          </form>
-                          
-                          <ons-button class="register_pg_btn" id="push-button-1">Next</ons-button>
-                          
-                          
-                          <br />
-                       
-                        </div>
-                      </div>                      
-                <!-- End of register #1 content-->
-                <script src="js/schArrayObject.js"></script>
-              <!--   <script src="js/register.js"></script>  -->
-              </ons-page>
-            </template>
+           </ons-page>
+       </ons-navigator>
+
+       <template id="home.html">
+         <ons-page>
+		     <script type="text/javascript" src="js/verify_code.js"></script>
+             <!-- Toolbar-->
+             <ons-toolbar>
+                 <div class="left">
+                     <ons-toolbar-button onclick="fn.open()">
+                         <ons-icon icon="md-menu"></ons-icon>
+                     </ons-toolbar-button>
+                 </div>
+                 <div class="center">
+
+                 </div>
+             </ons-toolbar>
 
 
+			<!--What's this line of code for?-->
+             <div id="displaygroupname"></div> <div id= "displaygroupselectedavatar">
 
-            <template id="registrationpage_2.html"> <!-- Registration page2-->
-                    <ons-page id="registrationpage_2">
-                      <ons-toolbar>
-                        <div class="left"><ons-back-button></ons-back-button></div>
-                        <div class="center"></div>
-                      </ons-toolbar>
-                      <!-- Content -->
-                      <div style="text-align: center; margin-top: 10px;">
-                            <div style="text-align:center; padding-top: 10px;">
-                      <form name="RegisterForm2" id="RegisterForm2">
-                        <center>
-                          <div id="avatar">
-                                Select Group Avatar                 <br>
-                          </div>
-                        </center>
-                            <p>
-                                <i class="fa fa-group"></i>
-                                <input id="newgroupname" class="text-input text-input--material valid" name="newgroupname" placeholder="Group Name" required="" aria-invalid="false"> <br />
-                                <!-- <ons-input id="newgroupname" name="newgroupname" modifier="material" placeholder="Group Name" style="width:166px" float required></ons-input> <br /> -->
-                            </p>
 
-                            <div id='GroupMembersName'>
-                                <div id="GroupMember1">
-                                  <p>
-                                    &emsp;&emsp;&emsp;<input id="member1" class="text-input text-input--material valid" name="member1" placeholder="Leader's Name" required="" aria-invalid="false">
-                                    &emsp;
-                                    <input type='button' value='+' id='addMemberbtn'>
-                                    <br />
-                                  </p>
-                                 </div>
-                            </div>
-                            <!--  <ons-input id="member1" name="member1" placeholder="Leader Name" style="width:166px" required></ons-input> <br /> -->
-                            <p>
-                                <i class="fa fa-mobile-phone"></i>
-                                <input id="contactdetails" class="text-input text-input--material valid" name="contactdetails" placeholder="Contact No." required="" aria-invalid="false"> <br />
-                                <!--  <ons-input id="contactdetails" name="contactdetails" placeholder="Leader's Contact Details" required></ons-input> <br /> -->
-                                </p>
-                            <p>
-                                <i class="fa fa-envelope-open-o"></i>
-                                <input id="emailaddress" class="text-input text-input--material valid" name="emailaddress" placeholder="Email" required="" aria-invalid="false"> <br />
-                                <!--  <ons-input id="emailaddress" name="emailaddress" placeholder="Leader's Email Address" required></ons-input> <br /> -->
-                            </p>
+             <!-- REMOVE THIS AND REPLACE WITH SOMETHING ELSE-->
+             <p style="text-align: center; padding-top: 50px; font-size:20px; font-family:'Tahoma, Geneva, sans-serif'">
+                <img src="images/btrail.png" /> <br />
+                Learn Singapore's history and culture through Trailcovery 2.0!
+              </p>
 
-                        </form>
-                        <ons-button class="register_pg_btn" id="registerbtn">Register</ons-button>
-                        </div>
-                        </div>
-                        <script src="js/addn_members.js"></script>
-                    </ons-page>
-                  </template>
+              <!-- THIS PORTION ENTAILS THE FORM FOR GAME ACCESS -->
+              <div style="text-align:center; padding-top: 30px;">
+              <form name="WaitingRoomCodeForm" id="WaitingRoomCodeForm">
+                <p>
+                    <i class="material-icons">&#xe338;</i>
+                    <ons-input id="txtWaitingRoomCode" modifier="material" placeholder="Key in code to start game" float required></ons-input>
+                </p>
+            </form>
+			
+            <ons-button class="main_pg_btn" id="btnStartGame" modifier='material--flat' style="display: inline-block;"> START </ons-button>
+            <ons-button class="main_pg_btn" id="btnInstructions" modifier='material--flat' style="display: inline-block;" onclick="showPopover(this)"> Instructions </ons-button>
+
+            <!-- THIS SECTION IS THE INSTRUCTION BUTTON WITH INSTRUCTION INFORMATION
+            FOR THE USER TO CLICK -->
+
+            <ons-popover direction="up" id="popoverinstruction" class="onsinspopover">
+                  <div style="padding: 10px; text-align: center;">
+
+
+                      <!-- Carousel for image-->
+                      <ons-carousel fullscreen swipeable auto-scroll overscrollable id="carousel">
+                          <ons-carousel-item>
+                              <ons-card>
+                                  <img src="images/instructions/1.jpg" alt="Instruction_1" style="width: 100%;">
+
+                              </ons-card>
+                          </ons-carousel-item>
+
+                          <ons-carousel-item>
+                              <ons-card>
+                                  <img src="images/instructions/2.jpg" alt="Instruction_2" style="width: 100%;">
+
+                              </ons-card>
+                          </ons-carousel-item>
+
+                          <ons-carousel-item>
+                              <ons-card>
+                                  <img src="images/instructions/3.jpg" alt="Instruction_3" style="width: 100%;">
+
+                              </ons-card>
+                          </ons-carousel-item>
+                      </ons-carousel>
+
+                      <p> Swipe left to see the next instruction</p>
+                      <p>
+                          <ons-button id="hidepopoverinstruction" onclick="hidePopover(this)">Understood</ons-button>
+                      </p>
+                  </div>
+              </ons-popover>
+
+
+              </div>
 
 
 
-
-
- <!-- Temporary inline script to move when finalised-->           
-<script>
-
-    //GLOBALVARIABLE 
-    var selectedImageId;
-
-
-document.addEventListener('init', function(event) {
-  var page = event.target;
-
-  if (page.id === 'index') {
-    page.querySelector('#rgstrbtn').onclick = function() {
-      document.querySelector('#index').pushPage('registrationpage_1.html', {
-          data: {
-              title: 'Register'}
-              });
-    };
-  } else if (page.id === 'registrationpage_1') {
-    page.querySelector('ons-toolbar .center').innerHTML = page.data.title;
-
-    $('#RegisterForm1').validate({
-    rules: {
-        newusername: {
-            minlength: 6
-        },
-        newpassword2: {
-            equalTo: "#newpassword"
-        },
-        newpassword: {
-            minlength: 8
-        }
-    }, //End of jQueryRules
-    messages: {
-        newusername: {
-            required: "Username is required"
-        },
-        newpassword: {
-
-            required: "Password is required"
-        },
-        newpassword2: {
-            required: "Re-enter your password"
-        }
-    }, //End of Message
-
-    focusInvalid: false,
-    submitHandler: function () {
-        return false;
-    },
-
-    errorPlacement: function (error, element) {
-        error.appendTo(element.parent().after());
-        //error.appendTo(element.parent().parent().after());
-    }
-
-}); /* End of Validation*/
-
-$("#push-button-1").bind("click", function () {
-    if ($("#RegisterForm1").valid()) {
-        document.querySelector('#index').pushPage('registrationpage_2.html', { 
-            data: {
-                 title: '' } 
-                });  //title --> set the header for page 2
-    }
-
-});
-}else if (page.id === 'registrationpage_2') {
-
-        //show the group avatar
-        showAvatar();
-
-        /*jQuery Validation API */
-        $('#RegisterForm2').validate({
-            rules: {
-                emailaddress: {
-                    email: true
-                },
-                newgroupname: {
-                    minlength: 5
-                },
-                contactdetails: {
-                    minlength: 8,
-                    number: true
-                }
-            },
-          
-            messages: {
-                member1: {
-                    required: "Leader's name is required."
-                },
-                newgroupname: {
-
-                    required: "Enter group name."
-                },
-                contactdetails: {
-                    required: "Enter your phone no."
-                },
-                emailaddress: {
-                    required: "Provide a valid email address."
-                }
-            },
-            focusInvalid: false,
-            submitHandler: function () {
-                return false;
-            },
-
-            errorPlacement: function (error, element) {
-                error.appendTo(element.parent().after());
-               // error.appendTo(element.parent().parent().after());
-            }
-
-        }); /* End of Validation*/
-        page.querySelector('ons-toolbar .center').innerHTML = page.data.title;    //Header for page 2
-        
-        $("#registerbtn").bind("click", function () {
-            if ($("#RegisterForm2").valid()) {
-                registerGroup();
-            }
-        });
-    }
-
-});
-
-function registerGroup() {
-    username = $("#newusername").val();
-    password = $("#newpassword").val();
-    email = $("#emailaddress").val();
-    school = $("#school").val();
-    contactdetails = $("#contactdetails").val();
-    groupname = $("#newgroupname").val();
-    member1 = $("#member1").val();
-    member2 = $("#member2").val();
-    member3 = $("#member3").val();
-    member4 = $("#member4").val();
-    member5 = $("#member5").val();
-    member6 = $("#member6").val();
-    member7 = $("#member7").val();
-    member8 = $("#member8").val();
-
-    url = serverURL() + "/register.php"; 
-
-    var JSONObject = {
-        "username": username,
-        "password": password,
-        "email": email,
-        "school": school,
-        "phone": contactdetails,
-
-        "groupname": groupname,
-        "leader": member1,
-        "member2": member2,
-        "member3": member3,
-        "member4": member4,
-        "member5": member5,
-        "member6": member6,
-        "member7": member7,
-        "member8": member8,
-        "avatarid": selectedImageId
-    };
-
-    $.ajax({
-        url: url,
-        type: 'GET',
-        data: JSONObject,
-        dataType: 'json',
-        contentType: "application/json; charset=utf-8",
-        success: function (arr) {
-            _getRegisterGroupResult(arr); 
-        }, error: function () {
-            validationMsg();
-        }
-    });   
-}
-
-
-function _getRegisterGroupResult(arr) {
-    if (arr[0].result === 1) {
-        alert("Account has been created successfully");
-        //window.location = "main.html";
-    } else if (arr[0].result === 0) {
-        alert("Username already exist.");
-    }
-}
-
-
-function showAvatar() {
-    var url = serverURL() + "/avatar.php";
-
-    var JSONObject = {
-    };
-
-    $.ajax({
-        url: url,
-        type: 'GET',
-        data: JSONObject,
-        dataType: 'json',
-        contentType: "application/json; charset=utf-8",
-        success: function (arr) {
-            showAvatarResult(arr);
-        },
-        error: function () {
-            alert("Error");         //Change to validation message 
-        }
-    });
-}
-
-function showAvatarResult(arr) {
-    //if i is less than the total number of artefacts, increment by 1
-    for (i = 0; i < arr.length; i++) {
-        var avatarimage;
-        var avatarid;
-        // creating button with id similar to the artefact id
-        avatarid = arr[i].avatarid;
-        avatarimage = "<input class='image-input' type='image' id='" + avatarid +"' value='" + avatarid +"' src='" + serverURL() + "/images/avatars/" + arr[i].image + "' width=17%' height='17%'  />";
-        //avatarimage = "<img src='" + serverURL() + "/images/avatars/" + arr[i].image + "' width=17%' height='17%'>";
-       
-   
-        
-        $("#avatar").append(avatarimage);
-        
-   
-        $('.image-input').click(function(){
-    selectedImageId = $(this).attr('id');
-});
-    }
-}
-
-
-
-/* input = document.getElementById("newpassword");
-var text = document.getElementById("text");
-input.addEventListener("keyup", function (event) {
-
-    if (event.getModifierState("CapsLock")) {
-        text.style.display = "block";
-    } else {
-        text.style.display = "none";
-    }
-}); 
-CAPS LOCK THING NOT IMPORTANT
-*/
-
-
-/*jQuery Validation API */
-
-
-
-
-
-</script>
-
-
-
-
-
+         </ons-page>
+       </template>
 
         <script type="text/javascript" src="cordova.js"></script>
         <script type="text/javascript" src="js/framework/onsenui.min.js"></script>
         <script type="text/javascript" src="js/lib/jquery-3.3.1.js"></script>
         <script type="text/javascript" src="js/lib/jquery.validate.min.js"></script>
-        <script type="text/javascript" src="js/common.js"></script> 
-        <script type="text/javascript" src="js/auth.js"></script> 
+        <script type="text/javascript" src="js/common.js"></script>
         <script type="text/javascript" src="js/extendedjqueryvalidation.js"></script> 
-      <!--   <script type="text/javascript" src="js/index.js"></script>  -->
+        <script type="text/javascript" src="js/getcurrentlocation.js"></script> 
+     
     </body>
 </html>

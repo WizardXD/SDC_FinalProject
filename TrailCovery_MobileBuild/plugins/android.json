@@ -12,6 +12,9 @@
     },
     "cordova-plugin-geolocation": {
       "PACKAGE_NAME": "com.trailcoverysdc.mobile"
+    },
+    "cordova-plugin-camera": {
+      "PACKAGE_NAME": "com.trailcoverysdc.mobile"
     }
   },
   "dependent_plugins": {}

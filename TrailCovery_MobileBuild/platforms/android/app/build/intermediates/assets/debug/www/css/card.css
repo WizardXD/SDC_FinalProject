@@ -1,0 +1,97 @@
+﻿.flip-card-3D-wrapper {
+	width: 94%;
+	height: 110%;
+	max-width: 90%;
+	max-height: 85%;
+	position: relative;
+	-o-perspective: 900px;
+	 -webkit-perspective: 900px;
+	 -ms-perspective: 900px;
+	perspective: 900px;
+	margin: 0 auto;
+	}
+	
+#flip-card {
+	 width: 100%;
+	height: 100%;
+	text-align: center;
+	 margin: 50px auto;
+	-o-transition: all 1s ease-in-out;
+    -webkit-transition: all 1s ease-in-out;
+	-ms-transition: all 1s ease-in-out;
+	transition: all 1s ease-in-out;
+	-o-transform-style: preserve-3d;
+	-webkit-transform-style: preserve-3d;
+	-ms-transform-style: preserve-3d;
+	transform-style: preserve-3d;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+	transition: 1.0s;
+	}
+	
+.do-flip {
+	-o-transform: rotateY(-180deg);
+	-webkit-transform: rotateY(-180deg);
+	-ms-transform: rotateY(-180deg);
+	transform: rotateY(-180deg);
+	}
+	
+#flip-card-btn-turn-to-back, #flip-card-btn-turn-to-front {
+	position: absolute;
+	top: 27px;
+    right: 24px;
+	width: 40px;
+	height: 40px;
+	background: white;
+	cursor: pointer;
+	visibility: hidden;
+	font-family: 'Open Sans', sans-serif;
+	font-weight: 600;
+	font-size: .7em;
+	padding: 0;
+	color: grey;
+	border: 1px solid grey;
+	}
+	
+#flip-card .flip-card-front, #flip-card .flip-card-back{
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	-o-backface-visibility: hidden;
+	-webkit-backface-visibility: hidden;
+	-ms-backface-visibility: hidden;
+	backface-visibility: hidden;
+	z-index: 2;
+	-webkit-box-shadow: 5px 6px 32px 2px rgba(133,133,133,0.71);
+	-moz-box-shadow: 5px 6px 32px 2px rgba(133,133,133,0.71);
+	box-shadow: 5px 6px 32px 2px rgba(133,133,133,0.71);
+	}
+			
+#flip-card .flip-card-front {
+	background: white;
+	border:1px solid grey;
+	}
+			
+#flip-card .flip-card-back {
+	background: white;
+	border: 1px solid grey;
+	-o-transform: rotateY(180deg);
+	-webkit-transform: rotateY(180deg);
+	-ms-transform: rotateY(180deg);
+	transform: rotateY(180deg);
+	}
+	
+#flip-card .flip-card-front p{
+	color: grey;
+	display: block;
+	top: 50%;
+	margin: auto;
+	width: 80%;
+	}
+	
+##flip-card .flip-card-back p {
+	color: grey;
+	display: block;
+	top: 50%;
+    margin: auto;
+	width: 80%;
+	}
