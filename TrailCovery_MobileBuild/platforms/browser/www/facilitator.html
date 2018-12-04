@@ -288,13 +288,14 @@
 <template id="account_management.html">
     <ons-page>
             <script src="js/account_control.js"></script>
+            <link rel="stylesheet" type="text/css" href="www/css/user_management.css">
+            <script src="js/schArrayObject.js"></script>
+            <script type="text/javascript" src="js/extendedjqueryvalidation.js"></script>
             <!-- For table design-->
 <!--             <script src="js/lib/DataTables/jquery.dataTables.min.js"></script>
-            <link rel="stylesheet" type="text/css" href="www/css/user_management.css">
             <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
            --> 
            
-            
         <ons-toolbar>
             <div class="left">
                 <ons-toolbar-button onclick="fn.open()">
@@ -310,49 +311,77 @@
 
             </div>
             <div data-role="content" class="ui-content" id="SearchSection">
-                <form name="SearchForm" id="SearchForm">
-                    <select id="selectroles">
-                        <option value="admin">Admin</option>
+                <form name="SearchForm" id="SearchForm"> </br>
+                    <ons-select name="selectroles" id="selectroles" style="width:200px; height:25px">
+                        <option value="facilitator">Facilitator</option>
                         <option value="teacher">Teacher</option>
                         <option value="student">Student</option>
-                    </select>
-                    <input type="button" id="viewRoles" name="viewRoles" value="Go">
+                    </ons-select>
+                    <ons-button id="viewRoles" name="viewRoles" style="padding-bottom:1px; padding-top:1px;" class="fa fa-search"></ons-button>
+                    <!-- <input type="button" id="viewRoles" name="viewRoles" value="Go"> -->
+                    
                 </form>
             </div>
 
-            
-
         <div data-role="page" id="front-page">
-            <div id="User"></div>
-            <ons-button id="addUserDialog">Add</ons-button>
+            <div id="User"></div> </br>
+            <ons-button class="fa fa-plus" id="addUserDialog"> Add</ons-button>
         
             <ons-dialog id="user-dialog">
-            <div style="text-align: center; padding: 10px;">
+            <div style="text-align: center; padding: 5%; margin: auto; width: 90%;">
             
             <form id="addUserform">
-                    Username:
-                    <input type="text" id="username" value=" " /> </br>
-                    Password:
-                    <input type="text" id="password" value=" " /> </br>
-                    Email:
-                    <input type="text" id="email" value=" " /> </br>
-                    School:
-                    <input type="text" id="school" value=" " /> </br>
-                    Phone:
-                    <input type="text" id="phone" value=" " /> </br>
-                    Role: 
-                    <input type="radio" id="role" name="role" value="admin"> Admin
-                    <input type="radio" id="role" name="role" value="teacher"> Teacher
-                    <input type="radio" id="role" name="role" value="student"> Student
+                <p>
+                    <i class="fa fa-user icon"></i>
+                <input id="username" class="text-input text-input--material valid" name="username" placeholder="Username" required="" aria-invalid="false" style="color:black;"> <br />
+                </p>
+                <p>
+                <i class="fa fa-key icon"></i>
+                <input id="password" type="password" class="text-input text-input--material valid" name="password" placeholder="Password" required="" aria-invalid="false"> <br />
+                </p>
+                <p>
+                    <i class="fa fa-envelope-open-o"></i>
+                    <input id="email" class="text-input text-input--material valid" name="email" placeholder="Email" required="" aria-invalid="false"> <br />
+                    
+                </p>
+                    <p>
+                        <i class="fa fa-institution"></i>
+                        <ons-select name="school" id="school" style="width:200px; height:25px" required="">
+                          <option value="null">Select School/Institution</option>
+                          <option value="Not Applicable">Not Applicable</option>
+                          <optgroup label="Junior College" name="juniorcollege" id="juniorcollege"> </optgroup>
+                          <optgroup label="Polytechnic" name="polytechnic" id="polytechnic"> </optgroup>
+                          <optgroup label="Secondary School" name="secondarysch" id="secondarysch"> </optgroup>
+                          <optgroup label="Primary School" name="primarysch" id="primarysch"> </optgroup>
+                        </ons-select>
+                      </p>
+                      <p>
+                            <i class="fa fa-mobile-phone"></i>
+                            <input id="phone" class="text-input text-input--material valid" name="phone" placeholder="Contact No." required="" aria-invalid="false"> <br />
+                    </p>
+                    
+                    <p>
+                            <i class="fas fa-users"></i>
+                            <ons-select name="role" id="role" style="width:200px; height:25px" required="">
+                              <option value="null">Select Role</option>
+                              <option value="facilitator">Facilitator</option>
+                              <option value="teacher">Teacher</option>
+                              <option value="student">Student</option>
+                            </ons-select>
+                          </p>
+                    
             </br>
-                    <input type="button" id="btnAddUser" value="Add User" />
-                    <input type="reset" value="Reset">
+            <ons-button id="btnAddUser">Add User</ons-button>
+            <ons-button id="reset">Reset</ons-button>
             </form>
         <p>
-                <ons-button id="hideDialog">Close</ons-button>
+                <ons-button class="fa fa-close" id="hideDialog"></ons-button>
         </p>
     </div>
             </ons-dialog>
+
+
+
 
 					<div class="footer">
                         <p>© 2018 Temasek Polytechnic. All Rights Reserved.</p>
@@ -363,6 +392,11 @@
             
 			</ons-page>
         </template>
+
+
+
+
+        
         <!-- <div data-role="page" data-dialog="true" id="addUserPopUp">
                 <div data-role="header">   <h2>New User</h2>  </div>
                 <div data-role="main" class="ui-content">
