@@ -1,0 +1,70 @@
+﻿<!DOCTYPE html>
+
+<html>
+    <head>
+   
+        <meta name="format-detection" content="telephone=no">
+        <meta name="msapplication-tap-highlight" content="no">
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+        <link rel="stylesheet" type="text/css" href="css/index.css">
+        <link rel="stylesheet" type="text/css" href="css/onsen-css-components.min.css">
+        <link rel="stylesheet" type="text/css" href="css/onsenui.css">
+		 <link rel="stylesheet" type="text/css" href="css/card.css">
+        <title>SDCFYP</title>
+    </head>
+	
+    <body>
+			<ons-toolbar>
+			<!--Add a back button later-->
+				<div class="left">
+				<button onclick="goBack()">Back</button>
+				</div>
+			</ons-toolbar>
+			<div class="flip-card-3D-wrapper">
+			<div id="flip-card">
+				<div class="flip-card-front">
+				<br/>
+					<div id="frontartefactimage"> </div>
+					<h4><b>Background Information</b></h4> 
+					<div id="artefactbackgroundinfo"></div>
+					<button id="flip-card-btn-turn-to-back">flip</button>
+				</div>
+				
+				<div class="flip-card-back">
+				</br>
+				<div id="backartefactimage"> </div>
+				<form style="text-align: center">
+                    <p>
+                        <ons-input id="NameOfArt" modifier="material" placeholder="Name" float required></ons-input>
+                    </p>
+                    <p>
+                        <ons-input id="LocationOfArt" modifier="material" placeholder="Location" float required></ons-input>
+                    </p>
+                    <p>
+                        <ons-input id="UsageOfArt" modifier="material" placeholder="What is it used for?" float required></ons-input>
+                    </p>
+                    <p>
+                        <textarea class="textarea" id="ImportantnessOfArt" rows="4" maxlength="50" style="width:65%" placeholder="How is this item significant to this ethnic group?" float required></textarea>
+                    </p>
+                </form>
+				<button id="flip-card-btn-turn-to-front">flip</button>
+				  <ons-button class="game_pg_btn" id="uploadimgbtn" style="width:33%">Upload</ons-button>
+                <ons-button class="game_pg_btn" id="previewimgbtn" style="width:33%">Preview</ons-button>
+                <!--End-->
+           
+                <hr />
+                <ons-button class="game_pg_btn" id="submitAnswerbtn" style="width:67%">Submit</ons-button>
+				</div>
+			</div>
+			</div>
+	
+	
+        <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="js/framework/onsenui.min.js"></script>
+        <script type="text/javascript" src="js/lib/jquery-3.3.1.js"></script>
+        <script type="text/javascript" src="js/lib/jquery.validate.min.js"></script>
+        <script type="text/javascript" src="js/common.js"></script>
+		<script type="text/javascript" src="js/quiz.js"></script>
+        <script type="text/javascript" src="js/extendedjqueryvalidation.js"></script> 
+    </body>
+</html>
