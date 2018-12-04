@@ -1,68 +1,66 @@
 ﻿<!DOCTYPE html>
-<!--
-    Licensed to the Apache Software Foundation (ASF) under one
-    or more contributor license agreements.  See the NOTICE file
-    distributed with this work for additional information
-    regarding copyright ownership.  The ASF licenses this file
-    to you under the Apache License, Version 2.0 (the
-    "License"); you may not use this file except in compliance
-    with the License.  You may obtain a copy of the License at
 
-    http://www.apache.org/licenses/LICENSE-2.0
-
-    Unless required by applicable law or agreed to in writing,
-    software distributed under the License is distributed on an
-    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
-     KIND, either express or implied.  See the License for the
-    specific language governing permissions and limitations
-    under the License.
--->
 <html>
     <head>
-        <!--
-        Customize this policy to fit your own app's needs. For more guidance, see:
-            https://github.com/apache/cordova-plugin-whitelist/blob/master/README.md#content-security-policy
-        Some notes:
-            * gap: is required only on iOS (when using UIWebView) and is needed for JS->native communication
-            * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
-            * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
-                * Enable inline JS: add 'unsafe-inline' to default-src
-        -->
-        <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;"> -->
-        <meta name="format-detection" content="telephone=no">
+       
         <meta name="msapplication-tap-highlight" content="no">
-		<!--refreshes with 30 seconds interval-->
-		<meta http-equiv="refresh" content="10" >
-        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+		<meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+		  
         <link rel="stylesheet" type="text/css" href="css/index.css">
         <link rel="stylesheet" type="text/css" href="css/onsen-css-components.min.css">
         <link rel="stylesheet" type="text/css" href="css/onsenui.css">
+		
+		<script type="text/javascript" src="js/framework/onsenui.min.js"></script>
+		
+		<!--refreshes with 30 seconds interval-->
+		<meta http-equiv="refresh" content="60" >
+		
+		<!--CSS to make page scrollable - shift to css later-->
+		<style>
+		html,body{
+		overflow-y: scroll; 
+		}
+		div.detailscss {
+		padding-top: 1.6%;
+		text-align: center;
+		}
+		div.facilitatorcss {
+		padding-top: 5%;
+		<!--box-shadow: 5px 10px 12px 2px rgba(0,0,0,0.2);-->
+		}
+		div.box {
+		font-family: Arial, Helvetica, sans-serif;
+		width: 95%;
+		margin: auto;
+		height: 27%;
+		}
+		p.test {
+		padding-left: 3%
+		}
+		</style>
+		
         <title>SDCFYP</title>
     </head>
     <body>
 	
-	 <ons-toolbar>
-				<!--Add a back button later-->
-                <div class="center">
-				<center>Waiting Room</center>
-                </div>
-             </ons-toolbar>
-			 
-			  <p style="text-align: center; padding-top: 5%; font-size:20px; font-family:'Tahoma, Geneva, sans-serif'">
-			  <div id="wrdetails"></div>
-			  
-			  <p style="text-align: center; padding-top: 0%; font-size:20px; font-family:'Tahoma, Geneva, sans-serif'">
-			  <div id="wradmins"></div>
-              </p>
-	
-			  <p style="text-align: center; padding-top: 0%; font-size:20px; font-family:'Tahoma, Geneva, sans-serif'">
-			  Groups
-			  <div id="wrgroups"></div>
-              </p>
-	
+	<ons-toolbar>
+		<!--Add a back button later-->
+        <div class="center">
+		<center>Waiting Room</center>
+        </div>
+    </ons-toolbar>
+		<br/><br/><br/>
+		<div class="box">
+		<div class="detailscss" id="wrdetails"></div>
+		<div class="facilitatorcss" id="wrfacilitator"></div>
+		</div>
+		
+		
+		<b>Groups</b> 
+		<div class="test" id="wrgroups"></div>
+        </p>
 	
         <script type="text/javascript" src="cordova.js"></script>
-        <script type="text/javascript" src="js/framework/onsenui.min.js"></script>
         <script type="text/javascript" src="js/lib/jquery-3.3.1.js"></script>
         <script type="text/javascript" src="js/lib/jquery.validate.min.js"></script>
         <script type="text/javascript" src="js/common.js"></script>
