@@ -111,7 +111,7 @@
 
     /* Need to convert to string and have triple equals */
     function loginResult(data) {
-        if (data.account_role == "admin" && data.result == "1") {
+        if (data.account_role == "facilitator" && data.result == "1") {
             localStorage.setItem("username", username);
             localStorage.setItem("password", password);
             window.location = 'facilitator.html';

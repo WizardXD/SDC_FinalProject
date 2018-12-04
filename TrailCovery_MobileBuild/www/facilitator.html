@@ -242,52 +242,72 @@
  <template id="event_management.html">
             <ons-page>
 			<script src="js/eventmanagement.js"></script>
-			<script type="text/javascript" src="www/js/lib/jquery-1.11.2.min.js"></script>
-			<link rel="stylesheet" href="css/jquery.mobile-1.4.5.css">
-                <!-- Toolbar-->
-                <ons-toolbar>
-                    <div class="left">
-                        <ons-toolbar-button onclick="fn.open()">
-                            <ons-icon icon="md-menu"></ons-icon>
-                        </ons-toolbar-button>
-                    </div>
-                    <div class="center">
-					Event Management
-                    </div>
-                </ons-toolbar>
-
-				 <div data-role="page" id="mainpage">
-
+			<link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+			<script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+			<script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+			
+            <!-- Toolbar-->
+            <ons-toolbar>
+                <div class="left">
+                    <ons-toolbar-button onclick="fn.open()">
+                        <ons-icon icon="md-menu"></ons-icon>
+                    </ons-toolbar-button>
+                </div>
+                <div class="center">
+			    Event Management
+                </div>
+            </ons-toolbar>
+			
+				
+			<div data-role="page">
+				<div data-role="main" class="ui-content">
 					<div id="event"></div>
-					<a href="#addEventPopUp">
-					<ons-fab position="bottom right" colour="blue">
-					<ons-icon icon="md-plus"></ons-icon>
-					</ons-fab>
+					<a href="#eventPopup" data-rel="popup">
+					<ons-fab>
+						<ons-icon icon="md-plus"></ons-icon>
+				    </ons-fab>
 					</a>
+				
+				<div data-role="popup" id="eventPopup" class="ui-content" style=" min-width:100%; ">
+					<form>
+						<div>
+							  <h2><center>Event information</center></h3>
+							  <!--Trail Dropdown Box-->
+							  <label for="selTrail" class="ui-hidden-accessible"></label>
+							  Trail:
+							  <select name="selTrail" id="selTrail"> </select>
+							  <!--Input field for Date-->
+							  Date of Event:
+							  <label for="eventdate" class="ui-hidden-accessible"></label>
+							  <input type="date" id="eventdate" />
+							  <!--Input field for Time-->
+							  Time of Event:
+							  <label for="eventTime" class="ui-hidden-accessible"></label>
+							  <input type="time" id="eventTime" />
+							  <!--Input text field for Facilitator-In-Charge-->
+							  <label for="selAdmin" class="ui-hidden-accessible"></label>
+							  Facilitator-In-Charge:
+							 <select name="selAdmin" id="selAdmin"> </select>
+							 <!--Input Text Field for Accesscode-->
+							 <label for="accesscode" class="ui-hidden-accessible">Username:</label>
+							 Accesscode:
+							 <input type="text" id="accesscode">
+							 <!--Button to Add Event-->
+							 <center> <input type="submit" data-inline="true" id="btnAddEvent" value="Add Event"></center>
+						</div>
+					</form>
+				</div>
 				</div>
 
-				  <div data-role="page" data-dialog="true" id="addEventPopUp">
-					<div data-role="header">   <h1>New Event</h1>  </div>
-					<div data-role="main" class="ui-content">
-						<form id="addEventform">
-							Trail: <br />
-							<select name="selTrail" id="selTrail"> </select>
-							Date of Event:<br />
-							<input type="date" id="eventdate" />
-							Time of Event:<br />
-							<input type="time" id="eventtime">
-							Admin-In-Charge
-							<select name="selAdmin" id="selAdmin"> </select>
-							Waiting Room's Access Code:
-							<input type="text" id="eventaccesscode"/>
-							<input type="button" id="btnAddEvent" value="Add Event" />
-							<input type="reset" value="Reset">
-						</form>
-					</div>
-				</div>
-
+			</div>
+				
 			</ons-page>
 </template>
+
+
+
+
+
 
 <!-- Trailmanagemnet.html-->
 <template id="trail_management.html">
