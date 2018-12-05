@@ -47,6 +47,7 @@
         $("#lgnbtn").bind("click", function () {
             if ($("#authForm").valid()) {
                 login();
+            
             }
         });
 
@@ -57,7 +58,6 @@
 
 
     }); /* End of Document Ready */
-
     /* Login Function */
 
 
@@ -111,7 +111,7 @@
 
     /* Need to convert to string and have triple equals */
     function loginResult(data) {
-        if (data.account_role == "admin" && data.result == "1") {
+        if (String(data.account_role) === "facilitator" && String(data.result) === "1") {
             localStorage.setItem("username", username);
             localStorage.setItem("password", password);
             window.location = 'facilitator.html';
