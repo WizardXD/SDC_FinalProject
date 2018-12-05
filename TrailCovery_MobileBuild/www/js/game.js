@@ -1,7 +1,6 @@
 (function () {
 
     $(document).ready(function () {
-		var endtime;
 		getTrailTime();
         getArtefact();
     });
@@ -82,7 +81,7 @@ function _showgetTrailTime(arr) {
 		var month = fulldate.substr(5, 2);
 		var date = fulldate.substr(8, 2);
 		
-		var time = arr[i].time;
+		var time = arr[i].starttime;
 		var hours = Number(time.substr(0,2));
 		var minutes = Number(time.substr (3,2));
 		var seconds = Number(time.substr (6,2));
@@ -90,11 +89,9 @@ function _showgetTrailTime(arr) {
 		var duration = Number(arr[i].duration);
 		
 		var endhour = hours + duration; 
-		var endtime = new Date (year, month-1, date, endhour, minutes, seconds);
+		var enddatetime = new Date (year, month-1, date, endhour, minutes, seconds);
 		
-		
-		
-		var countDownDate = new Date(endtime).getTime();
+		var countDownDate = new Date(enddatetime).getTime();
 		
 		// Update the count down every 1 second
 		var x = setInterval(function() {
@@ -111,7 +108,7 @@ function _showgetTrailTime(arr) {
 			var seconds = Math.floor((distance % (1000 * 60)) / 1000);
 			
 			// push to div with id equals "demo" set in html
-			document.getElementById("countdowntimer").innerHTML = + hours + "h " + minutes + "m " + seconds + "s " + "before the game ends.";
+			document.getElementById("countdowntimer").innerHTML = + hours + "h " + minutes + "m " + seconds + "s " + "to the game end.";
 			
 			// if condition is met, what will happen --> add in later.
 			if (distance < 0) {

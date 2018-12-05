@@ -5,8 +5,10 @@
         getEventDetails();
         getTrails();
         getAdmins();
+		
+		
         $("#btnAddEvent").bind("click", function () {
-                addEvent();
+        addEvent();
         });
 
     });
