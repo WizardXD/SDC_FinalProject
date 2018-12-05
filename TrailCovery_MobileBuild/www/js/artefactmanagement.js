@@ -3,11 +3,13 @@
     artefactdetails();
 });
 
-//function to display the details of the artefact, such as image and background information
+//function to display the details of the trail
 function traildetails() {
     var url = serverURL() + "/traildetail.php";
+    var trailid = localStorage.getItem("trailid");
 
     var JSONObject = {
+    "trailid": trailid
     };
 
     $.ajax({
@@ -27,25 +29,22 @@ function traildetails() {
 
 function ShowTrailDetails(arr) {
     for (var i = 0; i < arr.length; i++) {
-        var t = "<p><ons-button id='btntrail" + arr[i].trailid + "' style='width:70%'>" +
-             arr[i].trailname + "</ons-button><p/>"; 
-            
-        $("#trail").append(t);
-
-        $("#btntrail" + arr[i].trailid).bind("click", { id: arr[i].trailid }, function (event) {
-            var data = event.data;
-            _showResult(data.id);
-        });
+        var t;
+            t = "<ons-card> Trail Name: " + arr[i].trailname + "</br>" +
+                "Trail Location: " + arr[i].traillocation + "</br>" +
+                "Trail Duration: " + arr[i].duration + " hours" + "</br></ons-card>";
+        $("#traildetail").append(t);
+        
     }
 }
 
-
-
-//function to display the details of the artefact, such as image and background information
+//function to display the details of the artefact
 function artefactdetails() {
     var url = serverURL() + "/artefactdetail.php";
+    var trailid = localStorage.getItem("trailid");
 
     var JSONObject = {
+        "trailid": trailid
     };
 
     $.ajax({
@@ -65,15 +64,11 @@ function artefactdetails() {
 
 function ShowArtefactDetails(arr) {
     for (var i = 0; i < arr.length; i++) {
-        var t = "<p><ons-button id='btntrail" + arr[i].trailid + "' style='width:70%'>" +
-             arr[i].trailname + "</ons-button><p/>"; 
-            
-        $("#trail").append(t);
-
-        $("#btntrail" + arr[i].trailid).bind("click", { id: arr[i].trailid }, function (event) {
-            var data = event.data;
-            _showResult(data.id);
-        });
+        var a;
+            a = "<ons-card>" + "<img src='" + serverURL() + "/images/artefacts/" + arr[i].image + "'>" + "</br>" + 
+                "Artefact Name: " + arr[i].name + "</br>" +
+                "Background Information: " + arr[i].backgroundinfo + "</br></ons-card>";
+        $("#artefactdetail").append(a);
     }
 }
 
