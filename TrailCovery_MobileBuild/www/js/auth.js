@@ -1,6 +1,6 @@
 // For an introduction to the Blank template, see the following documentation:
 // http://go.microsoft.com/fwlink/?LinkID=397704
-// To debug code on page load in cordova-simulate or on Android devices/emulators: launch your app, set breakpoints, 
+// To debug code on page load in cordova-simulate or on Android devices/emulators: launch your app, set breakpoints,
 // and then run "window.location.reload()" in the JavaScript Console.
 
 (function () {
@@ -39,7 +39,7 @@
 
 
 
-        //register button Comment out because i redid the index.html to a single page 
+        //register button Comment out because i redid the index.html to a single page
        /* $("#rgstrbtn").bind("click", function () {
             window.location = "register.html";
         }); */
@@ -47,7 +47,7 @@
         $("#lgnbtn").bind("click", function () {
             if ($("#authForm").valid()) {
                 login();
-            
+
             }
         });
 
@@ -62,7 +62,7 @@
 
 
     function login() {
-        url = serverURL() + "/login.php"; //have an issue 
+        url = serverURL() + "/login.php"; //have an issue
         username = $("#username").val();
         password = $("#password").val();
 
@@ -98,7 +98,7 @@
             //  window.location = '../teacher.html'
             //}
 
-            //  } 
+            //  }
         });
     }
 

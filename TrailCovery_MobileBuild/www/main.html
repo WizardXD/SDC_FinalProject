@@ -39,29 +39,29 @@
     </head>
     <body>
 
-      <ons-navigator id="pushpage_navigator_user">
-         <ons-page>
+      <ons-navigator id="pushpage_navigator_user" >
+         <ons-page >
 
-             <ons-splitter>
-                 <ons-splitter-side id="menu" side="left" width="220px" collapse >
+             <ons-splitter >
+                 <ons-splitter-side id="menu" side="left" width="220px" collapse  >
                      <ons-page>
-                         <ons-list>
-                             <ons-list-item onclick="fn.load('home.html')" tappable>
+                         <ons-list style="background-color:#005580; font-family: Comic Sans MS, cursive, sans-serif;">
+                             <ons-list-item onclick="fn.load('home.html')" tappable style="color:#e9ecf3;">
                                  Home
                              </ons-list-item>
-                             <ons-list-item onclick="fn.load('chat.html')" tappable>
+                             <ons-list-item onclick="fn.load('chat.html')" tappable style="color:#e9ecf3;">
                                  Chat
                              </ons-list-item>
-                             <ons-list-item onclick="fn.load('profile.html')" tappable>
+                             <ons-list-item onclick="fn.load('profile.html')" tappable style="color:#e9ecf3;">
                                  Profile
                              </ons-list-item>
-                             <ons-list-item onclick="fn.load('about.html')" tappable>
+                             <ons-list-item onclick="fn.load('about.html')" tappable style="color:#e9ecf3;">
                                  About
                              </ons-list-item>
-							<ons-list-item onclick="window.location = 'index.html'" tappable>
+							<ons-list-item onclick="window.location = 'index.html'" tappable style="color:#e9ecf3;">
 								Logout
 							</ons-list-item>
-							<ons-list-item onclick="window.location = 'artest.html'" tappable>
+							<ons-list-item onclick="window.location = 'artest.html'" tappable style="color:#e9ecf3;">
 								AR(TEST)
 							</ons-list-item>
                          </ons-list>
@@ -73,13 +73,13 @@
            </ons-page>
        </ons-navigator>
 
-       <template id="home.html">
-         <ons-page>
+       <template id="home.html" >
+         <ons-page >
 		     <script type="text/javascript" src="js/verify_code.js"></script>
              <!-- Toolbar-->
-             <ons-toolbar>
+             <ons-toolbar style="background-color: #005580;">
                  <div class="left">
-                     <ons-toolbar-button onclick="fn.open()">
+                     <ons-toolbar-button style="color: #e9ecf3;" onclick="fn.open()">
                          <ons-icon icon="md-menu"></ons-icon>
                      </ons-toolbar-button>
                  </div>
@@ -94,8 +94,9 @@
 
 
              <!-- REMOVE THIS AND REPLACE WITH SOMETHING ELSE-->
-             <p style="text-align: center; padding-top: 50px; font-size:20px; font-family:'Tahoma, Geneva, sans-serif'">
+             <p style="text-align: center; padding-top: 50px; font-size:20px; font-family: Comic Sans MS, cursive, sans-serif;">
                 <img src="images/btrail.png" /> <br />
+                <br/>
                 Learn Singapore's history and culture through Trailcovery 2.0!
               </p>
 
@@ -108,8 +109,8 @@
                 </p>
             </form>
 			
-            <ons-button class="main_pg_btn" id="btnStartGame" modifier='material--flat' style="display: inline-block;"> START </ons-button>
-            <ons-button class="main_pg_btn" id="btnInstructions" modifier='material--flat' style="display: inline-block;" onclick="showPopover(this)"> Instructions </ons-button>
+            <ons-button class="main_pg_btn" id="btnStartGame" modifier='material--flat' style="display: inline-block; color: black; background-color:#ccccff; font-family: Verdana, Geneva, sans-serif;"> START </ons-button>
+            <ons-button class="main_pg_btn" id="btnInstructions" modifier='material--flat' style="display: inline-block; color: black; background-color: #ccccff; font-family: Verdana, Geneva, sans-serif;" onclick="showPopover(this)"> Instructions </ons-button>
 
             <!-- THIS SECTION IS THE INSTRUCTION BUTTON WITH INSTRUCTION INFORMATION
             FOR THE USER TO CLICK -->
@@ -155,6 +156,9 @@
 
 
          </ons-page>
+         <div class="footer" style="background-color:#005580; color:#e9ecf3; font-family: Verdana, Geneva, sans-serif;">
+			<p>© 2018 Temasek Polytechnic. All Rights Reserved.</p>
+		</div>
        </template>
 
         <script type="text/javascript" src="cordova.js"></script>
