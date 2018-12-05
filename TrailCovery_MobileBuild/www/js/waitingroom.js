@@ -64,20 +64,21 @@
 	 
 	 function _showEventDetailsResult(arr) {
 			 for (i = 0; i < arr.length; i++) {
-				var t;
-				t =  
-				"<font size = '5'>" + arr[i].trailname + "</font><br/>" + 
-				"<b>Location: </b>" + arr[i].traillocation + "<br/>" + 
-				"<b> Duration: </b>" + arr[i].duration + " Hours";
-				
-				y =
+				 
+				 
+		    $("#trailname").html(arr[i].trailname);
+            $("#traillocation").html(arr[i].traillocation);
+            $("#trailduration").html(arr[i].traillocation);
+			$("#trailimage").html("<img src='" + serverURL() + "/images/trails/" + arr[i].trailimg + "' width=100%'>");
+				var y =
 				"<center><b>Facilitator-In-Charge</b></center>" +
 				"<center><img src='" + serverURL() + "/images/admins/" + arr[i].adminimg + "' width=25%'><br />" + "   " +
 				arr[i].adminname;
-				$("#wrdetails").append(t);	
 				$("#wrfacilitator").append(y);
+				}
+		
+				
 		}
-	 }
 	 
 	 
     //function to display groups that has entered the x accesscode
@@ -106,7 +107,7 @@
 		 for (i = 0; i < arr.length; i++) {
             var t;
             t = 
-			"<img src='" + serverURL() + "/images/avatars/" + arr[i].image + "' width=17%' height='17%'>" + arr[i].groupname + "<br />";
+			"<ons-card><img src='" + serverURL() + "/images/avatars/" + arr[i].image + "' width=22%' height='22%' class = 'groupimg'></br>" +  arr[i].groupname + "</ons-card>";
             $("#wrgroups").append(t);
 
         }

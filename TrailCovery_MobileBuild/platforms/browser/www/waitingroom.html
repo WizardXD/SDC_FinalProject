@@ -17,26 +17,46 @@
 		
 		<!--CSS to make page scrollable - shift to css later-->
 		<style>
+		<!--Page Scrollable-->
 		html,body{
 		overflow-y: scroll; 
 		}
+		
 		div.detailscss {
-		padding-top: 1.6%;
-		text-align: center;
-		}
-		div.facilitatorcss {
+		width: 100%;
 		padding-top: 5%;
-		<!--box-shadow: 5px 10px 12px 2px rgba(0,0,0,0.2);-->
-		}
-		div.box {
-		font-family: Arial, Helvetica, sans-serif;
-		width: 95%;
 		margin: auto;
-		height: 27%;
 		}
-		p.test {
-		padding-left: 3%
+		
+		div.container {
+		text-align: center;
+		font-size: 135%;
+		font-family: Arial, Helvetica, sans-serif;
 		}
+		
+		img.groupimg {
+		border-radius:50%;
+		}
+		
+		div.grouptitle {
+		text-align: center;
+		font-size:155%;
+		font-weight: bold;
+		border-bottom: double;
+		}
+
+		div.detailscss{
+			font-weight: bold;
+			text-align: center;
+    		
+		}
+		
+		ons-card.card{
+			font-weight: bold;
+			text-align: center;
+		}
+		
+
 		</style>
 		
         <title>SDCFYP</title>
@@ -45,21 +65,23 @@
 	
 	<ons-toolbar>
 		<!--Add a back button later-->
-        <div class="center">
-		<center>Waiting Room</center>
+        <div class="center" style="font-weight: bold; font-size: 20px;">
+		<center>Waiting Room </center>
+		
         </div>
     </ons-toolbar>
-		<br/><br/><br/>
-		<div class="box">
-		<div class="detailscss" id="wrdetails"></div>
-		<div class="facilitatorcss" id="wrfacilitator"></div>
+		<br />
+		<br/>
+		<div class="detailscss" >
+			<div class="container">
+				<div id="trailname"></div>
+			</div>
+		<div id="trailimage"></div>
 		</div>
 		
+		<div class="grouptitle">Groups</div>
+		<div class='groupsinwr' id="wrgroups"></div>
 		
-		<b>Groups</b> 
-		<div class="test" id="wrgroups"></div>
-        </p>
-	
         <script type="text/javascript" src="cordova.js"></script>
         <script type="text/javascript" src="js/lib/jquery-3.3.1.js"></script>
         <script type="text/javascript" src="js/lib/jquery.validate.min.js"></script>

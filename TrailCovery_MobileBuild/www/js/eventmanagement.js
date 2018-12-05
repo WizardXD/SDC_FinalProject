@@ -3,17 +3,13 @@
     $(document).ready(function () {
 	
         getEventDetails();
-
         getTrails();
-
         getAdmins();
-
         $("#btnAddEvent").bind("click", function () {
                 addEvent();
         });
 
     });
-
     //retrieve the details of events
     function getEventDetails() {
 			
@@ -44,12 +40,11 @@
                 "Trail: " + arr[i].trailname + "</br>" +
                 "Date: " + arr[i].date + "</br>" +
                 "Time: " + arr[i].time + "</br>" +
-                "Admin-In-Charge: " + arr[i].name + "</br>" +
+                "Facilitator-In-Charge: " + arr[i].name + "</br>" +
                 "Access Code: " + arr[i].accesscode + "</br>" +
 
                 "</ons-card>";
             $("#event").append(t);
-
         }
     }
 
@@ -151,9 +146,9 @@
     function addEvent() {
         trailid = $("#selTrail").val();
         date = $("#eventdate").val();
-        time = $("#eventtime").val();
+        time = $("#eventTime").val();
         adminincharge = $("#selAdmin").val();
-        accesscode = $("#eventaccesscode").val();
+        accesscode = $("#accesscode").val();
 
         url = serverURL() + "/addevent.php"; 
        
