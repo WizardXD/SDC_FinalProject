@@ -322,6 +322,9 @@
 <template id="trail_management.html">
     <ons-page>
         <script src="js/trailmanagement.js"></script>
+        <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+			<script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+			<script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
         <!-- Toolbar-->
         <ons-toolbar>
             <div class="left">
@@ -335,43 +338,34 @@
         </ons-toolbar>
         <div id="trailimage"></div>
         <div id="trailname"></div>
-        <ons-fab position="bottom right">
-            <ons-icon icon="md-plus"></ons-icon>
-        </ons-fab>
+        
         <div data-role="page">
             <div data-role="main" class="ui-content">
                 <div id="trail"></div>
                 <a href="#trailPopup" data-rel="popup">
+                <div class="addButtonPlus">
                 <ons-fab>
                     <ons-icon icon="md-plus"></ons-icon>
                 </ons-fab>
+                </div>
                 </a>
             
             <div data-role="popup" id="trailPopup" class="ui-content" style=" min-width:100%; ">
                 <form>
                     <div>
-                          <h2><center>Trail information</center></h3>
-                          <!--Trail Dropdown Box-->
-                          <label for="selTrail" class="ui-hidden-accessible"></label>
-                          Trail:
-                          <select name="selTrail" id="selTrail"> </select>
-                          <!--Input field for Date-->
-                          Date of Event:
-                          <label for="eventdate" class="ui-hidden-accessible"></label>
-                          <input type="date" id="eventdate" />
-                          <!--Input field for Time-->
-                          Time of Event:
-                          <label for="eventTime" class="ui-hidden-accessible"></label>
-                          <input type="time" id="eventTime" />
-                          <!--Input text field for Facilitator-In-Charge-->
-                          <label for="selAdmin" class="ui-hidden-accessible"></label>
-                          Facilitator-In-Charge:
-                         <select name="selAdmin" id="selAdmin"> </select>
-                         <!--Input Text Field for Accesscode-->
-                         <label for="accesscode" class="ui-hidden-accessible">Username:</label>
-                         Accesscode:
-                         <input type="text" id="accesscode">
-                         <!--Button to Add Event-->
+                          <h2><center>Add Trail</center></h3>
+                          <!--Input Trail Name-->
+                          Trail Name:
+                          <label for="trailname" class="ui-hidden-accessible"></label>
+                          <input type="text" id="trailname" />
+                          <!--Input Trail Location-->
+                          Trail Location:
+                          <label for="trailLocation" class="ui-hidden-accessible"></label>
+                          <input type="text" id="trailLocation" />
+                          <!--Input duration of trail-->
+                          <label for="duration" class="ui-hidden-accessible"></label>
+                          Duration:
+                         <select name="time" id="duration"> </select>
                          <center> <input type="submit" data-inline="true" id="btnAddTrail" value="Add Trail"></center>
                     </div>
                 </form>

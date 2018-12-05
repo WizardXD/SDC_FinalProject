@@ -49,20 +49,17 @@ function _showResult(trailid) {
 
 //insert trail into database
 function addTrail() {
-    trailid = $("#selTrail").val();
-    date = $("#eventdate").val();
-    time = $("#eventTime").val();
-    adminincharge = $("#selAdmin").val();
-    accesscode = $("#accesscode").val();
-
-    url = serverURL() + "/addevent.php"; 
+    TrailName = $("#trailname").val();
+    TrailLocation = $("#trailLocation").val();
+    Duration = $("#duration").val();
+    
+    url = serverURL() + "/addtrail.php"; 
    
     var JSONObject = {
-        "trailid": trailid,
-        "date": date,
-        "time": time,
-        "adminid": adminincharge,
-        "accesscode": accesscode
+        "trailname": TrailName,
+        "traillocation": TrailLocation,
+        "duration": Duration,
+
     };
 
     $.ajax({
@@ -72,18 +69,18 @@ function addTrail() {
         dataType: 'json',
         contentType: "application/json; charset=utf-8",
         success: function (arr) {
-            _getAddEventResult(arr);
+            _getAddTrailFunction(arr);
         }, error: function () {
             validationMsg();
         }
     });
 }
 
-function _getAddEventResult(arr) {
+function _getAddTrailFunction(arr) {
     if (arr[0].result === 1) {
-        alert("Event has been created successfully");
+        alert("Trail has been added");
         window.location = "facilitator.html";
     } else if (arr[0].result === 0) {
-        alert("Accesscode already exist.");
+        alert("Trail already exist.");
     }
 }
