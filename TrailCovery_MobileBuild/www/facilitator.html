@@ -246,6 +246,14 @@
 			<script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
 			<script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
 			
+			<style>
+			div.addButtonPlus {
+				position:fixed;
+				right: 5%;
+				bottom:2%;
+			}
+			</style>
+			
             <!-- Toolbar-->
             <ons-toolbar>
                 <div class="left">
@@ -263,9 +271,11 @@
 				<div data-role="main" class="ui-content">
 					<div id="event"></div>
 					<a href="#eventPopup" data-rel="popup">
+					<div class="addButtonPlus">
 					<ons-fab>
 						<ons-icon icon="md-plus"></ons-icon>
 				    </ons-fab>
+					</div>
 					</a>
 				
 				<div data-role="popup" id="eventPopup" class="ui-content" style=" min-width:100%; ">
@@ -300,7 +310,6 @@
 				</div>
 
 			</div>
-				
 			</ons-page>
 </template>
 
@@ -392,31 +401,31 @@
                     <input id="email" class="text-input text-input--material valid" name="email" placeholder="Email" required="" aria-invalid="false"> <br />
                     
                 </p>
-                    <p>
-                        <i class="fa fa-institution"></i>
-                        <ons-select name="school" id="school" style="width:200px; height:25px" required="">
-                          <option value="null">Select School/Institution</option>
-                          <option value="Not Applicable">Not Applicable</option>
-                          <optgroup label="Junior College" name="juniorcollege" id="juniorcollege"> </optgroup>
-                          <optgroup label="Polytechnic" name="polytechnic" id="polytechnic"> </optgroup>
-                          <optgroup label="Secondary School" name="secondarysch" id="secondarysch"> </optgroup>
-                          <optgroup label="Primary School" name="primarysch" id="primarysch"> </optgroup>
-                        </ons-select>
-                      </p>
-                      <p>
-                            <i class="fa fa-mobile-phone"></i>
-                            <input id="phone" class="text-input text-input--material valid" name="phone" placeholder="Contact No." required="" aria-invalid="false"> <br />
-                    </p>
+                <p>
+                    <i class="fa fa-institution"></i>
+                    <ons-select name="school" id="school" style="width:200px; height:25px" required="">
+                    <option value="null">Select School/Institution</option>
+                    <option value="Not Applicable">Not Applicable</option>
+                    <optgroup label="Junior College" name="juniorcollege" id="juniorcollege"> </optgroup>
+                    <optgroup label="Polytechnic" name="polytechnic" id="polytechnic"> </optgroup>
+                    <optgroup label="Secondary School" name="secondarysch" id="secondarysch"> </optgroup>
+                    <optgroup label="Primary School" name="primarysch" id="primarysch"> </optgroup>
+                    </ons-select>
+                </p>
+                <p>
+                    <i class="fa fa-mobile-phone"></i>
+                    <input id="phone" class="text-input text-input--material valid" name="phone" placeholder="Contact No." required="" aria-invalid="false"> <br />
+                </p>
                     
-                    <p>
-                            <i class="fas fa-users"></i>
-                            <ons-select name="role" id="role" style="width:200px; height:25px" required="">
-                              <option value="null">Select Role</option>
-                              <option value="facilitator">Facilitator</option>
-                              <option value="teacher">Teacher</option>
-                              <option value="student">Student</option>
-                            </ons-select>
-                          </p>
+                <p>
+                    <i class="fas fa-users"></i>
+                    <ons-select name="role" id="role" style="width:200px; height:25px" required="">
+                    <option value="null">Select Role</option>
+                    <option value="facilitator">Facilitator</option>
+                    <option value="teacher">Teacher</option>
+                    <option value="student">Student</option>
+                    </ons-select>
+                </p>
                     
             </br>
             <ons-button id="btnAddUser">Add User</ons-button>
@@ -428,12 +437,9 @@
     </div>
             </ons-dialog>
 
-
-
-
-					<div class="footer">
-                        <p>© 2018 Temasek Polytechnic. All Rights Reserved.</p>
-                    </div>
+	<div class="footer">
+        <p>© 2018 Temasek Polytechnic. All Rights Reserved.</p>
+    </div>
 
 
 
