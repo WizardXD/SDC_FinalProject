@@ -5,27 +5,23 @@
        
         <meta name="msapplication-tap-highlight" content="no">
 		<meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
-		  
         <link rel="stylesheet" type="text/css" href="css/index.css">
         <link rel="stylesheet" type="text/css" href="css/onsen-css-components.min.css">
         <link rel="stylesheet" type="text/css" href="css/onsenui.css">
-		
 		<script type="text/javascript" src="js/framework/onsenui.min.js"></script>
+		<meta http-equiv="refresh" content="7" > <!--refreshes with 30 seconds interval-->
 		
-		<!--refreshes with 30 seconds interval-->
-		<meta http-equiv="refresh" content="60" >
-		
-		<!--CSS to make page scrollable - shift to css later-->
-		<style>
-		<!--Page Scrollable-->
+		<style> /*Shift To CSS Next Time*/
 		html,body{
-		overflow-y: scroll; 
+		overflow-y: scroll;  /*Make Page Scrollable*/
 		}
 		
-		div.detailscss {
+		div.details {
 		width: 100%;
-		padding-top: 5%;
+		padding-top: 15%;
 		margin: auto;
+		font-weight: bold;
+		text-align: center;
 		}
 		
 		div.container {
@@ -38,17 +34,11 @@
 		border-radius:50%;
 		}
 		
-		div.grouptitle {
+		div.title {
 		text-align: center;
 		font-size:155%;
 		font-weight: bold;
 		border-bottom: double;
-		}
-
-		div.detailscss{
-			font-weight: bold;
-			text-align: center;
-    		
 		}
 		
 		ons-card.card{
@@ -56,28 +46,27 @@
 			text-align: center;
 		}
 		</style>
-		
-        <title>SDCFYP</title>
-    </head>
-    <body>
+
+		<title>SDCFYP</title>
+	</head>
 	
-	<ons-toolbar>
-		<!--Add a back button later-->
-        <div class="center" style="font-weight: bold; font-size: 20px;">
-		<center>Waiting Room </center>
+    <body>
 		
-        </div>
-    </ons-toolbar>
-		<br />
-		<br/>
-		<div class="detailscss" >
+		<ons-toolbar>
+			<!--Add a back button later-->
+			<div class="center" style="font-weight: bold; font-size: 20px;">
+			<center>Waiting Room </center>
+			</div>
+		</ons-toolbar>
+		
+		<div class="details" >
 			<div class="container">
 				<div id="trailname"></div>
 			</div>
-		<div id="trailimage"></div>
+			<div id="trailimage"></div>
 		</div>
-		
-		<div class="grouptitle">Groups</div>
+			
+		<div class="title">Groups</div>
 		<div class='groupsinwr' id="wrgroups"></div>
 		
         <script type="text/javascript" src="cordova.js"></script>
