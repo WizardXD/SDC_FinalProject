@@ -36,7 +36,7 @@
         <link rel="stylesheet" type="text/css" href="css/index.css">
         <link rel="stylesheet" type="text/css" href="css/onsen-css-components.min.css">
         <link rel="stylesheet" type="text/css" href="css/onsenui.css">
-
+        
 
 
 
@@ -59,12 +59,14 @@
                             <form name="authForm" id="authForm">
                                 <p>
                                     <i class="fa fa-user icon"></i>
-                                    <input id="username" class="text-input text-input--material valid" name="username" placeholder="Username" required="" aria-invalid="false"> <br />
+                                    <input id="username" class="text-input text-input--material valid" name="username" placeholder="Username" required="" aria-invalid="false" onKeyDown="if(event.keyCode === 32)
+                                    return false;"> <br />
 
                                 </p>
                                 <p>
                                     <i class="fa fa-key icon"></i>
-                                    <input id="password" type="password" class="text-input text-input--material valid" name="txtpwd" placeholder="Password" required="" aria-invalid="false"> <br />
+                                    <input id="password" type="password" class="text-input text-input--material valid" name="txtpwd" placeholder="Password" required="" aria-invalid="false"  onKeyDown="if(event.keyCode === 32)
+                                    return false;"> <br />
 
                                 </p>
 
@@ -207,5 +209,6 @@
         <script type="text/javascript" src="js/extendedjqueryvalidation.js"></script>
       <!--   <script type="text/javascript" src="js/index.js"></script>  -->
 <script type="text/javascript" src="js/register.js"></script>
+<script type="text/javascript" src="js/checkforlocationperm.js"></script>
     </body>
 </html>

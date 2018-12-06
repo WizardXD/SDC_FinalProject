@@ -80,13 +80,59 @@
 
     
       
- 
+document.addEventListener('init', function(event) {
+	
 
+  $('#addUserform').validate({
+  rules: {
+      username: {
+          minlength: 6
+      },
+      password: {
+          minlength: 8
+      },
+      email: {
+        email: true
+    },
+    phone: {
+        minlength: 8,
+        number: true
+    }
+  }, //End of jQueryRules
+  messages: {
+      username: {
+          required: "Username is required"
+      },
+      password: {
+
+          required: "Password is required"
+      },
+      email: {
+        required: "Provide a valid email address."
+    },
+      phone: {
+        required: "Enter your phone no."
+    }
+     }, 
+            focusInvalid: false,
+            submitHandler: function () {
+                return false;
+            },
+
+            errorPlacement: function (error, element) {
+                error.appendTo(element.parent().after());
+               // error.appendTo(element.parent().parent().after());
+            }
+
+        }); /* End of Validation*/
+
+    }());
 
 (function () {
 
     $(document).ready(function () {
         
+
         $("#viewRoles").bind("click", function () {
             showUsers();
         });
@@ -103,10 +149,15 @@
         $("#hideDialog").bind("click", function(){
             hideDialog();
         });
+
+        $("#Updatebtn").bind("click", function() {
+            ViewUser();
+        });
+
     });
     
 
-
+    // Display Users
     function showUsers() {
 
         			var role = $("#selectroles").val();
@@ -131,6 +182,7 @@
                     });
                 }
 
+    // Retrieve User Results
     function _getUserResult(arr) {
         var t;
 
@@ -141,16 +193,23 @@
                 "Email: " + arr[i].email + "</br>" +
                 "School: " + arr[i].school + "</br>" +
                 "Phone: " + arr[i].phone + "</br>" +
+                "<a href='#' class='material-icons' id='Updatebtn" + arr[i].username + "'>Edit</a>" 
+
                 "</ons-card>";
                 
             $("#User").append(t);
             
+            
         }
+        $("#Updatebtn" + arr[i].username).bind("click", { id: arr[i].username },
+        function (event) {
+            var data = event.data;
+            ViewUser(data.id);
+        });
 
     }
 
-
-
+    // Add User dialog 
     var addUserDialog = function() {
         var dialog = document.getElementById('user-dialog');
       
@@ -207,9 +266,98 @@
         }
     }
     
+    // close dialog box
     var hideDialog = function() {
         document
           .getElementById('user-dialog')
           .hide();
       };
+
+
+
+
+
+    function ViewUser(username) {
+    window.location = "account_management.html?username=" + username;
+    var url = serverURL() + "/getusers.php"; //execute profile
+
+        var JSONObject = {
+            "username": localStorage.getItem("username")
+        };
+
+        $.ajax({
+            url: url,
+            type: 'GET',
+            data: JSONObject,
+            dataType: 'json',
+            contentType: "application/json; charset=utf-8",
+            success: function (arr) {
+                _getProfileResult(arr);
+            },
+            error: function () {
+                validationMsg(); //fail
+            }
+        });
+    }
+
+    function _getProfileResult(arr) {
+        //move the values returened by the server to the respective variables
+        username = arr[0].username;
+        email = arr[0].email;
+        school = arr[0].school;
+        phone = arr[0].phone;
+        role = arr[0].role;
+
+        $("#txtUsername").html("Username: " + username); 
+        $("#txtEmail").html("Email: " + email); 
+        $("#txtSchool").html("School: " + school); 
+        $("#txtPhone").html("Phone: " + phone); 
+        $("#txtRole").html("Role: " + role); 
+
+    }
+
+    function changeProfile() {
+        var newusername = $("#txtUsername").val(); 
+        var newemail = $("#txtEmail").val(); 
+        var newschool = $("#txtSchool").val(); 
+        var newphone = $("#txtPhone").val(); 
+        var newrole = $("#txtRole").val(); 
+
+        var url = serverURL() + "/updateuser.php"; //execute 
+
+        var JSONObject = {
+            "username": localStorage.getItem("username"), //provide username from localstorage
+            "username": newusername, //provide new description
+            "email": newemail, //provide new description
+            "school": newschool, //provide new description
+            "phone": newphone, //provide new description
+            "role": newrole, //provide new description
+        };
+
+        $.ajax({
+            url: url,
+            type: 'GET',
+            data: JSONObject,
+            dataType: 'json',
+            contentType: "application/json; charset=utf-8",
+            success: function (arr) {
+                _changeProfileResult(arr); //successful call to php execute changedescription
+            },
+            error: function () {
+                validationMsg();
+            }
+        });
+    }
+
+    //tell the user if his description change is successful
+    function _changeProfileResult(arr) {
+        if (arr[0].result === 1) {
+            validationMsgs("Profile changed", "Validation", "OK");
+        }
+        else {
+            validationMsgs("Profile update failed", "Validation", "Try Again");
+        }
+    
+    }
+
 }());

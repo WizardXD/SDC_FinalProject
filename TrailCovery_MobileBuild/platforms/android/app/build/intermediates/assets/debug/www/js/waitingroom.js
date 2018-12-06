@@ -64,21 +64,21 @@
 	 
 	 function _showEventDetailsResult(arr) {
 			 for (i = 0; i < arr.length; i++) {
-				var t;
-				t = 
-				"<ons-card>" + 
-				"<center><b>" + "Details of Event" + "</b></center>" + "<br/>" +   
-				"<b>Trail Name:  </b>" +  arr[i].trailname + "<br/>" + 
-				"<b>Location: </b>" + arr[i].traillocation + "<br/>" + 
-				"<b> Duration: </b>" + arr[i].duration + " Hours" +  "<br/>" + "<br/>" +
+				 
+				 
+		    $("#trailname").html(arr[i].trailname);
+            $("#traillocation").html(arr[i].traillocation);
+            $("#trailduration").html(arr[i].traillocation);
+			$("#trailimage").html("<img src='" + serverURL() + "/images/trails/" + arr[i].trailimg + "' width=100%'>");
+				var y =
+				"<center><b>Facilitator-In-Charge</b></center>" +
+				"<center><img src='" + serverURL() + "/images/admins/" + arr[i].adminimg + "' width=25%'><br />" + "   " +
+				arr[i].adminname;
+				$("#wrfacilitator").append(y);
+				}
+		
 				
-				"<center><b>Admin</b></center>" + "<br/>" +
-				"<img src='" + serverURL() + "/images/admins/" + arr[i].adminimg + "' width=17%' height='17%'>" + "   " +
-				arr[i].adminname +
-				"</ons-card>";
-				$("#wrdetails").append(t);	
 		}
-	 }
 	 
 	 
     //function to display groups that has entered the x accesscode
@@ -107,47 +107,11 @@
 		 for (i = 0; i < arr.length; i++) {
             var t;
             t = 
-			"<ons-card>" + "<img src='" + serverURL() + "/images/avatars/" + arr[i].image + "' width=17%' height='17%'>" + arr[i].groupname + "</ons-card>";
+			"<ons-card><img src='" + serverURL() + "/images/avatars/" + arr[i].image + "' width=22%' height='22%' class = 'groupimg'></br>" +  arr[i].groupname + "</ons-card>";
             $("#wrgroups").append(t);
 
         }
 	}
-	
-	
-	
-	
-	/*
-	//display the admin which is incharge of the event --> defined when creating new event.
-	function getAdminsInWR() {
-		var url = serverURL() + "/wradmins.php";
-        var JSONObject = {
-            "accesscode": localStorage.getItem("accesscode")
-        };
-		
-		  $.ajax({
-            url: url,
-            type: 'GET',
-            data: JSONObject,
-            dataType: 'json',
-            contentType: "application/json; charset=utf-8",
-            success: function (arr) {
-                _showAdminsInWRResult(arr);
-            },
-            error: function () {
-                alert("Wrong");       //Change to Validation Message
-            }
-        });
-    }
-	
-	function _showAdminsInWRResult(arr) {
-		 for (i = 0; i < arr.length; i++) {
-				var t;
-				t = 
-				"<ons-card>" + "<img src='" + serverURL() + "/images/admins/" + arr[i].adminimg + "' width=17%' height='17%'>" + arr[i].adminname + "</ons-card>";
-				$("#wradmins").append(t);	
-		}
-	}
-	*/
 	
 })();
 

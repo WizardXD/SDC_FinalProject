@@ -85,6 +85,9 @@
                                 <ons-list-item onclick="fn.load('chat.html')" tappable>
                                     Chat
                                 </ons-list-item>
+                                <ons-list-item onclick="fn.load('status.html')" tappable>
+                                    Status
+                                </ons-list-item>
                                 <ons-list-item onclick="fn.load('event_management.html')" tappable>
                                    Event Management
                                 </ons-list-item>
@@ -156,13 +159,7 @@
           });
 
 
-          // THIS TRACK'S USER LOCATION IN REAL-TIME USING USER'G GroupSchool
-          map.addControl(new mapboxgl.GeolocateControl({
-          positionOptions: {
-          enableHighAccuracy: true
-          },
-          trackUserLocation: true
-          }));
+    
           //IF I CHANGE THIS URL TO PHP THAT CONTAINS THE GEOJSON FORMAT
           var url = 'https://mp18.projectsbit.org/sdc/facilitatormap.php';
 
@@ -174,59 +171,29 @@
               window.setInterval(function() {
                   map.getSource('humansdsd').setData(url);
               }, 2000);
-
+        
              map.addSource('humansdsd',
               {
                 type: 'geojson',
                 data: url
               });
 
-
+ map.loadImage('images/group-icons/125x25.png', function(error, image) {
+        if (error) throw error;
+        map.addImage('avatar', image);
               map.addLayer({
         "id": "humansdsd",
         "type": "symbol",
         "source": "humansdsd",
         "layout": {
-                      "icon-image": "rocket-15"
+                      "icon-image": "avatar",
+                      "icon-size": 1
                   },
        // "filter": ["==", "$type", "Point"],
     });
-/*
-              map.addLayer({
-                  "id": "drone",
-                  "type": "symbol",
-                  "source": "drone",
-                  "layout": {
-                      "icon-image": "rocket-15"
-                  },
-				"filter": ["==", "$type", "Point"],
-              }); */
-             /* map.addLayer({
-                    "id": "humanx",
-                    "type": "symbol",
-                    "source": "humans",
-                    "layout": {
-                      "icon-image": "rocket-15"
-                  },
-        "filter": ["==", "$type", "Point"],
-    });*/
 
 });
-
-
-       /*   document.addEventListener("deviceready", onDeviceReady, false);
-              function onDeviceReady() {
-                  console.log("navigator.geolocation works well");
-              }
-*/
-
-
-
-
-
-
-
-
+});
 
 </script>
 
@@ -236,6 +203,94 @@
 
 </template>
 
+
+<template id="status.html">
+    <ons-page>
+        <!-- Toolbar-->
+        <ons-toolbar>
+            <div class="left">
+                <ons-toolbar-button onclick="fn.open()">
+                    <ons-icon icon="md-menu"></ons-icon>
+                </ons-toolbar-button>
+            </div>
+            <div class="center">
+            </div>
+        </ons-toolbar>
+        
+        <form name ='queryaccess' id='queryaccess'>
+
+
+        <select id="accesscodedropdown" style="width:200px; height:25px">
+            <option value="null">ACCESS CODE</optio>
+        <select>
+           
+        </form>
+        <ons-button id="queryforaccesscode" value="queryforaccesscode">Go</ons-button>
+        
+        <br>
+
+        <p>
+            
+        
+</p>
+        
+
+
+        <div id='displaypending'></div>
+        <ons-card id=details></ons-card>
+
+        
+        <ons-button id="startgame" value="startgame"> Start game</ons-button>
+
+
+        <script> 
+            var accesscode = [
+            'TPSDCTEST',
+            'TPChina',
+            'TPKampong',
+            'TPTESTCT'
+            ];
+            
+            accesscode.sort();
+            
+            
+            function addaccesscode2option() {
+            
+                //The loop will loop through the array from 0 - max length and + 1 with a line break into the option
+            
+                for (i = 0; i = accesscode.length; i++) {
+                    //Node content
+                    var x = accesscode.splice(0, 1);
+            
+            
+                    //This code creates a new <option> element:
+                    var option_e = document.createElement("option");
+            
+                    //To add text to the <option> element, you must create a text node first. This code creates a text node:
+                    var option_node = document.createTextNode(x);
+            
+                    //Then you must append the text node to the <option> element:
+                    option_e.appendChild(option_node);
+            
+                    //Finally you must append the new element to an existing element.
+            
+                    //This code finds an existing element:
+                    var existing_element = document.getElementById("accesscodedropdown");
+            
+                    //This code appends the new element to the existing element:
+                    existing_element.appendChild(option_e);
+            
+                }
+            }
+
+            addaccesscode2option();          
+            
+            </script>      
+            
+            <script src='js/wradmin.js'></script>
+    </ons-page>
+
+</template>
 
 
 

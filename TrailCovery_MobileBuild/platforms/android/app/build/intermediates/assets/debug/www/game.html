@@ -36,7 +36,14 @@
         <link rel="stylesheet" type="text/css" href="css/index.css">
         <link rel="stylesheet" type="text/css" href="css/onsen-css-components.min.css">
         <link rel="stylesheet" type="text/css" href="css/onsenui.css">
-
+		
+		<style>
+		p.timer{
+		position:absolute;
+		bottom:5%;
+		right:2%;
+		}
+		</style>
 
 
 
@@ -51,7 +58,6 @@
 			</div>
         </ons-toolbar>
 
-        <!--Company Logo-->
         <p style="opacity: 1">
 			<center><div id="trailimage"></div></center>
         </p>
@@ -63,7 +69,11 @@
             <ons-button style="width:45%" disabled>Bonus</ons-button>
         </div>
 
-
+		<p class="timer" id="countdowntimer"></p>
+		
+		<div class="footer">
+           <p>© 2018 Temasek Polytechnic. All Rights Reserved.</p>
+        </div>
     </ons-page>
 
            TESTING GAME PAGE 
