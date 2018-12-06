@@ -39,17 +39,36 @@
         <script type="text/javascript" src="js/lib/jquery-3.3.1.js"></script>
         <script type="text/javascript" src="js/framework/onsenui.min.js"></script>
         <title>SDCFYP</title>
+        <style>
+        .card {
+            background-color:whitesmoke;
+        }
+        .card button:hover {
+            opacity: 0.7;
+        }
+       
+        /*.card ons-button {
+        padding: 12px;
+        color: white;
+        text-align: center;
+        cursor: pointer;
+        width: 100%;
+        font-size: 13px;
+        } */  
+        .card h4 {
+        text-align:justify;
+        }
+        </style>
     </head>
     <body>
         <ons-page>
             
             <!-- Toolbar-->
             <ons-toolbar>
-                <div class="center">
+                <div class='center'>
                 Trail Management
                 </div>
             </ons-toolbar>
-            <div id="traildetail"></div>
             <div id="artefactdetail"></div>
         </ons-page>
     

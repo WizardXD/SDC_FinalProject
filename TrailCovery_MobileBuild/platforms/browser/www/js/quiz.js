@@ -1,4 +1,5 @@
 ﻿	
+	// function to flip the cards
 	document.addEventListener('DOMContentLoaded', function(event) {
 
 	document.getElementById('flip-card-btn-turn-to-back').style.visibility = 'visible';
@@ -13,14 +14,7 @@
 	};
 
 	});
-
 	
-	//function to return to previous page
-	function goBack() {
-				window.history.back();
-			}
-
-			
 	(function () {
 		$(document).ready(function () {
 			showartefactdetails();

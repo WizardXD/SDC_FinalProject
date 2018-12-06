@@ -1,7 +1,6 @@
 (function () {
 
     $(document).ready(function () {
-		var endtime;
 		getTrailTime();
         getArtefact();
     });
@@ -30,11 +29,9 @@
     }
 
     function _showArtefactResult(arr) {
-        //if i is less than the total  number of artefacts, increment by 1
         for (i = 0; i < arr.length; i++) {
 			 $("#trailimage").html("<img src='" + serverURL() + "/images/trails/" + arr[i].trailimg + "' width='90%' length='20%' border='2'>");
             var t;
-            // creating button with id similiar to the artefact id
             t = "<p><ons-button id='btn" + arr[i].artefactid + "' style='width:45%'>" + "Artefact " + (i+1) + " </ons-button><p/>";
             $("#artefactbtn").append(t);
             $("#btn" + arr[i].artefactid).bind("click", { id: arr[i].artefactid }, function (event) {
@@ -50,9 +47,7 @@
         window.location = "quiz.html?artefactid=" + artefactid;
     }
 	
-	
-	
-
+// function to retrieve the start time of the event
 function getTrailTime() {
 	var url = serverURL() + "/countdown.php";
         var JSONObject = {
@@ -77,29 +72,27 @@ function getTrailTime() {
 function _showgetTrailTime(arr) {
 	for (var i = 0; i < arr.length; i++) {
 		
-		var fulldate = arr[i].date;
-		var year = fulldate.substr(0, 4);
-		var month = fulldate.substr(5, 2);
-		var date = fulldate.substr(8, 2);
+		var fulldate = arr[i].date; //e.g.2018-12-06 (real value is retrieved from the database)
+		var year = fulldate.substr(0, 4); //retrieve the 0-3 value from full date (year) - 2018
+		var month = fulldate.substr(5, 2); //retrieve the 5-6 value from full date (month) - 12
+		var date = fulldate.substr(8, 2); //retrieve the 8-9 value from full date (day) - 06
 		
-		var time = arr[i].time;
-		var hours = Number(time.substr(0,2));
-		var minutes = Number(time.substr (3,2));
-		var seconds = Number(time.substr (6,2));
+		var time = arr[i].starttime; //e.g 16:00:00 (real value is retrieved from the database)
+		var hours = Number(time.substr(0,2)); //retrieve the 0-1 value from starttime (hours) - 16
+		var minutes = Number(time.substr (3,2)); //retrieve the 3-4 value from starttime (minutes) - 00
+		var seconds = Number(time.substr (6,2)); //retrive the 6-7 value from starttime (seconds) - 00
 		
-		var duration = Number(arr[i].duration);
+		var duration = Number(arr[i].duration); //duration of the game is retrieved from the database
 		
-		var endhour = hours + duration; 
-		var endtime = new Date (year, month-1, date, endhour, minutes, seconds);
+		var endhour = hours + duration; //addition of start time with duration (e.g. Start Time = 16 Hours, Duration = 2 Hours, End Time = 18 Hours)
+		var enddatetime = new Date (year, month-1, date, endhour, minutes, seconds); //
 		
+		var countDownDate = new Date(enddatetime).getTime();
 		
-		
-		var countDownDate = new Date(endtime).getTime();
-		
-		// Update the count down every 1 second
+		// Update the count down every 1 second (1 second is defined by 1000, 2 seconds = 2000, ....)
 		var x = setInterval(function() {
 
-			// set variable now as current date and time
+			// set variable now as current time
 			var now = new Date().getTime();
 			
 			// find the differences between the end date and the current time
@@ -111,15 +104,14 @@ function _showgetTrailTime(arr) {
 			var seconds = Math.floor((distance % (1000 * 60)) / 1000);
 			
 			// push to div with id equals "demo" set in html
-			document.getElementById("countdowntimer").innerHTML = + hours + "h " + minutes + "m " + seconds + "s " + "before the game ends.";
+			document.getElementById("countdowntimer").innerHTML = + hours + "h " + minutes + "m " + seconds + "s " + "to the game end.";
 			
-			// if condition is met, what will happen --> add in later.
+			// if time is = 0 (0h:0M:0S), -insert an action that will happen-
 			if (distance < 0) {
 				clearInterval(x);
 				document.getElementById("countdowntimer").innerHTML = "Game Ended";
 			}
 		}, 1000);
-		
 		
 	}
 }

@@ -130,9 +130,6 @@ function registerGroup() {
     member3 = $("#member3").val();
     member4 = $("#member4").val();
     member5 = $("#member5").val();
-    member6 = $("#member6").val();
-    member7 = $("#member7").val();
-    member8 = $("#member8").val();
 
     url = serverURL() + "/register.php"; 
 
@@ -149,9 +146,6 @@ function registerGroup() {
         "member3": member3,
         "member4": member4,
         "member5": member5,
-        "member6": member6,
-        "member7": member7,
-        "member8": member8,
         "avatarid": selectedImageId
     };
 
@@ -172,8 +166,10 @@ function registerGroup() {
 
 function _getRegisterGroupResult(arr) {
     if (arr[0].result === 1) {
-        alert("Account has been created successfully");
-        //window.location = "main.html";
+		ons.notification.alert('Hold on', {
+            title: 'Account has been created successfully'
+        });  
+        window.location = "index.html";
     } else if (arr[0].result === 0) {
         alert("Username already exist.");
     }

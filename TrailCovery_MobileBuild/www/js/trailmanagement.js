@@ -29,11 +29,11 @@ function trailnames() {
 
 function ShowTrailNames(arr) {
     for (var i = 0; i < arr.length; i++) {
-                var t = "<p><img src='" + serverURL() + "/images/trails/" + arr[i].trailimg + "'>"+
-        "<ons-button id='btntrail" + arr[i].trailid + "' style='width:70%'>" +
-             arr[i].trailname + "</ons-button><p/>"; 
+        var t = "<ons-card><img src='" + serverURL() + "/images/trails/" + arr[i].trailimg +
+        "' style='width:100%'>"+ "<ons-button modifier='large' id='btntrail" + arr[i].trailid + "'>" +
+        arr[i].trailname + "</ons-button></ons-card></ons-card>"; 
             
-        $("#trailname").append(t);
+        $("#trail").append(t);
 
         $("#btntrail" + arr[i].trailid).bind("click", { id: arr[i].trailid }, function (event) {
             var data = event.data;
@@ -49,20 +49,17 @@ function _showResult(trailid) {
 
 //insert trail into database
 function addTrail() {
-    trailid = $("#selTrail").val();
-    date = $("#eventdate").val();
-    time = $("#eventTime").val();
-    adminincharge = $("#selAdmin").val();
-    accesscode = $("#accesscode").val();
-
-    url = serverURL() + "/addevent.php"; 
+    TrailName = $("#trailname").val();
+    TrailLocation = $("#trailLocation").val();
+    Duration = $("#duration").val();
+    
+    url = serverURL() + "/addtrail.php"; 
    
     var JSONObject = {
-        "trailid": trailid,
-        "date": date,
-        "time": time,
-        "adminid": adminincharge,
-        "accesscode": accesscode
+        "trailname": TrailName,
+        "traillocation": TrailLocation,
+        "duration": Duration,
+
     };
 
     $.ajax({
@@ -72,18 +69,18 @@ function addTrail() {
         dataType: 'json',
         contentType: "application/json; charset=utf-8",
         success: function (arr) {
-            _getAddEventResult(arr);
+            _getAddTrailFunction(arr);
         }, error: function () {
             validationMsg();
         }
     });
 }
 
-function _getAddEventResult(arr) {
+function _getAddTrailFunction(arr) {
     if (arr[0].result === 1) {
-        alert("Event has been created successfully");
+        alert("Trail has been added");
         window.location = "facilitator.html";
     } else if (arr[0].result === 0) {
-        alert("Accesscode already exist.");
+        alert("Trail already exist.");
     }
 }

@@ -14,23 +14,23 @@
     </head>
 	
     <body>
-			<ons-toolbar>
-			<!--Add a back button later-->
-				<div class="center">
-				Quiz
-				</div>
-			</ons-toolbar>
-			<div class="flip-card-3D-wrapper">
+		<ons-toolbar>
+			<div class="center">
+			Quiz
+			</div>
+        </ons-toolbar>
+            
+		<div class="flip-card-3D-wrapper">
 			<div id="flip-card">
-				<div class="flip-card-front">
+				<div class="flip-card-front"> <!--Front Side of the Card-->
 				<br/>
 					<div id="frontartefactimage"> </div>
 					<h4><b>Background Information</b></h4> 
 					<div id="artefactbackgroundinfo"></div>
-					<button id="flip-card-btn-turn-to-back">flip</button>
-				</div>
+					<button id="flip-card-btn-turn-to-back">flip</button> <!--Button to flip the card-->
+				</div>  <!--End of Front Side of the Card-->
 				
-				<div class="flip-card-back">
+				<div class="flip-card-back"> <!--Back Side of the Card-->
 				</br>
 				<div id="backartefactimage"> </div>
 				<form style="text-align: center">
@@ -47,16 +47,16 @@
                         <textarea class="textarea" id="ImportantnessOfArt" rows="4" maxlength="50" style="width:65%" placeholder="How is this item significant to this ethnic group?" float required></textarea>
                     </p>
                 </form>
-				<button id="flip-card-btn-turn-to-front">flip</button>
-				  <ons-button class="game_pg_btn" id="uploadimgbtn" style="width:33%">Upload</ons-button>
+                <button id="flip-card-btn-turn-to-front">flip</button> <!--Button to flip card to the front-->
+                
+				<ons-button class="game_pg_btn" id="uploadimgbtn" style="width:33%">Upload</ons-button>
                 <ons-button class="game_pg_btn" id="previewimgbtn" style="width:33%">Preview</ons-button>
-                <!--End-->
            
                 <hr />
                 <ons-button class="game_pg_btn" id="submitAnswerbtn" style="width:67%">Submit</ons-button>
 				</div>
 			</div>
-			</div>
+		</div>
 	
 	
         <script type="text/javascript" src="cordova.js"></script>
