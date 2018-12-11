@@ -71,47 +71,43 @@ function getTrailTime() {
 
 function _showgetTrailTime(arr) {
 	for (var i = 0; i < arr.length; i++) {
+
+        var fulldate = new Date(arr[i].date);
+        var day = fulldate.getDate();
+        var months = (fulldate.getMonth())+1;
+        var years = fulldate.getFullYear();
 		
-		var fulldate = arr[i].date; //e.g.2018-12-06 (real value is retrieved from the database)
-		var year = fulldate.substr(0, 4); //retrieve the 0-3 value from full date (year) - 2018
-		var month = fulldate.substr(5, 2); //retrieve the 5-6 value from full date (month) - 12
-		var date = fulldate.substr(8, 2); //retrieve the 8-9 value from full date (day) - 06
-		
-		var time = arr[i].starttime; //e.g 16:00:00 (real value is retrieved from the database)
+        var time = arr[i].starttime; //e.g 16:00:00 (real value is retrieved from the database)
 		var hours = Number(time.substr(0,2)); //retrieve the 0-1 value from starttime (hours) - 16
 		var minutes = Number(time.substr (3,2)); //retrieve the 3-4 value from starttime (minutes) - 00
 		var seconds = Number(time.substr (6,2)); //retrive the 6-7 value from starttime (seconds) - 00
 		
 		var duration = Number(arr[i].duration); //duration of the game is retrieved from the database
 		
-		var endhour = hours + duration; //addition of start time with duration (e.g. Start Time = 16 Hours, Duration = 2 Hours, End Time = 18 Hours)
-		var enddatetime = new Date (year, month-1, date, endhour, minutes, seconds); //
+		var endhour = hours + duration; //end time is equal to the addition of start time with duration (e.g. Start Time = 16 Hours, Duration = 2 Hours, End Time = 18 Hours)
+        var enddatetime = new Date (years, months-1, day, endhour, minutes, seconds);  
 		
-		var countDownDate = new Date(enddatetime).getTime();
+        var endTime = new Date(enddatetime).getTime(); // set variable countDownDate as the end time
 		
-		// Update the count down every 1 second (1 second is defined by 1000, 2 seconds = 2000, ....)
-		var x = setInterval(function() {
+		var x = setInterval(function() { // Update the count down every 1 second (1 second is defined by 1000, 2 seconds = 2000, ....)
 
-			// set variable now as current time
-			var now = new Date().getTime();
+			var now = new Date().getTime(); // set variable now as current time
 			
-			// find the differences between the end date and the current time
-			var distance = countDownDate - now;
+			var distance = endTime - now; // find the differences between the end date and the current time
 			
-			// Time calculations for days, hours, minutes and seconds
-			var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-			var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-			var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-			
-			// push to div with id equals "demo" set in html
-			document.getElementById("countdowntimer").innerHTML = + hours + "h " + minutes + "m " + seconds + "s " + "to the game end.";
+			var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)); // Time calculations for hours
+			var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)); // Time calculations for minutes
+			var seconds = Math.floor((distance % (1000 * 60)) / 1000); // Time calculations seconds
+            
+                                                                    // __h __m __s to the game end.
+			document.getElementById("countdowntimer").innerHTML = + hours + "h " + minutes + "m " + seconds + "s " + "to the game end."; // push to div with id equals "countdowntimer" set in html
 			
 			// if time is = 0 (0h:0M:0S), -insert an action that will happen-
 			if (distance < 0) {
 				clearInterval(x);
 				document.getElementById("countdowntimer").innerHTML = "Game Ended";
 			}
-		}, 1000);
+		}, 1000); //each 1000 = 1 second, refresh at 1 second interval
 		
 	}
 }
