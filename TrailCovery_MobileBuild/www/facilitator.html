@@ -431,6 +431,7 @@
     </ons-page>
 </template>
 
+
 <!-- User Management -->
 <template id="account_management.html">
     <ons-page>
@@ -441,10 +442,6 @@
             <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
             <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
             <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
-            <!-- For table design-->
-<!--             <script src="js/lib/DataTables/jquery.dataTables.min.js"></script>
-            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-           --> 
 
 
         <ons-toolbar>
@@ -453,6 +450,7 @@
                     <ons-icon icon="md-menu"></ons-icon>
                 </ons-toolbar-button>
             </div>
+
             <div class="center">
                 User Management
             </div>
@@ -460,10 +458,9 @@
 
         <div data-role="page">
             <div data-role="main" class="ui-content">
-                <div id="User"></div>
-                
-                
-                <a href="#accountPopup" data-rel="popup">
+                <div id="User"> </div>
+
+                <a href="#userPopup" data-rel="popup">
                 <div class="addButton">
                 <ons-fab>
                     <ons-icon icon="md-plus"></ons-icon>
@@ -471,10 +468,10 @@
                 </div>
                 </a>
             
-            <div data-role="popup" id="accountPopup" class="ui-content" style=" min-width:100%; ">
+            <div data-role="popup" id="userPopup" class="ui-content" style=" min-width:100%; ">
                 <form>
                     <div>
-                          <h2><center>Add Account</center></h3>
+                          <h2><center>Add User</center></h3>
                           <!--Input Username-->
                           Username:
                           <label for="username" class="ui-hidden-accessible"></label>
@@ -488,7 +485,7 @@
                           <label for="email" class="ui-hidden-accessible"></label>
                          <input type="email" id="email" /> 
                          <!--Input School-->
-                         School:
+                         School: </br>
                          <ons-select name="school" id="school" style="width:200px; height:25px" required="">
                             <option value="null">Select School/Institution</option>
                             <option value="Not Applicable">Not Applicable</option>
@@ -503,7 +500,7 @@
                         <label for="phone" class="ui-hidden-accessible"></label>
                         <input type="number" id="phone" /> 
                         <!--Input User Type-->
-                        Role:
+                        Role: </br>
                         <ons-select name="role" id="role" style="width:200px; height:25px" required="">
                             <option value="null">Select Role</option>
                             <option value="facilitator">Facilitator</option>
@@ -525,81 +522,9 @@
         <p>© 2018 Temasek Polytechnic. All Rights Reserved.</p>
     </div>
 
-
-
-
 			</ons-page>
         </template>
 
-
-
-
-        
-        <!-- <div data-role="page" data-dialog="true" id="addUserPopUp">
-                <div data-role="header">   <h2>New User</h2>  </div>
-                <div data-role="main" class="ui-content">
-                    <form id="addUserform">
-                            Username:
-                            <input type="text" id="username" value=" " /> </br>
-                            Password:
-                            <input type="text" id="password" value=" " /> </br>
-                            Email:
-                            <input type="text" id="email" value=" " /> </br>
-                            School:
-                            <input type="text" id="school" value=" " /> </br>
-                            Phone:
-                            <input type="text" id="phone" value=" " /> </br>
-                            Role:
-                            <input type="radio" id="role" name="role" value="admin"> Admin
-                            <input type="radio" id="role" name="role" value="teacher"> Teacher
-                            <input type="radio" id="role" name="role" value="student"> Student
-                    </br>
-							<input type="button" id="btnAddUser" value="Add User" />
-                            <input type="reset" value="Reset">
-                        </form>
-                    </div>
-                     -->
-
-<!-- <div data-role="main" class="ui-content table-responsive">
-                <table id="showUsers" class="table table-striped table-bordered table-condensed table-hover" cellspacing="5" align="center"; >
-                    <thead>
-                        <tr>
-                            <th>Username</th>
-                            <th>Email</th>
-                            <th>School</th>
-                            <th>Phone</th>
-                        </tr>
-                    </thead>
-                    <tbody></tbody>
-                </table>
-            </div>
-        </div>
-    </ons-page>
-</template>
-<template id="getaccountbyusername.html">
-    <ons-page>
-        <ons-toolbar>
-            <div class="left">
-                <ons-toolbar-button onclick="fn.open()">
-                    <ons-icon icon="md-menu"></ons-icon>
-                </ons-toolbar-button>
-            </div>
-        </ons-toolbar>
-
-        <div data-role="page" id="front-page">
-            <div data-role="header" class="header" data-position="fixed" id="header">
-            </div>
-
-            <table id="username" class="table table-striped table-bordered" cellspacing="0" align="center">
-                <thead>
-                    <tr>
-                        <th></th>
-                    </tr>
-                </thead>
-
-            </table>
-
-        </div> -->
 
         <!-- Temporary inline script to move when finalised-->
 

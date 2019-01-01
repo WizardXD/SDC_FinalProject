@@ -1,13 +1,13 @@
 $(document).ready(function () {
-    getusers();
+    rolenames();
     $("#btnAddUser").bind("click", function () {
         addUser();
     });
 });
 
-//function to display the details of the artefact, such as image and background information
-function getusers() {
-    var url = serverURL() + "/getusers.php";
+
+function rolenames() {
+    var url = serverURL() + "/getuser.php";
 
     var JSONObject = {
     };
@@ -29,24 +29,24 @@ function getusers() {
 
 function ShowRoleNames(arr) {
     for (var i = 0; i < arr.length; i++) {
-        var t = "<ons-card><ons-button modifier='large' id='btnuser" + arr[i].username + "'>" +
-        arr[i].role + "</ons-button></ons-card></ons-card>"; 
+        var t = "<ons-card><ons-button modifier='large' id='btnrole" 
+        + arr[i].role + "'>" + "</ons-button></ons-card></ons-card>"; 
             
         $("#User").append(t);
 
-        $("#btnuser" + arr[i].username).bind("click", { id: arr[i].username }, function (event) {
+        $("#btnrole" + arr[i].role).bind("click", { id: arr[i].role }, function (event) {
             var data = event.data;
             _showResult(data.id);
         });
     }
 }
 
-function _showResult(username) {
-    localStorage.setItem("username", username);
-    window.location = "accountmanagement.html?username=" + username;
+function _showResult(role) {
+    localStorage.setItem("role", role);
+    window.location = "usermanagement.html?role=" + role;
 }
-
-//insert trail into database
+ 
+//insert user into database
 function addUser() {
     username = $("#username").val();
     password = $("#password").val();
@@ -83,8 +83,9 @@ function addUser() {
 function _getAddUserFunction(arr) {
     if (arr[0].result === 1) {
         alert("User has been added");
-        window.location = "accountmanagement.html";
+        window.location = "account_management.html";
     } else if (arr[0].result === 0) {
         alert("User already exist.");
     }
+
 }
