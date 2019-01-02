@@ -62,13 +62,68 @@
                 Account Management
                 </div>
             </ons-toolbar>
-            <div id="userdetail"></div>
+
+
+            <div data-role="page" id="front-page">
+                    <div data-role="header" class="header" data-position="fixed" id="header">
+            
+                    </div>
+            
+                    <div role="main" class="ui-content" id="main-ui">
+            
+                        <div id="username"></div>
+                        <div id="email"></div>
+            
+            
+                        <hr />
+
+            
+                        <form id="ChangeUserDetails" name="ChangeUserDetails">
+                                                      <!--Input Username-->
+                          Username:
+                          <label for="username" class="ui-hidden-accessible"></label>
+                          <input type="text" id="username" required/>
+                          <!--Input Password-->
+                          Password:
+                          <label for="password" class="ui-hidden-accessible"></label>
+                          <input type="password" id="password" required/>
+                          <!--Input Email-->
+                          Email:
+                          <label for="email" class="ui-hidden-accessible"></label>
+                         <input type="email" id="email" required/> 
+                         <!--Input School-->
+                         School: </br>
+                         <ons-select name="school" id="school" style="width:200px; height:25px" required>
+                            <option value="null">Select School/Institution</option>
+                            <option value="Not Applicable">Not Applicable</option>
+                            <optgroup label="Junior College" name="juniorcollege" id="juniorcollege"> </optgroup>
+                            <optgroup label="Polytechnic" name="polytechnic" id="polytechnic"> </optgroup>
+                            <optgroup label="Secondary School" name="secondarysch" id="secondarysch"> </optgroup>
+                            <optgroup label="Primary School" name="primarysch" id="primarysch"> </optgroup>
+                            </ons-select>
+                        </br>
+                        <!--Input Mobile Number-->
+                        Mobile Number:
+                        <label for="phone" class="ui-hidden-accessible"></label>
+                        <input type="number" id="phone" required/> 
+                        <!--Input User Type-->
+                        Role: </br>
+                        <ons-select name="role" id="role" style="width:200px; height:25px" required>
+                            <option value="null">Select Role</option>
+                            <option value="facilitator">Facilitator</option>
+                            <option value="teacher">Teacher</option>
+                            <option value="student">Student</option>
+                            </ons-select>
+
+                            <input type="button" value="Update User" id="btnSaveUser">
+                        </form>
+                    
+                    </div>
         </ons-page>
     
 
 
         <script type="text/javascript" src="cordova.js"></script>
-        <script src="js/usermanagement.js"></script>
         <script src="js/updateuser.js"></script>
         <script type="text/javascript" src="js/lib/jquery.validate.min.js"></script>
         <script type="text/javascript" src="js/common.js"></script>

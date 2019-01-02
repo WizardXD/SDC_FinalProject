@@ -1,7 +1,42 @@
 $(document).ready(function () {
     rolenames();
+
+// Validation
+$('#userPopup').validate({
+    rules: {
+        username: {
+            minlength: 6
+        },
+        password: {
+            minlength: 8
+        },
+        phone: {
+            minlength: 8
+        }
+    }, //End of jQueryRules
+    messages: {
+        username: "Username is required",
+        password: "Password is required", 
+        phone:"Contact No is required"
+
+    }, //End of Message
+
+    focusInvalid: false,
+    submitHandler: function () {
+        return false;
+    },
+
+    errorPlacement: function (error, element) {
+        error.appendTo(element.parent().after());
+        //error.appendTo(element.parent().parent().after());
+    }
+
+}); 
+
     $("#btnAddUser").bind("click", function () {
+        if ($("#userPopup").val()) {
         addUser();
+        }
     });
 });
 
@@ -22,7 +57,7 @@ function rolenames() {
             ShowRoleNames(arr);
         },
         error: function () {
-            alert("Error");         //Change to validation message 
+            validationMsg();          
         }
     });
 }
@@ -30,7 +65,7 @@ function rolenames() {
 function ShowRoleNames(arr) {
     for (var i = 0; i < arr.length; i++) {
         var t = "<ons-card><ons-button modifier='large' id='btnrole" 
-        + arr[i].role + "'>" + "</ons-button></ons-card></ons-card>"; 
+        + arr[i].role + "'>" + arr[i].username + "</ons-button></ons-card></ons-card>"; 
             
         $("#User").append(t);
 
@@ -85,7 +120,8 @@ function _getAddUserFunction(arr) {
         alert("User has been added");
         window.location = "account_management.html";
     } else if (arr[0].result === 0) {
-        alert("User already exist.");
+        alert("Account already exist.")
     }
 
 }
+

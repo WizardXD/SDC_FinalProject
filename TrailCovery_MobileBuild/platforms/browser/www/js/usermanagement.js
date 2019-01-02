@@ -30,9 +30,10 @@ function ShowUserDetails(arr) {
     for (var i = 0; i < arr.length; i++) {
         var t;
             t = "<div class='card'>" +
-            "<h2 style='text-align: center'>" + arr[i].username + "</h4>" +
-            "<p style='text-align:justify;font-family: Arial, Helvetica, sans-serif;'>" + arr[i].email + arr[i].school + arr[i].phone + arr[i].role + "</p>" +
-            "<p><ons-button modifier='large'>Edit</ons-button></p>"
+            "Username: " + arr[i].username + "</br>" + "Email: " + arr[i].email + "</br>" + 
+            "School: " + arr[i].school + "</br>" + "Contact No: " + arr[i].phone + "</br>" + 
+            "User Type: " + arr[i].role + "</p>" +
+            "<p><ons-button modifier='large' id='btnEdit'>" + "Edit" + "</ons-button></p>"
             "</div>";
         $("#userdetail").append(t);
     }

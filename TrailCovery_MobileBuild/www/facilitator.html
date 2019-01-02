@@ -437,11 +437,11 @@
     <ons-page>
             <script src="js/account_control.js"></script>
             <link rel="stylesheet" type="text/css" href="www/css/user_management.css">
-<!--             <script src="js/schArrayObject.js"></script>
-            <script type="text/javascript" src="js/extendedjqueryvalidation.js"></script> -->
+            <!-- <script type="text/javascript" src="js/extendedjqueryvalidation.js"></script> --> -->
             <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
             <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
             <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+            <script src="js/schArrayObject.js"></script>
 
 
         <ons-toolbar>
@@ -475,18 +475,18 @@
                           <!--Input Username-->
                           Username:
                           <label for="username" class="ui-hidden-accessible"></label>
-                          <input type="text" id="username" />
+                          <input type="text" id="username" required/>
                           <!--Input Password-->
                           Password:
                           <label for="password" class="ui-hidden-accessible"></label>
-                          <input type="text" id="password" />
+                          <input type="password" id="password" required/>
                           <!--Input Email-->
                           Email:
                           <label for="email" class="ui-hidden-accessible"></label>
-                         <input type="email" id="email" /> 
+                         <input type="email" id="email" required/> 
                          <!--Input School-->
                          School: </br>
-                         <ons-select name="school" id="school" style="width:200px; height:25px" required="">
+                         <ons-select name="school" id="school" style="width:200px; height:25px" required>
                             <option value="null">Select School/Institution</option>
                             <option value="Not Applicable">Not Applicable</option>
                             <optgroup label="Junior College" name="juniorcollege" id="juniorcollege"> </optgroup>
@@ -498,10 +498,10 @@
                         <!--Input Mobile Number-->
                         Mobile Number:
                         <label for="phone" class="ui-hidden-accessible"></label>
-                        <input type="number" id="phone" /> 
+                        <input type="number" id="phone" required/> 
                         <!--Input User Type-->
                         Role: </br>
-                        <ons-select name="role" id="role" style="width:200px; height:25px" required="">
+                        <ons-select name="role" id="role" style="width:200px; height:25px" required>
                             <option value="null">Select Role</option>
                             <option value="facilitator">Facilitator</option>
                             <option value="teacher">Teacher</option>
