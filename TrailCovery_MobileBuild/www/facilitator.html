@@ -204,6 +204,45 @@
 </template>
 
 
+
+
+
+<!-- CHAT PAGE TEMPLATE FOR ADMINISTRATOR -->
+
+<template id="chat.html">
+    <ons-page>
+            <script src="https://unpkg.com/@pusher/chatkit-client@1/dist/web/chatkit.js"></script>
+            <script type="text/javascript" src="js/chat.js"></script>
+        <!-- Toolbar-->
+        <ons-toolbar>
+            <div class="left">
+                <ons-toolbar-button onclick="fn.open()">
+                    <ons-icon icon="md-menu"></ons-icon>
+                </ons-toolbar-button>
+            </div>
+            <div class="center">
+            </div>
+        </ons-toolbar>
+        
+        <title>Trailcovery 2.0</title>
+    </head>
+    <body>
+      <ul id="message-list"></ul>
+      <form id="message-form">
+        <input type='text' id='message-text'>
+        <input type="submit">
+        
+</div>
+</form>
+</body>
+    </ons-page>
+</template>
+
+
+
+
+
+
 <template id="status.html">
     <ons-page>
         <!-- Toolbar-->
