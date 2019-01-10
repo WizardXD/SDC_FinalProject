@@ -32,14 +32,12 @@
 	
 	function _getCodeResult(arr) {
 		 if (arr[0].result.trim() !== "0") {                    //!== 0 means at least a row of data is found --> correct accesscode entered
-			localStorage.setItem("accesscode", accesscode);
 			faciCodeVerification();
+			localStorage.setItem("accesscode", accesscode);
     		} else {                                                         // == 0 means no data is found with the given accesscode
         	ons.notification.alert('Wrong Game Code, try again', {title: 'Not Found'});                               
     		}
 	}
-
-
 
 	function faciCodeVerification() {
 		var url = serverURL() + "/verifyfacicode.php";
@@ -70,7 +68,7 @@
 			getEventid();		
 			updateEventid();
     		} else {                                                         // == 0 means no data is found with the given accesscode
-        	ons.notification.alert('Wrong Game Code, try again', {title: 'Not Found'});                               
+        	ons.notification.alert("Please enter a valid facilitator's code", {title: 'Not Found'});                               
     		}
 	}
 
