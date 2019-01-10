@@ -40,6 +40,8 @@ Chat Title
   padding: 0;
 }
 
+
+
 .avatar1 {
   vertical-align: middle;
   position: absolute;
@@ -60,6 +62,52 @@ Chat Title
   height: auto;
 }
 
+.messages {
+  flex: 1 1 auto;
+  color: rgba(255, 255, 255, .5);
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+}
+
+.messages-content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 101%;
+  width: 100%;
+}
+
+.message {
+  clear: both;
+  float: left;
+  padding: 6px 10px 7px;
+  border-radius: 10px 10px 10px 0;
+  background: rgba(0, 0, 0, .3);
+  margin: 8px 0;
+  font-size: 11px;
+  line-height: 1.4;
+  margin-left: 35px;
+  position: relative;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, .2);
+}
+
+
+.timestamp {
+  position: absolute;
+  bottom: -15px;
+  font-size: 9px;
+  color: rgba(255, 255, 255, .3);
+}
+
+.before {
+  content: '';
+  position: absolute;
+  bottom: -6px;
+  border-top: 6px solid rgba(0, 0, 0, .3);
+  left: 0;
+  border-right: 7px solid transparent;
+}
 
 /*--------------------
 Message Box
@@ -85,6 +133,10 @@ Message Box
   width: 265px;
 }
 
+
+
+
+
 textarea:focus:-webkit-placeholder {
   color: transparent;
 }
@@ -93,7 +145,7 @@ textarea:focus:-webkit-placeholder {
   position: absolute;
   z-index: 1;
   top: 9px;
-  right: 19px;
+  right: 25px;
   color: #fff;
   border: none;
   background: #248A52;

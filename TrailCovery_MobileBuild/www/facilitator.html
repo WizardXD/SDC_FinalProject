@@ -18,8 +18,9 @@
     under the License.
 -->
 <html>
-    <head>
-        <!--
+
+<head>
+  <!--
         Customize this policy to fit your own app's needs. For more guidance, see:
             https://github.com/apache/cordova-plugin-whitelist/blob/master/README.md#content-security-policy
         Some notes:
@@ -28,125 +29,126 @@
             * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
                 * Enable inline JS: add 'unsafe-inline' to default-src
         -->
-        <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;"> -->
-        <meta name="format-detection" content="telephone=no">
-        <meta name="msapplication-tap-highlight" content="no">
-        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+  <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;"> -->
+  <meta name="format-detection" content="telephone=no">
+  <meta name="msapplication-tap-highlight" content="no">
+  <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
 
-        <link rel="stylesheet" type="text/css" href="css/index.css">
-        <link rel="stylesheet" type="text/css" href="css/onsen-css-components.min.css">
-        <link rel="stylesheet" type="text/css" href="css/onsenui.css">
-        <script type="text/javascript" src="js/lib/jquery-3.3.1.js"></script>
-        <script type="text/javascript" src="js/framework/onsenui.min.js"></script>
-        <script src="https://js.pusher.com/4.3/pusher.min.js"></script>
-        <script src='https://api.mapbox.com/mapbox-gl-js/v0.51.0/mapbox-gl.js'></script>
-        <link href='https://api.mapbox.com/mapbox-gl-js/v0.51.0/mapbox-gl.css' rel='stylesheet'/>
-        <link rel="stylesheet" type="text/css" href="css/map.css">
-        <link rel="stylesheet" type="text/css" href="css/waitingroomadmin.css">
-        <title>SDCFYP</title>
-    </head>
-    <body>
+  <link rel="stylesheet" type="text/css" href="css/index.css">
+  <link rel="stylesheet" type="text/css" href="css/onsen-css-components.min.css">
+  <link rel="stylesheet" type="text/css" href="css/onsenui.css">
+  <script type="text/javascript" src="js/lib/jquery-3.3.1.js"></script>
+  <script type="text/javascript" src="js/framework/onsenui.min.js"></script>
+  <script src="https://js.pusher.com/4.3/pusher.min.js"></script>
+  <script src='https://api.mapbox.com/mapbox-gl-js/v0.51.0/mapbox-gl.js'></script>
+  <link href='https://api.mapbox.com/mapbox-gl-js/v0.51.0/mapbox-gl.css' rel='stylesheet' />
+  <link rel="stylesheet" type="text/css" href="css/map.css">
+  <link rel="stylesheet" type="text/css" href="css/waitingroomadmin.css">
+  <link rel="stylesheet" type="text/css" href="css/fa-fa-main.css">
+  <title>SDCFYP</title>
+</head>
 
-      <script>
-      //PUSHERAPI
-      var data;
-      // Enable pusher logging - don't include this in production
-      //PUSHER API IS USED AS WEBSOCKET TO STREAM DATA IN REAL TIME
-      Pusher.logToConsole = true;
+<body>
 
-
-
-      var pusher = new Pusher('c3a0841c4cedc127e358', {
-        cluster: 'ap1',
-        forceTLS: true
-      });
-
-      var channel = pusher.subscribe('map-channel');
-      channel.bind('my-event', function(data) {
-
-
-        alert(JSON.stringify(data));
-      });
+  <script>
+    //PUSHERAPI
+    var data;
+    // Enable pusher logging - don't include this in production
+    //PUSHER API IS USED AS WEBSOCKET TO STREAM DATA IN REAL TIME
+    Pusher.logToConsole = true;
 
 
 
-      </script>
+    var pusher = new Pusher('c3a0841c4cedc127e358', {
+      cluster: 'ap1',
+      forceTLS: true
+    });
 
-        <ons-navigator id="pushpage_navigator_facilitator">
-            <ons-page>
+    var channel = pusher.subscribe('map-channel');
+    channel.bind('my-event', function (data) {
 
-                <ons-splitter>
-                    <ons-splitter-side id="menu" side="left" width="220px" collapse >
-                        <ons-page>
-                            <ons-list>
-                                <ons-list-item onclick="fn.load('home.html')" tappable>
-                                    Home
-                                </ons-list-item>
-                                <ons-list-item onclick="fn.load('chat.html')" tappable>
-                                    Chat
-                                </ons-list-item>
-                                <ons-list-item onclick="fn.load('status.html')" tappable>
-                                    Status
-                                </ons-list-item>
-                                <ons-list-item onclick="fn.load('event_management.html')" tappable>
-                                   Event Management
-                                </ons-list-item>
-                                <ons-list-item onclick="fn.load('trail_management.html')" tappable>
-                                    Trail Management
-                                </ons-list-item>
-                                <ons-list-item onclick="fn.load('account_management.html')" tappable>
-                                    Account Management
-                                </ons-list-item>
-								<ons-list-item onclick="window.location = 'index.html'" tappable>
-									Logout
-								</ons-list-item>
 
-                            </ons-list>
-                        </ons-page>
-                    </ons-splitter-side>
-                    <ons-splitter-content id="content" page="home.html"></ons-splitter-content>
-                </ons-splitter>
+      alert(JSON.stringify(data));
+    });
 
-              </ons-page>
-          </ons-navigator>
-<!-- HOME PAGE TEMPLATE FOR AMDINISTRATOR -->
-<!-- THIS SECTION WILL BE DISPLAYING THE USER'S LOCATION ON MAPBOX IN REAL-TIME -->
+  </script>
 
-          <template id="home.html">
-            <ons-page>
-                <!-- Toolbar-->
-                <ons-toolbar>
-                    <div class="left">
-                        <ons-toolbar-button onclick="fn.open()">
-                            <ons-icon icon="md-menu"></ons-icon>
-                        </ons-toolbar-button>
-                    </div>
-                    <div class="center">
-                    </div>
-                </ons-toolbar>
-                <!-- CONTENT -->
-                <!-- INITIALISE MAPBOX MAP USING A div id = map
+  <ons-navigator id="pushpage_navigator_facilitator">
+    <ons-page>
+
+      <ons-splitter>
+        <ons-splitter-side id="menu" side="left" width="220px" collapse>
+          <ons-page>
+            <ons-list>
+              <ons-list-item onclick="fn.load('home.html')" tappable>
+                <i class="fa fa-home" aria-hidden="true"></i>&ensp;Home
+              </ons-list-item>
+              <ons-list-item onclick="fn.load('chat.html')" tappable>
+                <i class="fa fa-comment" aria-hidden="true"></i>&ensp;Chat
+              </ons-list-item>
+              <ons-list-item onclick="fn.load('status.html')" tappable>
+                <i class="fa fa-spinner" aria-hidden="true"></i>&ensp;Status
+              </ons-list-item>
+              <ons-list-item onclick="fn.load('event_management.html')" tappable>
+                <i class="fa fa-calendar" aria-hidden="true"></i>&ensp;Event Management
+              </ons-list-item>
+              <ons-list-item onclick="fn.load('trail_management.html')" tappable>
+                <i class="fa fa-road" aria-hidden="true"></i>&nbsp;Trail Management
+              </ons-list-item>
+              <ons-list-item onclick="fn.load('account_management.html')" tappable>
+                <i class="fa fa-user-plus" aria-hidden="true"></i>&nbsp;Account Management
+              </ons-list-item>
+              <ons-list-item onclick="window.location = 'index.html'" tappable>
+                <i class="fa fa-sign-out" aria-hidden="true"></i>&nbsp;Logout
+              </ons-list-item>
+
+            </ons-list>
+          </ons-page>
+        </ons-splitter-side>
+        <ons-splitter-content id="content" page="home.html"></ons-splitter-content>
+      </ons-splitter>
+
+    </ons-page>
+  </ons-navigator>
+  <!-- HOME PAGE TEMPLATE FOR AMDINISTRATOR -->
+  <!-- THIS SECTION WILL BE DISPLAYING THE USER'S LOCATION ON MAPBOX IN REAL-TIME -->
+
+  <template id="home.html">
+    <ons-page>
+      <!-- Toolbar-->
+      <ons-toolbar>
+        <div class="left">
+          <ons-toolbar-button onclick="fn.open()">
+            <ons-icon icon="md-menu"></ons-icon>
+          </ons-toolbar-button>
+        </div>
+        <div class="center">
+        </div>
+      </ons-toolbar>
+      <!-- CONTENT -->
+      <!-- INITIALISE MAPBOX MAP USING A div id = map
                      THE MAP WILL BE INITIALISE VIA JS-->
 
-    <div id='map'></div>
+      <div id='map'></div>
 
 
 
-    <div id='userobjectdisplay'>
-      <figure>
-      <img src="images/group-icons/1.png" width="75px" height="75px"> <!-- PROOF OF CONCEPT TO REMOVE AFTER 3-12-18-->
-      <figcaption>Team GOHOME </figcaption>
-      </figure>
-    </div>
-    <div id='btn_waitingrm_startgm'>
+      <div id='userobjectdisplay'>
+        <figure>
+          <img src="images/group-icons/1.png" width="75px" height="75px">
+          <!-- PROOF OF CONCEPT TO REMOVE AFTER 3-12-18-->
+          <figcaption>Team GOHOME </figcaption>
+        </figure>
+      </div>
+      <div id='btn_waitingrm_startgm'>
         <ons-button id='startgamebtn' onclick="test()">Start Game</ons-button>
-    </div>
+      </div>
 
 
-<script>
-
-          mapboxgl.accessToken = 'pk.eyJ1Ijoic2RjMjAxOCIsImEiOiJjam9pOTZhYTUwNnF5M3FtaWJ4c244Y3F4In0.AfOL4xqBBTijfsMMxMys9A';
-          var map = new mapboxgl.Map({
+      <script>
+        mapboxgl.accessToken =
+          'pk.eyJ1Ijoic2RjMjAxOCIsImEiOiJjam9pOTZhYTUwNnF5M3FtaWJ4c244Y3F4In0.AfOL4xqBBTijfsMMxMys9A';
+        var map = new mapboxgl.Map({
           //https://www.mapbox.com/mapbox-gl-js/api/
           container: 'map',
           //container: 'map',
@@ -154,136 +156,146 @@
           interactive: true,
           dragRotate: true,
           doubleClick: true,
-		  center : [103.9296074, 1.345245],
-		  zoom: 14
+          center: [103.9296074, 1.345245],
+          zoom: 14
+        });
+
+
+
+        //IF I CHANGE THIS URL TO PHP THAT CONTAINS THE GEOJSON FORMAT
+        var url = 'https://mp18.projectsbit.org/sdc/facilitatormap.php';
+
+        //var url = 'https://wanderdrone.appspot.com/';
+        //var url='https://mp18.projectsbit.org/sdc/realtimemap.php';
+
+
+        map.on('load', function () {
+          window.setInterval(function () {
+            map.getSource('humansdsd').setData(url);
+          }, 2000);
+
+          map.addSource('humansdsd', {
+            type: 'geojson',
+            data: url
           });
 
+          map.loadImage('images/group-icons/125x25.png', function (error, image) {
+            if (error) throw error;
+            map.addImage('avatar', image);
+            map.addLayer({
+              "id": "humansdsd",
+              "type": "symbol",
+              "source": "humansdsd",
+              "layout": {
+                "icon-image": "avatar",
+                "icon-size": 1
+              },
+              // "filter": ["==", "$type", "Point"],
+            });
 
-    
-          //IF I CHANGE THIS URL TO PHP THAT CONTAINS THE GEOJSON FORMAT
-          var url = 'https://mp18.projectsbit.org/sdc/facilitatormap.php';
+          });
+        });
 
-          //var url = 'https://wanderdrone.appspot.com/';
-          //var url='https://mp18.projectsbit.org/sdc/realtimemap.php';
-
-
-          map.on('load', function () {
-              window.setInterval(function() {
-                  map.getSource('humansdsd').setData(url);
-              }, 2000);
-        
-             map.addSource('humansdsd',
-              {
-                type: 'geojson',
-                data: url
-              });
-
- map.loadImage('images/group-icons/125x25.png', function(error, image) {
-        if (error) throw error;
-        map.addImage('avatar', image);
-              map.addLayer({
-        "id": "humansdsd",
-        "type": "symbol",
-        "source": "humansdsd",
-        "layout": {
-                      "icon-image": "avatar",
-                      "icon-size": 1
-                  },
-       // "filter": ["==", "$type", "Point"],
-    });
-
-});
-});
-
-</script>
+      </script>
 
 
-            </ons-page>
-
-
-</template>
-
-
-
-
-
-<!-- CHAT PAGE TEMPLATE FOR ADMINISTRATOR -->
-
-<template id="chat.html">
-    <ons-page>
-            <script src="https://unpkg.com/@pusher/chatkit-client@1/dist/web/chatkit.js"></script>
-            <script type="text/javascript" src="js/chat.js"></script>
-        <!-- Toolbar-->
-        <ons-toolbar>
-            <div class="left">
-                <ons-toolbar-button onclick="fn.open()">
-                    <ons-icon icon="md-menu"></ons-icon>
-                </ons-toolbar-button>
-            </div>
-            <div class="center">
-            </div>
-        </ons-toolbar>
-        
-        <title>Trailcovery 2.0</title>
-    </head>
-    <body>
-      <ul id="message-list"></ul>
-      <form id="message-form">
-        <input type='text' id='message-text'>
-        <input type="submit">
-        
-</div>
-</form>
-</body>
     </ons-page>
-</template>
+
+
+  </template>
 
 
 
 
 
+  <!-- CHAT PAGE TEMPLATE FOR ADMINISTRATOR -->
 
-<template id="status.html">
+  <template id="chat.html">
     <ons-page>
-        <!-- Toolbar-->
-        <ons-toolbar>
-            <div class="left">
-                <ons-toolbar-button onclick="fn.open()">
-                    <ons-icon icon="md-menu"></ons-icon>
-                </ons-toolbar-button>
-            </div>
-            <div class="center">
-            </div>
-        </ons-toolbar>
-        
-        <form name ='queryaccess' id='queryaccess'>
+      <script src="https://unpkg.com/@pusher/chatkit-client@1/dist/web/chatkit.js"></script>
+      <script type="text/javascript" src="js/chat.js"></script>
+      <!-- Toolbar-->
+      <ons-toolbar>
+        <div class="left">
+          <ons-toolbar-button onclick="fn.open()">
+            <ons-icon icon="md-menu"></ons-icon>
+          </ons-toolbar-button>
+        </div>
+        <div class="center">
+          <b>TrailCovery Chat</b>
+        </div>
+
+        <div class="right">
+          <i class="fa fa-comments"></i>
+        </div>
+      </ons-toolbar>
+
+      <title>Trailcovery 2.0</title>
+      </head>
+
+      <body>
+        <ul id="message-list"></ul>
+        <form id="message-form">
+          <input type='text' id='message-text'>
+          <input type="submit">
+
+          </div>
+        </form>
+      </body>
+    </ons-page>
+  </template>
+
+
+
+
+
+
+  <template id="status.html">
+    <ons-page>
+      <!-- Toolbar-->
+      <ons-toolbar>
+        <div class="left">
+          <ons-toolbar-button onclick="fn.open()">
+            <ons-icon icon="md-menu"></ons-icon>
+          </ons-toolbar-button>
+        </div>
+        <div class="center">
+          <b>Status</b>
+        </div>
+
+        <div class="right">
+          <i class="fa fa-spinner"></i>
+        </div>
+      </ons-toolbar>
+
+      <form name='queryaccess' id='queryaccess'>
 
 
         <select id="accesscodedropdown" style="width:200px; height:25px">
-            <option value="null">ACCESS CODE</optio>
-        <select>
-           
-        </form>
-        <ons-button id="queryforaccesscode" value="queryforaccesscode">Go</ons-button>
-        
-        <br>
+          <option value="null">ACCESS CODE</optio>
+            <select>
 
-        <p>
-            
-        
-</p>
-        
+      </form>
+      <ons-button id="queryforaccesscode" value="queryforaccesscode">Go</ons-button>
+
+      <br>
+
+      <p>
 
 
-        <div id='displaypending'></div>
-        <ons-card id=details></ons-card>
-
-        
-        <ons-button id="startgame" value="startgame"> Start game</ons-button>
+      </p>
 
 
-        <script> 
-            var accesscode = [
+
+      <div id='displaypending'></div>
+      <ons-card id=details></ons-card>
+
+
+      <ons-button id="startgame" value="startgame"> Start game</ons-button>
+
+
+      <script>
+        var accesscode = [
             'TPSDCTEST',
             'TPChina',
             'TPKampong',
@@ -324,261 +336,280 @@
 
             addaccesscode2option();          
             
-            </script>      
-            
-            <script src='js/wradmin.js'></script>
+            </script>
+
+      <script src='js/wradmin.js'></script>
     </ons-page>
 
-</template>
+  </template>
 
 
 
- <template id="event_management.html">
-            <ons-page>
-			<script src="js/eventmanagement.js"></script>
-			<link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
-			<script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
-			<script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
-			
-			<style>
-			div.addButtonPlus {
+  <template id="event_management.html">
+    <ons-page>
+      <script src="js/eventmanagement.js"></script>
+      <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+      <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+      <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+
+      <style>
+        div.addButtonPlus {
 				position:fixed;
 				right: 5%;
 				bottom:2%;
 			}
 			</style>
-			
-            <!-- Toolbar-->
-            <ons-toolbar>
-                <div class="left">
-                    <ons-toolbar-button onclick="fn.open()">
-                        <ons-icon icon="md-menu"></ons-icon>
-                    </ons-toolbar-button>
-                </div>
-                <div class="center">
-			    Event Management
-                </div>
-            </ons-toolbar>
-			
-				
-			<div data-role="page">
-				<div data-role="main" class="ui-content">
-					<div id="event"></div>
-					<a href="#eventPopup" data-rel="popup">
-					<div class="addButtonPlus">
-					<ons-fab>
-						<ons-icon icon="md-plus"></ons-icon>
-				    </ons-fab>
-					</div>
-					</a>
-				
-				<div data-role="popup" id="eventPopup" class="ui-content" style=" min-width:100%; ">
-					<form name="addEventForm" id="addEventForm">
-						<div>
-							  <h2><center>Event information</center></h3>
-							  <!--Trail Dropdown Box-->
-							  <label for="selTrail" class="ui-hidden-accessible"></label>
-							  Trail:
-							  <select name="selTrail" id="selTrail"> </select>
-							  <!--Input field for Date-->
-							  Date of Event:
-							  <label for="eventdate" class="ui-hidden-accessible"></label>
-							  <input type="date" id="eventdate" />
-							  <!--Input field for Time-->
-							  Time of Event:
-							  <label for="eventTime" class="ui-hidden-accessible"></label>
-							  <input type="time" id="eventTime" />
-							  <!--Input text field for Facilitator-In-Charge-->
-							  <label for="selAdmin" class="ui-hidden-accessible"></label>
-							  Facilitator-In-Charge:
-							 <select name="selAdmin" id="selAdmin"> </select>
-							 <!--Input Text Field for Accesscode-->
-							 <label for="accesscode" class="ui-hidden-accessible">Username:</label>
-							 Accesscode:
-							 <input type="text" id="accesscode">
-							 <!--Button to Add Event-->
-							 <center> <input type="submit" data-inline="true" id="btnAddEvent" value="Add Event"></center>
-						</div>
-					</form>
-				</div>
-				</div>
 
-			</div>
-			</ons-page>
-</template>
-
-
-
-
-
-
-<!-- Trailmanagemnet.html-->
-<template id="trail_management.html">
-    <ons-page>
-        <script src="js/trailmanagement.js"></script>
-        <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
-		<script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
-	    <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
-        <!-- Toolbar-->
-        <ons-toolbar>
-            <div class="left">
-                <ons-toolbar-button onclick="fn.open()">
-                    <ons-icon icon="md-menu"></ons-icon>
-                </ons-toolbar-button>
-            </div>
-            <div class="center">
-            Trail Management
-            </div>
-        </ons-toolbar>
-        
-        <div data-role="page">
-            <div data-role="main" class="ui-content">
-                <div id="trail"></div>
-                
-                
-                <a href="#trailPopup" data-rel="popup">
-                <div class="addButtonPlus">
-                <ons-fab>
-                    <ons-icon icon="md-plus"></ons-icon>
-                </ons-fab>
-                </div>
-                </a>
-            
-            <div data-role="popup" id="trailPopup" class="ui-content" style=" min-width:100%; ">
-                <form>
-                    <div>
-                          <h2><center>Add Trail</center></h3>
-                          <!--Input Trail Name-->
-                          Trail Name:
-                          <label for="trailname" class="ui-hidden-accessible"></label>
-                          <input type="text" id="trailname" />
-                          <!--Input Trail Location-->
-                          Trail Location:
-                          <label for="trailLocation" class="ui-hidden-accessible"></label>
-                          <input type="text" id="trailLocation" />
-                          <!--Input duration of trail-->
-                          <label for="duration" class="ui-hidden-accessible"></label>
-                          Duration:
-                         <input name="time" id="duration" /> 
-                         <center> <input type="submit" data-inline="true" id="btnAddTrail" value="Add Trail"></center>
-                    </div>
-                </form>
-            </div>
-            </div>
-
+      <!-- Toolbar-->
+      <ons-toolbar>
+        <div class="left">
+          <ons-toolbar-button onclick="fn.open()">
+            <ons-icon icon="md-menu"></ons-icon>
+          </ons-toolbar-button>
         </div>
+        <div class="center">
+          <b>Event Management</b>
+        </div>
+
+        <div class="right">
+          <i class="fa fa-calendar"></i>
+        </div>
+      </ons-toolbar>
+
+
+      <div data-role="page">
+        <div data-role="main" class="ui-content">
+          <div id="event"></div>
+          <a href="#eventPopup" data-rel="popup">
+            <div class="addButtonPlus">
+              <ons-fab>
+                <ons-icon icon="md-plus"></ons-icon>
+              </ons-fab>
+            </div>
+          </a>
+
+          <div data-role="popup" id="eventPopup" class="ui-content" style=" min-width:100%; ">
+            <form name="addEventForm" id="addEventForm">
+              <div>
+                <h2>
+                  <center>Event information</center>
+                  </h3>
+                  <!--Trail Dropdown Box-->
+                  <label for="selTrail" class="ui-hidden-accessible"></label>
+                  Trail:
+                  <select name="selTrail" id="selTrail"> </select>
+                  <!--Input field for Date-->
+                  Date of Event:
+                  <label for="eventdate" class="ui-hidden-accessible"></label>
+                  <input type="date" id="eventdate" />
+                  <!--Input field for Time-->
+                  Time of Event:
+                  <label for="eventTime" class="ui-hidden-accessible"></label>
+                  <input type="time" id="eventTime" />
+                  <!--Input text field for Facilitator-In-Charge-->
+                  <label for="selAdmin" class="ui-hidden-accessible"></label>
+                  Facilitator-In-Charge:
+                  <select name="selAdmin" id="selAdmin"> </select>
+                  <!--Input Text Field for Accesscode-->
+                  <label for="accesscode" class="ui-hidden-accessible">Username:</label>
+                  Accesscode:
+                  <input type="text" id="accesscode">
+                  <!--Button to Add Event-->
+                  <center> <input type="submit" data-inline="true" id="btnAddEvent" value="Add Event"></center>
+              </div>
+            </form>
+          </div>
+        </div>
+
+      </div>
     </ons-page>
-</template>
+  </template>
 
 
-<!-- User Management -->
-<template id="account_management.html">
+
+
+
+
+  <!-- Trailmanagemnet.html-->
+  <template id="trail_management.html">
     <ons-page>
-            <script src="js/account_control.js"></script>
-            <link rel="stylesheet" type="text/css" href="www/css/user_management.css">
-            <!-- <script type="text/javascript" src="js/extendedjqueryvalidation.js"></script> --> -->
-            <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
-            <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
-            <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
-            <script src="js/schArrayObject.js"></script>
-
-
-        <ons-toolbar>
-            <div class="left">
-                <ons-toolbar-button onclick="fn.open()">
-                    <ons-icon icon="md-menu"></ons-icon>
-                </ons-toolbar-button>
-            </div>
-
-            <div class="center">
-                User Management
-            </div>
-        </ons-toolbar>
-
-        <div data-role="page">
-            <div data-role="main" class="ui-content">
-                <div id="User"> </div>
-
-                <a href="#userPopup" data-rel="popup">
-                <div class="addButton">
-                <ons-fab>
-                    <ons-icon icon="md-plus"></ons-icon>
-                </ons-fab>
-                </div>
-                </a>
-            
-            <div data-role="popup" id="userPopup" class="ui-content" style=" min-width:100%; ">
-                <form>
-                    <div>
-                          <h2><center>Add User</center></h3>
-                          <!--Input Username-->
-                          Username:
-                          <label for="username" class="ui-hidden-accessible"></label>
-                          <input type="text" id="username" required/>
-                          <!--Input Password-->
-                          Password:
-                          <label for="password" class="ui-hidden-accessible"></label>
-                          <input type="password" id="password" required/>
-                          <!--Input Email-->
-                          Email:
-                          <label for="email" class="ui-hidden-accessible"></label>
-                         <input type="email" id="email" required/> 
-                         <!--Input School-->
-                         School: </br>
-                         <ons-select name="school" id="school" style="width:200px; height:25px" required>
-                            <option value="null">Select School/Institution</option>
-                            <option value="Not Applicable">Not Applicable</option>
-                            <optgroup label="Junior College" name="juniorcollege" id="juniorcollege"> </optgroup>
-                            <optgroup label="Polytechnic" name="polytechnic" id="polytechnic"> </optgroup>
-                            <optgroup label="Secondary School" name="secondarysch" id="secondarysch"> </optgroup>
-                            <optgroup label="Primary School" name="primarysch" id="primarysch"> </optgroup>
-                            </ons-select>
-                        </br>
-                        <!--Input Mobile Number-->
-                        Mobile Number:
-                        <label for="phone" class="ui-hidden-accessible"></label>
-                        <input type="number" id="phone" required/> 
-                        <!--Input User Type-->
-                        Role: </br>
-                        <ons-select name="role" id="role" style="width:200px; height:25px" required>
-                            <option value="null">Select Role</option>
-                            <option value="facilitator">Facilitator</option>
-                            <option value="teacher">Teacher</option>
-                            <option value="student">Student</option>
-                            </ons-select>
-                        <!--To add account-->
-                         <center> <input type="submit" data-inline="true" id="btnAddUser" value="Add Account">
-                            <input type="reset" data-inline="true" id="reset" value="Reset"></center>
-                    </div>
-                </form>
-            </div>
-            </div>
-
+      <script src="js/trailmanagement.js"></script>
+      <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+      <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+      <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+      <!-- Toolbar-->
+      <ons-toolbar>
+        <div class="left">
+          <ons-toolbar-button onclick="fn.open()">
+            <ons-icon icon="md-menu"></ons-icon>
+          </ons-toolbar-button>
+        </div>
+        <div class="center">
+          <b>Trail Management</b>
         </div>
 
+        <div class="right">
+          <i class="fa fa-road"></i>
+        </div>
+      </ons-toolbar>
 
-	<div class="footer">
+      <div data-role="page">
+        <div data-role="main" class="ui-content">
+          <div id="trail"></div>
+
+
+          <a href="#trailPopup" data-rel="popup">
+            <div class="addButtonPlus">
+              <ons-fab>
+                <ons-icon icon="md-plus"></ons-icon>
+              </ons-fab>
+            </div>
+          </a>
+
+          <div data-role="popup" id="trailPopup" class="ui-content" style=" min-width:100%; ">
+            <form>
+              <div>
+                <h2>
+                  <center>Add Trail</center>
+                  </h3>
+                  <!--Input Trail Name-->
+                  Trail Name:
+                  <label for="trailname" class="ui-hidden-accessible"></label>
+                  <input type="text" id="trailname" />
+                  <!--Input Trail Location-->
+                  Trail Location:
+                  <label for="trailLocation" class="ui-hidden-accessible"></label>
+                  <input type="text" id="trailLocation" />
+                  <!--Input duration of trail-->
+                  <label for="duration" class="ui-hidden-accessible"></label>
+                  Duration:
+                  <input name="time" id="duration" />
+                  <center> <input type="submit" data-inline="true" id="btnAddTrail" value="Add Trail"></center>
+              </div>
+            </form>
+          </div>
+        </div>
+
+      </div>
+    </ons-page>
+  </template>
+
+
+  <!-- User Management -->
+  <template id="account_management.html">
+    <ons-page>
+      <script src="js/account_control.js"></script>
+      <link rel="stylesheet" type="text/css" href="www/css/user_management.css">
+      <!-- <script type="text/javascript" src="js/extendedjqueryvalidation.js"></script> --> -->
+      <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+      <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+      <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+      <script src="js/schArrayObject.js"></script>
+
+
+      <ons-toolbar>
+        <div class="left">
+          <ons-toolbar-button onclick="fn.open()">
+            <ons-icon icon="md-menu"></ons-icon>
+          </ons-toolbar-button>
+        </div>
+
+        <div class="center">
+          <b>Account Management</b>
+        </div>
+
+        <div class="right">
+          <i class="fa fa-user-plus"></i>
+        </div>
+      </ons-toolbar>
+
+      <div data-role="page">
+        <div data-role="main" class="ui-content">
+          <div id="User"> </div>
+
+          <a href="#userPopup" data-rel="popup">
+            <div class="addButton">
+              <ons-fab>
+                <ons-icon icon="md-plus"></ons-icon>
+              </ons-fab>
+            </div>
+          </a>
+
+          <div data-role="popup" id="userPopup" class="ui-content" style=" min-width:100%; ">
+            <form>
+              <div>
+                <h2>
+                  <center>Add User</center>
+                  </h3>
+                  <!--Input Username-->
+                  Username:
+                  <label for="username" class="ui-hidden-accessible"></label>
+                  <input type="text" id="username" required />
+                  <!--Input Password-->
+                  Password:
+                  <label for="password" class="ui-hidden-accessible"></label>
+                  <input type="password" id="password" required />
+                  <!--Input Email-->
+                  Email:
+                  <label for="email" class="ui-hidden-accessible"></label>
+                  <input type="email" id="email" required />
+                  <!--Input School-->
+                  School: </br>
+                  <ons-select name="school" id="school" style="width:200px; height:25px" required>
+                    <option value="null">Select School/Institution</option>
+                    <option value="Not Applicable">Not Applicable</option>
+                    <optgroup label="Junior College" name="juniorcollege" id="juniorcollege"> </optgroup>
+                    <optgroup label="Polytechnic" name="polytechnic" id="polytechnic"> </optgroup>
+                    <optgroup label="Secondary School" name="secondarysch" id="secondarysch"> </optgroup>
+                    <optgroup label="Primary School" name="primarysch" id="primarysch"> </optgroup>
+                  </ons-select>
+                  </br>
+                  <!--Input Mobile Number-->
+                  Mobile Number:
+                  <label for="phone" class="ui-hidden-accessible"></label>
+                  <input type="number" id="phone" required />
+                  <!--Input User Type-->
+                  Role: </br>
+                  <ons-select name="role" id="role" style="width:200px; height:25px" required>
+                    <option value="null">Select Role</option>
+                    <option value="facilitator">Facilitator</option>
+                    <option value="teacher">Teacher</option>
+                    <option value="student">Student</option>
+                  </ons-select>
+                  <!--To add account-->
+                  <center> <input type="submit" data-inline="true" id="btnAddUser" value="Add Account">
+                    <input type="reset" data-inline="true" id="reset" value="Reset"></center>
+              </div>
+            </form>
+          </div>
+        </div>
+
+      </div>
+
+
+      <div class="footer">
         <p>© 2018 Temasek Polytechnic. All Rights Reserved.</p>
-    </div>
+      </div>
 
-			</ons-page>
-        </template>
-
-
-        <!-- Temporary inline script to move when finalised-->
+    </ons-page>
+  </template>
 
 
+  <!-- Temporary inline script to move when finalised-->
 
-        <script type="text/javascript" src="cordova.js"></script>
 
-        <script type="text/javascript" src="js/lib/jquery.validate.min.js"></script>
-        <script type="text/javascript" src="js/common.js"></script>
-        <script type="text/javascript" src="js/extendedjqueryvalidation.js"></script>
-      <!--   <script type="text/javascript" src="js/index.js"></script>  -->
-      <!-- <script src="js/getcurrentlocation.js"></script> -->
-      <script src="js/eventmanagement.js"></script>
-      <script src="js/adminwaitingroom.js"></script>
-<!--     <script type="text/javascript" src='test.js'></script> -->
 
-    </body>
+  <script type="text/javascript" src="cordova.js"></script>
+
+  <script type="text/javascript" src="js/lib/jquery.validate.min.js"></script>
+  <script type="text/javascript" src="js/common.js"></script>
+  <script type="text/javascript" src="js/extendedjqueryvalidation.js"></script>
+  <!--   <script type="text/javascript" src="js/index.js"></script>  -->
+  <!-- <script src="js/getcurrentlocation.js"></script> -->
+  <script src="js/eventmanagement.js"></script>
+  <script src="js/adminwaitingroom.js"></script>
+  <!--     <script type="text/javascript" src='test.js'></script> -->
+
+</body>
+
 </html>
