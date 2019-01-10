@@ -18,8 +18,9 @@
     under the License.
 -->
 <html>
-    <head>
-        <!--
+
+<head>
+  <!--
         Customize this policy to fit your own app's needs. For more guidance, see:
             https://github.com/apache/cordova-plugin-whitelist/blob/master/README.md#content-security-policy
         Some notes:
@@ -28,146 +29,191 @@
             * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
                 * Enable inline JS: add 'unsafe-inline' to default-src
         -->
-        <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;"> -->
-        <meta name="format-detection" content="telephone=no">
-        <meta name="msapplication-tap-highlight" content="no">
-        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
-        <link rel="stylesheet" type="text/css" href="css/index.css">
-        <link rel="stylesheet" type="text/css" href="css/onsen-css-components.min.css">
-        <link rel="stylesheet" type="text/css" href="css/onsenui.css">
-        <title>SDCFYP</title>
-    </head>
-    <body>
+  <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;"> -->
+  <meta name="format-detection" content="telephone=no">
+  <meta name="msapplication-tap-highlight" content="no">
+  <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+  <link rel="stylesheet" type="text/css" href="css/index.css">
+  <link rel="stylesheet" type="text/css" href="css/onsen-css-components.min.css">
+  <link rel="stylesheet" type="text/css" href="css/onsenui.css">
+  <link rel="stylesheet" type="text/css" href="css/chat.css">
+  <title>SDCFYP</title>
+</head>
 
-      <ons-navigator id="pushpage_navigator_user" >
-         <ons-page >
+<body>
 
-             <ons-splitter >
-                 <ons-splitter-side id="menu" side="left" width="220px" collapse >
-                     <ons-page>
-                         <ons-list>
-                             <ons-list-item onclick="fn.load('home.html')" tappable>
-                                 Home
-                             </ons-list-item>
-                             <ons-list-item onclick="fn.load('chat.html')" tappable>
-                                 Chat
-                             </ons-list-item>
-                             <ons-list-item onclick="fn.load('profile.html')" tappable>
-                                 Profile
-                             </ons-list-item>
-                             <ons-list-item onclick="fn.load('about.html')" tappable>
-                                 About
-                             </ons-list-item>
-							<ons-list-item onclick="window.location = 'index.html'" tappable>
-								Logout
-							</ons-list-item>
-							<ons-list-item onclick="window.location = 'artest.html'" tappable>
-								AR(TEST)
-							</ons-list-item>
-                         </ons-list>
-                     </ons-page>
-                 </ons-splitter-side>
-                 <ons-splitter-content id="content" page="home.html"></ons-splitter-content>
-             </ons-splitter>
+  <ons-navigator id="pushpage_navigator_user">
+    <ons-page>
 
-           </ons-page>
-       </ons-navigator>
+      <ons-splitter>
+        <ons-splitter-side id="menu" side="left" width="220px" collapse>
+          <ons-page>
+            <ons-list>
+              <ons-list-item onclick="fn.load('home.html')" tappable>
+                Home
+              </ons-list-item>
+              <ons-list-item onclick="fn.load('chat.html')" tappable>
+                Chat
+              </ons-list-item>
+              <ons-list-item onclick="fn.load('profile.html')" tappable>
+                Profile
+              </ons-list-item>
+              <ons-list-item onclick="fn.load('about.html')" tappable>
+                About
+              </ons-list-item>
+              <ons-list-item onclick="window.location = 'index.html'" tappable>
+                Logout
+              </ons-list-item>
+              <ons-list-item onclick="window.location = 'artest.html'" tappable>
+                AR(TEST)
+              </ons-list-item>
+            </ons-list>
+          </ons-page>
+        </ons-splitter-side>
+        <ons-splitter-content id="content" page="home.html"></ons-splitter-content>
+      </ons-splitter>
 
-       <template id="home.html" >
-         <ons-page >
-		     <script type="text/javascript" src="js/verify_code.js"></script>
-             <!-- Toolbar-->
-             <ons-toolbar>
-                 <div class="left">
-                     <ons-toolbar-button onclick="fn.open()">
-                         <ons-icon icon="md-menu"></ons-icon>
-                     </ons-toolbar-button>
-                 </div>
-                 <div class="center">
+    </ons-page>
+  </ons-navigator>
 
-                 </div>
-             </ons-toolbar>
+  <template id="home.html">
+    <ons-page>
+      <script type="text/javascript" src="js/verify_code.js"></script>
+      <!-- Toolbar-->
+      <ons-toolbar>
+        <div class="left">
+          <ons-toolbar-button onclick="fn.open()">
+            <ons-icon icon="md-menu"></ons-icon>
+          </ons-toolbar-button>
+        </div>
+        <div class="center">
 
-
-			<!--What's this line of code for?-->
-             <div id="displaygroupname"></div> <div id= "displaygroupselectedavatar">
+        </div>
+      </ons-toolbar>
 
 
-             <!-- REMOVE THIS AND REPLACE WITH SOMETHING ELSE-->
-             <p style="text-align: center; padding-top: 50px; font-size:20px;">
-                <img src="images/btrail.png" /> <br />
-                <br/>
-                Learn Singapore's history and culture through Trailcovery 2.0!
-              </p>
+      <!--What's this line of code for?-->
+      <div id="displaygroupname"></div>
+      <div id="displaygroupselectedavatar">
 
-              <!-- THIS PORTION ENTAILS THE FORM FOR GAME ACCESS -->
-              <div style="text-align:center; padding-top: 30px;">
-              <form name="WaitingRoomCodeForm" id="WaitingRoomCodeForm">
-                <p>
-                    <i class="material-icons">&#xe338;</i>
-                    <ons-input id="txtWaitingRoomCode" modifier="material" placeholder="Key in code to start game" float required></ons-input>
-                </p>
-            </form>
-			
-            <ons-button class="main_pg_btn" id="btnStartGame" modifier='material--flat' style="display: inline-block;"> START </ons-button>
-            <ons-button class="main_pg_btn" id="btnInstructions" modifier='material--flat' style="display: inline-block;" onclick="showPopover(this)"> Instructions </ons-button>
 
-            <!-- THIS SECTION IS THE INSTRUCTION BUTTON WITH INSTRUCTION INFORMATION
+        <!-- REMOVE THIS AND REPLACE WITH SOMETHING ELSE-->
+        <p style="text-align: center; padding-top: 50px; font-size:20px;">
+          <img src="images/btrail.png" /> <br />
+          <br />
+          Learn Singapore's history and culture through Trailcovery 2.0!
+        </p>
+
+        <!-- THIS PORTION ENTAILS THE FORM FOR GAME ACCESS -->
+        <div style="text-align:center; padding-top: 30px;">
+          <form name="WaitingRoomCodeForm" id="WaitingRoomCodeForm">
+            <p>
+              <i class="material-icons">&#xe338;</i>
+              <ons-input id="txtWaitingRoomCode" modifier="material" placeholder="Key in code to start game" float
+                required></ons-input>
+            </p>
+          </form>
+
+          <ons-button class="main_pg_btn" id="btnStartGame" modifier='material--flat' style="display: inline-block;">
+            START </ons-button>
+          <ons-button class="main_pg_btn" id="btnInstructions" modifier='material--flat' style="display: inline-block;"
+            onclick="showPopover(this)"> Instructions </ons-button>
+
+          <!-- THIS SECTION IS THE INSTRUCTION BUTTON WITH INSTRUCTION INFORMATION
             FOR THE USER TO CLICK -->
 
-            <ons-popover direction="up" id="popoverinstruction" class="onsinspopover">
-                  <div style="padding: 10px; text-align: center;">
+          <ons-popover direction="up" id="popoverinstruction" class="onsinspopover">
+            <div style="padding: 10px; text-align: center;">
 
 
-                      <!-- Carousel for image-->
-                      <ons-carousel fullscreen swipeable auto-scroll overscrollable id="carousel">
-                          <ons-carousel-item>
-                              <ons-card>
-                                  <img src="images/instructions/1.jpg" alt="Instruction_1" style="width: 100%;">
+              <!-- Carousel for image-->
+              <ons-carousel fullscreen swipeable auto-scroll overscrollable id="carousel">
+                <ons-carousel-item>
+                  <ons-card>
+                    <img src="images/instructions/1.jpg" alt="Instruction_1" style="width: 100%;">
 
-                              </ons-card>
-                          </ons-carousel-item>
+                  </ons-card>
+                </ons-carousel-item>
 
-                          <ons-carousel-item>
-                              <ons-card>
-                                  <img src="images/instructions/2.jpg" alt="Instruction_2" style="width: 100%;">
+                <ons-carousel-item>
+                  <ons-card>
+                    <img src="images/instructions/2.jpg" alt="Instruction_2" style="width: 100%;">
 
-                              </ons-card>
-                          </ons-carousel-item>
+                  </ons-card>
+                </ons-carousel-item>
 
-                          <ons-carousel-item>
-                              <ons-card>
-                                  <img src="images/instructions/3.jpg" alt="Instruction_3" style="width: 100%;">
+                <ons-carousel-item>
+                  <ons-card>
+                    <img src="images/instructions/3.jpg" alt="Instruction_3" style="width: 100%;">
 
-                              </ons-card>
-                          </ons-carousel-item>
-                      </ons-carousel>
+                  </ons-card>
+                </ons-carousel-item>
+              </ons-carousel>
 
-                      <p> Swipe left to see the next instruction</p>
-                      <p>
-                          <ons-button id="hidepopoverinstruction" onclick="hidePopover(this)">Understood</ons-button>
-                      </p>
-                  </div>
-              </ons-popover>
+              <p> Swipe left to see the next instruction</p>
+              <p>
+                <ons-button id="hidepopoverinstruction" onclick="hidePopover(this)">Understood</ons-button>
+              </p>
+            </div>
+          </ons-popover>
 
+        </div>
 
-              </div>
+    </ons-page>
 
+    <!--Start of chat.html-->
+    <template id="chat.html">
+      <ons-page>
+        <ons-toolbar>
+          <div class="left">
+            <ons-toolbar-button onclick="fn.open()">
+              <ons-icon icon="md-menu"></ons-icon>
+            </ons-toolbar-button>
+          </div>
+          <div class="center">
+            Welcome Challengers! Here you are able to chat with the game moderator!
+          </div>
+        </ons-toolbar>
 
+        <div class="chat">
 
-         </ons-page>
-         <div class="footer">
-			<p>© 2018 Temasek Polytechnic. All Rights Reserved.</p>
-		</div>
-       </template>
+          <div class="chat-title">
+            <h1 style="font-size:22px;"> &nbsp;Participants</h1>
+            <h2 style="font-size:15px; color:grey;">&nbsp;&nbsp;Amelie Tan, Royston Loh</h2>
+            <figure class="avatar1">
+              <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/156381/profile/profile-80.jpg" /></figure>
+          </div>
 
-        <script type="text/javascript" src="cordova.js"></script>
-        <script type="text/javascript" src="js/framework/onsenui.min.js"></script>
-        <script type="text/javascript" src="js/lib/jquery-3.3.1.js"></script>
-        <script type="text/javascript" src="js/lib/jquery.validate.min.js"></script>
-        <script type="text/javascript" src="js/common.js"></script>
-        <script type="text/javascript" src="js/extendedjqueryvalidation.js"></script> 
-        <script type="text/javascript" src="js/getcurrentlocation.js"></script> 
-     
-    </body>
+          <div class="messages">
+            <div class="messages-content"></div>
+          </div>
+          <div class="message-box">
+            <textarea type="text" class="message-input" placeholder="Type message..."></textarea>
+            <button type="submit" class="message-submit">Send</button>
+          </div>
+
+        </div>
+
+        <div class="bg"></div>
+
+      </ons-page>
+    </template>
+    <!--End of chat.html-->
+
+    <div class="footer">
+      <p>© 2018 Temasek Polytechnic. All Rights Reserved.</p>
+    </div>
+  </template>
+
+  <script type="text/javascript" src="cordova.js"></script>
+  <script type="text/javascript" src="js/framework/onsenui.min.js"></script>
+  <script type="text/javascript" src="js/lib/jquery-3.3.1.js"></script>
+  <script type="text/javascript" src="js/lib/jquery.validate.min.js"></script>
+  <script type="text/javascript" src="js/common.js"></script>
+  <script type="text/javascript" src="js/chat.js"></script>
+  <script type="text/javascript" src="js/extendedjqueryvalidation.js"></script>
+  <script type="text/javascript" src="js/getcurrentlocation.js"></script>
+
+</body>
+
 </html>

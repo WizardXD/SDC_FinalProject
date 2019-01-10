@@ -65,7 +65,7 @@ function rolenames() {
 function ShowRoleNames(arr) {
     for (var i = 0; i < arr.length; i++) {
         var t = "<ons-card><ons-button modifier='large' id='btnrole" 
-        + arr[i].role + "'>" + arr[i].username + "</ons-button></ons-card></ons-card>"; 
+        + arr[i].role + "'>" + arr[i].role + "</ons-button></ons-card></ons-card>"; 
             
         $("#User").append(t);
 
