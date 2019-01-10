@@ -1,5 +1,5 @@
 ﻿(function () {
-	var t, accesscode; //global variables
+	var t, accesscode, facilitatorcode; //global variables
 	
     $(document).ready(function () {
        $("#btnStartGame").click(function () { //execute the following when the btnStartGame is clicked
@@ -32,9 +32,41 @@
 	
 	function _getCodeResult(arr) {
 		 if (arr[0].result.trim() !== "0") {                    //!== 0 means at least a row of data is found --> correct accesscode entered
-        	localStorage.setItem("accesscode", accesscode);
-			ons.notification.alert('Hold on', {title: 'Success'});   
-			checkEventDate();
+			localStorage.setItem("accesscode", accesscode);
+			faciCodeVerification();
+    		} else {                                                         // == 0 means no data is found with the given accesscode
+        	ons.notification.alert('Wrong Game Code, try again', {title: 'Not Found'});                               
+    		}
+	}
+
+
+
+	function faciCodeVerification() {
+		var url = serverURL() + "/verifyfacicode.php";
+		facilitatorcode = $("#txtfacilitatorcode").val(); 
+		
+		var JSONObject = {
+			"facilitatorcode": facilitatorcode
+		};
+	
+		  $.ajax({
+			url: url,
+			type: 'GET',
+			data: JSONObject,
+			dataType: 'json',
+			contentType: "application/json; charset=utf-8",
+			success: function (arr) {
+				_faciCodeResult(arr);
+			}, error: function () {
+				validationMsg();
+			}
+		});
+		}
+
+	function _faciCodeResult(arr){
+		if (arr[0].result.trim() !== "0") {                    //!== 0 means at least a row of data is found --> correct accesscode entered
+			localStorage.setItem("facilitatorcode", facilitatorcode);
+			ons.notification.alert('Hold On', {title: 'Success'}); 
 			getEventid();		
 			updateEventid();
     		} else {                                                         // == 0 means no data is found with the given accesscode
