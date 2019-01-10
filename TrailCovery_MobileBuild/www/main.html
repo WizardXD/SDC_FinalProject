@@ -37,6 +37,7 @@
   <link rel="stylesheet" type="text/css" href="css/onsen-css-components.min.css">
   <link rel="stylesheet" type="text/css" href="css/onsenui.css">
   <link rel="stylesheet" type="text/css" href="css/chat.css">
+  <link rel="stylesheet" type="text/css" href="css/fa-fa-main.css">
   <title>SDCFYP</title>
 </head>
 
@@ -50,19 +51,19 @@
           <ons-page>
             <ons-list>
               <ons-list-item onclick="fn.load('home.html')" tappable>
-                Home
+                <i class="fa fa-home" aria-hidden="true"></i>&ensp;Home
               </ons-list-item>
               <ons-list-item onclick="fn.load('chat.html')" tappable>
-                Chat
+                <i class="fa fa-comment" aria-hidden="true"></i>&ensp;Chat
               </ons-list-item>
               <ons-list-item onclick="fn.load('profile.html')" tappable>
-                Profile
+                <i class="fa fa-user" aria-hidden="true"></i>&ensp;Profile
               </ons-list-item>
               <ons-list-item onclick="fn.load('about.html')" tappable>
-                About
+                <i class="fa fa-info-circle" aria-hidden="true"></i>&ensp;About SDC
               </ons-list-item>
               <ons-list-item onclick="window.location = 'index.html'" tappable>
-                Logout
+                <i class="fa fa-sign-out" aria-hidden="true"></i>&nbsp;Logout
               </ons-list-item>
               <ons-list-item onclick="window.location = 'artest.html'" tappable>
                 AR(TEST)
@@ -171,11 +172,16 @@
             </ons-toolbar-button>
           </div>
           <div class="center">
-            Welcome Challengers! Here you are able to chat with the game moderator!
+            <b>TrailCovery Chat</b>
+          </div>
+
+          <div class="right">
+            <i class="fa fa-comments"></i>
           </div>
         </ons-toolbar>
 
-        <div class="chat">
+        <div class="
+              chat">
 
           <div class="chat-title">
             <h1 style="font-size:22px;"> &nbsp;Participants</h1>
@@ -186,7 +192,11 @@
 
           <div class="messages">
             <div class="messages-content"></div>
+            Testing...
+
+
           </div>
+
           <div class="message-box">
             <textarea type="text" class="message-input" placeholder="Type message..."></textarea>
             <button type="submit" class="message-submit">Send</button>
