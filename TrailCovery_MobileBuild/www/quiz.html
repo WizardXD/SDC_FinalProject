@@ -12,7 +12,9 @@
 		 <link rel="stylesheet" type="text/css" href="css/card.css">
         <title>SDCFYP</title>
     </head>
-	
+    
+    <style> 
+    </style>
     <body>
 		<ons-toolbar>
 			<div class="center">
@@ -41,14 +43,20 @@
                         <ons-input id="LocationOfArt" modifier="material" placeholder="Location" float required></ons-input>
                     </p>
 
+                    <p>
                     <ons-select name="UsageOfArt" id="UsageOfArt" style="width:200px; height:25px">
                         <option value="null">Usage of Artefact</option>
                         <optgroup name="UsageMCQ" id="UsageMCQ"> </optgroup>
-                      </ons-select>
+                    </ons-select>
+                    </p>
 
                     <p>
-                        <textarea class="textarea" id="ImportantnessOfArt" rows="4" maxlength="50" style="width:65%" placeholder="How is this item significant to this ethnic group?" float required></textarea>
+                    <ons-select name="ImportantOfArt" id="ImportantOfArt" style="width:200px; height:25px">
+                        <option value="null">Importantness of Artefact to Culture</option>
+                        <optgroup name="ImportantnessMCQ" id="ImportantnessMCQ"> </optgroup>
+                    </ons-select>
                     </p>
+                    
                 </form>
                 <button id="flip-card-btn-turn-to-front">flip</button> <!--Button to flip card to the front-->
                 
@@ -68,7 +76,6 @@
         <script type="text/javascript" src="js/lib/jquery.validate.min.js"></script>
         <script type="text/javascript" src="js/common.js"></script>
         <script type="text/javascript" src="js/quiz.js"></script>
-        <script type="text/javascript" src="js/artefactusagemcq.js"></script>
         <script type="text/javascript" src="js/extendedjqueryvalidation.js"></script> 
     </body>
 </html>
