@@ -53,6 +53,7 @@
 				$("#frontartefactimage").html("<img src='" + serverURL() + "/images/artefacts/" + arr[i].image + "' width='90%' border='2'>");
 				$("#backartefactimage").html("<img src='" + serverURL() + "/images/artefacts/" + arr[i].image + "' width='90%' border='2'>");
 				$("#artefactbackgroundinfo").html("<p align='justify'>" + arr[i].backgroundinfo + "</p>");
+			
 			}
 		}
 

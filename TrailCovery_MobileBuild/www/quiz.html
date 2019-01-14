@@ -40,9 +40,12 @@
                     <p>
                         <ons-input id="LocationOfArt" modifier="material" placeholder="Location" float required></ons-input>
                     </p>
-                    <p>
-                        <ons-input id="UsageOfArt" modifier="material" placeholder="What is it used for?" float required></ons-input>
-                    </p>
+
+                    <ons-select name="UsageOfArt" id="UsageOfArt" style="width:200px; height:25px">
+                        <option value="null">Usage of Artefact</option>
+                        <optgroup name="UsageMCQ" id="UsageMCQ"> </optgroup>
+                      </ons-select>
+
                     <p>
                         <textarea class="textarea" id="ImportantnessOfArt" rows="4" maxlength="50" style="width:65%" placeholder="How is this item significant to this ethnic group?" float required></textarea>
                     </p>
@@ -64,7 +67,8 @@
         <script type="text/javascript" src="js/lib/jquery-3.3.1.js"></script>
         <script type="text/javascript" src="js/lib/jquery.validate.min.js"></script>
         <script type="text/javascript" src="js/common.js"></script>
-		<script type="text/javascript" src="js/quiz.js"></script>
+        <script type="text/javascript" src="js/quiz.js"></script>
+        <script type="text/javascript" src="js/artefactusagemcq.js"></script>
         <script type="text/javascript" src="js/extendedjqueryvalidation.js"></script> 
     </body>
 </html>
