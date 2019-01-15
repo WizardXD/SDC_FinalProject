@@ -499,14 +499,21 @@
   <template id="account_management.html">
     <ons-page>
       <script src="js/account_control.js"></script>
-      <link rel="stylesheet" type="text/css" href="www/css/user_management.css">
-      <!-- <script type="text/javascript" src="js/extendedjqueryvalidation.js"></script> --> -->
       <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
       <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
       <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
-      <script src="js/schArrayObject.js"></script>
+            <!-- <link rel="stylesheet" type="text/css" href="www/css/user_management.css"> -->
+      <!-- <script type="text/javascript" src="js/extendedjqueryvalidation.js"></script> --> 
+      <!-- <script src="js/schArrayObject.js"></script> -->
 
-
+      <style>
+        div.addButtonPlus {
+				position:fixed;
+				right: 5%;
+				bottom:2%;
+			}
+      </style>
+      
       <ons-toolbar>
         <div class="left">
           <ons-toolbar-button onclick="fn.open()">
@@ -528,7 +535,7 @@
           <div id="User"> </div>
 
           <a href="#userPopup" data-rel="popup">
-            <div class="addButton">
+            <div class="addButtonPlus">
               <ons-fab>
                 <ons-icon icon="md-plus"></ons-icon>
               </ons-fab>
@@ -536,7 +543,7 @@
           </a>
 
           <div data-role="popup" id="userPopup" class="ui-content" style=" min-width:100%; ">
-            <form>
+            <form name="addUserForm" id="addEventForm"> 
               <div>
                 <h2>
                   <center>Add User</center>

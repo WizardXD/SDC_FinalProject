@@ -9,15 +9,14 @@
     var role;
  
     $(document).ready(function () {
-        getProfile();
-
+        changeUser();
 
         $("#btnEdit").bind("click", function () {
             getProfile();
         });
 
 
-        //validation for ChangePasswordForm
+       /*  //validation for ChangePasswordForm
         $("#ChangeUserDetails").validate({
             rules: {
                 username: {
@@ -50,74 +49,13 @@
                 changeUser(); //execute
             }
         });
-
+ */
 
     });
 
 
 
-    function changeUser() {
-        var username = $("#username").val();
-        var password = $("#password").val();
-        var email = $("#email").val();
-        var school = $("#school").val();
-        var phone = $("#phone").val();
-        var role = $("#role").val();
-
-        var url = serverURL() + "/savenewuser.php";
-
-        var JSONObject = {
-            "username": localStorage.getItem("username"),
-            "password": password,
-            "email": email,
-            "school": school,
-            "phone": phone,
-            "role": role
-        };
-
-        $.ajax({
-            url: url,
-            type: 'GET',
-            data: JSONObject,
-            dataType: 'json',
-            contentType: "application/json; charset=utf-8",
-            success: function (arr) {
-                _changeUserResult(arr);
-            },
-            error: function () {
-                validationMsg();
-            }
-        });
-    }
-
-    function _changeUserResult(arr) {
-        if (arr[0].result === 1) {
-            localStorage.setItem($("#username").val(), username);
-            localStorage.setItem($("#password").val(), password);
-            localStorage.setItem($("#email").val(), email);
-            localStorage.setItem($("#school").val(), school);
-            localStorage.setItem($("#phone").val(), phone);
-            localStorage.setItem($("#role").val(), role);
-
-
-            validationMsgs("User details changed", "Validation", "OK");
-
-            $("#username").val("");
-            $("#password").val("");
-            $("#email").val("");
-            $("#school").val("");
-            $("#phone").val("");
-            $("#role").val("");
-        }
-        else {
-            validationMsgs("User details update failed", "Validation", "Try Again");
-        }
-    }
-
-
-
-
-   
+    
    
 
     //Profile Section
@@ -160,5 +98,66 @@
         $("#role").html("Role: " + role);
 
     }
+
+
+    function changeUser() {
+        var username = $("#username").val();
+        var password = $("#password").val();
+        var email = $("#email").val();
+        var school = $("#school").val();
+        var phone = $("#phone").val();
+        var role = $("#role").val();
+
+        var url = serverURL() + "/savenewuser.php";
+
+        var JSONObject = {
+            "username": localStorage.getItem("username"),
+            "password": password,
+            "email": email,
+            "school": school,
+            "phone": phone,
+            "role": role
+        };
+
+        $.ajax({
+            url: url,
+            type: 'GET',
+            data: JSONObject,
+            dataType: 'json',
+            contentType: "application/json; charset=utf-8",
+            success: function (arr) {
+                _changeUserResult(arr);
+            },
+            error: function () {
+                validationMsgs();
+            }
+        });
+    }
+
+    function _changeUserResult(arr) {
+        if (arr[0].result === 1) {
+            localStorage.setItem($("#username").val(), username);
+            localStorage.setItem($("#password").val(), password);
+            localStorage.setItem($("#email").val(), email);
+            localStorage.setItem($("#school").val(), school);
+            localStorage.setItem($("#phone").val(), phone);
+            localStorage.setItem($("#role").val(), role);
+
+
+            validationMsgs("User details changed", "Validation", "OK");
+
+            $("#username").val("");
+            $("#password").val("");
+            $("#email").val("");
+            $("#school").val("");
+            $("#phone").val("");
+            $("#role").val("");
+        }
+        else {
+            validationMsgs("User details update failed", "Validation", "Try Again");
+        }
+    }
+
+
 
 })();
