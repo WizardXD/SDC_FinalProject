@@ -35,7 +35,7 @@
 				<div class="flip-card-back"> <!--Back Side of the Card-->
 				</br>
 				<div id="backartefactimage"> </div>
-				<form style="text-align: center">
+                <form style="text-align: center" id="ArtefactForm">
                     <p>
                         <ons-input id="NameOfArt" modifier="material" placeholder="Name" float required></ons-input>
                     </p>
@@ -47,11 +47,11 @@
                     <ons-select name="UsageOfArt" id="UsageOfArt" style="width:200px; height:25px">
                         <option value="null">Usage of Artefact</option>
                         <optgroup name="UsageMCQ" id="UsageMCQ"> </optgroup>
-                    </ons-select>
+                      </ons-select>
                     </p>
 
                     <p>
-                    <ons-select name="ImportantOfArt" id="ImportantOfArt" style="width:200px; height:25px">
+                    <ons-select id="ImportantOfArt" name="ImportantOfArt" style="width:200px; height:25px">
                         <option value="null">Importantness of Artefact to Culture</option>
                         <optgroup name="ImportantnessMCQ" id="ImportantnessMCQ"> </optgroup>
                     </ons-select>

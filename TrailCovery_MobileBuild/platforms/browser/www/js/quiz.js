@@ -12,18 +12,23 @@ document.getElementById('flip-card-btn-turn-to-front').onclick = function() {
 	document.getElementById('flip-card').classList.toggle('do-flip');
 };
 });
-
+//end of function to flip card
 
 
 
 (function () {
 	$(document).ready(function () {
+
 		showartefactdetails();
 		showArtefactUsageMCQ();
 		showArtefactImportantnessMCQ();
-		$("#submitAnswerbtn").click(function () {
-			answersVerification();
+
+		$("#submitAnswerbtn").bind("click", function () {
+                answersVerification();
+            
 		});
+		
+
 	});
 
 	//function to display the details of the artefact, such as image and background information
@@ -143,9 +148,6 @@ document.getElementById('flip-card-btn-turn-to-front').onclick = function() {
 
 	function _ResultShowArtefactImportantnessMCQ(arr) {
         for (i = 0; i < arr.length; i++) {
-			console.log(arr[i].CorrectImportantness);
-			console.log(arr[i].WrongImportantness1);
-			console.log(arr[i].WrongImportantness2);
             var ImportantnessMCQArray = [arr[i].CorrectImportantness, arr[i].WrongImportantness1, arr[i].WrongImportantness2];
         }
         
@@ -180,13 +182,20 @@ document.getElementById('flip-card-btn-turn-to-front').onclick = function() {
 	//Function to verify the answers (Incomplete-->Verifies the Name of the Artefacts only)
 	function answersVerification() {
 		var url = serverURL() + "/verifyartefactdetails.php";
-		var result;
-		var name = $("#NameOfArt").val();
+				
 		var artefactid = localStorage.getItem("artefactid");
+		var name = $("#NameOfArt").val();
+		var usage = $("#UsageOfArt").val();
+		var importantness = $("#ImportantOfArt").val();
+
+		console.log(usage);
+		console.log(importantness);
 
 		var JSONObject = {
 			"name": name,
-			"artefactid": artefactid
+			"artefactid": artefactid,
+			"usage": usage,
+			"importantness": importantness
 		};
 
 		$.ajax({
@@ -196,7 +205,7 @@ document.getElementById('flip-card-btn-turn-to-front').onclick = function() {
 			dataType: 'json',
 			contentType: "application/json; charset=utf-8",
 			success: function (arr) {
-				_getAnswersResults(arr);
+				_getAnswersResults(arr);	
 			}, error: function () {
 				alert("Error");
 			}
@@ -205,12 +214,6 @@ document.getElementById('flip-card-btn-turn-to-front').onclick = function() {
 		
 		// function to execute if php call is successful
 	function _getAnswersResults(arr) {
-		if (arr[0].result.trim() !== "0") {    //if result is not equal to "0" --> at least a row of data is found in the database with the given answer and the artefact id
-			alert("Correct Answer");  //theres a slight error --> page relocated without even clicking on the valiatonmsg
-			window.location.href = 'game.html';
-		} else {                               //else --> result = 0 --> no data was found with the given answer (wrong inputation of answer)
-			validationMsgs("Wrong Answer","Information", "OK");
-		}
 	}  
 
 })();
