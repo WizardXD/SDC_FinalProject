@@ -73,14 +73,11 @@
 				 
 				 
 		    $("#trailname").html(arr[i].trailname);
-            $("#traillocation").html(arr[i].traillocation);
-            $("#trailduration").html(arr[i].traillocation);
 			$("#trailimage").html("<img src='" + serverURL() + "/images/trails/" + arr[i].trailimg + "' width=100%'>");
 				var y =
 				"<center><b>Facilitator-In-Charge</b></center>" +
 				"<center><img src='" + serverURL() + "/images/admins/" + arr[i].adminimg + "' width=25%'><br />" + "   " +
 				arr[i].adminname;
-				$("#wrfacilitator").append(y);
 				}
 		
 				
@@ -117,7 +114,6 @@
 			arr[i].groupname + "</ons-card>";
 			$("#wrgroups").append(t);
 		}
-		
 	}
 	
 })();
