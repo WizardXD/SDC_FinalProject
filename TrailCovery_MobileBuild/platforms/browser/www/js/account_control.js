@@ -1,7 +1,9 @@
+(function(){
+
 $(document).ready(function () {
     rolenames();
 
-// Validation
+/* // Validation
 $('#userPopup').validate({
     rules: {
         username: {
@@ -32,11 +34,13 @@ $('#userPopup').validate({
     }
 
 }); 
+ */
+
 
     $("#btnAddUser").bind("click", function () {
-        if ($("#userPopup").val()) {
+        // if ($("#userPopup").val()) {
         addUser();
-        }
+        
     });
 });
 
@@ -64,23 +68,32 @@ function rolenames() {
 
 function ShowRoleNames(arr) {
     for (var i = 0; i < arr.length; i++) {
-        var t = "<ons-card><ons-button modifier='large' id='btnrole" 
-        + arr[i].role + "'>" + arr[i].role + "</ons-button></ons-card></ons-card>"; 
-            
-        $("#User").append(t);
+        var t;
+        t = "<ons-card>" + 
+        "Username: " + arr[i].username + "</br>" + "Email: " + arr[i].email + "</br>" + 
+        "School: " + arr[i].school + "</br>" + "Contact No: " + arr[i].phone + "</br>" + 
+        "User Type: " + arr[i].role + "</p>" +
+        "<p><ons-button modifier='large' id='btnEdit'>" + "Edit" + "</ons-button></p>"
+        "</div>";
+        "</ons-card>";
+    $("#User").append(t);
 
-        $("#btnrole" + arr[i].role).bind("click", { id: arr[i].role }, function (event) {
-            var data = event.data;
-            _showResult(data.id);
-        });
-    }
+    $("#btnEdit").bind("click", { id: arr[i].username }, function (event) {
+        var data = event.data;
+        _showResult(data.id);
+    
+    });
+}
 }
 
-function _showResult(role) {
-    localStorage.setItem("role", role);
-    window.location = "usermanagement.html?role=" + role;
+        function _showResult(username) {
+    localStorage.setItem("username", username);
+    window.location = "updateuser.html?username=" + username;
+
+
 }
- 
+
+
 //insert user into database
 function addUser() {
     username = $("#username").val();
@@ -118,10 +131,13 @@ function addUser() {
 function _getAddUserFunction(arr) {
     if (arr[0].result === 1) {
         alert("User has been added");
-        window.location = "account_management.html";
+        window.location = "facilitator.html";
     } else if (arr[0].result === 0) {
         alert("Account already exist.")
     }
 
+
 }
 
+
+})();
