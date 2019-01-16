@@ -1,22 +1,16 @@
 ﻿(function () {
 
-   
-	
-	//getAdminsInWR();
-	
 	$(document).ready(function () {
 		getEventDetails();
 
-			var x = setInterval(function() { // Update the count down every 1 second (1 second is defined by 1000, 2 seconds = 2000, ....)
-				getEventStatus();
-				getGroupsInWR();
-			}, 1000);
-});
-	 // check the status of the game... if status = ONG, relocate all users to the game page
-	 // the status of the event will only change from YTB to ONG after the admin press on the start game button
-	 
-	 function getEventStatus() {
-		 var url = serverURL() + "/wrstatus.php";
+		var x = setInterval(function() { // Update the count down every 1 second (1 second is defined by 1000, 2 seconds = 2000, ....)
+			getEventStatus();
+			getGroupsInWR();
+		}, 1000);
+	});
+	
+	function getEventStatus() {
+		var url = serverURL() + "/wrstatus.php";
 			var JSONObject = {
 				"accesscode": localStorage.getItem("accesscode")
 			};
@@ -40,12 +34,12 @@
 		for (i = 0; i < arr.length; i++) {
             var status = arr[i].status;
 				if (status === "ONG") {
+				updateScoreTable();
 				window.location = 'game.html';
 				} 
 		}
 	 }
 
-	 
 	 // display the details of events
 	 function getEventDetails() {
 		var url = serverURL() + "/wrdetails.php";
@@ -70,17 +64,12 @@
 	 
 	 function _showEventDetailsResult(arr) {
 			 for (i = 0; i < arr.length; i++) {
-				 
-				 
 		    $("#trailname").html(arr[i].trailname);
 			$("#trailimage").html("<img src='" + serverURL() + "/images/trails/" + arr[i].trailimg + "' width=100%'>");
 				var y =
 				"<center><b>Facilitator-In-Charge</b></center>" +
-				"<center><img src='" + serverURL() + "/images/admins/" + arr[i].adminimg + "' width=25%'><br />" + "   " +
-				arr[i].adminname;
+				"<center><img src='" + serverURL() + "/images/admins/" + arr[i].adminimg + "' width=25%'><br />" + "   " +arr[i].adminname;
 				}
-		
-				
 		}
 	 
 	 
