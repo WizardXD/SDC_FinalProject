@@ -188,9 +188,6 @@ document.getElementById('flip-card-btn-turn-to-front').onclick = function() {
 		var usage = $("#UsageOfArt").val();
 		var importantness = $("#ImportantOfArt").val();
 
-		console.log(usage);
-		console.log(importantness);
-
 		var JSONObject = {
 			"name": name,
 			"artefactid": artefactid,
@@ -205,15 +202,84 @@ document.getElementById('flip-card-btn-turn-to-front').onclick = function() {
 			dataType: 'json',
 			contentType: "application/json; charset=utf-8",
 			success: function (arr) {
-				_getAnswersResults(arr);	
+				testing12345(arr);	
 			}, error: function () {
-				alert("Error");
+				alert("error");
 			}
 		});
 	}
 		
 		// function to execute if php call is successful
-	function _getAnswersResults(arr) {
-	}  
+	function testing12345(arr) {
+		
+		if (arr[0].result.trim() !== "0") { //!== 0 means at least a row of data is found --> correct accesscode entered
+	 
+			toExecuteIfAnswerIsCorrect();
+
+			} else {                                                         // == 0 means no data is found with the given accesscode
+				toExecuteIfAnswerIsWrong();                             
+			}
+		}
+
+	function toExecuteIfAnswerIsCorrect() {
+
+		var answerresult = "Correct"; 
+
+		var url = serverURL() + "/answerresult.php";
+
+		var JSONObject = {
+			"answerresult": answerresult,
+			"artefactid": localStorage.getItem("artefactid"),
+			"eventid": localStorage.getItem("eventid"),
+			"groupid": localStorage.getItem("groupid"),
+		};
+
+		$.ajax({
+			url: url,
+			type: 'GET',
+			data: JSONObject,
+			dataType: 'json',
+			contentType: "application/json; charset=utf-8",
+			success: function (arr) {
+				ons.notification.alert('Answer is submitted successfully.', {title: 'I dont know what to write here.'});   
+				window.location = "game.html";
+			}, error: function () {
+				alert("NO ERROR BROOOOOO");
+			}
+		});
+
+	}
+
+	function toExecuteIfAnswerIsWrong() {
+
+		var answerresult = "Wrong"; 
+
+		var url = serverURL() + "/answerresult.php";
+
+		var JSONObject = {
+			"answerresult": answerresult,
+			"artefactid": localStorage.getItem("artefactid"),
+			"eventid": localStorage.getItem("eventid"),
+			"groupid": localStorage.getItem("groupid"),
+		};
+
+		$.ajax({
+			url: url,
+			type: 'GET',
+			data: JSONObject,
+			dataType: 'json',
+			contentType: "application/json; charset=utf-8",
+			success: function (arr) {
+				ons.notification.alert('Answer is submitted successfully.', {title: 'I dont know what to write here.'});   
+				window.location = "game.html";
+			}, error: function () {
+				alert("NO ERROR BROOOOOO");
+			}
+		});
+
+	}
+	
+	
+
 
 })();
