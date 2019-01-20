@@ -1,7 +1,7 @@
 (function(){
 
 $(document).ready(function () {
-    rolenames();
+    roledetails();
 
 /* // Validation
 $('#userPopup').validate({
@@ -33,22 +33,23 @@ $('#userPopup').validate({
         //error.appendTo(element.parent().parent().after());
     }
 
-}); 
- */
+});  */
+
 
 
     $("#btnAddUser").bind("click", function () {
-        // if ($("#userPopup").val()) {
+     // if ($("#userPopup").valid()) {
         addUser();
-        
+     // }
     });
 });
 
 
-function rolenames() {
+function roledetails() {
     var url = serverURL() + "/getuser.php";
-
+    var username = decodeURIComponent(getUrlVars()["username"]);
     var JSONObject = {
+        "username": username
     };
 
     $.ajax({
@@ -58,7 +59,7 @@ function rolenames() {
         dataType: 'json',
         contentType: "application/json; charset=utf-8",
         success: function (arr) {
-            ShowRoleNames(arr);
+            ShowRoleDetails(arr);
         },
         error: function () {
             validationMsg();          
@@ -66,19 +67,20 @@ function rolenames() {
     });
 }
 
-function ShowRoleNames(arr) {
+function ShowRoleDetails(arr) {
     for (var i = 0; i < arr.length; i++) {
         var t;
         t = "<ons-card>" + 
         "Username: " + arr[i].username + "</br>" + "Email: " + arr[i].email + "</br>" + 
         "School: " + arr[i].school + "</br>" + "Contact No: " + arr[i].phone + "</br>" + 
         "User Type: " + arr[i].role + "</p>" +
-        "<p><ons-button modifier='large' id='btnEdit'>" + "Edit" + "</ons-button></p>"
+        "<p><ons-button modifier='large' id='btnEdit" + arr[i].username + "'>Edit" + "</ons-button></p>"
         "</div>";
         "</ons-card>";
     $("#User").append(t);
 
-    $("#btnEdit").bind("click", { id: arr[i].username }, function (event) {
+    $("#btnEdit" + arr[i].username).bind("click", { id: arr[i].username }, 
+    function (event) {
         var data = event.data;
         _showResult(data.id);
     
@@ -86,12 +88,11 @@ function ShowRoleNames(arr) {
 }
 }
 
-        function _showResult(username) {
-    localStorage.setItem("username", username);
+function _showResult(username) {
+
     window.location = "updateuser.html?username=" + username;
-
-
-}
+      
+    }
 
 
 //insert user into database
