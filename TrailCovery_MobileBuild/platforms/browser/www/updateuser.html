@@ -38,6 +38,7 @@
         <link rel="stylesheet" type="text/css" href="css/onsenui.css">
         <script type="text/javascript" src="js/lib/jquery-3.3.1.js"></script>
         <script type="text/javascript" src="js/framework/onsenui.min.js"></script>
+        
         <title>SDCFYP</title>
         <style>
         .card {
@@ -53,47 +54,48 @@
         </style>
     </head>
     <body>
-        <ons-page>
-            
-            <!-- Toolbar-->
-            <ons-toolbar>
-                <div class='center'>
-                    <i class="fa" onclick="window.history.go(-1)">&#xf060;</i> 
-                Account Management
-                </div>
-            </ons-toolbar>
-
-
-            <div data-role="page" id="front-page">
-                    <div data-role="header" class="header" data-position="fixed" id="header">
-            
-                    </div>
-            
-                    <div role="main" class="ui-content" id="main-ui">
-            
-                        <div id="username"></div>
-                        <div id="email"></div>
-            
-            
-                        <hr />
 
             
+                    <ons-page id="updateuser">
+                    <ons-toolbar>
+                            <div class="left" onclick="window.history.go(-1)"><ons-back-button></ons-back-button></div>
+                            <div class="center">Account Management</div>
+                            </ons-toolbar>
+
+                      <!-- Content-->
+                      <div style="text-align: center; margin-top: 10px;">
+                            <div style="text-align:center; padding-top: 10px;">
                         <form id="ChangeUserDetails" name="ChangeUserDetails">
-                                                      <!--Input Username-->
+                        
+                        <p>   
+                        <!--Input Username-->
                           Username:
-                          <label for="username" class="ui-hidden-accessible"></label>
-                          <input type="text" id="username" required/>
+                        
+                          <label for="newusername" class="ui-hidden-accessible"></label>
+                          <input type="text" id="nusername" required/>
+                         </p>
+
+                        <p> 
                           <!--Input Password-->
                           Password:
+                        
                           <label for="password" class="ui-hidden-accessible"></label>
-                          <input type="password" id="password" required/>
+                          <input type="password" id="npassword" required/>
+                        </p>
+
+                        <p>
                           <!--Input Email-->
                           Email:
+                        
                           <label for="email" class="ui-hidden-accessible"></label>
-                         <input type="email" id="email" required/> 
+                         <input type="email" id="nemail" required/>
+                        </p>
+
+                        <p>
                          <!--Input School-->
-                         School: </br>
-                         <ons-select name="school" id="school" style="width:200px; height:25px" required>
+                         School: 
+                        </br>
+                         <ons-select name="school" id="nschool" style="width:200px; height:25px" required>
                             <option value="null">Select School/Institution</option>
                             <option value="Not Applicable">Not Applicable</option>
                             <optgroup label="Junior College" name="juniorcollege" id="juniorcollege"> </optgroup>
@@ -101,28 +103,36 @@
                             <optgroup label="Secondary School" name="secondarysch" id="secondarysch"> </optgroup>
                             <optgroup label="Primary School" name="primarysch" id="primarysch"> </optgroup>
                             </ons-select>
-                        </br>
+                        </p>
+
+                        <p>
                         <!--Input Mobile Number-->
                         Mobile Number:
+                    
                         <label for="phone" class="ui-hidden-accessible"></label>
-                        <input type="number" id="phone" required/> 
+                        <input type="number" id="nphone" required/> 
+                        </p>
+
+                        <p>
                         <!--Input User Type-->
-                        Role: </br>
-                        <ons-select name="role" id="role" style="width:200px; height:25px" required>
+                        Role:
+                    </br>
+                        <ons-select name="role" id="nrole" style="width:200px; height:25px" required>
                             <option value="null">Select Role</option>
                             <option value="facilitator">Facilitator</option>
                             <option value="teacher">Teacher</option>
                             <option value="student">Student</option>
                             </ons-select>
-
-                            <input type="button" value="Update User" id="btnSaveUser">
+                        </br>
+                        </p>
+                        <ons-button value="Update User" id="btnUpdateUser">Update User</ons-button>
                         </form>
                     
                     </div>
         </ons-page>
     
 
-
+        <script src="js/schArrayObject.js"></script>
         <script type="text/javascript" src="cordova.js"></script>
         <script src="js/updateuser.js"></script>
         <script type="text/javascript" src="js/lib/jquery.validate.min.js"></script>
