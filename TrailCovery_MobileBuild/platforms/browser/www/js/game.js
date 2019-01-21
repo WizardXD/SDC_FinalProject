@@ -32,9 +32,10 @@
         for (i = 0; i < arr.length; i++) {
 			 $("#trailimage").html("<img src='" + serverURL() + "/images/trails/" + arr[i].trailimg + "' width='90%' length='20%' border='2'>");
             var t;
-            t = "<p><ons-button id='btn" + arr[i].artefactid + "' style='width:45%'>" + "Artefact " + (i+1) + " </ons-button><p/>";
+            t = "<p><ons-button id='btn" + arr[i].artefactid + "' style='width:45%' disabled>" + "Artefact " + (i+1) + " </ons-button><p/>";
             $("#artefactbtn").append(t);
             $("#btn" + arr[i].artefactid).bind("click", { id: arr[i].artefactid }, function (event) {
+                document.getElementById("#btn" + arr[i].artefactid).disabled = true;
                 var data = event.data;
                 _showResult(data.id);
             });

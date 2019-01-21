@@ -213,25 +213,26 @@ document.getElementById('flip-card-btn-turn-to-front').onclick = function() {
 	function testing12345(arr) {
 		
 		if (arr[0].result.trim() !== "0") { //!== 0 means at least a row of data is found --> correct accesscode entered
-	 
 			toExecuteIfAnswerIsCorrect();
-
-			} else {                                                         // == 0 means no data is found with the given accesscode
-				toExecuteIfAnswerIsWrong();                             
+			} else {                                                        // == 0 means no data is found with the given accesscode
+			toExecuteIfAnswerIsWrong();                             
 			}
 		}
 
 	function toExecuteIfAnswerIsCorrect() {
 
 		var answerresult = "Correct"; 
+		var artefactid = localStorage.getItem("artefactid");
+		var eventid = localStorage.getItem("eventid");
+		var username = localStorage.getItem("username");
 
 		var url = serverURL() + "/answerresult.php";
 
 		var JSONObject = {
 			"answerresult": answerresult,
-			"artefactid": localStorage.getItem("artefactid"),
-			"eventid": localStorage.getItem("eventid"),
-			"groupid": localStorage.getItem("groupid"),
+			"artefactid": artefactid,
+			"eventid": eventid,
+			"username": username,
 		};
 
 		$.ajax({
@@ -244,23 +245,26 @@ document.getElementById('flip-card-btn-turn-to-front').onclick = function() {
 				ons.notification.alert('Answer is submitted successfully.', {title: 'I dont know what to write here.'});   
 				window.location = "game.html";
 			}, error: function () {
-				alert("NO ERROR BROOOOOO");
+				alert("GOT ERROR BROOOOOO");
 			}
 		});
-
 	}
 
 	function toExecuteIfAnswerIsWrong() {
 
-		var answerresult = "Wrong"; 
+		var answerresult = "Wrong";
+		var artefactid = localStorage.getItem("artefactid");
+		var eventid = localStorage.getItem("eventid");
+		var username = localStorage.getItem("username");
 
+		alert (artefactid + eventid + username);
 		var url = serverURL() + "/answerresult.php";
 
 		var JSONObject = {
 			"answerresult": answerresult,
 			"artefactid": localStorage.getItem("artefactid"),
 			"eventid": localStorage.getItem("eventid"),
-			"groupid": localStorage.getItem("groupid"),
+			"username": localStorage.getItem("username"),
 		};
 
 		$.ajax({

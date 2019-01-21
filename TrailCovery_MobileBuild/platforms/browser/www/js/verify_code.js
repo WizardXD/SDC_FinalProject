@@ -114,7 +114,7 @@
 	var url = serverURL() + "/getFacilitatorID.php";
 
 	var facilitatorcode = $("#txtfacilitatorcode").val();
-	
+
 	var JSONObject = {
 		"facilitatorcode": facilitatorcode,
 	};
@@ -133,14 +133,13 @@
 	});  
    }
 
-   function _getFacilitatorid(arr) {
-	for (i = 0; i < arr.length; i++) {    
-		var facilitatorid = arr[i].facilitatorid;
-		localStorage.setItem("facilitatorid", facilitatorid);
-		updateEventid();
+    function _getFacilitatorid(arr) {
+		for (i = 0; i < arr.length; i++) {    
+			var facilitatorid = arr[i].facilitatorid;
+			localStorage.setItem("facilitatorid", facilitatorid);
+			updateEventid();
+		}
 	}
-	
-}
 	
 	function updateEventid() {
 		
