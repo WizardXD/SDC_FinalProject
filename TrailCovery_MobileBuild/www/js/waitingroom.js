@@ -2,7 +2,6 @@
 
 	$(document).ready(function () {
 		getEventDetails();
-		getGroupID();
 		var x = setInterval(function() { // Update the count down every 1 second (1 second is defined by 1000, 2 seconds = 2000, ....)
 			getEventStatus();
 			getGroupsInWR();
@@ -48,44 +47,6 @@
 	 
 
 
-		function getGroupID() {
-		
-			var url = serverURL() + "/scoredetails.php";
-			var JSONObject = {
-				"username": localStorage.getItem("username")
-			};
-		
-			$.ajax({
-				url: url,
-				type: 'GET',
-				data: JSONObject,
-				dataType: 'json',
-				contentType: "application/json; charset=utf-8",
-				success: function (arr) {
-					_getGroupIDResult(arr);
-				},
-				error: function () {
-					alert("Wrong");       //Change to Validation Message
-				}
-			});
-	
-		}
-		 
-		function _getGroupIDResult(arr){
-			for (i = 0; i < arr.length; i++) {
-	
-			var groupid = arr[i].groupid;
-			var groupname = arr[i].groupname;
-			
-			localStorage.setItem("groupid", groupid);
-			localStorage.setItem("groupname", groupname);
-	
-			}
-		}
-
-
-
-
 	function getEventStatus() {
 		var url = serverURL() + "/wrstatus.php";
 		var JSONObject = {
@@ -122,8 +83,7 @@
 		var url = serverURL() + "/wrscorecode.php";
         var JSONObject = {
 			"eventid": localStorage.getItem("eventid"),
-			"groupid": localStorage.getItem("groupid"),
-			"groupname": localStorage.getItem("groupname")
+			"username": localStorage.getItem("username")
         };
 
         $.ajax({
