@@ -212,9 +212,11 @@ document.getElementById('flip-card-btn-turn-to-front').onclick = function() {
 		// function to execute if php call is successful
 	function testing12345(arr) {
 		
-		if (arr[0].result.trim() !== "0") { //!== 0 means at least a row of data is found --> correct accesscode entered
+		if (arr[0].result.trim() !== "0") { //!== 0 means at least a row of data is found --> correct answer entered
+			alert("Yes");
 			toExecuteIfAnswerIsCorrect();
-			} else {                                                        // == 0 means no data is found with the given accesscode
+			} else { // == 0 means no data is found with the given answer
+				alert("No");
 			toExecuteIfAnswerIsWrong();                             
 			}
 		}
