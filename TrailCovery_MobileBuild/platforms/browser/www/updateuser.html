@@ -65,14 +65,14 @@
                       <!-- Content-->
                       <div style="text-align: center; margin-top: 10px;">
                             <div style="text-align:center; padding-top: 10px;">
-                        <form id="ChangeUserDetails" name="ChangeUserDetails">
+                        <form id="ChangeUserDetails" name="ChangeUserDetails" >
                         
                         <p>   
                         <!--Input Username-->
                           Username:
                         
                           <label for="newusername" class="ui-hidden-accessible"></label>
-                          <input type="text" id="nusername" required/>
+                          <input type="text" id="nusername" min="6" required/>
                          </p>
 
                         <p> 
@@ -125,8 +125,9 @@
                             </ons-select>
                         </br>
                         </p>
-                        <ons-button value="Update User" id="btnUpdateUser">Update User</ons-button>
-                        </form>
+                        <ons-button value="Update User" type="submit" id="btnUpdateUser">Update User</ons-button>
+                        
+                    </form>
                     
                     </div>
         </ons-page>
