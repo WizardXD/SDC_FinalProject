@@ -4,7 +4,7 @@
         
         getTrailTime();
         getArtefact();
-            var x = setInterval(function() { // Update the count down every 1 second (1 second is defined by 1000, 2 seconds = 2000, ....)
+        var x = setInterval(function() { // Update the count down every 1 second (1 second is defined by 1000, 2 seconds = 2000, ....)
             disableArtefactBtn();
          }, 1000);
     });
@@ -151,74 +151,26 @@
             var artefactf = arr[i].artefactf;
 
             if (artefacta != '') {
-                document.getElementById('btnartefact1').disabled = true;
-                document.getElementById('btnartefact7').disabled = true;
-               /* document.getElementById('btn13').disabled = true;
-                document.getElementById('btn19').disabled = true;
-                document.getElementById('btn25').disabled = true;
-                document.getElementById('btn31').disabled = true;
-                document.getElementById('btn37').disabled = true;
-                document.getElementById('btn43').disabled = true;
-                document.getElementById('btn49').disabled = true;*/
+                document.getElementById('btnartefact1' && 'btnartefact7').disabled = true;
             } 
             
             if (artefactb != ''){
-                document.getElementById('btnartefact2').disabled = true;
-                document.getElementById('btnartefact2').disabled = true;
-                /*document.getElementById('btn14').disabled = true;
-                document.getElementById('btn20').disabled = true;
-                document.getElementById('btn26').disabled = true;
-                document.getElementById('btn32').disabled = true;
-                document.getElementById('btn38').disabled = true;
-                document.getElementById('btn44').disabled = true;
-                document.getElementById('btn50').disabled = true;*/
+                document.getElementById('btnartefact2' && 'btnartefact8').disabled = true;
             } 
             
             if (artefactc != ''){
-                document.getElementById('btnartefact3').disabled = true;
-                document.getElementById('btnartefact9').disabled = true;
-                /*document.getElementById('btn15').disabled = true;
-                document.getElementById('btn21').disabled = true;
-                document.getElementById('btn27').disabled = true;
-                document.getElementById('btn33').disabled = true;
-                document.getElementById('btn39').disabled = true;
-                document.getElementById('btn45').disabled = true;
-                document.getElementById('btn51').disabled = true;*/
+                document.getElementById('btnartefact3' && 'btnartefact9').disabled = true;
             }
             if (artefactd != ''){
-                document.getElementById('btnartefact4').disabled = true;
-                document.getElementById('btnartefact10').disabled = true;
-                /*document.getElementById('btn16').disabled = true;
-                document.getElementById('btn22').disabled = true;
-                document.getElementById('btn28').disabled = true;
-                document.getElementById('btn34').disa   bled = true;
-                document.getElementById('btn40').disabled = true;
-                document.getElementById('btn46').disabled = true;
-                document.getElementById('btn52').disabled = true;*/
+                document.getElementById('btnartefact4' && 'btnartefact10').disabled = true;
             }
             
             if (artefacte != ''){
-                document.getElementById('btnartefact5').disabled = true;
-                document.getElementById('btnartefact11').disabled = true;
-                document.getElementById('btn17').disabled = true;
-                document.getElementById('btn23').disabled = true;
-                document.getElementById('btn29').disabled = true;
-                document.getElementById('btn35').disabled = true;
-                document.getElementById('btn41').disabled = true;
-                document.getElementById('btn47').disabled = true;
-                document.getElementById('btn53').disabled = true;*/
+                document.getElementById('btnartefact5' && 'btnartefact11').disabled = true;
             }
             
             if (artefactf != ''){
-                document.getElementById('btnartefact6').disabled = true;
-                document.getElementById('btnartefact12').disabled = true;
-                /*document.getElementById('btn18').disabled = true;
-                document.getElementById('btn24').disabled = true;
-                document.getElementById('btn30').disabled = true;
-                document.getElementById('btn36').disabled = true;
-                document.getElementById('btn42').disabled = true;
-                document.getElementById('btn48').disabled = true;
-                document.getElementById('btn54').disabled = true;*/
+                document.getElementById('btnartefact6' && 'btnartefact12').disabled = true;
             }
 
             if (artefacta !="" && artefactb !="" && artefactc !="" && artefactd !="" && artefacte !="" && artefactf !=""){

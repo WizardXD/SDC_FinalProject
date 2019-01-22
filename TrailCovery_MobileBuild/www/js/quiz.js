@@ -216,7 +216,6 @@ document.getElementById('flip-card-btn-turn-to-front').onclick = function() {
 			alert("Yes");
 			toExecuteIfAnswerIsCorrect();
 			} else { // == 0 means no data is found with the given answer
-				alert("No");
 			toExecuteIfAnswerIsWrong();                             
 			}
 		}
@@ -259,7 +258,6 @@ document.getElementById('flip-card-btn-turn-to-front').onclick = function() {
 		var eventid = localStorage.getItem("eventid");
 		var username = localStorage.getItem("username");
 
-		alert (artefactid + eventid + username);
 		var url = serverURL() + "/answerresult.php";
 
 		var JSONObject = {
