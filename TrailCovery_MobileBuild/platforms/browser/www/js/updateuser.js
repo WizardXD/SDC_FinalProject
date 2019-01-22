@@ -38,8 +38,9 @@
         });
 */
         $("#btnUpdateUser").bind("click", function () {
-            changeUser();
-        }); 
+            validateForm();                
+            //changeUser();
+            }); 
            // if ($("#ChangeUserDetails").valid()) {
                  //execute
            // }
@@ -99,5 +100,31 @@
         }
     }
     
+    function validateForm() {
+        var a = document.forms["ChangeUserDetails"]["nusername"].value;
+        var b = document.forms["ChangeUserDetails"]["npassword"].value;
+        var c = document.forms["ChangeUserDetails"]["nemail"].value;
+        var d = document.forms["ChangeUserDetails"]["nphone"].value;
+        
+        if (a == "") {
+          alert("Username must be filled up");
+          return false;
+        }
+        else if (b == ""){
+            alert("Password must be filled up");
+            return false;
+        }
+        else if (c == ""){
+            alert("Email must be filled up");
+            return false;
+        }
+        else if (d == ""){
+            alert("Phone No must be filled up");
+            return false;        
+        }
+          else {
+              changeUser();
+        }
+      }
     
 })();

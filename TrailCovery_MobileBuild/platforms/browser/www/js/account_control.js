@@ -4,7 +4,7 @@ $(document).ready(function () {
     roledetails();
 
 /* // Validation
-$('#userPopup').validate({
+$('#addUserForm').validate({
     rules: {
         username: {
             minlength: 6
@@ -14,35 +14,38 @@ $('#userPopup').validate({
         },
         phone: {
             minlength: 8
+        },
+        email: {
+            email: true
         }
     }, //End of jQueryRules
     messages: {
-        username: "Username is required",
-        password: "Password is required", 
-        phone:"Contact No is required"
-
-    }, //End of Message
-
-    focusInvalid: false,
-    submitHandler: function () {
-        return false;
+        username: {
+            minlength: "Your username must be at least 6 characters long"
+        },
+        password: {
+            minlength: "Your password must be at least 8 characters long"
     },
+        phone: {
+            minlength: "Your phone no must be at least 8 characters long"
+},
+        email: {
+            email: "Your email must be a correct email format"
+    } //End of Message
 
-    errorPlacement: function (error, element) {
-        error.appendTo(element.parent().after());
-        //error.appendTo(element.parent().parent().after());
     }
 
-});  */
-
+}); 
+ */
 
 
     $("#btnAddUser").bind("click", function () {
-     // if ($("#userPopup").valid()) {
+      // if ($("#addUserForm").validate()); {
         addUser();
-     // }
+      //}
     });
 });
+
 
 
 function roledetails() {
@@ -91,7 +94,7 @@ function ShowRoleDetails(arr) {
 function _showResult(username) {
 
     window.location = "updateuser.html?username=" + username;
-      
+    
     }
 
 
@@ -134,7 +137,7 @@ function _getAddUserFunction(arr) {
         alert("User has been added");
         window.location = "facilitator.html";
     } else if (arr[0].result === 0) {
-        alert("Account already exist.")
+        alert("Account already exist")
     }
 
 
