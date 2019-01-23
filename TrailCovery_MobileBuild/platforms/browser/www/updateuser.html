@@ -67,29 +67,8 @@
                             <div style="text-align:center; padding-top: 10px;">
                         <form id="ChangeUserDetails" name="ChangeUserDetails" >
                         
-                        <p>   
-                        <!--Input Username-->
-                          Username:
                         
-                          <label for="newusername" class="ui-hidden-accessible"></label>
-                          <input type="text" id="nusername" min="6" required/>
-                         </p>
-
-                        <p> 
-                          <!--Input Password-->
-                          Password:
-                        
-                          <label for="password" class="ui-hidden-accessible"></label>
-                          <input type="password" id="npassword" required/>
-                        </p>
-
-                        <p>
-                          <!--Input Email-->
-                          Email:
-                        
-                          <label for="email" class="ui-hidden-accessible"></label>
-                         <input type="email" id="nemail" required/>
-                        </p>
+                        <div id="individualuserdetails1"> </div>
 
                         <p>
                          <!--Input School-->
@@ -105,26 +84,9 @@
                             </ons-select>
                         </p>
 
-                        <p>
-                        <!--Input Mobile Number-->
-                        Mobile Number:
-                    
-                        <label for="phone" class="ui-hidden-accessible"></label>
-                        <input type="number" id="nphone" required/> 
-                        </p>
+                        <div id="individualuserdetails2"> </div>
 
-                        <p>
-                        <!--Input User Type-->
-                        Role:
-                    </br>
-                        <ons-select name="role" id="nrole" style="width:200px; height:25px" required>
-                            <option value="null">Select Role</option>
-                            <option value="facilitator">Facilitator</option>
-                            <option value="teacher">Teacher</option>
-                            <option value="student">Student</option>
-                            </ons-select>
-                        </br>
-                        </p>
+                        
                         <ons-button value="Update User" type="submit" id="btnUpdateUser">Update User</ons-button>
                         
                     </form>
@@ -135,9 +97,10 @@
 
         <script src="js/schArrayObject.js"></script>
         <script type="text/javascript" src="cordova.js"></script>
-        <script src="js/updateuser.js"></script>
+        
         <script type="text/javascript" src="js/lib/jquery.validate.min.js"></script>
         <script type="text/javascript" src="js/common.js"></script>
+        <script src="js/updateuser.js"></script>
         <script type="text/javascript" src="js/extendedjqueryvalidation.js"></script>
 	  
     </body>

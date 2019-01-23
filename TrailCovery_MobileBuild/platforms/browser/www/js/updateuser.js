@@ -1,5 +1,9 @@
 ﻿(function () {
 
+
+    test();
+
+
     //variable stores the fields of a user's profile
     var username;
     var password;
@@ -49,6 +53,69 @@
     
      });
 
+
+
+     //START
+     function test() {
+    
+        var url = serverURL() + "/getuserdetails.php";
+        var username = decodeURIComponent(getUrlVars()["username"]);
+
+        var JSONObject = {
+            "username": username,
+        };
+
+        $.ajax({
+            url: url,
+            type: 'GET',
+            data: JSONObject,
+            dataType: 'json',
+            contentType: "application/json; charset=utf-8",
+            success: function (arr) {
+                testresult(arr);
+            },
+            error: function () {
+                validationMsgs();
+            }
+        });
+    }
+
+    function testresult(arr) {
+
+        for (var i = 0; i < arr.length; i++) {
+           var part1 = 
+           //input field for username
+           "<p>Username: <input type='text' id='nusername' value='" + arr[i].username + "' min='6' required/></p>" +
+           //input field for password
+           "<p>Password: <input type='password' id='npassword' value='" + arr[i].password + "' required></p>" +
+           //input field for email
+           "<p>Email: <input type='email' id='nemail' value='" + arr[i].email + "'required></p>"; 
+
+            var part2 =
+            //input field for mobile number
+            "<p>Mobile Number: <input type='number' id='nphone' value='" + arr[i].phone + "' required></p>" +
+
+            //input field for role
+            "<p>Role: <ons-select name='role' id='nrole' style='width:200px; height:25px' required>" + 
+            "<option value='null'>Select Role</option>" +
+            "<option value='teacher'>Teacher</option>" +
+            "<option value='student'>Student</option>" +
+            "<option value='facilitator'>Facilitator</option>" +
+            "</ons-select>"
+            ;
+
+
+           $("#individualuserdetails1").append(part1);
+           $("#individualuserdetails2").append(part2);
+          
+        
+
+
+        }
+
+    }
+
+    //END
 
     
 

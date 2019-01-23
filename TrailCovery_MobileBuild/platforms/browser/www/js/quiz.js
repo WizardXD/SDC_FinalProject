@@ -92,7 +92,7 @@ document.getElementById('flip-card-btn-turn-to-front').onclick = function() {
 
     function _ResultShowArtefactUsageMCQ(arr) {
         for (i = 0; i < arr.length; i++) {
-            var UsageMCQArray = [arr[i].CorrectUsage, arr[i].WrongUsage1, arr[i].WrongUsage2];
+            var UsageMCQArray = [arr[i].CorrectUsage, arr[i].WrongUsage1, arr[i].WrongUsage2, arr[i].WrongUsage3];
         }
         
         arrayUsageMCQ();
@@ -148,7 +148,7 @@ document.getElementById('flip-card-btn-turn-to-front').onclick = function() {
 
 	function _ResultShowArtefactImportantnessMCQ(arr) {
         for (i = 0; i < arr.length; i++) {
-            var ImportantnessMCQArray = [arr[i].CorrectImportantness, arr[i].WrongImportantness1, arr[i].WrongImportantness2];
+            var ImportantnessMCQArray = [arr[i].CorrectImportantness, arr[i].WrongImportantness1, arr[i].WrongImportantness2, arr[i].WrongImportantness3];
         }
         
         arrayImportantnessMCQ();
