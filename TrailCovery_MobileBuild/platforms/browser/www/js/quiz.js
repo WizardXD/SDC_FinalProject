@@ -22,7 +22,6 @@ document.getElementById('flip-card-btn-turn-to-front').onclick = function() {
 		showartefactdetails();
 		showArtefactUsageMCQ();
 		showArtefactImportantnessMCQ();
-
 		$("#submitAnswerbtn").bind("click", function () {
                 answersVerification();
             
@@ -176,8 +175,7 @@ document.getElementById('flip-card-btn-turn-to-front').onclick = function() {
 				existing_element.appendChild(option_e);
     		}
         }
-    }
-
+	}
 
 	//Function to verify the answers (Incomplete-->Verifies the Name of the Artefacts only)
 	function answersVerification() {
@@ -213,7 +211,6 @@ document.getElementById('flip-card-btn-turn-to-front').onclick = function() {
 	function testing12345(arr) {
 		
 		if (arr[0].result.trim() !== "0") { //!== 0 means at least a row of data is found --> correct answer entered
-			alert("Yes");
 			toExecuteIfAnswerIsCorrect();
 			} else { // == 0 means no data is found with the given answer
 			toExecuteIfAnswerIsWrong();                             
@@ -243,13 +240,66 @@ document.getElementById('flip-card-btn-turn-to-front').onclick = function() {
 			dataType: 'json',
 			contentType: "application/json; charset=utf-8",
 			success: function (arr) {
+				retrieveScore();
 				ons.notification.alert('Answer is submitted successfully.', {title: 'I dont know what to write here.'});   
-				window.location = "game.html";
 			}, error: function () {
 				alert("GOT ERROR BROOOOOO");
 			}
 		});
 	}
+
+	function retrieveScore() {
+		var url = serverURL() + "/scoreview.php";
+
+		var username = localStorage.getItem("username");
+
+		var JSONObject = {
+			"username": username,
+		};
+
+		$.ajax({
+			url: url,
+			type: 'GET',
+			data: JSONObject,
+			dataType: 'json',
+			contentType: "application/json; charset=utf-8",
+			success: function (arr) {
+				retrieveScoreResult(arr);
+			}, error: function () {
+				alert("error");
+			}
+		});
+	}
+
+	function retrieveScoreResult(arr){
+		for (i = 0; i < arr.length; i++) {
+		   var score = arr[i].score;
+		   var newscore = Number(score) + 5;
+		}
+		
+		var url = serverURL() + "/scoreupdate.php";
+
+		var username = localStorage.getItem("username");
+
+		var JSONObject = {
+			"username": username,
+			"score": newscore
+		};
+
+		$.ajax({
+			url: url,
+			type: 'GET',
+			data: JSONObject,
+			dataType: 'json',
+			contentType: "application/json; charset=utf-8",
+			success: function (arr) {
+				window.location = "game.html";
+			}, error: function () {
+				alert("error");
+			}
+		});
+	}
+
 
 	function toExecuteIfAnswerIsWrong() {
 
