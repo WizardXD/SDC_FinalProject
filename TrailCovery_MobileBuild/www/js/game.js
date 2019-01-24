@@ -4,6 +4,7 @@
         
         getTrailTime();
         getArtefact();
+        getBonus();
         var x = setInterval(function() { // Update the count down every 1 second (1 second is defined by 1000, 2 seconds = 2000, ....)
             disableArtefactBtn();
          }, 1000);
@@ -35,22 +36,66 @@
     function _showArtefactResult(arr) {
         for (i = 0; i < arr.length; i++) {
 			$("#trailimage").html("<img src='" + serverURL() + "/images/trails/" + arr[i].trailimg + "' width='90%' length='20%' border='2'>");
-            var t;
-            y = "<p><ons-button id='btnartefact" + arr[i].artefactid + "' style='width:45%'>" + "Artefact " + (i+1) + " </ons-button><p/>";
+            //var t;
+            var y = "<p><ons-button id='btnartefact" + arr[i].artefactid + "' style='width:45%'>" + "Artefact " + (i+1) + " </ons-button><p/>";
             $("#artefactbtn").append(y);
             $("#btnartefact" + arr[i].artefactid).bind("click", { 
                 id: arr[i].artefactid
              }, function (event) {
                 var data = event.data;
-                _showResult(data.id);
+                _showartefactResullt(data.id);
             });
 
         }
     }
 
-    function _showResult(artefactid) {
+    function _showartefactResullt(artefactid) {
         localStorage.setItem("artefactid", artefactid);
         window.location = "quiz.html?artefactid=" + artefactid;
+    }
+
+
+    //function to retrieve the details of the artefact, such as artefact id (based on the accesscode)
+    function getBonus() {
+        var url = serverURL() + "/gamebonus.php";
+
+        var JSONObject = {
+            "accesscode": localStorage.getItem("accesscode")
+        };
+
+        $.ajax({
+            url: url,
+            type: 'GET',
+            data: JSONObject,
+            dataType: 'json',
+            contentType: "application/json; charset=utf-8",
+            success: function (arr) {
+                _showBonusResult(arr);
+            },
+            error: function () {
+                alert("Wrong");       //Change to Validation Message
+            }
+        });
+    }
+
+    function _showBonusResult(arr) {
+        for (i = 0; i < arr.length; i++) {
+
+            var bonusqn = "<p><ons-button id='btnbonus" + arr[i].landmarkid + "' style='width:45%' disabled> Bonus </ons-button><p/>";
+            $("#bonusbtn").append(bonusqn);
+            $("#btnbonus" + arr[i].landmarkid).bind("click", { 
+                id: arr[i].landmarkid
+             }, function (event) {
+                var data = event.data;
+                _showBonusResullt(data.id);
+            });
+
+        }
+    }
+
+    function _showBonusResullt(landmarkid) {
+        localStorage.setItem("landmarkid", landmarkid);
+        window.location = "bonus.html?landmarkid=" + landmarkid;
     }
 	
     // function to retrieve the start time of the event
@@ -149,6 +194,7 @@
             var artefactd = arr[i].artefactd;
             var artefacte = arr[i].artefacte;
             var artefactf = arr[i].artefactf;
+            var trailid = arr[i].trailid;
 
             if (artefacta != '') {
                 document.getElementById('btnartefact1' && 'btnartefact7').disabled = true;
@@ -174,7 +220,7 @@
             }
 
             if (artefacta !="" && artefactb !="" && artefactc !="" && artefactd !="" && artefacte !="" && artefactf !=""){
-                //bonus question
+                document.getElementById('btnbonus1' && 'btnbonus2').disabled = false;
             }
 
             }

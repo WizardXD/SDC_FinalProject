@@ -177,7 +177,6 @@ document.getElementById('flip-card-btn-turn-to-front').onclick = function() {
         }
 	}
 
-	//Function to verify the answers (Incomplete-->Verifies the Name of the Artefacts only)
 	function answersVerification() {
 		var url = serverURL() + "/verifyartefactdetails.php";
 				

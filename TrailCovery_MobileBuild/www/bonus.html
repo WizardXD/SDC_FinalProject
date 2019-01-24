@@ -1,0 +1,107 @@
+﻿<!DOCTYPE html>
+
+<html>
+    <head>
+   
+        <meta name="format-detection" content="telephone=no">
+        <meta name="msapplication-tap-highlight" content="no">
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+        <link rel="stylesheet" type="text/css" href="css/index.css">
+        <link rel="stylesheet" type="text/css" href="css/onsen-css-components.min.css">
+        <link rel="stylesheet" type="text/css" href="css/onsenui.css">
+		 <link rel="stylesheet" type="text/css" href="css/card.css">
+        <title>SDCFYP</title>
+    </head>
+    
+    <style> 
+    </style>
+    <body>
+		<ons-toolbar>
+			<div class="center">
+			Quiz
+			</div>
+        </ons-toolbar>
+            
+		<div class="flip-card-3D-wrapper">
+			<div id="flip-card">
+				<div class="flip-card-front"> <!--Front Side of the Card-->
+				<br/>
+					<div id="frontlandmarkimage"> </div>
+					<h4><b>Background Information</b></h4> 
+					<div id="bonusbackgroundinfo"></div>
+					<button id="flip-card-btn-turn-to-back">flip</button> <!--Button to flip the card-->
+				</div>  <!--End of Front Side of the Card-->
+                
+                
+
+				<div class="flip-card-back"> <!--Back Side of the Card-->
+				</br>
+				<div id="backlandmarkimage"> </div>
+                <form style="text-align: center" id="BonusForm">
+                    <p>
+                        <ons-input id="NameOfLandmark" modifier="material" placeholder="What is the name of the landmark?" style="width:65%" float required></ons-input>
+                    </p>
+                    <p>
+                        <ons-select name="BonusLocation" id="BonusLocation" style="width:65%; height:25px">
+                            <option value="null">Where is this landmark located at?</option>
+                            <optgroup name="BonusLocationMCQ" id="BonusLocationMCQ"> </optgroup>
+                        </ons-select>
+                    </p>
+
+                    <p>
+                        <ons-select name="BonusQuestion1" id="BonusQuestion1" style="width:65%; height:25px">
+                            <option value="null">Answer to Blank 1</option>
+                            <optgroup name="BonusQuestion1MCQ" id="BonusQuestion1MCQ"> </optgroup>
+                        </ons-select>
+                    </p>
+
+                    <p>
+                        <ons-select name="BonusQuestion2" id="BonusQuestion2" style="width:65%; height:25px">
+                            <option value="null">Answer to Blank 2</option>
+                            <optgroup name="BonusQuestion2MCQ" id="BonusQuestion2MCQ"> </optgroup>
+                        </ons-select>
+                    </p>
+
+                    <p>
+                        <ons-select name="BonusQuestion3" id="BonusQuestion3" style="width:65%; height:25px">
+                            <option value="null">Answer to Blank 3</option>
+                            <optgroup name="BonusQuestion3MCQ" id="BonusQuestion3MCQ"> </optgroup>
+                        </ons-select>
+                    </p>
+                    <p>
+                        <ons-select name="BonusQuestion4" id="BonusQuestion4" style="width:65%; height:25px">
+                            <option value="null">Answer to Blank 4</option>
+                            <optgroup name="BonusQuestion4MCQ" id="BonusQuestion4MCQ"> </optgroup>
+                        </ons-select>
+                    </p>
+
+                    <p>
+                        <ons-select name="BonusQuestion5" id="BonusQuestion5" style="width:65%; height:25px">
+                            <option value="null">Answer to Blank 5</option>
+                            <optgroup name="BonusQuestion5MCQ" id="BonusQuestion5MCQ"> </optgroup>
+                        </ons-select>
+                    </p>
+
+                </form>
+
+                <button id="flip-card-btn-turn-to-front">flip</button> <!--Button to flip card to the front-->
+                
+                <hr />
+
+                <p>
+                <ons-button class="game_pg_btn" id="submitBonusAnswerbtn" style="width:67%">Submit</ons-button>
+                </p>
+				</div>
+			</div>
+		</div>
+	
+	
+        <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="js/framework/onsenui.min.js"></script>
+        <script type="text/javascript" src="js/lib/jquery-3.3.1.js"></script>
+        <script type="text/javascript" src="js/lib/jquery.validate.min.js"></script>
+        <script type="text/javascript" src="js/common.js"></script>
+        <script type="text/javascript" src="js/bonus.js"></script>
+        <script type="text/javascript" src="js/extendedjqueryvalidation.js"></script> 
+    </body>
+</html>
