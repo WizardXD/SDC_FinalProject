@@ -163,11 +163,9 @@
         }
     }
 
-
     function disableArtefactBtn() {
-        var url = serverURL() + "/disabebtns.php";
+        var url = serverURL() + "/disablebtns.php";
             var JSONObject = {
-                "accesscode": localStorage.getItem("accesscode"),
                 "username": localStorage.getItem("username"),
             };
 
@@ -188,43 +186,68 @@
 
     function _disableArtefactBtnResult(arr) {
         for (i = 0; i < arr.length; i++) {
-            var artefacta = arr[i].artefacta;
-            var artefactb = arr[i].artefactb;
-            var artefactc = arr[i].artefactc;
-            var artefactd = arr[i].artefactd;
-            var artefacte = arr[i].artefacte;
-            var artefactf = arr[i].artefactf;
-            var trailid = arr[i].trailid;
+            var artefactaid = arr[i].artefactaid;
+            var artefactbid = arr[i].artefactbid;
+            var artefactcid = arr[i].artefactcid;
+            var artefactdid = arr[i].artefactdid;
+            var artefacteid = arr[i].artefacteid;
+            var artefactfid = arr[i].artefactfid;
 
-            if (artefacta != '') {
-                document.getElementById('btnartefact1' && 'btnartefact7').disabled = true;
+            if (artefactaid != '') {
+                document.getElementById('btnartefact' + arr[i].artefactaid).disabled = true;
             } 
             
-            if (artefactb != ''){
-                document.getElementById('btnartefact2' && 'btnartefact8').disabled = true;
+            if (artefactbid != '') {
+                document.getElementById('btnartefact' + arr[i].artefactbid).disabled = true;
             } 
-            
-            if (artefactc != ''){
-                document.getElementById('btnartefact3' && 'btnartefact9').disabled = true;
+            if (artefactcid != '') {
+                document.getElementById('btnartefact' + arr[i].artefactcid).disabled = true;
+            } 
+            if (artefactdid != '') {
+                document.getElementById('btnartefact' + arr[i].artefactdid).disabled = true;
+            } 
+            if (artefacteid != '') {
+                document.getElementById('btnartefact' + arr[i].artefacteid).disabled = true;
+            } 
+            if (artefactfid != '') {
+                document.getElementById('btnartefact' + arr[i].artefactfid).disabled = true;
             }
-            if (artefactd != ''){
-                document.getElementById('btnartefact4' && 'btnartefact10').disabled = true;
-            }
-            
-            if (artefacte != ''){
-                document.getElementById('btnartefact5' && 'btnartefact11').disabled = true;
-            }
-            
-            if (artefactf != ''){
-                document.getElementById('btnartefact6' && 'btnartefact12').disabled = true;
-            }
-
-            if (artefacta !="" && artefactb !="" && artefactc !="" && artefactd !="" && artefacte !="" && artefactf !=""){
-                document.getElementById('btnbonus1' && 'btnbonus2').disabled = false;
-            }
-
+            if (artefactaid != '' && artefactbid != '' && artefactcid != '' && artefactdid != '' && artefacteid != '' && artefactfid != '') {
+                enableBonusBtn();
             }
         }
+    }
+
+    function enableBonusBtn() {
+        var url = serverURL() + "/gamebonus.php";
+
+        var JSONObject = {
+            "accesscode": localStorage.getItem("accesscode")
+        };
+
+        $.ajax({
+            url: url,
+            type: 'GET',
+            data: JSONObject,
+            dataType: 'json',
+            contentType: "application/json; charset=utf-8",
+            success: function (arr) {
+                enableBonusBtnResult(arr);
+            },
+            error: function () {
+                alert("Wrong");       //Change to Validation Message
+            }
+        });
+    }
+
+    function enableBonusBtnResult(arr) {
+        for (i = 0; i < arr.length; i++) {
+        var landmarkid = arr[i].landmarkid;
+            document.getElementById('btnbonus' + arr[i].landmarkid).disabled = false;
+        }
+    }
+
+
 
 })();
 

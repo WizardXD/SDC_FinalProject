@@ -199,7 +199,7 @@ document.getElementById('flip-card-btn-turn-to-front').onclick = function() {
 			dataType: 'json',
 			contentType: "application/json; charset=utf-8",
 			success: function (arr) {
-				testing12345(arr);	
+				answersVerificationResult(arr);	
 			}, error: function () {
 				alert("error");
 			}
@@ -207,7 +207,7 @@ document.getElementById('flip-card-btn-turn-to-front').onclick = function() {
 	}
 		
 		// function to execute if php call is successful
-	function testing12345(arr) {
+	function answersVerificationResult(arr) {
 		
 		if (arr[0].result.trim() !== "0") { //!== 0 means at least a row of data is found --> correct answer entered
 			toExecuteIfAnswerIsCorrect();
@@ -217,18 +217,12 @@ document.getElementById('flip-card-btn-turn-to-front').onclick = function() {
 		}
 
 	function toExecuteIfAnswerIsCorrect() {
-
-		var answerresult = "Correct"; 
-		var artefactid = localStorage.getItem("artefactid");
-		var eventid = localStorage.getItem("eventid");
+		
 		var username = localStorage.getItem("username");
 
-		var url = serverURL() + "/answerresult.php";
+		var url = serverURL() + "/getscoreartefact.php";
 
 		var JSONObject = {
-			"answerresult": answerresult,
-			"artefactid": artefactid,
-			"eventid": eventid,
 			"username": username,
 		};
 
@@ -239,13 +233,192 @@ document.getElementById('flip-card-btn-turn-to-front').onclick = function() {
 			dataType: 'json',
 			contentType: "application/json; charset=utf-8",
 			success: function (arr) {
-				retrieveScore();
-				ons.notification.alert('Answer is submitted successfully.', {title: 'I dont know what to write here.'});   
+				retrieveCorrectScoreAtoF(arr);	
 			}, error: function () {
 				alert("GOT ERROR BROOOOOO");
 			}
 		});
 	}
+
+	function retrieveCorrectScoreAtoF(arr) {
+		for (i = 0; i < arr.length; i++) {
+			var artefactaid = arr[i].artefactaid;
+			var artefactbid = arr[i].artefactbid;
+			var artefactcid = arr[i].artefactcid;
+			var artefactdid = arr[i].artefactdid;
+			var artefacteid = arr[i].artefacteid;
+			var artefactfid = arr[i].artefactfid;
+
+			if (artefactaid == "") {
+				var answerresult = "Correct"; 
+				var artefactid = localStorage.getItem("artefactid");
+				var username = localStorage.getItem("username");
+
+				var url = serverURL() + "/scoreArtefactA.php";
+
+				var JSONObject = {
+					"answerresult": answerresult,
+					"artefactid": artefactid,
+					"username": username,
+				};
+
+				$.ajax({
+					url: url,
+					type: 'GET',
+					data: JSONObject,
+					dataType: 'json',
+					contentType: "application/json; charset=utf-8",
+					success: function (arr) {
+						retrieveScore();
+						ons.notification.alert('Answer is submitted successfully.', {title: ' '});   
+					}, error: function () {
+						alert("GOT ERROR BROOOOOO");
+					}
+				});
+			}
+			
+			else if (artefactbid == "") {
+				var answerresult = "Correct"; 
+				var artefactid = localStorage.getItem("artefactid");
+				var username = localStorage.getItem("username");
+
+				var url = serverURL() + "/scoreArtefactB.php";
+
+				var JSONObject = {
+					"answerresult": answerresult,
+					"artefactid": artefactid,
+					"username": username,
+				};
+
+				$.ajax({
+					url: url,
+					type: 'GET',
+					data: JSONObject,
+					dataType: 'json',
+					contentType: "application/json; charset=utf-8",
+					success: function (arr) {
+						retrieveScore();
+						ons.notification.alert('Answer is submitted successfully.', {title: ' '});   
+					}, error: function () {
+						alert("GOT ERROR BROOOOOO");
+					}
+				});
+			} 
+			
+			if (artefactcid == "") {
+				var answerresult = "Correct"; 
+				var artefactid = localStorage.getItem("artefactid");
+				var username = localStorage.getItem("username");
+
+				var url = serverURL() + "/scoreArtefactC.php";
+
+				var JSONObject = {
+					"answerresult": answerresult,
+					"artefactid": artefactid,
+					"username": username,
+				};
+
+				$.ajax({
+					url: url,
+					type: 'GET',
+					data: JSONObject,
+					dataType: 'json',
+					contentType: "application/json; charset=utf-8",
+					success: function (arr) {
+						retrieveScore();
+						ons.notification.alert('Answer is submitted successfully.', {title: ' '});   
+					}, error: function () {
+						alert("GOT ERROR BROOOOOO");
+					}
+				});
+			}
+
+			if (artefactdid == "") {
+				var answerresult = "Correct"; 
+				var artefactid = localStorage.getItem("artefactid");
+				var username = localStorage.getItem("username");
+
+				var url = serverURL() + "/scoreArtefactD.php";
+
+				var JSONObject = {
+					"answerresult": answerresult,
+					"artefactid": artefactid,
+					"username": username,
+				};
+
+				$.ajax({
+					url: url,
+					type: 'GET',
+					data: JSONObject,
+					dataType: 'json',
+					contentType: "application/json; charset=utf-8",
+					success: function (arr) {
+						retrieveScore();
+						ons.notification.alert('Answer is submitted successfully.', {title: ' '});   
+					}, error: function () {
+						alert("GOT ERROR BROOOOOO");
+					}
+				});
+			}
+
+			if (artefacteid == "") {
+				var answerresult = "Correct"; 
+				var artefactid = localStorage.getItem("artefactid");
+				var username = localStorage.getItem("username");
+
+				var url = serverURL() + "/scoreArtefactE.php";
+
+				var JSONObject = {
+					"answerresult": answerresult,
+					"artefactid": artefactid,
+					"username": username,
+				};
+
+				$.ajax({
+					url: url,
+					type: 'GET',
+					data: JSONObject,
+					dataType: 'json',
+					contentType: "application/json; charset=utf-8",
+					success: function (arr) {
+						retrieveScore();
+						ons.notification.alert('Answer is submitted successfully.', {title: ' '});   
+					}, error: function () {
+						alert("GOT ERROR BROOOOOO");
+					}
+				});
+			}
+
+			if (artefactfid == "") {
+				var answerresult = "Correct"; 
+				var artefactid = localStorage.getItem("artefactid");
+				var username = localStorage.getItem("username");
+
+				var url = serverURL() + "/scoreArtefactF.php";
+
+				var JSONObject = {
+					"answerresult": answerresult,
+					"artefactid": artefactid,
+					"username": username,
+				};
+
+				$.ajax({
+					url: url,
+					type: 'GET',
+					data: JSONObject,
+					dataType: 'json',
+					contentType: "application/json; charset=utf-8",
+					success: function (arr) {
+						retrieveScore();
+						ons.notification.alert('Answer is submitted successfully.', {title: ' '});   
+					}, error: function () {
+						alert("GOT ERROR BROOOOOO");
+					}
+				});
+			}
+			
+			}
+			
 
 	function retrieveScore() {
 		var url = serverURL() + "/scoreview.php";
@@ -298,22 +471,18 @@ document.getElementById('flip-card-btn-turn-to-front').onclick = function() {
 			}
 		});
 	}
+	}
+
 
 
 	function toExecuteIfAnswerIsWrong() {
-
-		var answerresult = "Wrong";
-		var artefactid = localStorage.getItem("artefactid");
-		var eventid = localStorage.getItem("eventid");
+		
 		var username = localStorage.getItem("username");
 
-		var url = serverURL() + "/answerresult.php";
+		var url = serverURL() + "/getscoreartefact.php";
 
 		var JSONObject = {
-			"answerresult": answerresult,
-			"artefactid": localStorage.getItem("artefactid"),
-			"eventid": localStorage.getItem("eventid"),
-			"username": localStorage.getItem("username"),
+			"username": username,
 		};
 
 		$.ajax({
@@ -323,16 +492,243 @@ document.getElementById('flip-card-btn-turn-to-front').onclick = function() {
 			dataType: 'json',
 			contentType: "application/json; charset=utf-8",
 			success: function (arr) {
-				ons.notification.alert('Answer is submitted successfully.', {title: 'I dont know what to write here.'});   
-				window.location = "game.html";
+				retrieveWrongScoreAtoF(arr);	
 			}, error: function () {
-				alert("NO ERROR BROOOOOO");
+				alert("GOT ERROR BROOOOOO");
 			}
 		});
-
 	}
-	
-	
 
+
+
+	
+	function retrieveWrongScoreAtoF(arr) {
+		
+		for (i = 0; i < arr.length; i++) {
+			var artefactaid = arr[i].artefactaid;
+			var artefactbid = arr[i].artefactbid;
+			var artefactcid = arr[i].artefactcid;
+			var artefactdid = arr[i].artefactdid;
+			var artefacteid = arr[i].artefacteid;
+			var artefactfid = arr[i].artefactfid;
+
+			if (artefactaid == "") {
+				
+				var answerresult = "Correct"; 
+				var artefactid = localStorage.getItem("artefactid");
+				var username = localStorage.getItem("username");
+
+				var url = serverURL() + "/scoreArtefactA.php";
+
+				var JSONObject = {
+					"answerresult": answerresult,
+					"artefactid": artefactid,
+					"username": username,
+				};
+
+				$.ajax({
+					url: url,
+					type: 'GET',
+					data: JSONObject,
+					dataType: 'json',
+					contentType: "application/json; charset=utf-8",
+					success: function (arr) {
+						retrieveScore();
+						ons.notification.alert('Answer is submitted successfully.', {title: ' '});   
+					}, error: function () {
+						alert("GOT ERROR BROOOOOO");
+					}
+				});
+			} else if (artefactbid == "") {
+				console.log("Ho");
+				var answerresult = "Wrong"; 
+				var artefactid = localStorage.getItem("artefactid");
+				var username = localStorage.getItem("username");
+
+				var url = serverURL() + "/scoreArtefactB.php";
+
+				var JSONObject = {
+					"answerresult": answerresult,
+					"artefactid": artefactid,
+					"username": username,
+				};
+
+				$.ajax({
+					url: url,
+					type: 'GET',
+					data: JSONObject,
+					dataType: 'json',
+					contentType: "application/json; charset=utf-8",
+					success: function (arr) {
+						retrieveScore();
+						ons.notification.alert('Answer is submitted successfully.', {title: ' '});   
+					}, error: function () {
+						alert("GOT ERROR BROOOOOO");
+					}
+				});
+			} else if (artefactcid == "") {
+				var answerresult = "Wrong"; 
+				var artefactid = localStorage.getItem("artefactid");
+				var username = localStorage.getItem("username");
+
+				var url = serverURL() + "/scoreArtefactC.php";
+
+				var JSONObject = {
+					"answerresult": answerresult,
+					"artefactid": artefactid,
+					"username": username,
+				};
+
+				$.ajax({
+					url: url,
+					type: 'GET',
+					data: JSONObject,
+					dataType: 'json',
+					contentType: "application/json; charset=utf-8",
+					success: function (arr) {
+						retrieveScore();
+						ons.notification.alert('Answer is submitted successfully.', {title: ' '});   
+					}, error: function () {
+						alert("GOT ERROR BROOOOOO");
+					}
+				});
+			}
+			else if (artefactdid == "") {
+				var answerresult = "Wrong"; 
+				var artefactid = localStorage.getItem("artefactid");
+				var username = localStorage.getItem("username");
+
+				var url = serverURL() + "/scoreArtefactD.php";
+
+				var JSONObject = {
+					"answerresult": answerresult,
+					"artefactid": artefactid,
+					"username": username,
+				};
+
+				$.ajax({
+					url: url,
+					type: 'GET',
+					data: JSONObject,
+					dataType: 'json',
+					contentType: "application/json; charset=utf-8",
+					success: function (arr) {
+						retrieveScore();
+						ons.notification.alert('Answer is submitted successfully.', {title: ' '});   
+					}, error: function () {
+						alert("GOT ERROR BROOOOOO");
+					}
+				});
+			}
+			else if (artefacteid == "") {
+				var answerresult = "Wrong"; 
+				var artefactid = localStorage.getItem("artefactid");
+				var username = localStorage.getItem("username");
+
+				var url = serverURL() + "/scoreArtefactE.php";
+
+				var JSONObject = {
+					"answerresult": answerresult,
+					"artefactid": artefactid,
+					"username": username,
+				};
+
+				$.ajax({
+					url: url,
+					type: 'GET',
+					data: JSONObject,
+					dataType: 'json',
+					contentType: "application/json; charset=utf-8",
+					success: function (arr) {
+						retrieveScore();
+						ons.notification.alert('Answer is submitted successfully.', {title: ' '});   
+					}, error: function () {
+						alert("GOT ERROR BROOOOOO");
+					}
+				});
+			}
+			else if (artefactfid == "") {
+				var answerresult = "Wrong"; 
+				var artefactid = localStorage.getItem("artefactid");
+				var username = localStorage.getItem("username");
+
+				var url = serverURL() + "/scoreArtefactF.php";
+
+				var JSONObject = {
+					"answerresult": answerresult,
+					"artefactid": artefactid,
+					"username": username,
+				};
+
+				$.ajax({
+					url: url,
+					type: 'GET',
+					data: JSONObject,
+					dataType: 'json',
+					contentType: "application/json; charset=utf-8",
+					success: function (arr) {
+						retrieveScore();
+						ons.notification.alert('Answer is submitted successfully.', {title: ' '});   
+					}, error: function () {
+						alert("GOT ERROR BROOOOOO");
+					}
+				});
+			}
+			
+			}
+			
+
+	function retrieveScore() {
+		var url = serverURL() + "/scoreview.php";
+
+		var username = localStorage.getItem("username");
+
+		var JSONObject = {
+			"username": username,
+		};
+
+		$.ajax({
+			url: url,
+			type: 'GET',
+			data: JSONObject,
+			dataType: 'json',
+			contentType: "application/json; charset=utf-8",
+			success: function (arr) {
+				retrieveScoreResult(arr);
+			}, error: function () {
+				alert("error");
+			}
+		});
+	}
+
+	function retrieveScoreResult(arr){
+		for (i = 0; i < arr.length; i++) {
+		   var score = arr[i].score;
+		   var newscore = Number(score) + 5;
+		}
+		
+		var url = serverURL() + "/scoreupdate.php";
+
+		var username = localStorage.getItem("username");
+
+		var JSONObject = {
+			"username": username,
+			"score": newscore
+		};
+
+		$.ajax({
+			url: url,
+			type: 'GET',
+			data: JSONObject,
+			dataType: 'json',
+			contentType: "application/json; charset=utf-8",
+			success: function (arr) {
+				window.location = "game.html";
+			}, error: function () {
+				alert("error");
+			}
+		});
+	}
+		}
 
 })();
