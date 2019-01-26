@@ -74,9 +74,11 @@ function ShowRoleDetails(arr) {
     for (var i = 0; i < arr.length; i++) {
         var t;
         t = "<ons-card>" + 
-        "Username: " + arr[i].username + "</br>" + "Email: " + arr[i].email + "</br>" + 
-        "School: " + arr[i].school + "</br>" + "Contact No: " + arr[i].phone + "</br>" + 
-        "User Type: " + arr[i].role + "</p>" +
+        "Facilitator ID: " + arr[i].facilitatorid + "</br>" + 
+        "Name: " + arr[i].adminname + "</br>" + 
+        "Username: " + arr[i].username + "</br>" + 
+        "Email: " + arr[i].email + "</br>" + "Phone: " + arr[i].phone + "</br>" + 
+        "Facilitator Code: " + arr[i].facilitatorcode + "</br>" + 
         "<p><ons-button modifier='large' id='btnEdit" + arr[i].username + "'>Edit" + "</ons-button></p>"
         "</div>";
         "</ons-card>";
@@ -100,22 +102,22 @@ function _showResult(username) {
 
 //insert user into database
 function addUser() {
+    adminname = $("#adminname").val();
     username = $("#username").val();
     password = $("#password").val();
     email = $("#email").val();
-    school = $("#school").val();
     phone = $("#phone").val();
-    role = $("#role").val();
 
-    url = serverURL() + "/adduser.php"; 
-   
+        url = serverURL() + "/adduser.php"; 
+
+
     var JSONObject = {
+        "adminname": adminname,
         "username": username,
         "password": password,
         "email": email,
-        "school": school,
         "phone": phone,
-        "role": role,
+
     };
 
     $.ajax({

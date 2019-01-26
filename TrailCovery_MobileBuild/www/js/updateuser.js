@@ -1,16 +1,17 @@
 ﻿(function () {
 
 
-    test();
+    getuser();
 
 
     //variable stores the fields of a user's profile
+ 
+    var adminname;
     var username;
     var password;
     var email;
-    var school;
     var phone;
-    var role;
+
  
     $(document).ready(function () {
 
@@ -56,7 +57,7 @@
 
 
      //START
-     function test() {
+     function getuser() {
     
         var url = serverURL() + "/getuserdetails.php";
         var username = decodeURIComponent(getUrlVars()["username"]);
@@ -72,7 +73,7 @@
             dataType: 'json',
             contentType: "application/json; charset=utf-8",
             success: function (arr) {
-                testresult(arr);
+                userresult(arr);
             },
             error: function () {
                 validationMsgs();
@@ -80,33 +81,25 @@
         });
     }
 
-    function testresult(arr) {
+    function userresult(arr) {
 
         for (var i = 0; i < arr.length; i++) {
-           var part1 = 
+           var displaydetails = 
+            //input field for Name
+          "<p>Name: <input type='text' id='nadminname' value='" + arr[i].adminname + "' min='6' required/></p>" +
            //input field for username
            "<p>Username: <input type='text' id='nusername' value='" + arr[i].username + "' min='6' required/></p>" +
            //input field for password
            "<p>Password: <input type='password' id='npassword' value='" + arr[i].password + "' required></p>" +
            //input field for email
-           "<p>Email: <input type='email' id='nemail' value='" + arr[i].email + "'required></p>"; 
-
-            var part2 =
+           "<p>Email: <input type='email' id='nemail' value='" + arr[i].email + "'required></p>" +
             //input field for mobile number
-            "<p>Mobile Number: <input type='number' id='nphone' value='" + arr[i].phone + "' required></p>" +
-
-            //input field for role
-            "<p>Role: <ons-select name='role' id='nrole' style='width:200px; height:25px' required>" + 
-            "<option value='null'>Select Role</option>" +
-            "<option value='teacher'>Teacher</option>" +
-            "<option value='student'>Student</option>" +
-            "<option value='facilitator'>Facilitator</option>" +
-            "</ons-select>"
-            ;
+            "<p>Mobile Number: <input type='number' id='nphone' value='" + arr[i].phone + "' required></p>";
 
 
-           $("#individualuserdetails1").append(part1);
-           $("#individualuserdetails2").append(part2);
+
+           $("#individualuserdetails").append(displaydetails);
+
           
         
 
@@ -120,25 +113,22 @@
     
 
     function changeUser() {
-        
+        var newadminname = $("#nadminname").val();
         var newusername = $("#nusername").val();
         var newpassword = $("#npassword").val();
         var newemail = $("#nemail").val();
-        var newschool = $("#nschool").val();
         var newphone = $("#nphone").val();
-        var newrole = $("#nrole").val();
 
     
         var url = serverURL() + "/updateuser.php";
 
         var JSONObject = {
             "username": localStorage.getItem("username"),
+            "adminname": newadminname,
             "username": newusername,
             "password": newpassword,
             "email": newemail,
-            "school": newschool,
-            "phone": newphone,
-            "role": newrole
+            "phone": newphone
         };
 
         $.ajax({
@@ -168,24 +158,29 @@
     }
     
     function validateForm() {
-        var a = document.forms["ChangeUserDetails"]["nusername"].value;
-        var b = document.forms["ChangeUserDetails"]["npassword"].value;
-        var c = document.forms["ChangeUserDetails"]["nemail"].value;
-        var d = document.forms["ChangeUserDetails"]["nphone"].value;
+        var a = document.forms["ChangeUserDetails"]["nadminname"].value;
+        var b = document.forms["ChangeUserDetails"]["nusername"].value;
+        var c = document.forms["ChangeUserDetails"]["npassword"].value;
+        var d = document.forms["ChangeUserDetails"]["nemail"].value;
+        var e = document.forms["ChangeUserDetails"]["nphone"].value;
         
         if (a == "") {
-          alert("Username must be filled up");
+          alert("Name must be filled up");
           return false;
         }
         else if (b == ""){
-            alert("Password must be filled up");
+            alert("Username must be filled up");
             return false;
         }
         else if (c == ""){
-            alert("Email must be filled up");
+            alert("Password must be filled up");
             return false;
         }
         else if (d == ""){
+            alert("Email must be filled up");
+            return false;
+        }
+        else if (e == ""){
             alert("Phone No must be filled up");
             return false;        
         }

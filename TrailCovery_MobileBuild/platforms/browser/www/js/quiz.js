@@ -305,7 +305,7 @@ document.getElementById('flip-card-btn-turn-to-front').onclick = function() {
 				});
 			} 
 			
-			if (artefactcid == "") {
+			else if (artefactcid == "") {
 				var answerresult = "Correct"; 
 				var artefactid = localStorage.getItem("artefactid");
 				var username = localStorage.getItem("username");
@@ -333,7 +333,7 @@ document.getElementById('flip-card-btn-turn-to-front').onclick = function() {
 				});
 			}
 
-			if (artefactdid == "") {
+			else if (artefactdid == "") {
 				var answerresult = "Correct"; 
 				var artefactid = localStorage.getItem("artefactid");
 				var username = localStorage.getItem("username");
@@ -361,7 +361,7 @@ document.getElementById('flip-card-btn-turn-to-front').onclick = function() {
 				});
 			}
 
-			if (artefacteid == "") {
+			else if (artefacteid == "") {
 				var answerresult = "Correct"; 
 				var artefactid = localStorage.getItem("artefactid");
 				var username = localStorage.getItem("username");
@@ -389,7 +389,7 @@ document.getElementById('flip-card-btn-turn-to-front').onclick = function() {
 				});
 			}
 
-			if (artefactfid == "") {
+			else if (artefactfid == "") {
 				var answerresult = "Correct"; 
 				var artefactid = localStorage.getItem("artefactid");
 				var username = localStorage.getItem("username");

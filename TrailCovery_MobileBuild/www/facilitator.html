@@ -96,7 +96,7 @@
                 <i class="fa fa-road" aria-hidden="true"></i>&nbsp;Trail Management
               </ons-list-item>
               <ons-list-item onclick="fn.load('account_management.html')" tappable>
-                <i class="fa fa-user-plus" aria-hidden="true"></i>&nbsp;Account Management
+                <i class="fa fa-user-plus" aria-hidden="true"></i>&nbsp;Facilitator Management
               </ons-list-item>
               <ons-list-item onclick="window.location = 'index.html'" tappable>
                 <i class="fa fa-sign-out" aria-hidden="true"></i>&nbsp;Logout
@@ -502,7 +502,7 @@
       <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
       <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
       <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
-      <script src="js/schArrayObject.js"></script>
+
 
             <!-- <link rel="stylesheet" type="text/css" href="www/css/user_management.css"> -->
       
@@ -524,7 +524,7 @@
         </div>
 
         <div class="center">
-          <b>Account Management</b>
+          <b>Facilitator Management</b>
         </div>
 
         <div class="right">
@@ -548,8 +548,13 @@
             <form name="addUserForm" id="addUserForm"> 
               <div>
                 <h2>
-                  <center>Add User</center>
+                  <center>Add Facilitator</center>
                   </h3>
+
+                  <!--Input Name-->
+                  Name:
+                  <label for="adminname" class="ui-hidden-accessible"></label>
+                  <input type="text" id="adminname" required />
                   <!--Input Username-->
                   Username:
                   <label for="username" class="ui-hidden-accessible"></label>
@@ -562,29 +567,12 @@
                   Email:
                   <label for="email" class="ui-hidden-accessible"></label>
                   <input type="email" id="email" required />
-                  <!--Input School-->
-                  School: </br>
-                  <ons-select name="school" id="school" style="width:200px; height:25px" required>
-                    <option value="null">Select School/Institution</option>
-                    <option value="Not Applicable">Not Applicable</option>
-                    <optgroup label="Junior College" name="juniorcollege" id="juniorcollege"> </optgroup>
-                    <optgroup label="Polytechnic" name="polytechnic" id="polytechnic"> </optgroup>
-                    <optgroup label="Secondary School" name="secondarysch" id="secondarysch"> </optgroup>
-                    <optgroup label="Primary School" name="primarysch" id="primarysch"> </optgroup>
-                  </ons-select>
                   </br>
                   <!--Input Mobile Number-->
                   Mobile Number:
                   <label for="phone" class="ui-hidden-accessible"></label>
                   <input type="number" id="phone" required />
-                  <!--Input User Type-->
-                  Role: </br>
-                  <ons-select name="role" id="role" style="width:200px; height:25px" required>
-                    <option value="null">Select Role</option>
-                    <option value="facilitator">Facilitator</option>
-                    <option value="teacher">Teacher</option>
-                    <option value="student">Student</option>
-                  </ons-select>
+
                   <!--To add account-->
                   <center> <input type="submit" data-inline="true" id="btnAddUser" value="Add Account">
                     <input type="reset" data-inline="true" id="reset" value="Reset"></center>

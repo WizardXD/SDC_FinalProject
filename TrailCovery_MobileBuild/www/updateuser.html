@@ -59,7 +59,7 @@
                     <ons-page id="updateuser">
                     <ons-toolbar>
                             <div class="left" onclick="window.history.go(-1)"><ons-back-button></ons-back-button></div>
-                            <div class="center">Account Management</div>
+                            <div class="center">Facilitator Management</div>
                             </ons-toolbar>
 
                       <!-- Content-->
@@ -68,23 +68,7 @@
                         <form id="ChangeUserDetails" name="ChangeUserDetails" >
                         
                         
-                        <div id="individualuserdetails1"> </div>
-
-                        <p>
-                         <!--Input School-->
-                         School: 
-                        </br>
-                         <ons-select name="school" id="nschool" style="width:200px; height:25px" required>
-                            <option value="null">Select School/Institution</option>
-                            <option value="Not Applicable">Not Applicable</option>
-                            <optgroup label="Junior College" name="juniorcollege" id="juniorcollege"> </optgroup>
-                            <optgroup label="Polytechnic" name="polytechnic" id="polytechnic"> </optgroup>
-                            <optgroup label="Secondary School" name="secondarysch" id="secondarysch"> </optgroup>
-                            <optgroup label="Primary School" name="primarysch" id="primarysch"> </optgroup>
-                            </ons-select>
-                        </p>
-
-                        <div id="individualuserdetails2"> </div>
+                        <div id="individualuserdetails"> </div>
 
                         
                         <ons-button value="Update User" type="submit" id="btnUpdateUser">Update User</ons-button>
@@ -95,7 +79,6 @@
         </ons-page>
     
 
-        <script src="js/schArrayObject.js"></script>
         <script type="text/javascript" src="cordova.js"></script>
         
         <script type="text/javascript" src="js/lib/jquery.validate.min.js"></script>
