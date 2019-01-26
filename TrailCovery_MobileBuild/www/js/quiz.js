@@ -91,7 +91,7 @@ document.getElementById('flip-card-btn-turn-to-front').onclick = function() {
 
     function _ResultShowArtefactUsageMCQ(arr) {
         for (i = 0; i < arr.length; i++) {
-            var UsageMCQArray = [arr[i].CorrectUsage, arr[i].WrongUsage1, arr[i].WrongUsage2, arr[i].WrongUsage3];
+            var UsageMCQArray = [arr[i].WrongUsage3, arr[i].WrongUsage2, arr[i].CorrectUsage, arr[i].WrongUsage1];
         }
         
         arrayUsageMCQ();
@@ -147,7 +147,7 @@ document.getElementById('flip-card-btn-turn-to-front').onclick = function() {
 
 	function _ResultShowArtefactImportantnessMCQ(arr) {
         for (i = 0; i < arr.length; i++) {
-            var ImportantnessMCQArray = [arr[i].CorrectImportantness, arr[i].WrongImportantness1, arr[i].WrongImportantness2, arr[i].WrongImportantness3];
+            var ImportantnessMCQArray = [arr[i].WrongImportantness2, arr[i].CorrectImportantness, arr[i].WrongImportantness3, arr[i].WrongImportantness1];
         }
         
         arrayImportantnessMCQ();
@@ -210,8 +210,10 @@ document.getElementById('flip-card-btn-turn-to-front').onclick = function() {
 	function answersVerificationResult(arr) {
 		
 		if (arr[0].result.trim() !== "0") { //!== 0 means at least a row of data is found --> correct answer entered
+			alert("Correct");
 			toExecuteIfAnswerIsCorrect();
 			} else { // == 0 means no data is found with the given answer
+			alert("Wrong");
 			toExecuteIfAnswerIsWrong();                             
 			}
 		}
@@ -305,7 +307,7 @@ document.getElementById('flip-card-btn-turn-to-front').onclick = function() {
 				});
 			} 
 			
-			if (artefactcid == "") {
+			else if (artefactcid == "") {
 				var answerresult = "Correct"; 
 				var artefactid = localStorage.getItem("artefactid");
 				var username = localStorage.getItem("username");
@@ -333,7 +335,7 @@ document.getElementById('flip-card-btn-turn-to-front').onclick = function() {
 				});
 			}
 
-			if (artefactdid == "") {
+			else if (artefactdid == "") {
 				var answerresult = "Correct"; 
 				var artefactid = localStorage.getItem("artefactid");
 				var username = localStorage.getItem("username");
@@ -361,7 +363,7 @@ document.getElementById('flip-card-btn-turn-to-front').onclick = function() {
 				});
 			}
 
-			if (artefacteid == "") {
+			else if (artefacteid == "") {
 				var answerresult = "Correct"; 
 				var artefactid = localStorage.getItem("artefactid");
 				var username = localStorage.getItem("username");
@@ -389,7 +391,7 @@ document.getElementById('flip-card-btn-turn-to-front').onclick = function() {
 				});
 			}
 
-			if (artefactfid == "") {
+			else if (artefactfid == "") {
 				var answerresult = "Correct"; 
 				var artefactid = localStorage.getItem("artefactid");
 				var username = localStorage.getItem("username");
@@ -514,7 +516,7 @@ document.getElementById('flip-card-btn-turn-to-front').onclick = function() {
 
 			if (artefactaid == "") {
 				
-				var answerresult = "Correct"; 
+				var answerresult = "Wrong"; 
 				var artefactid = localStorage.getItem("artefactid");
 				var username = localStorage.getItem("username");
 
@@ -533,14 +535,13 @@ document.getElementById('flip-card-btn-turn-to-front').onclick = function() {
 					dataType: 'json',
 					contentType: "application/json; charset=utf-8",
 					success: function (arr) {
-						retrieveScore();
 						ons.notification.alert('Answer is submitted successfully.', {title: ' '});   
+						window.location = "game.html";
 					}, error: function () {
 						alert("GOT ERROR BROOOOOO");
 					}
 				});
 			} else if (artefactbid == "") {
-				console.log("Ho");
 				var answerresult = "Wrong"; 
 				var artefactid = localStorage.getItem("artefactid");
 				var username = localStorage.getItem("username");
@@ -560,8 +561,8 @@ document.getElementById('flip-card-btn-turn-to-front').onclick = function() {
 					dataType: 'json',
 					contentType: "application/json; charset=utf-8",
 					success: function (arr) {
-						retrieveScore();
-						ons.notification.alert('Answer is submitted successfully.', {title: ' '});   
+						ons.notification.alert('Answer is submitted successfully.', {title: ' '});  
+						window.location = "game.html"; 
 					}, error: function () {
 						alert("GOT ERROR BROOOOOO");
 					}
@@ -586,8 +587,8 @@ document.getElementById('flip-card-btn-turn-to-front').onclick = function() {
 					dataType: 'json',
 					contentType: "application/json; charset=utf-8",
 					success: function (arr) {
-						retrieveScore();
 						ons.notification.alert('Answer is submitted successfully.', {title: ' '});   
+						window.location = "game.html";
 					}, error: function () {
 						alert("GOT ERROR BROOOOOO");
 					}
@@ -613,8 +614,8 @@ document.getElementById('flip-card-btn-turn-to-front').onclick = function() {
 					dataType: 'json',
 					contentType: "application/json; charset=utf-8",
 					success: function (arr) {
-						retrieveScore();
 						ons.notification.alert('Answer is submitted successfully.', {title: ' '});   
+						window.location = "game.html";
 					}, error: function () {
 						alert("GOT ERROR BROOOOOO");
 					}
@@ -640,8 +641,8 @@ document.getElementById('flip-card-btn-turn-to-front').onclick = function() {
 					dataType: 'json',
 					contentType: "application/json; charset=utf-8",
 					success: function (arr) {
-						retrieveScore();
-						ons.notification.alert('Answer is submitted successfully.', {title: ' '});   
+						ons.notification.alert('Answer is submitted successfully.', {title: ' '}); 
+						window.location = "game.html";  
 					}, error: function () {
 						alert("GOT ERROR BROOOOOO");
 					}
@@ -667,8 +668,8 @@ document.getElementById('flip-card-btn-turn-to-front').onclick = function() {
 					dataType: 'json',
 					contentType: "application/json; charset=utf-8",
 					success: function (arr) {
-						retrieveScore();
-						ons.notification.alert('Answer is submitted successfully.', {title: ' '});   
+						ons.notification.alert('Answer is submitted successfully.', {title: ' '}); 
+						window.location = "game.html";  
 					}, error: function () {
 						alert("GOT ERROR BROOOOOO");
 					}
@@ -677,58 +678,6 @@ document.getElementById('flip-card-btn-turn-to-front').onclick = function() {
 			
 			}
 			
-
-	function retrieveScore() {
-		var url = serverURL() + "/scoreview.php";
-
-		var username = localStorage.getItem("username");
-
-		var JSONObject = {
-			"username": username,
-		};
-
-		$.ajax({
-			url: url,
-			type: 'GET',
-			data: JSONObject,
-			dataType: 'json',
-			contentType: "application/json; charset=utf-8",
-			success: function (arr) {
-				retrieveScoreResult(arr);
-			}, error: function () {
-				alert("error");
-			}
-		});
-	}
-
-	function retrieveScoreResult(arr){
-		for (i = 0; i < arr.length; i++) {
-		   var score = arr[i].score;
-		   var newscore = Number(score) + 5;
-		}
-		
-		var url = serverURL() + "/scoreupdate.php";
-
-		var username = localStorage.getItem("username");
-
-		var JSONObject = {
-			"username": username,
-			"score": newscore
-		};
-
-		$.ajax({
-			url: url,
-			type: 'GET',
-			data: JSONObject,
-			dataType: 'json',
-			contentType: "application/json; charset=utf-8",
-			success: function (arr) {
-				window.location = "game.html";
-			}, error: function () {
-				alert("error");
-			}
-		});
-	}
 		}
 
 })();
