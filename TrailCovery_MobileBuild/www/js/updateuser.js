@@ -118,14 +118,22 @@
         var newpassword = $("#npassword").val();
         var newemail = $("#nemail").val();
         var newphone = $("#nphone").val();
+        var oldusername = decodeURIComponent(getUrlVars()["username"]);
+
+        console.log(newadminname);
+        console.log(newusername);
+        console.log(newpassword);
+        console.log(newemail);
+        console.log(newphone);
+        console.log(oldusername);
 
     
         var url = serverURL() + "/updateuser.php";
 
         var JSONObject = {
-            "username": localStorage.getItem("username"),
+            "oldusername": oldusername,
             "adminname": newadminname,
-            "username": newusername,
+            "newusername": newusername,
             "password": newpassword,
             "email": newemail,
             "phone": newphone
@@ -147,7 +155,7 @@
     }
 
     function _changeUserResult(arr) {
-        if (arr[0].result === 0) {
+        if (arr[0].result == 1) {
 
             alert("User details changed", "Validation", "OK");
             window.location = "facilitator.html";
