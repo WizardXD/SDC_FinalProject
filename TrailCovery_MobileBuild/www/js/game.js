@@ -157,11 +157,46 @@
                 if (distance < 0) {
                     clearInterval(x);
                     document.getElementById("countdowntimer").innerHTML = "Game Ended";
+                    recordEndTime();
+                
+
+                    function recordEndTime() {
+
+                        var url = serverURL() + "/updateendtime.php";
+                         
+                        var timeleft = duration + ":00:00";
+
+                        var JSONObject = {
+                            "username": localStorage.getItem("username"),
+                            "timeleft": timeleft,
+                        };
+                
+                         $.ajax({
+                            url: url,
+                            type: 'GET',
+                            data: JSONObject,
+                            dataType: 'json',
+                            contentType: "application/json; charset=utf-8",
+                            success: function (arr) {
+                                window.location = "survey.html";	
+                            },
+                            error: function () {
+                                alert("Wrong");       //Change to Validation Message
+                            }
+                        });
+                    }
+
+
                 }
             }, 1000); //each 1000 = 1 second, refresh at 1 second interval
             
         }
     }
+
+    
+
+
+
 
     function disableArtefactBtn() {
         var url = serverURL() + "/disablebtns.php";

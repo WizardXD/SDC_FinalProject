@@ -1433,7 +1433,8 @@ function retrieveScoreforBlank5Result(arr){
 		dataType: 'json',
 		contentType: "application/json; charset=utf-8",
 		success: function (arr) {
-			window.location = "survey.html";
+			getDuration();
+			//window.location = "survey.html";
 		}, error: function () {
 			
 		}
@@ -1460,13 +1461,87 @@ function IfBonusBlank5IsWrong() {
 		dataType: 'json',
 		contentType: "application/json; charset=utf-8",
 		success: function (arr) {
-			window.location = "survey.html";
+			getDuration();
+			//window.location = "survey.html";
 		}, error: function () {
 
 		}
 	});
 
 }
+
+// function to retrieve the start time of the event
+function getDuration() {
+	var url = serverURL() + "/countdown.php";
+		var JSONObject = {
+			"accesscode": localStorage.getItem("accesscode")
+		};
+
+		$.ajax({
+			url: url,
+			type: 'GET',
+			data: JSONObject,
+			dataType: 'json',
+			contentType: "application/json; charset=utf-8",
+			success: function (arr) {
+				_showgetTrailTime(arr);	
+			},
+			error: function () {
+				alert("Wrong");       //Change to Validation Message
+			}
+	});
+}
+
+function _showgetTrailTime(arr) {
+	for (var i = 0; i < arr.length; i++) {
+
+		var fulldate = new Date(arr[i].date);
+		var day = fulldate.getDate();
+		var months = (fulldate.getMonth())+1;
+		var years = fulldate.getFullYear();
+		
+		var time = arr[i].starttime; //e.g 16:00:00 (real value is retrieved from the database)
+		var hours = Number(time.substr(0,2)); //retrieve the 0-1 value from starttime (hours) - 16
+		var minutes = Number(time.substr (3,2)); //retrieve the 3-4 value from starttime (minutes) - 00
+		var seconds = Number(time.substr (6,2)); //retrive the 6-7 value from starttime (seconds) - 00
+		
+		var starttime = new Date (years, months-1, day, hours, minutes, seconds);  
+
+		var currenttime = new Date().getTime(); // set variable now as current time
+
+		var distance = currenttime - starttime;
+
+		var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)); // Time calculations for hours
+		var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)); // Time calculations for minutes
+		var seconds = Math.floor((distance % (1000 * 60)) / 1000); // Time calculations seconds
+
+		var timetaken = (hours + ":" + minutes + ":" + seconds);
+
+
+		var url = serverURL() + "/updateendtime.php";
+		
+		var JSONObject = {
+			"username": localStorage.getItem("username"),
+			"timeleft": timetaken,
+		};
+	
+		 $.ajax({
+			url: url,
+			type: 'GET',
+			data: JSONObject,
+			dataType: 'json',
+			contentType: "application/json; charset=utf-8",
+			success: function (arr) {
+				window.location = "survey.html";	
+			},
+		error: function () {
+			alert("Wrong");       //Change to Validation Message
+			}
+		});
+	}
+
+}
+
 
 
 
